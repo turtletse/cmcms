@@ -11,17 +11,29 @@ namespace CMCMS
 {
     public partial class DrugAdmin : Form
     {
-        DBMgr dbmgr = new DBMgr();
+        DrugMgr drugMgr;
         public DrugAdmin()
         {
+            drugMgr = new DrugMgr();
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void tabPage1_Enter(object sender, EventArgs e)
         {
-            string stm = "SELECT a FROM testing";
-            textBox1.Text=dbmgr.testReadData(stm);
+            drugMgr.setDosageUnitCombo(comboBox_minDoseUnit);
+            drugMgr.setDosageUnitCombo(comboBox_maxDoseUnit);
+            drugMgr.setPrimaryDrugTypeCombo(comboBox_pri_type);
+            //drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as permissibleValueObj).getValue());
+            drugMgr.setContraindicationLevelCombo(comboBox_preg_contra);
+            drugMgr.setContraindicationLevelCombo(comboBox_g6pd_contra);
         }
+
+        private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as permissibleValueObj).getValue());
+        }
+
 
     }
 }

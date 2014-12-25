@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient; 
+using System.Data;
 
 namespace CMCMS
 {
     class DBMgr
     {
+        MySqlConnection conn = null;
+
         public String testReadData(String SQL)
         {
             String data = "11111";
-            MySqlConnection conn = null;
 
             try
             {
@@ -38,5 +40,32 @@ namespace CMCMS
 
             }
         }
+
+        public DataTable execSelectStmtSP(String SQL)
+        {
+            DataTable data = new DataTable();
+            try
+            {
+                conn = new MySqlConnection(CMCMS.Properties.Resources.connectionString);
+                MySqlDataAdapter adr = new MySqlDataAdapter(SQL, conn);
+                adr.SelectCommand.CommandType = CommandType.Text;
+                adr.Fill(data);
+                return data;
+            }
+            catch (MySqlException ex)
+            {
+                return data;
+            }
+            finally
+            {
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+
+            }
+        }
+
     }
 }
