@@ -121,6 +121,7 @@
             this.button_addDrug.TabIndex = 14;
             this.button_addDrug.Text = "加入項目";
             this.button_addDrug.UseVisualStyleBackColor = true;
+            this.button_addDrug.Click += new System.EventHandler(this.button_addDrug_Click);
             // 
             // groupBox2
             // 
