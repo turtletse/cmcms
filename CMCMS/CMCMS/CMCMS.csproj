@@ -73,11 +73,20 @@
       <DependentUpon>DrugAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="DrugMgr.cs" />
+    <Compile Include="DrugSelectionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugSelectionPanel.Designer.cs">
+      <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="permissibleValueObj.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DrugAdmin.resx">
       <DependentUpon>DrugAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugSelectionPanel.resx">
+      <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

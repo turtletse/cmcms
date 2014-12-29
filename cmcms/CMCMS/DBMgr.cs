@@ -54,7 +54,8 @@ namespace CMCMS
             }
             catch (MySqlException ex)
             {
-                return data;
+                //return data;
+                return null;
             }
             finally
             {

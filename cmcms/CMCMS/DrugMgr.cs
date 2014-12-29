@@ -10,6 +10,7 @@ namespace CMCMS
     {
         DBMgr dbmgr = new DBMgr();
 
+        //Add Drug Tab
         public void setPrimaryDrugTypeCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
@@ -62,6 +63,63 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_drug_item ('" + drugName + "'," + minDoseVal + "," + minDoseUnit + "," + maxDoseVal + "," + maxDoseUnit + "," + priTypeId + "," + secTypeId + "," + (q1 ? "1" : "0") + "," + (q2 ? "1" : "0") + "," + (q3 ? "1" : "0") + "," + (q4 ? "1" : "0") + "," + (w1 ? "1" : "0") + "," + (w2 ? "1" : "0") + "," + (w3 ? "1" : "0") + "," + (w4 ? "1" : "0") + "," + (w5 ? "1" : "0") + "," + (w6 ? "1" : "0") + "," + pregContraLvId + "," + g6pdContraLvId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"]>0?false:true;
+        }
+
+
+        //Drug Selection Panel
+        public void setDSPPrimaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_primary_drug_type_listbox_item_get ()");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new permissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
+            }
+            Listbox.SelectedIndex = 0;
+        }
+
+        public void setDSPSecondaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int priTypeId)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_secondary_drug_type_listbox_item_get (" + priTypeId + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new permissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
+            }
+            Listbox.SelectedIndex = 0;
+        }
+
+        public void setDSPnStrokesListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_nStroke_listbox_item_get (" + priTypeId + ", " + secTypeId + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new permissibleValueObj(dr["nStrokes_desc"].ToString(), dr["nStrokes"].ToString()));
+            }
+            Listbox.SelectedIndex = 0;
+        }
+
+        public void setDSPLengthListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_length_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new permissibleValueObj(dr["nameLength_desc"].ToString(), dr["nameLength"].ToString()));
+            }
+            Listbox.SelectedIndex = 0;
+        }
+
+        public void setDSP4q5wListBox(System.Windows.Forms.CheckedListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_4q5w_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new permissibleValueObj(dr["display_name"].ToString(), dr["option_value"].ToString()));
+            }
+            
         }
     }
 }

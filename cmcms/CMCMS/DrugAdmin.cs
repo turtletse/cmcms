@@ -18,7 +18,6 @@ namespace CMCMS
             InitializeComponent();
         }
 
-
         private void tabPage1_Enter(object sender, EventArgs e)
         {
             textBox_drugName.Clear();
@@ -63,6 +62,10 @@ namespace CMCMS
             }
         }
 
+        private void button_cancel_Click(object sender, EventArgs e)
+        {
+            tabPage1_Enter(sender, e);
+        }
 
     }
 }
