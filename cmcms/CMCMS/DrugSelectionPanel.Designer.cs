@@ -60,11 +60,13 @@
             // 
             // checkedListBox_4q5w
             // 
+            this.checkedListBox_4q5w.CheckOnClick = true;
             this.checkedListBox_4q5w.FormattingEnabled = true;
             this.checkedListBox_4q5w.Location = new System.Drawing.Point(555, 0);
             this.checkedListBox_4q5w.Name = "checkedListBox_4q5w";
             this.checkedListBox_4q5w.Size = new System.Drawing.Size(130, 319);
             this.checkedListBox_4q5w.TabIndex = 3;
+            this.checkedListBox_4q5w.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_4q5w_SelectedValueChanged);           
             // 
             // listBox_drugList
             // 
@@ -126,5 +128,7 @@
         private System.Windows.Forms.ListBox listBox_nStrokes;
         private System.Windows.Forms.ListBox listBox_length;
 
+
+        
     }
 }

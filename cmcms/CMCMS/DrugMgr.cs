@@ -121,5 +121,16 @@ namespace CMCMS
             }
             
         }
+
+        public void setDSPDrugListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen, String selected4q5w)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_drug_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", '" + selected4q5w + "')");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new permissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+            }
+
+        }
     }
 }

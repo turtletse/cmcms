@@ -56,6 +56,27 @@ namespace CMCMS
             listBox_length.Enabled = false;
             drugMgr.setDSP4q5wListBox(checkedListBox_4q5w, int.Parse(((permissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(listBox_length.SelectedItem)).getValue()));
             listBox_length.Enabled = true;
+            updateDrugList();
         }
+
+        private void checkedListBox_4q5w_SelectedValueChanged(object sender, EventArgs e)
+        {
+            updateDrugList();
+        }
+
+        private void updateDrugList()
+        {
+            String selected4q5w = "";
+            foreach (Object o in checkedListBox_4q5w.CheckedItems)
+            {
+                selected4q5w += ((permissibleValueObj)o).getValue().Trim() + "||";
+            }
+            if (selected4q5w.Length > 0)
+                selected4q5w = selected4q5w.Substring(0, selected4q5w.Length - 2);
+            listBox_drugList.Enabled = false;
+            drugMgr.setDSPDrugListBox(listBox_drugList, int.Parse(((permissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(listBox_length.SelectedItem)).getValue()), selected4q5w);
+            listBox_drugList.Enabled = true;
+        }
+
     }
 }
