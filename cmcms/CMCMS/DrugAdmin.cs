@@ -17,6 +17,7 @@ namespace CMCMS
         {
             drugMgr = new DrugMgr();
             InitializeComponent();
+            
         }
 
         private void tabPage1_Enter(object sender, EventArgs e)

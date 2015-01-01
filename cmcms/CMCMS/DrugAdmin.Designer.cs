@@ -32,7 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel(this);
+            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_cancel = new System.Windows.Forms.Button();
@@ -475,6 +475,7 @@
             this.MinimizeBox = false;
             this.Name = "DrugAdmin";
             this.Text = "藥物管理";
+            this.DSP_addSubDrug.setDSPform(this);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

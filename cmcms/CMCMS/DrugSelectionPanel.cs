@@ -25,6 +25,11 @@ namespace CMCMS
             this.DSPform = DSPform;
         }
 
+        public void setDSPform(IDSPSelectedDrugChange DSPform)
+        {
+            this.DSPform = DSPform;
+        }
+
         private void DrugSelectionPanel_VisibleChanged(object sender, System.EventArgs e)
         {
             //MessageBox.Show("LAYOUT", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,7 +102,9 @@ namespace CMCMS
 
         private void listBox_drugList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DSPform.DSPselectedDrugChanged(getSelectedDrug());
+            if (DSPform!=null)
+                DSPform.DSPselectedDrugChanged(getSelectedDrug());
+            
         }
 
     }
