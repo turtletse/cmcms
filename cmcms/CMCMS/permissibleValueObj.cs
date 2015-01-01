@@ -5,17 +5,17 @@ using System.Text;
 
 namespace CMCMS
 {
-    class permissibleValueObj
+    public class PermissibleValueObj
     {
         private String name;
         private String value;
 
-        public permissibleValueObj()
+        public PermissibleValueObj()
         {
             name = "";
             value = "";
         }
-        public permissibleValueObj(String name, String value)
+        public PermissibleValueObj(String name, String value)
         {
             this.name = name;
             this.value = value;

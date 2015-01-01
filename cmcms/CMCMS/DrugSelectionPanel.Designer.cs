@@ -66,7 +66,7 @@
             this.checkedListBox_4q5w.Name = "checkedListBox_4q5w";
             this.checkedListBox_4q5w.Size = new System.Drawing.Size(130, 319);
             this.checkedListBox_4q5w.TabIndex = 3;
-            this.checkedListBox_4q5w.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_4q5w_SelectedValueChanged);           
+            this.checkedListBox_4q5w.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_4q5w_SelectedValueChanged);
             // 
             // listBox_drugList
             // 
@@ -77,6 +77,7 @@
             this.listBox_drugList.Name = "listBox_drugList";
             this.listBox_drugList.Size = new System.Drawing.Size(130, 324);
             this.listBox_drugList.TabIndex = 4;
+            this.listBox_drugList.SelectedIndexChanged += new System.EventHandler(this.listBox_drugList_SelectedIndexChanged);
             // 
             // listBox_nStrokes
             // 

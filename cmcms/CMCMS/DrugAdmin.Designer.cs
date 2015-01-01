@@ -31,7 +31,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.drugSelectionPanel3 = new CMCMS.DrugSelectionPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel(this);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_cancel = new System.Windows.Forms.Button();
@@ -64,8 +65,7 @@
             this.textBox_maxDose = new System.Windows.Forms.TextBox();
             this.comboBox_maxDoseUnit = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.drugSelectionPanel2 = new CMCMS.DrugSelectionPanel();
-            this.drugSelectionPanel1 = new CMCMS.DrugSelectionPanel();
+            this.textBox_selectedDrugName = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -100,7 +100,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.drugSelectionPanel3);
+            this.groupBox4.Controls.Add(this.textBox_selectedDrugName);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.DSP_addSubDrug);
             this.groupBox4.Location = new System.Drawing.Point(346, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1040, 733);
@@ -108,14 +110,23 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "加入子藥項";
             // 
-            // drugSelectionPanel3
+            // label8
             // 
-            this.drugSelectionPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drugSelectionPanel3.Location = new System.Drawing.Point(7, 27);
-            this.drugSelectionPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.drugSelectionPanel3.Name = "drugSelectionPanel3";
-            this.drugSelectionPanel3.Size = new System.Drawing.Size(826, 326);
-            this.drugSelectionPanel3.TabIndex = 0;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 373);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "藥項名稱: ";
+            // 
+            // DSP_addSubDrug
+            // 
+            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
+            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
+            this.DSP_addSubDrug.Size = new System.Drawing.Size(826, 326);
+            this.DSP_addSubDrug.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -435,7 +446,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.drugSelectionPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -444,23 +454,12 @@
             this.tabPage2.Text = "修改藥物資料";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // drugSelectionPanel2
+            // textBox_selectedDrugName
             // 
-            this.drugSelectionPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.drugSelectionPanel2.Location = new System.Drawing.Point(0, 0);
-            this.drugSelectionPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.drugSelectionPanel2.Name = "drugSelectionPanel2";
-            this.drugSelectionPanel2.Size = new System.Drawing.Size(1114, 326);
-            this.drugSelectionPanel2.TabIndex = 0;
-            // 
-            // drugSelectionPanel1
-            // 
-            this.drugSelectionPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.drugSelectionPanel1.Location = new System.Drawing.Point(0, 0);
-            this.drugSelectionPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.drugSelectionPanel1.Name = "drugSelectionPanel1";
-            this.drugSelectionPanel1.Size = new System.Drawing.Size(1114, 326);
-            this.drugSelectionPanel1.TabIndex = 0;
+            this.textBox_selectedDrugName.Location = new System.Drawing.Point(93, 370);
+            this.textBox_selectedDrugName.Name = "textBox_selectedDrugName";
+            this.textBox_selectedDrugName.Size = new System.Drawing.Size(137, 26);
+            this.textBox_selectedDrugName.TabIndex = 2;
             // 
             // DrugAdmin
             // 
@@ -479,6 +478,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -525,11 +525,11 @@
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_addDrug;
         private System.Windows.Forms.ComboBox comboBox_g6pd_contra;
-        private DrugSelectionPanel drugSelectionPanel1;
-        private DrugSelectionPanel drugSelectionPanel2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private DrugSelectionPanel drugSelectionPanel3;
+        private DrugSelectionPanel DSP_addSubDrug;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox_selectedDrugName;
 
     }
 }

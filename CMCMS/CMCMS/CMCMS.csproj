@@ -79,6 +79,7 @@
     <Compile Include="DrugSelectionPanel.Designer.cs">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDSPSelectedDrugChange.cs" />
     <Compile Include="permissibleValueObj.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

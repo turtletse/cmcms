@@ -9,9 +9,10 @@ using System.Windows.Forms;
 
 namespace CMCMS
 {
-    public partial class DrugAdmin : Form
+    public partial class DrugAdmin : Form, IDSPSelectedDrugChange
     {
         DrugMgr drugMgr;
+       
         public DrugAdmin()
         {
             drugMgr = new DrugMgr();
@@ -43,14 +44,14 @@ namespace CMCMS
 
         private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as permissibleValueObj).getValue());
+            drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as PermissibleValueObj).getValue());
         }
 
         private void button_addDrug_Click(object sender, EventArgs e)
         {
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = drugMgr.insertDrugRecord(textBox_drugName.Text.Trim(), int.Parse(textBox_minDose.Text.Trim()), int.Parse(((permissibleValueObj)(comboBox_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_maxDose.Text.Trim()), int.Parse(((permissibleValueObj)(comboBox_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(comboBox_pri_type.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(comboBox_sec_type.SelectedItem)).getValue()), checkBox_q1.Checked, checkBox_q2.Checked, checkBox_q3.Checked, checkBox_q4.Checked, checkBox_w1.Checked, checkBox_w2.Checked, checkBox_w3.Checked, checkBox_w4.Checked, checkBox_w5.Checked, checkBox_w6.Checked, int.Parse(((permissibleValueObj)(comboBox_preg_contra.SelectedItem)).getValue()), int.Parse(((permissibleValueObj)(comboBox_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
+            isSuccess = drugMgr.insertDrugRecord(textBox_drugName.Text.Trim(), int.Parse(textBox_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_sec_type.SelectedItem)).getValue()), checkBox_q1.Checked, checkBox_q2.Checked, checkBox_q3.Checked, checkBox_q4.Checked, checkBox_w1.Checked, checkBox_w2.Checked, checkBox_w3.Checked, checkBox_w4.Checked, checkBox_w5.Checked, checkBox_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -67,5 +68,12 @@ namespace CMCMS
             tabPage1_Enter(sender, e);
         }
 
+
+        public void DSPselectedDrugChanged(PermissibleValueObj drug)
+        {
+            int selectedTabIdx = tabControl1.SelectedIndex;
+            if (selectedTabIdx == 0)
+                textBox_selectedDrugName.Text = drug.getName();
+        }
     }
 }

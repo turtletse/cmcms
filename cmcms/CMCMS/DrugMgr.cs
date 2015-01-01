@@ -17,7 +17,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_primary_drug_type_combo_get ()");
             foreach (DataRow dr in data.Rows)
             {
-                cb.Items.Add(new permissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
+                cb.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
             }
             cb.SelectedIndex = 0;
         }
@@ -28,7 +28,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_secondary_drug_type_combo_get (" + pri_type + ")");
             foreach (DataRow dr in data.Rows)
             {
-                cb.Items.Add(new permissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
+                cb.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
             }
             /*if (data.Rows.Count == 0)
             {
@@ -43,7 +43,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_dosage_unit_combo_get ()");
             foreach (DataRow dr in data.Rows)
             {
-                cb.Items.Add(new permissibleValueObj(dr["unit_desc"].ToString(), dr["unit_id"].ToString()));
+                cb.Items.Add(new PermissibleValueObj(dr["unit_desc"].ToString(), dr["unit_id"].ToString()));
             }
             cb.SelectedIndex = 0;
         }
@@ -51,9 +51,9 @@ namespace CMCMS
         public void setContraindicationLevelCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            cb.Items.Add(new permissibleValueObj("沒有禁忌", "0"));
-            cb.Items.Add(new permissibleValueObj("避免使用", "1"));
-            cb.Items.Add(new permissibleValueObj("禁止使用", "2"));
+            cb.Items.Add(new PermissibleValueObj("沒有禁忌", "0"));
+            cb.Items.Add(new PermissibleValueObj("避免使用", "1"));
+            cb.Items.Add(new PermissibleValueObj("禁止使用", "2"));
             cb.SelectedIndex = 0;
         }
 
@@ -73,7 +73,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_primary_drug_type_listbox_item_get ()");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new permissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
+                Listbox.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
             }
             Listbox.SelectedIndex = 0;
         }
@@ -84,7 +84,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_secondary_drug_type_listbox_item_get (" + priTypeId + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new permissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
+                Listbox.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
             }
             Listbox.SelectedIndex = 0;
         }
@@ -95,7 +95,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_nStroke_listbox_item_get (" + priTypeId + ", " + secTypeId + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new permissibleValueObj(dr["nStrokes_desc"].ToString(), dr["nStrokes"].ToString()));
+                Listbox.Items.Add(new PermissibleValueObj(dr["nStrokes_desc"].ToString(), dr["nStrokes"].ToString()));
             }
             Listbox.SelectedIndex = 0;
         }
@@ -106,7 +106,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_length_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new permissibleValueObj(dr["nameLength_desc"].ToString(), dr["nameLength"].ToString()));
+                Listbox.Items.Add(new PermissibleValueObj(dr["nameLength_desc"].ToString(), dr["nameLength"].ToString()));
             }
             Listbox.SelectedIndex = 0;
         }
@@ -117,7 +117,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_4q5w_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new permissibleValueObj(dr["display_name"].ToString(), dr["option_value"].ToString()));
+                Listbox.Items.Add(new PermissibleValueObj(dr["display_name"].ToString(), dr["option_value"].ToString()));
             }
             
         }
@@ -128,9 +128,9 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_drug_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", '" + selected4q5w + "')");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new permissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+                Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
             }
-
+            Listbox.SelectedIndex = 0;
         }
     }
 }
