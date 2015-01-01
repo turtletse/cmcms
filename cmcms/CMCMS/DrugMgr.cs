@@ -65,6 +65,14 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"]>0?false:true;
         }
 
+        public bool insertSubDrugRecord(int drugId, String subDrugName, ref String statusMsg)
+        {
+
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_sub_drug_item (" + drugId + ", '" + subDrugName + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
 
         //Drug Selection Panel
         public void setDSPPrimaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox)

@@ -134,6 +134,7 @@
             this.button_addSubDrug.TabIndex = 21;
             this.button_addSubDrug.Text = "加入子項目";
             this.button_addSubDrug.UseVisualStyleBackColor = true;
+            this.button_addSubDrug.Click += new System.EventHandler(this.button_addSubDrug_Click);
             // 
             // textBox_subDrugName
             // 

@@ -42,6 +42,8 @@ namespace CMCMS
             checkBox_w6.Checked = false;
             drugMgr.setContraindicationLevelCombo(comboBox_preg_contra);
             drugMgr.setContraindicationLevelCombo(comboBox_g6pd_contra);
+            DSP_addSubDrug.refresh();
+            textBox_subDrugName.Clear();
         }
 
         private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +80,23 @@ namespace CMCMS
             {
                 selectedDrug = drug;
                 textBox_selectedDrugName.Text = drug.getName();
+            }
+        }
+
+        private void button_addSubDrug_Click(object sender, EventArgs e)
+        {
+            String statusMsg = "";
+            bool isSuccess;
+            isSuccess = drugMgr.insertSubDrugRecord(int.Parse(selectedDrug.getValue()),textBox_subDrugName.Text.Trim(), ref statusMsg);
+            if (isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DSP_addSubDrug.refresh();
+                textBox_subDrugName.Clear();
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

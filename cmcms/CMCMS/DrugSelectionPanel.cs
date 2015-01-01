@@ -35,10 +35,15 @@ namespace CMCMS
             //MessageBox.Show("LAYOUT", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (this.Visible)
             {
-                listBox_priDrugType.Enabled = false;
-                drugMgr.setDSPPrimaryDrugTypeListBox(listBox_priDrugType);
-                listBox_priDrugType.Enabled = true;
+                refresh();
             }
+        }
+
+        public void refresh()
+        {
+            listBox_priDrugType.Enabled = false;
+            drugMgr.setDSPPrimaryDrugTypeListBox(listBox_priDrugType);
+            listBox_priDrugType.Enabled = true;
         }
 
         private void listBox_priDrugType_SelectedIndexChanged(object sender, EventArgs e)
