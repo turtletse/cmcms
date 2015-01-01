@@ -31,11 +31,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button_cancelAddSubDrug = new System.Windows.Forms.Button();
+            this.button_addSubDrug = new System.Windows.Forms.Button();
+            this.textBox_subDrugName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox_selectedDrugName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_cancel = new System.Windows.Forms.Button();
+            this.button_cancelAddDrug = new System.Windows.Forms.Button();
             this.comboBox_pri_type = new System.Windows.Forms.ComboBox();
             this.button_addDrug = new System.Windows.Forms.Button();
             this.textBox_drugName = new System.Windows.Forms.TextBox();
@@ -65,14 +70,12 @@
             this.textBox_maxDose = new System.Windows.Forms.TextBox();
             this.comboBox_maxDoseUnit = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox_selectedDrugName = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -100,6 +103,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button_cancelAddSubDrug);
+            this.groupBox4.Controls.Add(this.button_addSubDrug);
+            this.groupBox4.Controls.Add(this.textBox_subDrugName);
+            this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.textBox_selectedDrugName);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.DSP_addSubDrug);
@@ -109,6 +116,47 @@
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "加入子藥項";
+            // 
+            // button_cancelAddSubDrug
+            // 
+            this.button_cancelAddSubDrug.Location = new System.Drawing.Point(148, 439);
+            this.button_cancelAddSubDrug.Name = "button_cancelAddSubDrug";
+            this.button_cancelAddSubDrug.Size = new System.Drawing.Size(116, 40);
+            this.button_cancelAddSubDrug.TabIndex = 22;
+            this.button_cancelAddSubDrug.Text = "取消";
+            this.button_cancelAddSubDrug.UseVisualStyleBackColor = true;
+            // 
+            // button_addSubDrug
+            // 
+            this.button_addSubDrug.Location = new System.Drawing.Point(10, 439);
+            this.button_addSubDrug.Name = "button_addSubDrug";
+            this.button_addSubDrug.Size = new System.Drawing.Size(116, 40);
+            this.button_addSubDrug.TabIndex = 21;
+            this.button_addSubDrug.Text = "加入子項目";
+            this.button_addSubDrug.UseVisualStyleBackColor = true;
+            // 
+            // textBox_subDrugName
+            // 
+            this.textBox_subDrugName.Location = new System.Drawing.Point(109, 406);
+            this.textBox_subDrugName.Name = "textBox_subDrugName";
+            this.textBox_subDrugName.Size = new System.Drawing.Size(137, 26);
+            this.textBox_subDrugName.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 409);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 20);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "子藥項名稱: ";
+            // 
+            // textBox_selectedDrugName
+            // 
+            this.textBox_selectedDrugName.Location = new System.Drawing.Point(109, 370);
+            this.textBox_selectedDrugName.Name = "textBox_selectedDrugName";
+            this.textBox_selectedDrugName.Size = new System.Drawing.Size(137, 26);
+            this.textBox_selectedDrugName.TabIndex = 2;
             // 
             // label8
             // 
@@ -131,7 +179,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.button_cancel);
+            this.groupBox3.Controls.Add(this.button_cancelAddDrug);
             this.groupBox3.Controls.Add(this.comboBox_pri_type);
             this.groupBox3.Controls.Add(this.button_addDrug);
             this.groupBox3.Controls.Add(this.textBox_drugName);
@@ -162,15 +210,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "藥名: ";
             // 
-            // button_cancel
+            // button_cancelAddDrug
             // 
-            this.button_cancel.Location = new System.Drawing.Point(199, 502);
-            this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(116, 40);
-            this.button_cancel.TabIndex = 21;
-            this.button_cancel.Text = "取消";
-            this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
+            this.button_cancelAddDrug.Location = new System.Drawing.Point(199, 502);
+            this.button_cancelAddDrug.Name = "button_cancelAddDrug";
+            this.button_cancelAddDrug.Size = new System.Drawing.Size(116, 40);
+            this.button_cancelAddDrug.TabIndex = 21;
+            this.button_cancelAddDrug.Text = "取消";
+            this.button_cancelAddDrug.UseVisualStyleBackColor = true;
+            this.button_cancelAddDrug.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // comboBox_pri_type
             // 
@@ -454,13 +502,6 @@
             this.tabPage2.Text = "修改藥物資料";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox_selectedDrugName
-            // 
-            this.textBox_selectedDrugName.Location = new System.Drawing.Point(93, 370);
-            this.textBox_selectedDrugName.Name = "textBox_selectedDrugName";
-            this.textBox_selectedDrugName.Size = new System.Drawing.Size(137, 26);
-            this.textBox_selectedDrugName.TabIndex = 2;
-            // 
             // DrugAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -475,7 +516,6 @@
             this.MinimizeBox = false;
             this.Name = "DrugAdmin";
             this.Text = "藥物管理";
-            this.DSP_addSubDrug.setDSPform(this);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -486,7 +526,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -523,7 +562,7 @@
         private System.Windows.Forms.ComboBox comboBox_sec_type;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.Button button_cancelAddDrug;
         private System.Windows.Forms.Button button_addDrug;
         private System.Windows.Forms.ComboBox comboBox_g6pd_contra;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -531,6 +570,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox_selectedDrugName;
+        private System.Windows.Forms.Button button_cancelAddSubDrug;
+        private System.Windows.Forms.Button button_addSubDrug;
+        private System.Windows.Forms.TextBox textBox_subDrugName;
+        private System.Windows.Forms.Label label9;
 
     }
 }

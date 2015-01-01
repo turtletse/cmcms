@@ -12,12 +12,13 @@ namespace CMCMS
     public partial class DrugAdmin : Form, IDSPSelectedDrugChange
     {
         DrugMgr drugMgr;
+        PermissibleValueObj selectedDrug;
        
         public DrugAdmin()
         {
             drugMgr = new DrugMgr();
             InitializeComponent();
-            
+            DSP_addSubDrug.setDSPform(this);            
         }
 
         private void tabPage1_Enter(object sender, EventArgs e)
@@ -74,7 +75,11 @@ namespace CMCMS
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
             if (selectedTabIdx == 0)
+            {
+                selectedDrug = drug;
                 textBox_selectedDrugName.Text = drug.getName();
+            }
         }
+
     }
 }
