@@ -39,11 +39,10 @@ END $$
 
 DELIMITER ;
 
--- CALL sp_insert_drug_item ('一',1,10,2,20,10,10,1,1,1,1,1,1,1,1,1,1,0,0);
+-- CALL sp_insert_sub_drug_item (101001, '淨麻黃');
 
 -- select * from debug_log order by log_dtm desc
 
-/*select * from master_drug_list;
-select * from drug_admin_abs_contraindication;*/
-/*delete from master_drug_list where drug_id > 0;
-delete from drug_admin_abs_contraindication where drug_id > 0;*/
+/*
+select * from master_sub_drug_list;
+*/

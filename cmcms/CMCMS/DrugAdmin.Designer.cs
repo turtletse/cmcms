@@ -37,7 +37,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox_selectedDrugName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_cancelAddDrug = new System.Windows.Forms.Button();
@@ -70,6 +69,7 @@
             this.textBox_maxDose = new System.Windows.Forms.TextBox();
             this.comboBox_maxDoseUnit = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -167,15 +167,6 @@
             this.label8.Size = new System.Drawing.Size(81, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "藥項名稱: ";
-            // 
-            // DSP_addSubDrug
-            // 
-            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
-            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
-            this.DSP_addSubDrug.Size = new System.Drawing.Size(826, 326);
-            this.DSP_addSubDrug.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -502,6 +493,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "修改藥物資料";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DSP_addSubDrug
+            // 
+            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
+            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
+            this.DSP_addSubDrug.Size = new System.Drawing.Size(1006, 326);
+            this.DSP_addSubDrug.TabIndex = 0;
             // 
             // DrugAdmin
             // 

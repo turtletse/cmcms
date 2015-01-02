@@ -13,21 +13,45 @@ namespace CMCMS
     {
         DrugMgr drugMgr = new DrugMgr();
         IDSPSelectedDrugChange DSPform;
+        bool subDrugEnabled = false;
+        bool subDrugSelectionEnabled = false;
+        bool subDrugInclNotSpecified = false;
 
         public DrugSelectionPanel()
         {
             InitializeComponent();
         }
 
-        public DrugSelectionPanel(IDSPSelectedDrugChange DSPform)
-        {
-            InitializeComponent();
-            this.DSPform = DSPform;
-        }
-
         public void setDSPform(IDSPSelectedDrugChange DSPform)
         {
             this.DSPform = DSPform;
+        }
+
+        public void setSubDrugEnabled(bool subDrugEnabled)
+        {
+            this.subDrugEnabled = subDrugEnabled;
+            if (subDrugEnabled)
+                listBox_subDrugList.Show();
+            else
+                listBox_subDrugList.Hide();
+        }
+
+        public void setSubDrugSelectionEnabled(bool subDrugSelectionEnabled)
+        {
+            this.subDrugSelectionEnabled = subDrugSelectionEnabled;
+            if (subDrugSelectionEnabled)
+            {
+                listBox_subDrugList.SelectionMode = SelectionMode.One;
+            }
+            else
+            {
+                listBox_subDrugList.SelectionMode = SelectionMode.None;
+            }
+        }
+
+        public void setSubDrugInclNotSpecified(bool subDrugInclNotSpecified)
+        {
+            this.subDrugInclNotSpecified = subDrugInclNotSpecified;
         }
 
         private void DrugSelectionPanel_VisibleChanged(object sender, System.EventArgs e)
@@ -43,6 +67,7 @@ namespace CMCMS
         {
             listBox_priDrugType.Enabled = false;
             drugMgr.setDSPPrimaryDrugTypeListBox(listBox_priDrugType);
+            listBox_priDrugType.SelectedIndex = 0;
             listBox_priDrugType.Enabled = true;
         }
 
@@ -50,6 +75,7 @@ namespace CMCMS
         {
             listBox_secDrugType.Enabled = false;
             drugMgr.setDSPSecondaryDrugTypeListBox(listBox_secDrugType, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()));
+            listBox_secDrugType.SelectedIndex = 0;
             listBox_secDrugType.Enabled = true;
         }
 
@@ -57,6 +83,7 @@ namespace CMCMS
         {
             listBox_nStrokes.Enabled = false;
             drugMgr.setDSPnStrokesListBox(listBox_nStrokes, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()));
+            listBox_nStrokes.SelectedIndex = 0;
             listBox_nStrokes.Enabled = true;
         }
 
@@ -64,6 +91,7 @@ namespace CMCMS
         {
             listBox_length.Enabled = false;
             drugMgr.setDSPLengthListBox(listBox_length, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()));
+            listBox_length.SelectedIndex = 0;
             listBox_length.Enabled = true;
         }
         
@@ -92,6 +120,7 @@ namespace CMCMS
                 selected4q5w = selected4q5w.Substring(0, selected4q5w.Length - 2);
             listBox_drugList.Enabled = false;
             drugMgr.setDSPDrugListBox(listBox_drugList, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_length.SelectedItem)).getValue()), selected4q5w);
+            listBox_drugList.SelectedIndex = 0;
             listBox_drugList.Enabled = true;
         }
 
@@ -107,8 +136,20 @@ namespace CMCMS
 
         private void listBox_drugList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DSPform!=null)
+            if (DSPform != null)
                 DSPform.DSPselectedDrugChanged(getSelectedDrug());
+            if (subDrugEnabled)
+            {
+                listBox_subDrugList.Enabled = false;
+                drugMgr.setDSPSubDrugListBox(listBox_subDrugList, int.Parse(getSelectedDrug().getValue()), subDrugInclNotSpecified?1:0);
+                listBox_subDrugList.ClearSelected();
+                listBox_subDrugList.Enabled = true;
+            }
+            
+        }
+
+        private void listBox_subDrugList_SelectedIndexChanged(object sender, EventArgs e)
+        {
             
         }
 

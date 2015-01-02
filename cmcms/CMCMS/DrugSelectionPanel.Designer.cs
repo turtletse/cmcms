@@ -34,6 +34,7 @@
             this.listBox_drugList = new System.Windows.Forms.ListBox();
             this.listBox_nStrokes = new System.Windows.Forms.ListBox();
             this.listBox_length = new System.Windows.Forms.ListBox();
+            this.listBox_subDrugList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listBox_priDrugType
@@ -101,10 +102,22 @@
             this.listBox_length.TabIndex = 6;
             this.listBox_length.SelectedIndexChanged += new System.EventHandler(this.listBox_length_SelectedIndexChanged);
             // 
+            // listBox_subDrugList
+            // 
+            this.listBox_subDrugList.FormattingEnabled = true;
+            this.listBox_subDrugList.ItemHeight = 20;
+            this.listBox_subDrugList.Location = new System.Drawing.Point(830, 0);
+            this.listBox_subDrugList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBox_subDrugList.Name = "listBox_subDrugList";
+            this.listBox_subDrugList.Size = new System.Drawing.Size(130, 324);
+            this.listBox_subDrugList.TabIndex = 7;
+            this.listBox_subDrugList.SelectedIndexChanged += new System.EventHandler(this.listBox_subDrugList_SelectedIndexChanged);
+            // 
             // DrugSelectionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listBox_subDrugList);
             this.Controls.Add(this.listBox_length);
             this.Controls.Add(this.listBox_nStrokes);
             this.Controls.Add(this.listBox_drugList);
@@ -114,7 +127,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DrugSelectionPanel";
-            this.Size = new System.Drawing.Size(826, 326);
+            this.Size = new System.Drawing.Size(967, 326);
             this.VisibleChanged += new System.EventHandler(this.DrugSelectionPanel_VisibleChanged);
             this.ResumeLayout(false);
 
@@ -128,6 +141,7 @@
         private System.Windows.Forms.ListBox listBox_drugList;
         private System.Windows.Forms.ListBox listBox_nStrokes;
         private System.Windows.Forms.ListBox listBox_length;
+        private System.Windows.Forms.ListBox listBox_subDrugList;
 
 
         

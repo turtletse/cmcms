@@ -19,7 +19,6 @@ namespace CMCMS
             {
                 cb.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
             }
-            cb.SelectedIndex = 0;
         }
 
         public void setSecondaryDrugTypeCombo(System.Windows.Forms.ComboBox cb, String pri_type)
@@ -34,7 +33,6 @@ namespace CMCMS
             {
                 cb.Items.Add(new permissibleValueObj("-", "0"));
             }*/
-            cb.SelectedIndex = 0;
         }
 
         public void setDosageUnitCombo(System.Windows.Forms.ComboBox cb)
@@ -45,7 +43,6 @@ namespace CMCMS
             {
                 cb.Items.Add(new PermissibleValueObj(dr["unit_desc"].ToString(), dr["unit_id"].ToString()));
             }
-            cb.SelectedIndex = 0;
         }
 
         public void setContraindicationLevelCombo(System.Windows.Forms.ComboBox cb)
@@ -54,7 +51,6 @@ namespace CMCMS
             cb.Items.Add(new PermissibleValueObj("沒有禁忌", "0"));
             cb.Items.Add(new PermissibleValueObj("避免使用", "1"));
             cb.Items.Add(new PermissibleValueObj("禁止使用", "2"));
-            cb.SelectedIndex = 0;
         }
 
         public bool insertDrugRecord(String drugName, int minDoseVal, int minDoseUnit, int maxDoseVal, int maxDoseUnit, int priTypeId, int secTypeId, bool q1, bool q2, bool q3, bool q4, bool w1, bool w2, bool w3, bool w4, bool w5, bool w6, int pregContraLvId, int g6pdContraLvId, ref String statusMsg)
@@ -83,7 +79,6 @@ namespace CMCMS
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
             }
-            Listbox.SelectedIndex = 0;
         }
 
         public void setDSPSecondaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int priTypeId)
@@ -94,7 +89,6 @@ namespace CMCMS
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
             }
-            Listbox.SelectedIndex = 0;
         }
 
         public void setDSPnStrokesListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId)
@@ -105,7 +99,6 @@ namespace CMCMS
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["nStrokes_desc"].ToString(), dr["nStrokes"].ToString()));
             }
-            Listbox.SelectedIndex = 0;
         }
 
         public void setDSPLengthListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes)
@@ -116,7 +109,6 @@ namespace CMCMS
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["nameLength_desc"].ToString(), dr["nameLength"].ToString()));
             }
-            Listbox.SelectedIndex = 0;
         }
 
         public void setDSP4q5wListBox(System.Windows.Forms.CheckedListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen)
@@ -138,7 +130,16 @@ namespace CMCMS
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
             }
-            Listbox.SelectedIndex = 0;
+        }
+
+        public void setDSPSubDrugListBox(System.Windows.Forms.ListBox Listbox, int drugId, int incl_not_specified)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_sub_drug_listbox_item_get (" + drugId + ", " + incl_not_specified+ ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new PermissibleValueObj(dr["item_name"].ToString(), dr["item_id"].ToString()));
+            }
         }
     }
 }

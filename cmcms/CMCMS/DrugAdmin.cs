@@ -18,7 +18,10 @@ namespace CMCMS
         {
             drugMgr = new DrugMgr();
             InitializeComponent();
-            DSP_addSubDrug.setDSPform(this);            
+            DSP_addSubDrug.setDSPform(this);
+            DSP_addSubDrug.setSubDrugEnabled(true);
+            DSP_addSubDrug.setSubDrugSelectionEnabled(false);
+            DSP_addSubDrug.setSubDrugInclNotSpecified(false);
         }
 
         private void tabPage1_Enter(object sender, EventArgs e)
@@ -26,10 +29,12 @@ namespace CMCMS
             textBox_drugName.Clear();
             textBox_minDose.Clear();
             drugMgr.setDosageUnitCombo(comboBox_minDoseUnit);
+            comboBox_minDoseUnit.SelectedIndex = 0;
             textBox_maxDose.Clear();
             drugMgr.setDosageUnitCombo(comboBox_maxDoseUnit);
+            comboBox_maxDoseUnit.SelectedIndex = 0;
             drugMgr.setPrimaryDrugTypeCombo(comboBox_pri_type);
-            //drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as permissibleValueObj).getValue());
+            comboBox_pri_type.SelectedIndex = 0;
             checkBox_q1.Checked = false;
             checkBox_q2.Checked = false;
             checkBox_q3.Checked = false;
@@ -41,7 +46,9 @@ namespace CMCMS
             checkBox_w5.Checked = false;
             checkBox_w6.Checked = false;
             drugMgr.setContraindicationLevelCombo(comboBox_preg_contra);
+            comboBox_preg_contra.SelectedIndex = 0;
             drugMgr.setContraindicationLevelCombo(comboBox_g6pd_contra);
+            comboBox_g6pd_contra.SelectedIndex = 0;
             DSP_addSubDrug.refresh();
             textBox_subDrugName.Clear();
         }
@@ -49,6 +56,7 @@ namespace CMCMS
         private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as PermissibleValueObj).getValue());
+            comboBox_sec_type.SelectedIndex = 0;
         }
 
         private void button_addDrug_Click(object sender, EventArgs e)
