@@ -22,48 +22,57 @@ namespace CMCMS
             DSP_addSubDrug.setSubDrugEnabled(true);
             DSP_addSubDrug.setSubDrugSelectionEnabled(false);
             DSP_addSubDrug.setSubDrugInclNotSpecified(false);
+            DSP_addSubDrug.setShowDeletedItemCB(false);
+            DSP_addSubDrug.setShowDeletedItem(false);
+
+            DSP_amdDrug.setDSPform(this);
+            DSP_amdDrug.setSubDrugEnabled(true);
+            DSP_amdDrug.setSubDrugSelectionEnabled(true);
+            DSP_amdDrug.setSubDrugInclNotSpecified(true);
+            DSP_amdDrug.setShowDeletedItemCB(true);
+            DSP_amdDrug.setShowDeletedItem(false);
         }
 
         private void tabPage1_Enter(object sender, EventArgs e)
         {
-            textBox_drugName.Clear();
-            textBox_minDose.Clear();
-            drugMgr.setDosageUnitCombo(comboBox_minDoseUnit);
-            comboBox_minDoseUnit.SelectedIndex = 0;
-            textBox_maxDose.Clear();
-            drugMgr.setDosageUnitCombo(comboBox_maxDoseUnit);
-            comboBox_maxDoseUnit.SelectedIndex = 0;
-            drugMgr.setPrimaryDrugTypeCombo(comboBox_pri_type);
-            comboBox_pri_type.SelectedIndex = 0;
-            checkBox_q1.Checked = false;
-            checkBox_q2.Checked = false;
-            checkBox_q3.Checked = false;
-            checkBox_q4.Checked = false;
-            checkBox_w1.Checked = false;
-            checkBox_w2.Checked = false;
-            checkBox_w3.Checked = false;
-            checkBox_w4.Checked = false;
-            checkBox_w5.Checked = false;
-            checkBox_w6.Checked = false;
-            drugMgr.setContraindicationLevelCombo(comboBox_preg_contra);
-            comboBox_preg_contra.SelectedIndex = 0;
-            drugMgr.setContraindicationLevelCombo(comboBox_g6pd_contra);
-            comboBox_g6pd_contra.SelectedIndex = 0;
+            textBox_addDrug_drugName.Clear();
+            textBox_addDrug_minDose.Clear();
+            drugMgr.setDosageUnitCombo(comboBox_addDrug_minDoseUnit);
+            comboBox_addDrug_minDoseUnit.SelectedIndex = 0;
+            textBox_addDrug_maxDose.Clear();
+            drugMgr.setDosageUnitCombo(comboBox_addDrug_maxDoseUnit);
+            comboBox_addDrug_maxDoseUnit.SelectedIndex = 0;
+            drugMgr.setPrimaryDrugTypeCombo(comboBox_addDrug_pri_type);
+            comboBox_addDrug_pri_type.SelectedIndex = 0;
+            checkBox_addDrug_q1.Checked = false;
+            checkBox_addDrug_q2.Checked = false;
+            checkBox_addDrug_q3.Checked = false;
+            checkBox_addDrug_q4.Checked = false;
+            checkBox_addDrug_w1.Checked = false;
+            checkBox_addDrug_w2.Checked = false;
+            checkBox_addDrug_w3.Checked = false;
+            checkBox_addDrug_w4.Checked = false;
+            checkBox_addDrug_w5.Checked = false;
+            checkBox_addDrug_w6.Checked = false;
+            drugMgr.setContraindicationLevelCombo(comboBox_addDrug_preg_contra);
+            comboBox_addDrug_preg_contra.SelectedIndex = 0;
+            drugMgr.setContraindicationLevelCombo(comboBox_addDrug_g6pd_contra);
+            comboBox_addDrug_g6pd_contra.SelectedIndex = 0;
             DSP_addSubDrug.refresh();
-            textBox_subDrugName.Clear();
+            textBox_addDrug_subDrugName.Clear();
         }
 
         private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            drugMgr.setSecondaryDrugTypeCombo(comboBox_sec_type, (comboBox_pri_type.SelectedItem as PermissibleValueObj).getValue());
-            comboBox_sec_type.SelectedIndex = 0;
+            drugMgr.setSecondaryDrugTypeCombo(comboBox_addDrug_sec_type, (comboBox_addDrug_pri_type.SelectedItem as PermissibleValueObj).getValue());
+            comboBox_addDrug_sec_type.SelectedIndex = 0;
         }
 
         private void button_addDrug_Click(object sender, EventArgs e)
         {
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = drugMgr.insertDrugRecord(textBox_drugName.Text.Trim(), int.Parse(textBox_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_sec_type.SelectedItem)).getValue()), checkBox_q1.Checked, checkBox_q2.Checked, checkBox_q3.Checked, checkBox_q4.Checked, checkBox_w1.Checked, checkBox_w2.Checked, checkBox_w3.Checked, checkBox_w4.Checked, checkBox_w5.Checked, checkBox_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
+            isSuccess = drugMgr.insertDrugRecord(textBox_addDrug_drugName.Text.Trim(), int.Parse(textBox_addDrug_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_addDrug_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_sec_type.SelectedItem)).getValue()), checkBox_addDrug_q1.Checked, checkBox_addDrug_q2.Checked, checkBox_addDrug_q3.Checked, checkBox_addDrug_q4.Checked, checkBox_addDrug_w1.Checked, checkBox_addDrug_w2.Checked, checkBox_addDrug_w3.Checked, checkBox_addDrug_w4.Checked, checkBox_addDrug_w5.Checked, checkBox_addDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_addDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -84,10 +93,14 @@ namespace CMCMS
         public void DSPselectedDrugChanged(PermissibleValueObj drug)
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
+            selectedDrug = drug;
             if (selectedTabIdx == 0)
             {
-                selectedDrug = drug;
-                textBox_selectedDrugName.Text = drug.getName();
+                textBox_addDrug_selectedDrugName.Text = drug.getName();
+            }
+            else if (selectedTabIdx == 1)
+            {
+                
             }
         }
 
@@ -95,12 +108,12 @@ namespace CMCMS
         {
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = drugMgr.insertSubDrugRecord(int.Parse(selectedDrug.getValue()),textBox_subDrugName.Text.Trim(), ref statusMsg);
+            isSuccess = drugMgr.insertSubDrugRecord(int.Parse(selectedDrug.getValue()),textBox_addDrug_subDrugName.Text.Trim(), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DSP_addSubDrug.refresh();
-                textBox_subDrugName.Clear();
+                textBox_addDrug_subDrugName.Clear();
             }
             else
             {

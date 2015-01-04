@@ -16,6 +16,8 @@ namespace CMCMS
         bool subDrugEnabled = false;
         bool subDrugSelectionEnabled = false;
         bool subDrugInclNotSpecified = false;
+        bool showDeletedItemCB = false;
+        bool showDeletedItem = false;
 
         public DrugSelectionPanel()
         {
@@ -52,6 +54,25 @@ namespace CMCMS
         public void setSubDrugInclNotSpecified(bool subDrugInclNotSpecified)
         {
             this.subDrugInclNotSpecified = subDrugInclNotSpecified;
+        }
+
+        public void setShowDeletedItemCB(bool showDeletedItemCB)
+        {
+            this.showDeletedItemCB = showDeletedItemCB;
+            if (showDeletedItemCB)
+            {
+                checkBox_showDeletedItem.Show();
+            }
+            else
+            {
+                checkBox_showDeletedItem.Hide();
+            }
+        }
+
+        public void setShowDeletedItem(bool showDeletedItem)
+        {
+            this.showDeletedItem = showDeletedItem;
+            checkBox_showDeletedItem.Checked = showDeletedItem;
         }
 
         private void DrugSelectionPanel_VisibleChanged(object sender, System.EventArgs e)
