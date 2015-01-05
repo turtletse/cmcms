@@ -71,50 +71,50 @@ namespace CMCMS
 
 
         //Drug Selection Panel
-        public void setDSPPrimaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox)
+        public void setDSPPrimaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_primary_drug_type_listbox_item_get ()");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_primary_drug_type_listbox_item_get (" + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["pri_type"].ToString()));
             }
         }
 
-        public void setDSPSecondaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int priTypeId)
+        public void setDSPSecondaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_secondary_drug_type_listbox_item_get (" + priTypeId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_secondary_drug_type_listbox_item_get (" + priTypeId + ", " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
             }
         }
 
-        public void setDSPnStrokesListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId)
+        public void setDSPnStrokesListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_nStroke_listbox_item_get (" + priTypeId + ", " + secTypeId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_nStroke_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["nStrokes_desc"].ToString(), dr["nStrokes"].ToString()));
             }
         }
 
-        public void setDSPLengthListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes)
+        public void setDSPLengthListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_length_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_length_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["nameLength_desc"].ToString(), dr["nameLength"].ToString()));
             }
         }
 
-        public void setDSP4q5wListBox(System.Windows.Forms.CheckedListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen)
+        public void setDSP4q5wListBox(System.Windows.Forms.CheckedListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_4q5w_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_4q5w_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new PermissibleValueObj(dr["display_name"].ToString(), dr["option_value"].ToString()));
@@ -122,23 +122,25 @@ namespace CMCMS
             
         }
 
-        public void setDSPDrugListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen, String selected4q5w)
+        public void setDSPDrugListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen, String selected4q5w, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_drug_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", '" + selected4q5w + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_drug_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", '" + selected4q5w + "', " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+                Listbox.Items.Add(new DrugObj(dr["drug_name"].ToString(), dr["drug_id"].ToString(), dr["drug_min_dosage_val"].ToString(), dr["drug_min_dosage_unit"].ToString(), dr["drug_max_dosage_val"].ToString(), dr["drug_max_dosage_unit"].ToString(), dr["drug_pri_type"].ToString(), dr["drug_sec_type"].ToString(), Convert.ToBoolean(dr["isDeleted"]), Convert.ToBoolean(dr["drug_q1"]), Convert.ToBoolean(dr["drug_q2"]), Convert.ToBoolean(dr["drug_q3"]), Convert.ToBoolean(dr["drug_q4"]), Convert.ToBoolean(dr["drug_w1"]), Convert.ToBoolean(dr["drug_w2"]), Convert.ToBoolean(dr["drug_w3"]), Convert.ToBoolean(dr["drug_w4"]), Convert.ToBoolean(dr["drug_w5"]), Convert.ToBoolean(dr["drug_w6"]), dr["pregnancy"].ToString(), dr["g6pd"].ToString()));
+                //Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
             }
         }
 
-        public void setDSPSubDrugListBox(System.Windows.Forms.ListBox Listbox, int drugId, int incl_not_specified)
+        public void setDSPSubDrugListBox(System.Windows.Forms.ListBox Listbox, int drugId, int incl_not_specified, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_sub_drug_listbox_item_get (" + drugId + ", " + incl_not_specified+ ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_sub_drug_listbox_item_get (" + drugId + ", " + incl_not_specified + ", " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new PermissibleValueObj(dr["item_name"].ToString(), dr["item_id"].ToString()));
+                Listbox.Items.Add(new SubDrugObj(dr["item_name"].ToString(), dr["item_id"].ToString(), Convert.ToBoolean(dr["isDeleted"])));
+                //Listbox.Items.Add(new PermissibleValueObj(dr["item_name"].ToString(), dr["item_id"].ToString()));
             }
         }
     }

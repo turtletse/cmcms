@@ -69,8 +69,9 @@
             this.textBox_addDrug_maxDose = new System.Windows.Forms.TextBox();
             this.comboBox_addDrug_maxDoseUnit = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
-            this.DSP_amdDrug = new CMCMS.DrugSelectionPanel();
+            this.checkBox1_amdDrug_deleteItem = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox_amdDrug_subDrugName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button_cancelAmdDrug = new System.Windows.Forms.Button();
             this.comboBox_amdDrug_pri_type = new System.Windows.Forms.ComboBox();
@@ -101,9 +102,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_amdDrug_maxDoseVal = new System.Windows.Forms.TextBox();
             this.comboBox_amdDrug_maxDoseUnit = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox_amdDrug_subDrugName = new System.Windows.Forms.TextBox();
-            this.checkBox1_amdDrug_deleteItem = new System.Windows.Forms.CheckBox();
+            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
+            this.DSP_amdDrug = new CMCMS.DrugSelectionPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -551,23 +551,31 @@
             this.tabPage2.Text = "修改藥物資料";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // DSP_addSubDrug
+            // checkBox1_amdDrug_deleteItem
             // 
-            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
-            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
-            this.DSP_addSubDrug.Size = new System.Drawing.Size(1006, 375);
-            this.DSP_addSubDrug.TabIndex = 0;
+            this.checkBox1_amdDrug_deleteItem.AutoSize = true;
+            this.checkBox1_amdDrug_deleteItem.Location = new System.Drawing.Point(19, 628);
+            this.checkBox1_amdDrug_deleteItem.Name = "checkBox1_amdDrug_deleteItem";
+            this.checkBox1_amdDrug_deleteItem.Size = new System.Drawing.Size(108, 24);
+            this.checkBox1_amdDrug_deleteItem.TabIndex = 40;
+            this.checkBox1_amdDrug_deleteItem.Text = "刪除此項目";
+            this.checkBox1_amdDrug_deleteItem.UseVisualStyleBackColor = true;
             // 
-            // DSP_amdDrug
+            // label17
             // 
-            this.DSP_amdDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DSP_amdDrug.Location = new System.Drawing.Point(7, 8);
-            this.DSP_amdDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DSP_amdDrug.Name = "DSP_amdDrug";
-            this.DSP_amdDrug.Size = new System.Drawing.Size(967, 371);
-            this.DSP_amdDrug.TabIndex = 0;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 433);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 20);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "子藥名: ";
+            // 
+            // textBox_amdDrug_subDrugName
+            // 
+            this.textBox_amdDrug_subDrugName.Location = new System.Drawing.Point(86, 430);
+            this.textBox_amdDrug_subDrugName.Name = "textBox_amdDrug_subDrugName";
+            this.textBox_amdDrug_subDrugName.Size = new System.Drawing.Size(182, 26);
+            this.textBox_amdDrug_subDrugName.TabIndex = 38;
             // 
             // label10
             // 
@@ -857,31 +865,23 @@
             this.comboBox_amdDrug_maxDoseUnit.Size = new System.Drawing.Size(81, 28);
             this.comboBox_amdDrug_maxDoseUnit.TabIndex = 28;
             // 
-            // label17
+            // DSP_addSubDrug
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 433);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 20);
-            this.label17.TabIndex = 39;
-            this.label17.Text = "子藥名: ";
+            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
+            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
+            this.DSP_addSubDrug.Size = new System.Drawing.Size(1006, 375);
+            this.DSP_addSubDrug.TabIndex = 0;
             // 
-            // textBox_amdDrug_subDrugName
+            // DSP_amdDrug
             // 
-            this.textBox_amdDrug_subDrugName.Location = new System.Drawing.Point(86, 430);
-            this.textBox_amdDrug_subDrugName.Name = "textBox_amdDrug_subDrugName";
-            this.textBox_amdDrug_subDrugName.Size = new System.Drawing.Size(182, 26);
-            this.textBox_amdDrug_subDrugName.TabIndex = 38;
-            // 
-            // checkBox1_amdDrug_deleteItem
-            // 
-            this.checkBox1_amdDrug_deleteItem.AutoSize = true;
-            this.checkBox1_amdDrug_deleteItem.Location = new System.Drawing.Point(19, 628);
-            this.checkBox1_amdDrug_deleteItem.Name = "checkBox1_amdDrug_deleteItem";
-            this.checkBox1_amdDrug_deleteItem.Size = new System.Drawing.Size(108, 24);
-            this.checkBox1_amdDrug_deleteItem.TabIndex = 40;
-            this.checkBox1_amdDrug_deleteItem.Text = "刪除此項目";
-            this.checkBox1_amdDrug_deleteItem.UseVisualStyleBackColor = true;
+            this.DSP_amdDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP_amdDrug.Location = new System.Drawing.Point(7, 8);
+            this.DSP_amdDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DSP_amdDrug.Name = "DSP_amdDrug";
+            this.DSP_amdDrug.Size = new System.Drawing.Size(967, 371);
+            this.DSP_amdDrug.TabIndex = 0;
             // 
             // DrugAdmin
             // 

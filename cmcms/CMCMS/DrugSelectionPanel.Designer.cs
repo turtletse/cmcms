@@ -44,6 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.checkBox_showDeletedItem = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBox_priDrugType
@@ -204,10 +205,18 @@
             this.checkBox_showDeletedItem.Text = "包括已刪除藥項";
             this.checkBox_showDeletedItem.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(246, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 17;
+            // 
             // DrugSelectionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkBox_showDeletedItem);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -228,7 +237,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DrugSelectionPanel";
             this.Size = new System.Drawing.Size(967, 371);
-            this.VisibleChanged += new System.EventHandler(this.DrugSelectionPanel_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,6 +260,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox checkBox_showDeletedItem;
+        private System.Windows.Forms.TextBox textBox1;
 
 
         

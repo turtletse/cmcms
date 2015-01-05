@@ -1,6 +1,6 @@
 DROP procedure if EXISTS sp_DSP_4q5w_listbox_item_get;
 delimiter $$
-CREATE PROCEDURE sp_DSP_4q5w_listbox_item_get (IN in_pri_type int, IN in_sec_type int, IN in_nStrokes int, IN in_len int)
+CREATE PROCEDURE sp_DSP_4q5w_listbox_item_get (IN in_pri_type int, IN in_sec_type int, IN in_nStrokes int, IN in_len int, IN in_incl_deleted int)
 BEGIN
 	
     DECLARE q1_sum, q2_sum, q3_sum, q4_sum, w1_sum, w2_sum, w3_sum, w4_sum, w5_sum, w6_sum int;
@@ -16,7 +16,8 @@ BEGIN
     where (in_pri_type = 0 or (in_pri_type <> 0 and drug_pri_type = in_pri_type)) 
     and (in_sec_type = 0 or (in_sec_type <> 0 and drug_sec_type = in_sec_type))
     and (in_nStrokes = 0 or (in_nStrokes <> 0 and drug_name_stroke_idx = in_nStrokes))
-    and (in_len = 0 or (in_len <> 0 and drug_name_length = in_len));
+    and (in_len = 0 or (in_len <> 0 and drug_name_length = in_len))
+    and isDeleted<=in_incl_deleted;
     
     if q1_sum > 0 THEN
 		INSERT INTO result VALUES ('寒', 'q1', 0);

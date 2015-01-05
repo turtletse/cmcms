@@ -12,7 +12,7 @@ namespace CMCMS
     public partial class DrugAdmin : Form, IDSPSelectedDrugChange
     {
         DrugMgr drugMgr;
-        PermissibleValueObj selectedDrug;
+        DrugObj selectedDrug;
        
         public DrugAdmin()
         {
@@ -90,7 +90,7 @@ namespace CMCMS
         }
 
 
-        public void DSPselectedDrugChanged(PermissibleValueObj drug)
+        public void DSPselectedDrugChanged(DrugObj drug)
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
             selectedDrug = drug;

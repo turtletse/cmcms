@@ -87,7 +87,7 @@ namespace CMCMS
         public void refresh()
         {
             listBox_priDrugType.Enabled = false;
-            drugMgr.setDSPPrimaryDrugTypeListBox(listBox_priDrugType);
+            drugMgr.setDSPPrimaryDrugTypeListBox(listBox_priDrugType, showDeletedItem?1:0);
             listBox_priDrugType.SelectedIndex = 0;
             listBox_priDrugType.Enabled = true;
         }
@@ -95,7 +95,7 @@ namespace CMCMS
         private void listBox_priDrugType_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox_secDrugType.Enabled = false;
-            drugMgr.setDSPSecondaryDrugTypeListBox(listBox_secDrugType, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()));
+            drugMgr.setDSPSecondaryDrugTypeListBox(listBox_secDrugType, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), showDeletedItem ? 1 : 0);
             listBox_secDrugType.SelectedIndex = 0;
             listBox_secDrugType.Enabled = true;
         }
@@ -103,7 +103,7 @@ namespace CMCMS
         private void listBox_secDrugType_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox_nStrokes.Enabled = false;
-            drugMgr.setDSPnStrokesListBox(listBox_nStrokes, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()));
+            drugMgr.setDSPnStrokesListBox(listBox_nStrokes, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), showDeletedItem ? 1 : 0);
             listBox_nStrokes.SelectedIndex = 0;
             listBox_nStrokes.Enabled = true;
         }
@@ -111,7 +111,7 @@ namespace CMCMS
         private void listBox_nStrokes_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox_length.Enabled = false;
-            drugMgr.setDSPLengthListBox(listBox_length, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()));
+            drugMgr.setDSPLengthListBox(listBox_length, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), showDeletedItem ? 1 : 0);
             listBox_length.SelectedIndex = 0;
             listBox_length.Enabled = true;
         }
@@ -120,9 +120,9 @@ namespace CMCMS
         private void listBox_length_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox_length.Enabled = false;
-            drugMgr.setDSP4q5wListBox(checkedListBox_4q5w, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_length.SelectedItem)).getValue()));
-            listBox_length.Enabled = true;
+            drugMgr.setDSP4q5wListBox(checkedListBox_4q5w, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_length.SelectedItem)).getValue()), showDeletedItem ? 1 : 0);
             updateDrugList();
+            listBox_length.Enabled = true;
         }
 
         private void checkedListBox_4q5w_SelectedValueChanged(object sender, EventArgs e)
@@ -137,17 +137,17 @@ namespace CMCMS
             {
                 selected4q5w += ((PermissibleValueObj)o).getValue().Trim() + "||";
             }
-            if (selected4q5w.Length > 0)
+            if (selected4q5w.Length >= 2)
                 selected4q5w = selected4q5w.Substring(0, selected4q5w.Length - 2);
             listBox_drugList.Enabled = false;
-            drugMgr.setDSPDrugListBox(listBox_drugList, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_length.SelectedItem)).getValue()), selected4q5w);
+            drugMgr.setDSPDrugListBox(listBox_drugList, int.Parse(((PermissibleValueObj)(listBox_priDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_secDrugType.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_nStrokes.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(listBox_length.SelectedItem)).getValue()), selected4q5w, showDeletedItem ? 1 : 0);
             listBox_drugList.SelectedIndex = 0;
             listBox_drugList.Enabled = true;
         }
 
-        public PermissibleValueObj getSelectedDrug()
+        public DrugObj getSelectedDrug()
         {
-            return (PermissibleValueObj)listBox_drugList.SelectedItem;
+            return (DrugObj)listBox_drugList.SelectedItem;
         }
 
         public System.Windows.Forms.ListBox getDrugListBox()
@@ -162,7 +162,7 @@ namespace CMCMS
             if (subDrugEnabled)
             {
                 listBox_subDrugList.Enabled = false;
-                drugMgr.setDSPSubDrugListBox(listBox_subDrugList, int.Parse(getSelectedDrug().getValue()), subDrugInclNotSpecified?1:0);
+                drugMgr.setDSPSubDrugListBox(listBox_subDrugList, int.Parse(getSelectedDrug().getValue()), subDrugInclNotSpecified ? 1 : 0, showDeletedItem ? 1 : 0);
                 listBox_subDrugList.ClearSelected();
                 listBox_subDrugList.Enabled = true;
             }
