@@ -174,5 +174,11 @@ namespace CMCMS
             
         }
 
+        private void checkBox_showDeletedItem_CheckedChanged(object sender, EventArgs e)
+        {
+            setShowDeletedItem(checkBox_showDeletedItem.Checked);
+            refresh();
+        }
+
     }
 }
