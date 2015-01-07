@@ -13,6 +13,7 @@ namespace CMCMS
     {
         DrugMgr drugMgr;
         DrugObj selectedDrug;
+        SubDrugObj selectedSubDrug;
        
         public DrugAdmin()
         {
@@ -58,8 +59,39 @@ namespace CMCMS
             comboBox_addDrug_preg_contra.SelectedIndex = 0;
             drugMgr.setContraindicationLevelCombo(comboBox_addDrug_g6pd_contra);
             comboBox_addDrug_g6pd_contra.SelectedIndex = 0;
-            DSP_addSubDrug.refresh();
             textBox_addDrug_subDrugName.Clear();
+            DSP_addSubDrug.refresh();
+        }
+
+        private void tabPage2_Enter(object sender, EventArgs e)
+        {
+            textBox_amdDrug_drugName.Clear();
+            textBox_amdDrug_minDoseVal.Clear();
+            drugMgr.setDosageUnitCombo(comboBox_amdDrug_minDoseUnit);
+            comboBox_amdDrug_minDoseUnit.SelectedIndex = 0;
+            textBox_amdDrug_maxDoseVal.Clear();
+            drugMgr.setDosageUnitCombo(comboBox_amdDrug_maxDoseUnit);
+            comboBox_amdDrug_maxDoseUnit.SelectedIndex = 0;
+            drugMgr.setPrimaryDrugTypeCombo(comboBox_amdDrug_pri_type);
+            comboBox_amdDrug_pri_type.SelectedIndex = 0;
+            checkBox_amdDrug_q1.Checked = false;
+            checkBox_amdDrug_q2.Checked = false;
+            checkBox_amdDrug_q3.Checked = false;
+            checkBox_amdDrug_q4.Checked = false;
+            checkBox_amdDrug_w1.Checked = false;
+            checkBox_amdDrug_w2.Checked = false;
+            checkBox_amdDrug_w3.Checked = false;
+            checkBox_amdDrug_w4.Checked = false;
+            checkBox_amdDrug_w5.Checked = false;
+            checkBox_amdDrug_w6.Checked = false;
+            drugMgr.setContraindicationLevelCombo(comboBox_amdDrug_preg_contra);
+            comboBox_amdDrug_preg_contra.SelectedIndex = 0;
+            drugMgr.setContraindicationLevelCombo(comboBox_amdDrug_g6pd_contra);
+            comboBox_amdDrug_g6pd_contra.SelectedIndex = 0;
+            textBox_amdDrug_subDrugName.Clear();
+            checkBox_amdDrug_deleteItem.Checked = false;
+            DSP_amdDrug.refresh();
+            
         }
 
         private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,13 +126,49 @@ namespace CMCMS
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
             selectedDrug = drug;
+            selectedSubDrug = null;
             if (selectedTabIdx == 0)
             {
                 textBox_addDrug_selectedDrugName.Text = drug.getName();
             }
             else if (selectedTabIdx == 1)
             {
-                
+                textBox_amdDrug_drugName.Text = drug.getName();
+                textBox_amdDrug_subDrugName.Clear();
+                textBox_amdDrug_minDoseVal.Text = drug.MinDoseVal;
+                comboBox_amdDrug_minDoseUnit.SelectedValue = drug.MinDoseUnit;
+                textBox_amdDrug_maxDoseVal.Text = drug.MaxDoseVal;
+                comboBox_amdDrug_maxDoseUnit.SelectedValue = drug.MaxDoseUnit;
+                comboBox_amdDrug_pri_type.SelectedValue = drug.PriType;
+                comboBox_amdDrug_sec_type.SelectedValue = drug.SecType;
+                checkBox_amdDrug_q1.Checked = drug.Q1;
+                checkBox_amdDrug_q2.Checked = drug.Q2;
+                checkBox_amdDrug_q3.Checked = drug.Q3;
+                checkBox_amdDrug_q4.Checked = drug.Q4;
+                checkBox_amdDrug_w1.Checked = drug.W1;
+                checkBox_amdDrug_w2.Checked = drug.W2;
+                checkBox_amdDrug_w3.Checked = drug.W3;
+                checkBox_amdDrug_w4.Checked = drug.W4;
+                checkBox_amdDrug_w5.Checked = drug.W5;
+                checkBox_amdDrug_w6.Checked = drug.W6;
+                comboBox_amdDrug_preg_contra.SelectedValue = drug.PregContra;
+                comboBox_amdDrug_g6pd_contra.SelectedValue = drug.G6pdContra;
+                checkBox_amdDrug_deleteItem.Checked = drug.Deleted;
+
+            }
+        }
+
+        public void DSPselectedSubDrugChanged(SubDrugObj subDrug)
+        {
+            int selectedTabIdx = tabControl1.SelectedIndex;
+            selectedSubDrug = subDrug;
+            if (selectedTabIdx == 1)
+            {
+                textBox_amdDrug_subDrugName.Text = subDrug.getName();
+                if (selectedSubDrug!=null && selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0"))
+                    checkBox_amdDrug_deleteItem.Checked = selectedDrug.Deleted;
+                else
+                    checkBox_amdDrug_deleteItem.Checked = subDrug.Deleted;
             }
         }
 
@@ -119,6 +187,49 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button_cancelAmdDrug_Click(object sender, EventArgs e)
+        {
+            tabPage2_Enter(sender, e);
+        }
+
+        private void button_amdDrug_Click(object sender, EventArgs e)
+        {
+            String statusMsg = "";
+            bool isSuccess;
+            if (selectedSubDrug == null || selectedSubDrug.getValue().Split(new String[] {"||"}, System.StringSplitOptions.None)[1].Equals("0"))
+            {
+                isSuccess = drugMgr.updateDrugRecord(selectedDrug.getValue(), textBox_amdDrug_drugName.Text.Trim(), int.Parse(textBox_amdDrug_minDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_amdDrug_maxDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_sec_type.SelectedItem)).getValue()), checkBox_amdDrug_q1.Checked, checkBox_amdDrug_q2.Checked, checkBox_amdDrug_q3.Checked, checkBox_amdDrug_q4.Checked, checkBox_amdDrug_w1.Checked, checkBox_amdDrug_w2.Checked, checkBox_amdDrug_w3.Checked, checkBox_amdDrug_w4.Checked, checkBox_amdDrug_w5.Checked, checkBox_amdDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_amdDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_g6pd_contra.SelectedItem)).getValue()), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
+                if (isSuccess)
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tabPage2_Enter(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0") == false)
+            {
+                isSuccess = drugMgr.updateSubDrugRecord(selectedSubDrug.getValue(), textBox_amdDrug_subDrugName.Text.Trim(), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
+                if (isSuccess)
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tabPage2_Enter(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void comboBox_amdDrug_pri_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drugMgr.setSecondaryDrugTypeCombo(comboBox_amdDrug_sec_type, (comboBox_amdDrug_pri_type.SelectedItem as PermissibleValueObj).getValue());
+            comboBox_amdDrug_sec_type.SelectedIndex = 0;
         }
 
     }

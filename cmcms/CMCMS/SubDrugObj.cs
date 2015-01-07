@@ -5,9 +5,16 @@ using System.Text;
 
 namespace CMCMS
 {
-    class SubDrugObj : PermissibleValueObj
+    public class SubDrugObj : PermissibleValueObj
     {
-        private bool deleted { get; set; }
+        private bool deleted;
+
+        public bool Deleted
+        {
+            get { return deleted; }
+            private set { deleted = value; }
+        }
+
         public SubDrugObj(String name, String value, bool deleted)
             : base(name, value)
         {

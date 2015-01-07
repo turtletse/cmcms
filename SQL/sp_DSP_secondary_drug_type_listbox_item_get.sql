@@ -13,4 +13,4 @@ BEGIN
 END $$
 delimiter ;
 
--- CALL sp_DSP_secondary_drug_type_listbox_item_get (10, 0);
+-- CALL sp_DSP_secondary_drug_type_listbox_item_get (0, 0);

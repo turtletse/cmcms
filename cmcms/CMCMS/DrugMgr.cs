@@ -69,6 +69,25 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
+        //Amend Drug Tab
+        public bool updateDrugRecord(String drugId, String drugName, int minDoseVal, int minDoseUnit, int maxDoseVal, int maxDoseUnit, int priTypeId, int secTypeId, bool q1, bool q2, bool q3, bool q4, bool w1, bool w2, bool w3, bool w4, bool w5, bool w6, int pregContraLvId, int g6pdContraLvId, bool isDeleted, ref String statusMsg)
+        {
+
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_drug_item (" + drugId + ", '" + drugName + "'," + minDoseVal + "," + minDoseUnit + "," + maxDoseVal + "," + maxDoseUnit + "," + priTypeId + "," + secTypeId + "," + (q1 ? "1" : "0") + "," + (q2 ? "1" : "0") + "," + (q3 ? "1" : "0") + "," + (q4 ? "1" : "0") + "," + (w1 ? "1" : "0") + "," + (w2 ? "1" : "0") + "," + (w3 ? "1" : "0") + "," + (w4 ? "1" : "0") + "," + (w5 ? "1" : "0") + "," + (w6 ? "1" : "0") + "," + pregContraLvId + "," + g6pdContraLvId + ", " + (isDeleted ? "1" : "0") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool updateSubDrugRecord(String subDrugCode, String drugName, bool isDeleted, ref String statusMsg)
+        {
+            String[] ids = subDrugCode.Split(new String[] { "||" }, System.StringSplitOptions.None);
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_sub_drug_item (" + ids[0] + ", " + ids[1] + ", '" + drugName + "'," + (isDeleted ? "1" : "0") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
 
         //Drug Selection Panel
         public void setDSPPrimaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int inclDeleted)

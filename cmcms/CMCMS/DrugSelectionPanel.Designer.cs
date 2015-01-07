@@ -229,7 +229,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DrugSelectionPanel";
             this.Size = new System.Drawing.Size(967, 371);
-            this.VisibleChanged += new System.EventHandler(this.DrugSelectionPanel_VisibleChanged);
+            //this.VisibleChanged += new System.EventHandler(this.DrugSelectionPanel_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

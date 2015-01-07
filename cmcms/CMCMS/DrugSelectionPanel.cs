@@ -150,6 +150,11 @@ namespace CMCMS
             return (DrugObj)listBox_drugList.SelectedItem;
         }
 
+        public SubDrugObj getSelectedSubDrug()
+        {
+            return (SubDrugObj)listBox_subDrugList.SelectedItem;
+        }
+
         public System.Windows.Forms.ListBox getDrugListBox()
         {
             return this.listBox_drugList;
@@ -163,7 +168,10 @@ namespace CMCMS
             {
                 listBox_subDrugList.Enabled = false;
                 drugMgr.setDSPSubDrugListBox(listBox_subDrugList, int.Parse(getSelectedDrug().getValue()), subDrugInclNotSpecified ? 1 : 0, showDeletedItem ? 1 : 0);
-                listBox_subDrugList.ClearSelected();
+                if (subDrugInclNotSpecified)
+                    listBox_subDrugList.SelectedIndex = 0;
+                else
+                    listBox_subDrugList.ClearSelected();
                 listBox_subDrugList.Enabled = true;
             }
             
@@ -171,7 +179,8 @@ namespace CMCMS
 
         private void listBox_subDrugList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (DSPform != null)
+                DSPform.DSPselectedSubDrugChanged(getSelectedSubDrug());
         }
 
         private void checkBox_showDeletedItem_CheckedChanged(object sender, EventArgs e)

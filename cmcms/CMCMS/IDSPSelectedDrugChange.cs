@@ -8,5 +8,6 @@ namespace CMCMS
     public interface IDSPSelectedDrugChange
     {
         void DSPselectedDrugChanged(DrugObj drug);
+        void DSPselectedSubDrugChanged(SubDrugObj subDrug);
     }
 }
