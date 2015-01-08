@@ -35,7 +35,11 @@ namespace CMCMS
             if (subDrugEnabled)
                 listBox_subDrugList.Show();
             else
+            {
                 listBox_subDrugList.Hide();
+                subDrugSelectionEnabled = false;
+                subDrugInclNotSpecified = false;
+            }
         }
 
         public void setSubDrugSelectionEnabled(bool subDrugSelectionEnabled)

@@ -165,5 +165,14 @@ namespace CMCMS
 
         }
 
+        public bool Equals(DrugObj x)
+        {
+            if (this == null && x == null)
+                return true;
+            if (this == null || x == null)
+                return false;
+            return this.getValue() == x.getValue();
+        }
+        
     }
 }

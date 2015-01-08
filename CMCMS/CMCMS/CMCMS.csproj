@@ -81,6 +81,12 @@
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="IDSPSelectedDrugChange.cs" />
+    <Compile Include="NewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPatient.Designer.cs">
+      <DependentUpon>NewPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientRegistration.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DrugSelectionPanel.resx">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPatient.resx">
+      <DependentUpon>NewPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientRegistration.resx">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
