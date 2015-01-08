@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_patReg_addr = new System.Windows.Forms.TextBox();
             this.dateTimePicker_DOB = new System.Windows.Forms.DateTimePicker();
             this.textBox_patReg_phoneNo = new System.Windows.Forms.TextBox();
             this.checkBox_g6pd = new System.Windows.Forms.CheckBox();
@@ -51,10 +51,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.listBox_selectedAllergicDrug = new System.Windows.Forms.ListBox();
             this.button_removeSelectedDrug = new System.Windows.Forms.Button();
             this.button_selectAllergicDrug = new System.Windows.Forms.Button();
             this.DSP_allergic = new CMCMS.DrugSelectionPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox_patReg_password = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_patReg_confirmPassword = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,7 +68,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox_patReg_confirmPassword);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.textBox_patReg_password);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textBox_patReg_addr);
             this.groupBox1.Controls.Add(this.dateTimePicker_DOB);
             this.groupBox1.Controls.Add(this.textBox_patReg_phoneNo);
             this.groupBox1.Controls.Add(this.checkBox_g6pd);
@@ -80,17 +89,17 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1066, 150);
+            this.groupBox1.Size = new System.Drawing.Size(1066, 181);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "個人資料";
             // 
-            // textBox1
+            // textBox_patReg_addr
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(992, 26);
-            this.textBox1.TabIndex = 17;
+            this.textBox_patReg_addr.Location = new System.Drawing.Point(62, 111);
+            this.textBox_patReg_addr.Name = "textBox_patReg_addr";
+            this.textBox_patReg_addr.Size = new System.Drawing.Size(992, 26);
+            this.textBox_patReg_addr.TabIndex = 17;
             // 
             // dateTimePicker_DOB
             // 
@@ -277,29 +286,39 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.listBox_selectedAllergicDrug);
             this.groupBox2.Controls.Add(this.button_removeSelectedDrug);
             this.groupBox2.Controls.Add(this.button_selectAllergicDrug);
             this.groupBox2.Controls.Add(this.DSP_allergic);
-            this.groupBox2.Location = new System.Drawing.Point(3, 159);
+            this.groupBox2.Location = new System.Drawing.Point(3, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1066, 446);
+            this.groupBox2.Size = new System.Drawing.Size(1066, 415);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "藥物敏感史/病史";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(920, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "已選藥項";
             // 
             // listBox_selectedAllergicDrug
             // 
             this.listBox_selectedAllergicDrug.FormattingEnabled = true;
             this.listBox_selectedAllergicDrug.ItemHeight = 20;
-            this.listBox_selectedAllergicDrug.Location = new System.Drawing.Point(924, 130);
+            this.listBox_selectedAllergicDrug.Location = new System.Drawing.Point(924, 99);
             this.listBox_selectedAllergicDrug.Name = "listBox_selectedAllergicDrug";
             this.listBox_selectedAllergicDrug.Size = new System.Drawing.Size(130, 304);
             this.listBox_selectedAllergicDrug.TabIndex = 4;
             // 
             // button_removeSelectedDrug
             // 
-            this.button_removeSelectedDrug.Location = new System.Drawing.Point(843, 295);
+            this.button_removeSelectedDrug.Location = new System.Drawing.Point(843, 264);
             this.button_removeSelectedDrug.Name = "button_removeSelectedDrug";
             this.button_removeSelectedDrug.Size = new System.Drawing.Size(75, 99);
             this.button_removeSelectedDrug.TabIndex = 3;
@@ -309,7 +328,7 @@
             // 
             // button_selectAllergicDrug
             // 
-            this.button_selectAllergicDrug.Location = new System.Drawing.Point(843, 166);
+            this.button_selectAllergicDrug.Location = new System.Drawing.Point(843, 135);
             this.button_selectAllergicDrug.Name = "button_selectAllergicDrug";
             this.button_selectAllergicDrug.Size = new System.Drawing.Size(75, 99);
             this.button_selectAllergicDrug.TabIndex = 2;
@@ -320,11 +339,45 @@
             // DSP_allergic
             // 
             this.DSP_allergic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DSP_allergic.Location = new System.Drawing.Point(7, 68);
+            this.DSP_allergic.Location = new System.Drawing.Point(7, 37);
             this.DSP_allergic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DSP_allergic.Name = "DSP_allergic";
             this.DSP_allergic.Size = new System.Drawing.Size(829, 371);
             this.DSP_allergic.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 20);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "密碼: ";
+            // 
+            // textBox_patReg_password
+            // 
+            this.textBox_patReg_password.Location = new System.Drawing.Point(62, 145);
+            this.textBox_patReg_password.Name = "textBox_patReg_password";
+            this.textBox_patReg_password.Size = new System.Drawing.Size(312, 26);
+            this.textBox_patReg_password.TabIndex = 19;
+            this.textBox_patReg_password.UseSystemPasswordChar = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(477, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 20);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "確認密碼: ";
+            // 
+            // textBox_patReg_confirmPassword
+            // 
+            this.textBox_patReg_confirmPassword.Location = new System.Drawing.Point(564, 145);
+            this.textBox_patReg_confirmPassword.Name = "textBox_patReg_confirmPassword";
+            this.textBox_patReg_confirmPassword.Size = new System.Drawing.Size(312, 26);
+            this.textBox_patReg_confirmPassword.TabIndex = 21;
+            this.textBox_patReg_confirmPassword.UseSystemPasswordChar = true;
             // 
             // PatientRegistration
             // 
@@ -344,6 +397,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -373,9 +427,14 @@
         private System.Windows.Forms.CheckBox checkBox_g6pd;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DOB;
         private System.Windows.Forms.TextBox textBox_patReg_phoneNo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_patReg_addr;
         private System.Windows.Forms.ListBox listBox_selectedAllergicDrug;
         private System.Windows.Forms.Button button_removeSelectedDrug;
         private System.Windows.Forms.Button button_selectAllergicDrug;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox_patReg_confirmPassword;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox_patReg_password;
+        private System.Windows.Forms.Label label10;
     }
 }
