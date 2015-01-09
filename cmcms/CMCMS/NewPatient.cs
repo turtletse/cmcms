@@ -11,8 +11,10 @@ namespace CMCMS
 {
     public partial class NewPatient : UserControl
     {
+        PatientMgr patMgr;
         public NewPatient()
         {
+            patMgr = new PatientMgr();
             InitializeComponent();
         }
 
@@ -25,7 +27,18 @@ namespace CMCMS
 
         private void button_submit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(patientRegistration1.getHashedPassword() + "\n" + patientRegistration1.getHashedPassword().Length);
+            String statusMsg = "";
+            bool isSuccess;
+            isSuccess = patMgr.insertPatientRecord(patientRegistration1.getChiName(), patientRegistration1.getEngName(), patientRegistration1.getHashedPassword(), patientRegistration1.getPIDDocType(), patientRegistration1.getPIDDocNo(), patientRegistration1.getPhoneNo(), patientRegistration1.getDOB(), patientRegistration1.getSex(), patientRegistration1.getIsG6PD(), patientRegistration1.getAddr(), patientRegistration1.getAllergicDrugsIdString(), ref statusMsg);
+            if (isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                button_reset_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

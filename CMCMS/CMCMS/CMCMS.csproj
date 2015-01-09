@@ -88,6 +88,7 @@
       <DependentUpon>NewPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
+    <Compile Include="PatientMgr.cs" />
     <Compile Include="PatientRegistration.cs">
       <SubType>UserControl</SubType>
     </Compile>
