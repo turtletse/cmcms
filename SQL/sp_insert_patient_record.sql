@@ -17,12 +17,12 @@ CREATE PROCEDURE sp_insert_patient_record (
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
     -- DECLARE pid INT;
-    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
 	if (select count(*) from patient_record where id_doc_type = in_id_doc_type and id_doc_no = in_id_doc_no) > 0 THEN
         SET curr_status_id = 6;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
@@ -43,7 +43,7 @@ BEGIN
 				addr,
 				allergic_drug_ids)
 			VALUES (
-				get_new_patient_id(),
+				LAST_INSERT_ID(get_new_patient_id()),
                 in_chin_name,
 				UPPER(in_eng_name),
 				in_hashed_password,
@@ -58,7 +58,7 @@ BEGIN
             );
 		COMMIT;
         
-        SELECT * FROM insert_record_status where status_id = curr_status_id;
+        SELECT status_id, CONCAT(status_desc, '\n病人編號: ', LAST_INSERT_ID()) status_desc FROM insert_record_status where status_id = curr_status_id;
         
     END IF;
     
@@ -67,5 +67,5 @@ END $$
 DELIMITER ;
 
 -- select * from patient_record;
--- CALL sp_insert_patient_record ('一', 'yat', '26d6a8ad97c75ffc548f6873e5e93ce475479e3e1a1097381e54221fb53ec1d2', 'HKID', '1', '1', '09/01/2015', 'M', 1, '123', '101001')
+-- CALL sp_insert_patient_record ('一', 'yat', '26d6a8ad97c75ffc548f6873e5e93ce475479e3e1a1097381e54221fb53ec1d2', 'HKID', '2', '1', '09/01/2015', 'M', 1, '123', '101001')
 -- DELETE FROM patient_record WHERE patient_id>0
