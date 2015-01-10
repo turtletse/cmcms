@@ -11,3 +11,4 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.csprojResolveA
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.PatientRegistration.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.NewPatient.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.Patient_newPatient.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.searchPatientInputPanel.resources

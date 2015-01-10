@@ -132,7 +132,7 @@ namespace CMCMS
             return dataStr;
         }
 
-        private bool passwordMatch()
+        private bool isPasswordMatch()
         {
             return textBox_patReg_password.Text == textBox_patReg_confirmPassword.Text;
         }
@@ -142,5 +142,21 @@ namespace CMCMS
             return PasswordHash.getHashedPw(textBox_patReg_password.Text);
         }
 
+        public void setSelectedDrugList(String drugIds)
+        {
+            DrugMgr drugMgr = new DrugMgr();
+            listBox_selectedAllergicDrug.Enabled = false;
+            drugMgr.setDrugListBoxItemsByDrugIds(listBox_selectedAllergicDrug, drugIds);
+            listBox_selectedAllergicDrug.Enabled = true;
+        }
+
+        public bool isDataValid()
+        {
+            bool isValid = true;
+            if (isPasswordMatch() == false)
+                isValid = false;
+
+            return isValid;
+        }
     }
 }

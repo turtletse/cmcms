@@ -162,5 +162,17 @@ namespace CMCMS
                 //Listbox.Items.Add(new PermissibleValueObj(dr["item_name"].ToString(), dr["item_id"].ToString()));
             }
         }
+
+        //PatientRegiatration
+        public void setDrugListBoxItemsByDrugIds(System.Windows.Forms.ListBox Listbox, String drugIds)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_drug_item_get_by_id ('" + drugIds + "')");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new DrugObj(dr["drug_name"].ToString(), dr["drug_id"].ToString(), dr["drug_min_dosage_val"].ToString(), dr["drug_min_dosage_unit"].ToString(), dr["drug_max_dosage_val"].ToString(), dr["drug_max_dosage_unit"].ToString(), dr["drug_pri_type"].ToString(), dr["drug_sec_type"].ToString(), Convert.ToBoolean(dr["isDeleted"]), Convert.ToBoolean(dr["drug_q1"]), Convert.ToBoolean(dr["drug_q2"]), Convert.ToBoolean(dr["drug_q3"]), Convert.ToBoolean(dr["drug_q4"]), Convert.ToBoolean(dr["drug_w1"]), Convert.ToBoolean(dr["drug_w2"]), Convert.ToBoolean(dr["drug_w3"]), Convert.ToBoolean(dr["drug_w4"]), Convert.ToBoolean(dr["drug_w5"]), Convert.ToBoolean(dr["drug_w6"]), dr["pregnancy"].ToString(), dr["g6pd"].ToString()));
+                //Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+            }
+        }
     }
 }

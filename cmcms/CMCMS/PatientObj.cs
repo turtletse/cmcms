@@ -106,7 +106,7 @@ namespace CMCMS
             set { deceasedRecordDtm = value; }
         }
 
-        public PatientObj(int patientId, String chineseName, String englishName, String hashedPW, String idDocType, String idDocNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, String deceasedRecordDtm)
+        public PatientObj(int patientId, String chineseName, String englishName, String hashedPW, String idDocType, String idDocNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, String deceasedRecordDtm):base((chineseName+" "+englishName).Trim(), patientId.ToString())
         {
             this.patientId = patientId;
             this.chineseName = chineseName;
