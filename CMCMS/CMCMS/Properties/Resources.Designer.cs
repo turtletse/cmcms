@@ -61,7 +61,7 @@ namespace CMCMS.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to server=localhost;userid=cmcms;password=abc3###1415B;database=cmcms.
+        ///   Looks up a localized string similar to server=localhost;userid=cmcms;password=abc3###2015A;database=cmcms.
         /// </summary>
         internal static string connectionString {
             get {

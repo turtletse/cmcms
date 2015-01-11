@@ -102,6 +102,12 @@
     <Compile Include="Patient_amdPatientData.Designer.cs">
       <DependentUpon>Patient_amdPatientData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patient_mainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient_mainMenu.Designer.cs">
+      <DependentUpon>Patient_mainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Patient_newPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Patient_amdPatientData.resx">
       <DependentUpon>Patient_amdPatientData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient_mainMenu.resx">
+      <DependentUpon>Patient_mainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Patient_newPatient.resx">
       <DependentUpon>Patient_newPatient.cs</DependentUpon>

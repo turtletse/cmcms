@@ -41,6 +41,8 @@ namespace CMCMS
             textBox_patReg_addr.Clear();
             DSP_allergic.refresh();
             listBox_selectedAllergicDrug.Items.Clear();
+            textBox_patReg_password.Clear();
+            textBox_patReg_confirmPassword.Clear();
         }
 
         private void button_selectAllergicDrug_Click(object sender, EventArgs e)

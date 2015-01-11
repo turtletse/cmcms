@@ -17,7 +17,8 @@ namespace CMCMS
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new DrugAdmin());
             //Application.Run(new Patient_newPatient());
-            Application.Run(new Patient_amdPatientData());
+            //Application.Run(new Patient_amdPatientData());
+            Application.Run(new Patient_mainMenu());
         }
     }
 }

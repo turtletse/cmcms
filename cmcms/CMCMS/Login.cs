@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-
 namespace CMCMS
 {
-    public partial class Patient_newPatient : Form
+    public partial class Login : Form
     {
-        public Patient_newPatient()
+        public Login()
         {
             InitializeComponent();
         }
-
     }
 }
