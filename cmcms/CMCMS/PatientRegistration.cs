@@ -154,7 +154,10 @@ namespace CMCMS
         {
             bool isValid = true;
             if (isPasswordMatch() == false)
+            {
+                MessageBox.Show("確認密碼不正確!", "資料錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 isValid = false;
+            }
 
             return isValid;
         }

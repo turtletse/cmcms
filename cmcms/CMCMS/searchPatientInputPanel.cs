@@ -57,5 +57,10 @@ namespace CMCMS
             listBox_search_result.Items.Clear();
         }
 
+        public PatientObj getSelectedPatient()
+        {
+            return (PatientObj)(listBox_search_result.SelectedItem);
+        }
+
     }
 }
