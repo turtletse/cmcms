@@ -7,7 +7,7 @@ BEGIN
     CALL split(in_drug_ids, '||');
     DROP TEMPORARY TABLE IF EXISTS selected_drug_ids;
     CREATE TEMPORARY TABLE selected_drug_ids
-    SELECT CAST(split_value AS UNSIGNED) drug_id FROM splitResult;
+		SELECT CAST(split_value AS UNSIGNED) drug_id FROM splitResult;
     DROP TEMPORARY TABLE splitResult;
     DROP TEMPORARY TABLE IF EXISTS result;
 	CREATE TEMPORARY TABLE result
@@ -20,5 +20,6 @@ BEGIN
 END $$
 delimiter ;
 -- select * from master_drug_list;
-
--- CALL sp_drug_item_get_by_id ('101001||102001');
+-- select * from selected_drug_ids;
+-- select * from splitResult;
+-- CALL sp_drug_item_get_by_id (null);

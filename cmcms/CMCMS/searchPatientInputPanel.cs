@@ -50,11 +50,7 @@ namespace CMCMS
 
         private void button_search_reset_Click(object sender, EventArgs e)
         {
-            textBox_search_patientID.Clear();
-            textBox_search_IDNo.Clear();
-            textBox_search_phoneNo.Clear();
-            checkBox_search_inclDeceased.Checked = false;
-            listBox_search_result.Items.Clear();
+            reset();
         }
 
         public PatientObj getSelectedPatient()
@@ -62,5 +58,13 @@ namespace CMCMS
             return (PatientObj)(listBox_search_result.SelectedItem);
         }
 
+        public void reset()
+        {
+            textBox_search_patientID.Clear();
+            textBox_search_IDNo.Clear();
+            textBox_search_phoneNo.Clear();
+            checkBox_search_inclDeceased.Checked = false;
+            listBox_search_result.Items.Clear();
+        }
     }
 }

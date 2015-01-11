@@ -33,8 +33,8 @@
             this.button_selectPatient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_patDataReset = new System.Windows.Forms.Button();
+            this.button_patDataUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchPatientInputPanel1
@@ -63,6 +63,7 @@
             this.button_selectPatient.TabIndex = 2;
             this.button_selectPatient.Text = "選擇";
             this.button_selectPatient.UseVisualStyleBackColor = true;
+            this.button_selectPatient.Click += new System.EventHandler(this.button_selectPatient_Click);
             // 
             // label1
             // 
@@ -79,35 +80,37 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(320, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(521, 20);
+            this.label2.Size = new System.Drawing.Size(225, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "修改以下資料, 然後按確定儲存。若不更改密碼, 請空密碼及確認密碼欄。";
+            this.label2.Text = "修改以下資料, 然後按確定儲存";
             // 
-            // button1
+            // button_patDataReset
             // 
-            this.button1.Location = new System.Drawing.Point(324, 667);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 37);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "重設資料";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_patDataReset.Location = new System.Drawing.Point(324, 667);
+            this.button_patDataReset.Name = "button_patDataReset";
+            this.button_patDataReset.Size = new System.Drawing.Size(136, 37);
+            this.button_patDataReset.TabIndex = 5;
+            this.button_patDataReset.Text = "重設資料";
+            this.button_patDataReset.UseVisualStyleBackColor = true;
+            this.button_patDataReset.Click += new System.EventHandler(this.button_patDataReset_Click);
             // 
-            // button2
+            // button_patDataUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(1255, 667);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 37);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "確定";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_patDataUpdate.Location = new System.Drawing.Point(1255, 667);
+            this.button_patDataUpdate.Name = "button_patDataUpdate";
+            this.button_patDataUpdate.Size = new System.Drawing.Size(136, 37);
+            this.button_patDataUpdate.TabIndex = 6;
+            this.button_patDataUpdate.Text = "確定";
+            this.button_patDataUpdate.UseVisualStyleBackColor = true;
+            this.button_patDataUpdate.Click += new System.EventHandler(this.button_patDataUpdate_Click);
             // 
             // Patient_amdPatientData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 714);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_patDataUpdate);
+            this.Controls.Add(this.button_patDataReset);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_selectPatient);
@@ -115,8 +118,10 @@
             this.Controls.Add(this.searchPatientInputPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Patient_amdPatientData";
-            this.Text = "Patient_amdPatientData";
+            this.Text = "更改個人資料";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,8 +134,8 @@
         private System.Windows.Forms.Button button_selectPatient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_patDataReset;
+        private System.Windows.Forms.Button button_patDataUpdate;
 
     }
 }

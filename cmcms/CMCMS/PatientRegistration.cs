@@ -142,6 +142,11 @@ namespace CMCMS
             return PasswordHash.getHashedPw(textBox_patReg_password.Text);
         }
 
+        public String getPlainTextPassword()
+        {
+            return textBox_patReg_password.Text;
+        }
+
         public void setSelectedDrugList(String drugIds)
         {
             DrugMgr drugMgr = new DrugMgr();
@@ -160,6 +165,29 @@ namespace CMCMS
             }
 
             return isValid;
+        }
+
+        public void setPatientData(PatientObj pat)
+        {
+            DrugMgr drugMgr = new DrugMgr();
+            textBox_patReg_chiName.Text = pat.ChineseName;
+            textBox_patReg_engName.Text = pat.EnglishName;
+            if (pat.IdDocType == "HKID")
+                radioButton_IDNo.Checked = true;
+            else if (pat.IdDocType == "PASSPORT")
+                radioButton_passportNo.Checked = true;
+            textBox_patReg_HKID.Text = pat.IdDocNo;
+            textBox_patReg_phoneNo.Text = pat.PhoneNo;
+            dateTimePicker_DOB.Value = DateTime.ParseExact(pat.Dob, "dd/MM/yyyy", null);
+            if (pat.Sex == "M")
+                radioButton_male.Checked = true;
+            else if (pat.Sex == "F")
+                radioButton_female.Checked = true;
+            checkBox_g6pd.Checked = pat.IsG6PD;
+            textBox_patReg_addr.Text = pat.Addr;
+            textBox_patReg_password.Clear();
+            textBox_patReg_confirmPassword.Clear();
+            drugMgr.setDrugListBoxItemsByDrugIds(listBox_selectedAllergicDrug, pat.AllergicDrugIds);
         }
     }
 }

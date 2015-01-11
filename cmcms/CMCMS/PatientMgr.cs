@@ -26,11 +26,28 @@ namespace CMCMS
             if (pid.Length == 0)
                 pid = "NULL";
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_listbox_get (" + pid + ", '" + hkid + "', '" + phoneNo + "', " + (inclDeceased ? "1" : "0") + ")");
-            foreach (DataRow dr in data.Rows)
+            if (data != null)
             {
-                Listbox.Items.Add(new PatientObj(int.Parse(dr["patirnt_id"].ToString()), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["hashed_password"].ToString(), dr["id_doc_type"].ToString(), dr["id_doc_no"].ToString(), dr["phone_no"].ToString(), dr["dob"].ToString(), dr["sex"].ToString(), Convert.ToBoolean(dr["isG6PD"]), dr["addr"].ToString(), dr["allergic_drug_ids"].ToString(), Convert.ToBoolean(dr["isDeceased"]), dr["deceased_record_dtm"].ToString()));
-                //Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PatientObj(int.Parse(dr["patient_id"].ToString()), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["hashed_password"].ToString(), dr["id_doc_type"].ToString(), dr["id_doc_no"].ToString(), dr["phone_no"].ToString(), dr["dob"].ToString(), dr["sex"].ToString(), Convert.ToBoolean(dr["isG6PD"]), dr["addr"].ToString(), dr["allergic_drug_ids"].ToString(), Convert.ToBoolean(dr["isDeceased"]), dr["deceased_record_dtm"].ToString()));
+                    //Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+                }
             }
+        }
+
+        //amdPatientData
+        public bool amdPatientRecordByPatient(int patId, String chiName, String engName, String pw, String idDocType, String idNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, ref String statusMsg)
+        {
+            return amdPatientRecord(patId, chiName, engName, pw, idDocType, idNo, phoneNo, dob, sex, isG6PD, addr, allergicDrugIds, false, null, ref statusMsg);
+            
+        }
+
+        public bool amdPatientRecord(int patId, String chiName, String engName, String pw, String idDocType, String idNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, String deceasedRptDtm, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_patient_record (" + patId + ", '" + chiName + "', '" + engName + "', '" + pw + "', '" + idDocType + "', '" + idNo + "', '" + phoneNo + "', '" + dob + "', '" + sex + "', " + (isG6PD ? "1" : "0") + ", '" + addr + "', '" + allergicDrugIds + "', " + (isDeceased ? "1, '" + deceasedRptDtm + "'" : "0, NULL") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
     }
 }
