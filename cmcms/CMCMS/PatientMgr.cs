@@ -39,13 +39,14 @@ namespace CMCMS
         //amdPatientData
         public bool amdPatientRecordByPatient(int patId, String chiName, String engName, String pw, String idDocType, String idNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, ref String statusMsg)
         {
-            return amdPatientRecord(patId, chiName, engName, pw, idDocType, idNo, phoneNo, dob, sex, isG6PD, addr, allergicDrugIds, false, null, ref statusMsg);
-            
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_patient_record (" + patId + ", '" + chiName + "', '" + engName + "', '" + pw + "', '" + idDocType + "', '" + idNo + "', '" + phoneNo + "', '" + dob + "', '" + sex + "', " + (isG6PD ? "1" : "0") + ", '" + addr + "', '" + allergicDrugIds + "', " +  "0" + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
-        public bool amdPatientRecord(int patId, String chiName, String engName, String pw, String idDocType, String idNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, String deceasedRptDtm, ref String statusMsg)
+        public bool amdPatientRecord(int patId, String chiName, String engName, String pw, String idDocType, String idNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_patient_record (" + patId + ", '" + chiName + "', '" + engName + "', '" + pw + "', '" + idDocType + "', '" + idNo + "', '" + phoneNo + "', '" + dob + "', '" + sex + "', " + (isG6PD ? "1" : "0") + ", '" + addr + "', '" + allergicDrugIds + "', " + (isDeceased ? "1, '" + deceasedRptDtm + "'" : "0, NULL") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_patient_record (" + patId + ", '" + chiName + "', '" + engName + "', '" + pw + "', '" + idDocType + "', '" + idNo + "', '" + phoneNo + "', '" + dob + "', '" + sex + "', " + (isG6PD ? "1" : "0") + ", '" + addr + "', '" + allergicDrugIds + "', " + (isDeceased ? "1" : "0") + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }

@@ -18,13 +18,13 @@ namespace CMCMS
 
         private void button_newPatient_Click(object sender, EventArgs e)
         {
-            Patient_newPatient newPatForm = new Patient_newPatient();
+            NewPatientForm newPatForm = new NewPatientForm();
             newPatForm.ShowDialog();
         }
 
         private void button_amdPatientData_Click(object sender, EventArgs e)
         {
-            Patient_amdPatientData amdPatDataForm = new Patient_amdPatientData();
+            AmdPatientDataForm amdPatDataForm = new AmdPatientDataForm();
             amdPatDataForm.ShowDialog();
         }
     }

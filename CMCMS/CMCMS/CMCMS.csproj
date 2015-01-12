@@ -103,11 +103,11 @@
     <Compile Include="PatientRegistration.Designer.cs">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patient_amdPatientData.cs">
+    <Compile Include="AmdPatientDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patient_amdPatientData.Designer.cs">
-      <DependentUpon>Patient_amdPatientData.cs</DependentUpon>
+    <Compile Include="AmdPatientDataForm.Designer.cs">
+      <DependentUpon>AmdPatientDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Patient_mainMenu.cs">
       <SubType>Form</SubType>
@@ -115,11 +115,11 @@
     <Compile Include="Patient_mainMenu.Designer.cs">
       <DependentUpon>Patient_mainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patient_newPatient.cs">
+    <Compile Include="NewPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patient_newPatient.Designer.cs">
-      <DependentUpon>Patient_newPatient.cs</DependentUpon>
+    <Compile Include="NewPatientForm.Designer.cs">
+      <DependentUpon>NewPatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="permissibleValueObj.cs" />
     <Compile Include="Program.cs" />
@@ -131,6 +131,12 @@
       <DependentUpon>searchPatientInputPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="SubDrugObj.cs" />
+    <Compile Include="SystemAdmin_MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemAdmin_MainMenu.Designer.cs">
+      <DependentUpon>SystemAdmin_MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserClinicMgr.cs" />
     <Compile Include="UserObj.cs" />
     <Compile Include="Utilities.cs" />
@@ -149,14 +155,14 @@
     <EmbeddedResource Include="PatientRegistration.resx">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patient_amdPatientData.resx">
-      <DependentUpon>Patient_amdPatientData.cs</DependentUpon>
+    <EmbeddedResource Include="AmdPatientDataForm.resx">
+      <DependentUpon>AmdPatientDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Patient_mainMenu.resx">
       <DependentUpon>Patient_mainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patient_newPatient.resx">
-      <DependentUpon>Patient_newPatient.cs</DependentUpon>
+    <EmbeddedResource Include="NewPatientForm.resx">
+      <DependentUpon>NewPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,6 +176,9 @@
     </Compile>
     <EmbeddedResource Include="searchPatientInputPanel.resx">
       <DependentUpon>searchPatientInputPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemAdmin_MainMenu.resx">
+      <DependentUpon>SystemAdmin_MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">

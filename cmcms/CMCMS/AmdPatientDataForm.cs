@@ -9,12 +9,22 @@ using System.Windows.Forms;
 
 namespace CMCMS
 {
-    public partial class Patient_amdPatientData : Form
+    public partial class AmdPatientDataForm : Form
     {
         PatientObj pat;
-        public Patient_amdPatientData()
+        public AmdPatientDataForm()
         {
             InitializeComponent();
+            if (Login.user == null)
+            {
+                patientRegistration1.setShowDeceasedCtrl(false);
+                searchPatientInputPanel1.setShowInclDeceasedCB(false);
+            }
+            else
+            {
+                patientRegistration1.setShowDeceasedCtrl(true);
+                searchPatientInputPanel1.setShowInclDeceasedCB(true);
+            }
             pat = null;
         }
 
@@ -46,7 +56,10 @@ namespace CMCMS
             PatientMgr patMgr = new PatientMgr();
 
             bool isSuccess;
-            isSuccess = patMgr.amdPatientRecordByPatient(pat.PatientId, patientRegistration1.getChiName(), Utilities.stringDataParse4SQL(patientRegistration1.getEngName()), patientRegistration1.getHashedPassword(), patientRegistration1.getPIDDocType(), patientRegistration1.getPIDDocNo(), patientRegistration1.getPhoneNo(), patientRegistration1.getDOB(), patientRegistration1.getSex(), patientRegistration1.getIsG6PD(), Utilities.stringDataParse4SQL(patientRegistration1.getAddr().Trim()), patientRegistration1.getAllergicDrugsIdString(), ref statusMsg);
+            if (Login.user==null)
+                isSuccess = patMgr.amdPatientRecordByPatient(pat.PatientId, patientRegistration1.getChiName(), Utilities.stringDataParse4SQL(patientRegistration1.getEngName()), patientRegistration1.getHashedPassword(), patientRegistration1.getPIDDocType(), patientRegistration1.getPIDDocNo(), patientRegistration1.getPhoneNo(), patientRegistration1.getDOB(), patientRegistration1.getSex(), patientRegistration1.getIsG6PD(), Utilities.stringDataParse4SQL(patientRegistration1.getAddr().Trim()), patientRegistration1.getAllergicDrugsIdString(), ref statusMsg);
+            else
+                isSuccess = patMgr.amdPatientRecord(pat.PatientId, patientRegistration1.getChiName(), Utilities.stringDataParse4SQL(patientRegistration1.getEngName()), patientRegistration1.getHashedPassword(), patientRegistration1.getPIDDocType(), patientRegistration1.getPIDDocNo(), patientRegistration1.getPhoneNo(), patientRegistration1.getDOB(), patientRegistration1.getSex(), patientRegistration1.getIsG6PD(), Utilities.stringDataParse4SQL(patientRegistration1.getAddr().Trim()), patientRegistration1.getAllergicDrugsIdString(), patientRegistration1.getIsDeceased(), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);

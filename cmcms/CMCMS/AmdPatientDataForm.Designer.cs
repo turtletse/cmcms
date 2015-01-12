@@ -1,6 +1,6 @@
 ﻿namespace CMCMS
 {
-    partial class Patient_amdPatientData
+    partial class AmdPatientDataForm
     {
         /// <summary>
         /// Required designer variable.

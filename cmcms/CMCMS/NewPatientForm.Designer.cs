@@ -1,6 +1,6 @@
 ﻿namespace CMCMS
 {
-    partial class Patient_newPatient
+    partial class NewPatientForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Patient_newPatient";
-            this.Text = "Patient_newPatient";
+            this.Text = "新登記病人";
             this.ResumeLayout(false);
 
         }

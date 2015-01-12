@@ -14,8 +14,7 @@ CREATE PROCEDURE sp_update_patient_record (
     IN in_isG6PD INT(1),
     IN in_addr varchar(300),
     IN in_allergic_drug_ids varchar(1000),
-    IN in_isDeceased int(1),
-    IN in_deceased_record_dtm VARCHAR(20)
+    IN in_isDeceased int(1)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -50,7 +49,10 @@ BEGIN
 				addr = in_addr,
 				allergic_drug_ids = in_allergic_drug_ids,
                 isDeceased = in_isDeceased,
-                deceased_record_dtm = STR_TO_DATE(in_deceased_record_dtm, '%d/%m/%Y')
+                deceased_record_dtm = CASE
+					WHEN in_isDeceased = 0 THEN null
+                    WHEN in_isDeceased = 1 then NOW()
+				END
 			WHERE patient_id = in_patient_id;
 		COMMIT;
         

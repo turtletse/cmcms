@@ -36,7 +36,7 @@
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.button_reset = new System.Windows.Forms.Button();
             this.button_login = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_patSys = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox_role = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -111,14 +111,15 @@
             this.button_login.UseVisualStyleBackColor = true;
             this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
-            // button1
+            // button_patSys
             // 
-            this.button1.Location = new System.Drawing.Point(131, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 33);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "病人系統";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_patSys.Location = new System.Drawing.Point(131, 108);
+            this.button_patSys.Name = "button_patSys";
+            this.button_patSys.Size = new System.Drawing.Size(94, 33);
+            this.button_patSys.TabIndex = 8;
+            this.button_patSys.Text = "病人系統";
+            this.button_patSys.UseVisualStyleBackColor = true;
+            this.button_patSys.Click += new System.EventHandler(this.button_patSys_Click);
             // 
             // label4
             // 
@@ -144,7 +145,7 @@
             this.ClientSize = new System.Drawing.Size(360, 154);
             this.Controls.Add(this.comboBox_role);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_patSys);
             this.Controls.Add(this.button_login);
             this.Controls.Add(this.button_reset);
             this.Controls.Add(this.textBox_password);
@@ -174,7 +175,7 @@
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.Button button_reset;
         private System.Windows.Forms.Button button_login;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_patSys;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox_role;
     }

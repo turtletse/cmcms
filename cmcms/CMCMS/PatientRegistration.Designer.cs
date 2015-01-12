@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_patReg_confirmPassword = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_patReg_password = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.textBox_patReg_addr = new System.Windows.Forms.TextBox();
             this.dateTimePicker_DOB = new System.Windows.Forms.DateTimePicker();
             this.textBox_patReg_phoneNo = new System.Windows.Forms.TextBox();
@@ -56,10 +60,8 @@
             this.button_removeSelectedDrug = new System.Windows.Forms.Button();
             this.button_selectAllergicDrug = new System.Windows.Forms.Button();
             this.DSP_allergic = new CMCMS.DrugSelectionPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox_patReg_password = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox_patReg_confirmPassword = new System.Windows.Forms.TextBox();
+            this.checkBox_isDeceased = new System.Windows.Forms.CheckBox();
+            this.label_deceasedRptDate = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,6 +70,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_deceasedRptDate);
+            this.groupBox1.Controls.Add(this.checkBox_isDeceased);
             this.groupBox1.Controls.Add(this.textBox_patReg_confirmPassword);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.textBox_patReg_password);
@@ -93,6 +97,40 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "個人資料";
+            // 
+            // textBox_patReg_confirmPassword
+            // 
+            this.textBox_patReg_confirmPassword.Location = new System.Drawing.Point(439, 145);
+            this.textBox_patReg_confirmPassword.Name = "textBox_patReg_confirmPassword";
+            this.textBox_patReg_confirmPassword.Size = new System.Drawing.Size(216, 26);
+            this.textBox_patReg_confirmPassword.TabIndex = 21;
+            this.textBox_patReg_confirmPassword.UseSystemPasswordChar = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(352, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 20);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "確認密碼: ";
+            // 
+            // textBox_patReg_password
+            // 
+            this.textBox_patReg_password.Location = new System.Drawing.Point(62, 145);
+            this.textBox_patReg_password.Name = "textBox_patReg_password";
+            this.textBox_patReg_password.Size = new System.Drawing.Size(242, 26);
+            this.textBox_patReg_password.TabIndex = 19;
+            this.textBox_patReg_password.UseSystemPasswordChar = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 20);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "密碼: ";
             // 
             // textBox_patReg_addr
             // 
@@ -345,39 +383,23 @@
             this.DSP_allergic.Size = new System.Drawing.Size(829, 371);
             this.DSP_allergic.TabIndex = 0;
             // 
-            // label10
+            // checkBox_isDeceased
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 148);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 20);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "密碼: ";
+            this.checkBox_isDeceased.AutoSize = true;
+            this.checkBox_isDeceased.Location = new System.Drawing.Point(712, 147);
+            this.checkBox_isDeceased.Name = "checkBox_isDeceased";
+            this.checkBox_isDeceased.Size = new System.Drawing.Size(60, 24);
+            this.checkBox_isDeceased.TabIndex = 22;
+            this.checkBox_isDeceased.Text = "已故";
+            this.checkBox_isDeceased.UseVisualStyleBackColor = true;
             // 
-            // textBox_patReg_password
+            // label_deceasedRptDate
             // 
-            this.textBox_patReg_password.Location = new System.Drawing.Point(62, 145);
-            this.textBox_patReg_password.Name = "textBox_patReg_password";
-            this.textBox_patReg_password.Size = new System.Drawing.Size(312, 26);
-            this.textBox_patReg_password.TabIndex = 19;
-            this.textBox_patReg_password.UseSystemPasswordChar = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(477, 148);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 20);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "確認密碼: ";
-            // 
-            // textBox_patReg_confirmPassword
-            // 
-            this.textBox_patReg_confirmPassword.Location = new System.Drawing.Point(564, 145);
-            this.textBox_patReg_confirmPassword.Name = "textBox_patReg_confirmPassword";
-            this.textBox_patReg_confirmPassword.Size = new System.Drawing.Size(312, 26);
-            this.textBox_patReg_confirmPassword.TabIndex = 21;
-            this.textBox_patReg_confirmPassword.UseSystemPasswordChar = true;
+            this.label_deceasedRptDate.AutoSize = true;
+            this.label_deceasedRptDate.Location = new System.Drawing.Point(778, 151);
+            this.label_deceasedRptDate.Name = "label_deceasedRptDate";
+            this.label_deceasedRptDate.Size = new System.Drawing.Size(0, 20);
+            this.label_deceasedRptDate.TabIndex = 23;
             // 
             // PatientRegistration
             // 
@@ -436,5 +458,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox_patReg_password;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label_deceasedRptDate;
+        private System.Windows.Forms.CheckBox checkBox_isDeceased;
     }
 }

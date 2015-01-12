@@ -11,12 +11,29 @@ namespace CMCMS
 {
     public partial class PatientRegistration : UserControl
     {
+        bool showDeceasedCtrl = false;
         public PatientRegistration()
         {
             InitializeComponent();
             DSP_allergic.setShowDeletedItemCB(false);
             DSP_allergic.setShowDeletedItem(true);
             DSP_allergic.setSubDrugEnabled(false);
+            setShowDeceasedCtrl(false);
+        }
+
+        public void setShowDeceasedCtrl(bool showDeceasedCtrl)
+        {
+            this.showDeceasedCtrl = showDeceasedCtrl;
+            if (showDeceasedCtrl)
+            {
+                checkBox_isDeceased.Show();
+                label_deceasedRptDate.Show();
+            }
+            else
+            {
+                checkBox_isDeceased.Hide();
+                label_deceasedRptDate.Hide();
+            }
         }
 
         private void PatientRegistration_Load(object sender, EventArgs e)
@@ -43,6 +60,8 @@ namespace CMCMS
             listBox_selectedAllergicDrug.Items.Clear();
             textBox_patReg_password.Clear();
             textBox_patReg_confirmPassword.Clear();
+            checkBox_isDeceased.Checked = false;
+            label_deceasedRptDate.Text = "";
         }
 
         private void button_selectAllergicDrug_Click(object sender, EventArgs e)
@@ -149,6 +168,11 @@ namespace CMCMS
             return textBox_patReg_password.Text;
         }
 
+        public bool getIsDeceased()
+        {
+            return checkBox_isDeceased.Checked;
+        }
+
         public void setSelectedDrugList(String drugIds)
         {
             DrugMgr drugMgr = new DrugMgr();
@@ -190,6 +214,11 @@ namespace CMCMS
             textBox_patReg_password.Clear();
             textBox_patReg_confirmPassword.Clear();
             drugMgr.setDrugListBoxItemsByDrugIds(listBox_selectedAllergicDrug, pat.AllergicDrugIds);
+            checkBox_isDeceased.Checked = pat.IsDeceased;
+            if (pat.IsDeceased)
+                label_deceasedRptDate.Text = "紀錄於" + pat.DeceasedRecordDtm;
+            else
+                label_deceasedRptDate.Text = "";
         }
     }
 }

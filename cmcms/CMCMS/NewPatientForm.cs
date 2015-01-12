@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CMCMS
 {
-    public partial class Patient_newPatient : Form
+    public partial class NewPatientForm : Form
     {
-        public Patient_newPatient()
+        public NewPatientForm()
         {
             InitializeComponent();
         }
