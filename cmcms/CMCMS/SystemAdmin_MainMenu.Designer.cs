@@ -33,6 +33,7 @@
             this.button_amdPatData = new System.Windows.Forms.Button();
             this.button_drugAdm = new System.Windows.Forms.Button();
             this.button_newClinic = new System.Windows.Forms.Button();
+            this.button_amdClinic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -86,11 +87,22 @@
             this.button_newClinic.UseVisualStyleBackColor = true;
             this.button_newClinic.Click += new System.EventHandler(this.button_newClinic_Click);
             // 
+            // button_amdClinic
+            // 
+            this.button_amdClinic.Location = new System.Drawing.Point(19, 292);
+            this.button_amdClinic.Name = "button_amdClinic";
+            this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
+            this.button_amdClinic.TabIndex = 8;
+            this.button_amdClinic.Text = "更改診所資料";
+            this.button_amdClinic.UseVisualStyleBackColor = true;
+            this.button_amdClinic.Click += new System.EventHandler(this.button_amdClinic_Click);
+            // 
             // SystemAdmin_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 548);
+            this.Controls.Add(this.button_amdClinic);
             this.Controls.Add(this.button_newClinic);
             this.Controls.Add(this.button_drugAdm);
             this.Controls.Add(this.button_amdPatData);
@@ -113,6 +125,7 @@
         private System.Windows.Forms.Button button_amdPatData;
         private System.Windows.Forms.Button button_drugAdm;
         private System.Windows.Forms.Button button_newClinic;
+        private System.Windows.Forms.Button button_amdClinic;
 
     }
 }

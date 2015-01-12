@@ -40,6 +40,12 @@ namespace CMCMS
             newClinicForm.ShowDialog();
         }
 
+        private void button_amdClinic_Click(object sender, EventArgs e)
+        {
+            AmdClinicDataForm amdClinicDataForm = new AmdClinicDataForm();
+            amdClinicDataForm.ShowDialog();
+        }
+
 
     }
 }

@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmdClinicDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmdClinicDataForm.Designer.cs">
+      <DependentUpon>AmdClinicDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClinicObj.cs" />
     <Compile Include="ClinicRegistration.cs">
       <SubType>UserControl</SubType>
@@ -152,6 +158,9 @@
     <Compile Include="UserClinicMgr.cs" />
     <Compile Include="UserObj.cs" />
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="AmdClinicDataForm.resx">
+      <DependentUpon>AmdClinicDataForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClinicRegistration.resx">
       <DependentUpon>ClinicRegistration.cs</DependentUpon>
     </EmbeddedResource>

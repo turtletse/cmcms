@@ -1,7 +1,7 @@
-DROP PROCEDURE IF EXISTS sp_insert_clinic;
+DROP PROCEDURE IF EXISTS sp_update_clinic;
 
 DELIMITER $$
-CREATE PROCEDURE sp_insert_clinic (
+CREATE PROCEDURE sp_update_clinic (
 	IN in_clinic_id varchar(10),
     IN in_clinic_chin_name varchar(60),
     IN in_clinic_eng_name varchar(255),
@@ -18,27 +18,20 @@ BEGIN
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	END;
-	if (select count(*) from clinic where clinic_id = in_clinic_id) > 0 THEN
-        SET curr_status_id = 7;
+	if (select count(*) from clinic where clinic_id = in_clinic_id) <> 1 THEN
+        SET curr_status_id = 8;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	ELSE
 		-- SET pid = get_new_patient_id();
 		START TRANSACTION;
-            INSERT INTO clinic (
-				clinic_id,
-				clinic_chin_name,
-				clinic_eng_name,
-				clinic_addr,
-				clinic_phone_no,
-				isSuspended)
-			VALUES (
-				UPPER(in_clinic_id),
-				in_clinic_chin_name,
-				UPPER(in_clinic_eng_name),
-				in_clinic_addr,
-				in_clinic_phone_no,
-				in_isSuspended
-            );
+            UPDATE clinic
+            SET
+				clinic_chin_name = in_clinic_chin_name,
+				clinic_eng_name =UPPER(in_clinic_eng_name),
+				clinic_addr = in_clinic_addr,
+				clinic_phone_no = in_clinic_phone_no,
+				isSuspended = in_isSuspended
+			WHERE clinic_id = in_clinic_id;
 		COMMIT;
         
         SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;

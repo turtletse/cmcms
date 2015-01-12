@@ -54,5 +54,23 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
+        //AmdClinic
+        public void setAmdClinicCombo(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_clinic_get ('"+Login.clinic.ClinicId+"')");
+            foreach (DataRow dr in data.Rows)
+            {
+                cb.Items.Add(new ClinicObj(dr["clinic_id"].ToString(), dr["clinic_chin_name"].ToString(), dr["clinic_eng_name"].ToString(), dr["clinic_addr"].ToString(), dr["clinic_phone_no"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
+            }
+        }
+
+        public bool updateClinic(String clinicId, String chiName, String engName, String addr, String phoneNo, bool isSuspended, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_clinic ('" + clinicId + "', '" + chiName + "', '" + engName + "', '" + addr + "', '" + phoneNo + "', " + (isSuspended ? "1" : "0") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
     }
 }

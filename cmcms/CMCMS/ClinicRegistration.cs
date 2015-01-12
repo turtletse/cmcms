@@ -19,6 +19,7 @@ namespace CMCMS
 
         public void reset()
         {
+            textBox_clinicId.ReadOnly = false;
             textBox_clinicId.Clear();
             textBox_chiName.Clear();
             textBox_engName.Clear();
@@ -68,6 +69,7 @@ namespace CMCMS
         public void setClinic(ClinicObj clinic)
         {
             textBox_clinicId.Text = clinic.ClinicId;
+            textBox_clinicId.ReadOnly = true;
             textBox_chiName.Text = clinic.ChineseName;
             textBox_engName.Text = clinic.EnglishName;
             textBox_addr.Text = clinic.Addr;
