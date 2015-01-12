@@ -12,14 +12,12 @@ namespace CMCMS
         private String chineseName;
         private String englishName;
         private String regNo;
-        private String lastLoginDtm;
-        private String lastLoginClinicId;
         private String lastLogoutDtm;
         private String lastLogoutClinicId;
         private int currentLoginRole;
         private String currentLoginClinicId;
 
-        public UserObj(String userId, String hashedPw, String chineseName, String englishName, String regNo, String lastLoginDtm, String lastLoginClinicId,String lastLogoutDtm, String lastLogoutClinicId, int currentLoginRole, String currentLoginClinicId)
+        public UserObj(String userId, String hashedPw, String chineseName, String englishName, String regNo, String lastLogoutDtm, String lastLogoutClinicId, int currentLoginRole, String currentLoginClinicId)
             : base(userId + " " + chineseName, userId)
         {
             this.userId = userId;
@@ -27,8 +25,6 @@ namespace CMCMS
             this.chineseName = chineseName;
             this.englishName = englishName;
             this.regNo = regNo;
-            this.lastLoginDtm = lastLoginDtm;
-            this.lastLoginClinicId = lastLoginClinicId;
             this.lastLogoutDtm = lastLogoutDtm;
             this.lastLogoutClinicId = lastLogoutClinicId;
             this.currentLoginRole = currentLoginRole;
@@ -57,18 +53,6 @@ namespace CMCMS
         {
             get { return lastLogoutDtm; }
             set { lastLogoutDtm = value; }
-        }
-
-        public String LastLoginClinicId
-        {
-            get { return lastLoginClinicId; }
-            set { lastLoginClinicId = value; }
-        }
-
-        public String LastLoginDtm
-        {
-            get { return lastLoginDtm; }
-            set { lastLoginDtm = value; }
         }
 
         public String RegNo

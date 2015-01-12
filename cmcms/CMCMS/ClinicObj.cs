@@ -14,7 +14,7 @@ namespace CMCMS
         private String phoneNo;
 
         public ClinicObj(String clinicId, String chineseName, String englishName, String addr, String phoneNo)
-            : base(clinicId + " " + chineseName, clinicId)
+            : base(clinicId, clinicId)
         {
             this.clinicId = clinicId;
             this.chineseName = chineseName;

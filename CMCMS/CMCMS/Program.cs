@@ -18,7 +18,8 @@ namespace CMCMS
             //Application.Run(new DrugAdmin());
             //Application.Run(new Patient_newPatient());
             //Application.Run(new Patient_amdPatientData());
-            Application.Run(new Patient_mainMenu());
+            //Application.Run(new Patient_mainMenu());
+            Application.Run(new Login());
         }
     }
 }

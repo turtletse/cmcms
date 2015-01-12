@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClinicObj.cs" />
     <Compile Include="DBMgr.cs" />
     <Compile Include="DrugAdmin.cs">
       <SubType>Form</SubType>
@@ -81,6 +82,12 @@
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="IDSPSelectedDrugChange.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPatient.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,12 +131,17 @@
       <DependentUpon>searchPatientInputPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="SubDrugObj.cs" />
+    <Compile Include="UserClinicMgr.cs" />
+    <Compile Include="UserObj.cs" />
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="DrugAdmin.resx">
       <DependentUpon>DrugAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrugSelectionPanel.resx">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>

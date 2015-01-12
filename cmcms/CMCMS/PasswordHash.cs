@@ -10,19 +10,15 @@ namespace CMCMS
     {
         public static String getHashedPw(string plainTextPw)
         {
-            UnicodeEncoding UE = new UnicodeEncoding();
-            byte[] hashValue;
-            byte[] message = UE.GetBytes(plainTextPw);
-
-            SHA256Managed hashString = new SHA256Managed();
-            String hex = "";
-
-            hashValue = hashString.ComputeHash(message);
-            foreach (byte x in hashValue)
+            byte[] bytes = Encoding.UTF8.GetBytes(plainTextPw);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
             {
-                hex += String.Format("{0:x2}", x);
+                hashString += String.Format("{0:x2}", x);
             }
-            return hex;
+            return hashString;
         }
     }
 }
