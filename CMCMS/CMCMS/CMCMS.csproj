@@ -66,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClinicObj.cs" />
+    <Compile Include="ClinicRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClinicRegistration.Designer.cs">
+      <DependentUpon>ClinicRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBMgr.cs" />
     <Compile Include="DrugAdmin.cs">
       <SubType>Form</SubType>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewClinicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewClinicForm.Designer.cs">
+      <DependentUpon>NewClinicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NewPatient.cs">
       <SubType>UserControl</SubType>
@@ -140,6 +152,9 @@
     <Compile Include="UserClinicMgr.cs" />
     <Compile Include="UserObj.cs" />
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="ClinicRegistration.resx">
+      <DependentUpon>ClinicRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DrugAdmin.resx">
       <DependentUpon>DrugAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewClinicForm.resx">
+      <DependentUpon>NewClinicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>

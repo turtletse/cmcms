@@ -30,8 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button_NewPatient = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_amdPatData = new System.Windows.Forms.Button();
             this.button_drugAdm = new System.Windows.Forms.Button();
+            this.button_newClinic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -43,7 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(236, 31);
             this.label1.TabIndex = 3;
-            this.label1.Text = "病人系統 - 主目錄";
+            this.label1.Text = "系統管理 - 主目錄";
             // 
             // button_NewPatient
             // 
@@ -55,15 +56,15 @@
             this.button_NewPatient.UseVisualStyleBackColor = true;
             this.button_NewPatient.Click += new System.EventHandler(this.button_NewPatient_Click);
             // 
-            // button1
+            // button_amdPatData
             // 
-            this.button1.Location = new System.Drawing.Point(19, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 51);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "更改病人資料";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_amdPatData.Location = new System.Drawing.Point(19, 121);
+            this.button_amdPatData.Name = "button_amdPatData";
+            this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
+            this.button_amdPatData.TabIndex = 5;
+            this.button_amdPatData.Text = "更改病人資料";
+            this.button_amdPatData.UseVisualStyleBackColor = true;
+            this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
             // 
             // button_drugAdm
             // 
@@ -75,13 +76,24 @@
             this.button_drugAdm.UseVisualStyleBackColor = true;
             this.button_drugAdm.Click += new System.EventHandler(this.button_drugAdm_Click);
             // 
+            // button_newClinic
+            // 
+            this.button_newClinic.Location = new System.Drawing.Point(19, 235);
+            this.button_newClinic.Name = "button_newClinic";
+            this.button_newClinic.Size = new System.Drawing.Size(221, 51);
+            this.button_newClinic.TabIndex = 7;
+            this.button_newClinic.Text = "新増診所";
+            this.button_newClinic.UseVisualStyleBackColor = true;
+            this.button_newClinic.Click += new System.EventHandler(this.button_newClinic_Click);
+            // 
             // SystemAdmin_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 548);
+            this.Controls.Add(this.button_newClinic);
             this.Controls.Add(this.button_drugAdm);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_amdPatData);
             this.Controls.Add(this.button_NewPatient);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,8 +110,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_NewPatient;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_amdPatData;
         private System.Windows.Forms.Button button_drugAdm;
+        private System.Windows.Forms.Button button_newClinic;
 
     }
 }

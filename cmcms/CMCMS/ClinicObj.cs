@@ -12,8 +12,9 @@ namespace CMCMS
         private String englishName;
         private String addr;
         private String phoneNo;
+        private bool isSuspended;
 
-        public ClinicObj(String clinicId, String chineseName, String englishName, String addr, String phoneNo)
+        public ClinicObj(String clinicId, String chineseName, String englishName, String addr, String phoneNo, bool isSuspended)
             : base(clinicId, clinicId)
         {
             this.clinicId = clinicId;
@@ -21,6 +22,13 @@ namespace CMCMS
             this.englishName = englishName;
             this.addr = addr;
             this.phoneNo = phoneNo;
+            this.isSuspended = isSuspended;
+        }
+        
+        public bool IsSuspended
+        {
+            get { return isSuspended; }
+            set { isSuspended = value; }
         }
 
         public String PhoneNo

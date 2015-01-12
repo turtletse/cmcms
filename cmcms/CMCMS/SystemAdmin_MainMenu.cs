@@ -22,7 +22,7 @@ namespace CMCMS
             newPat.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_amdPatData_Click(object sender, EventArgs e)
         {
             AmdPatientDataForm amdPatDataForm = new AmdPatientDataForm();
             amdPatDataForm.ShowDialog();
@@ -32,6 +32,12 @@ namespace CMCMS
         {
             DrugAdmin drugAdm = new DrugAdmin();
             drugAdm.ShowDialog();
+        }
+
+        private void button_newClinic_Click(object sender, EventArgs e)
+        {
+            NewClinicForm newClinicForm = new NewClinicForm();
+            newClinicForm.ShowDialog();
         }
 
 

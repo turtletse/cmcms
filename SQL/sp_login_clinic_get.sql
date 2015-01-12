@@ -7,7 +7,8 @@ BEGIN
 		clinic_chin_name,
 		clinic_eng_name,
 		clinic_addr,
-		clinic_phone_no
+		clinic_phone_no,
+        isSuspended
 	from clinic
 	ORDER BY clinic_id;
 END $$
