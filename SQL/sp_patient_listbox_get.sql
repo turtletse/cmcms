@@ -31,4 +31,4 @@ BEGIN
 END $$
 delimiter ;
 
--- CALL sp_patient_listbox_get( NULL , '', '34567890', 0)
+-- CALL sp_patient_listbox_get( 1, '' , '', 1)
