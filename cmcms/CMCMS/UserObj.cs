@@ -16,8 +16,9 @@ namespace CMCMS
         private String lastLogoutClinicId;
         private int currentLoginRole;
         private String currentLoginClinicId;
+        private bool isSuspended;
 
-        public UserObj(String userId, String hashedPw, String chineseName, String englishName, String regNo, String lastLogoutDtm, String lastLogoutClinicId, int currentLoginRole, String currentLoginClinicId)
+        public UserObj(String userId, String hashedPw, String chineseName, String englishName, String regNo, String lastLogoutDtm, String lastLogoutClinicId, int currentLoginRole, String currentLoginClinicId, bool isSuspended)
             : base(userId + " " + chineseName, userId)
         {
             this.userId = userId;
@@ -29,6 +30,17 @@ namespace CMCMS
             this.lastLogoutClinicId = lastLogoutClinicId;
             this.currentLoginRole = currentLoginRole;
             this.currentLoginClinicId = currentLoginClinicId;
+        }
+
+        public UserObj()
+        {
+            // TODO: Complete member initialization
+        }
+
+        public bool IsSuspended
+        {
+            get { return isSuspended; }
+            set { isSuspended = value; }
         }
 
         public String CurrentLoginClinicId

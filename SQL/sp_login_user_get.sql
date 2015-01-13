@@ -15,7 +15,8 @@ BEGIN
         DATE_FORMAT(last_logout_dtm, '%d/%m/%Y %T') last_logout_dtm,
         last_logout_clinic_id,
         clinic_id current_login_clinic_id,
-        user_role_id current_login_role_id
+        user_role_id current_login_role_id,
+        isSuspended
 	from user_account natural join user_clinic_role_mapping
 	where 
 		user_id = in_user_id

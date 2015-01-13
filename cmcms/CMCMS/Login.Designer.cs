@@ -68,11 +68,12 @@
             // 
             // comboBox_clinicId
             // 
+            this.comboBox_clinicId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_clinicId.FormattingEnabled = true;
             this.comboBox_clinicId.Location = new System.Drawing.Point(231, 6);
             this.comboBox_clinicId.Name = "comboBox_clinicId";
             this.comboBox_clinicId.Size = new System.Drawing.Size(112, 28);
-            this.comboBox_clinicId.TabIndex = 3;
+            this.comboBox_clinicId.TabIndex = 2;
             // 
             // label3
             // 
@@ -88,7 +89,7 @@
             this.textBox_password.Location = new System.Drawing.Point(95, 76);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(248, 26);
-            this.textBox_password.TabIndex = 5;
+            this.textBox_password.TabIndex = 4;
             this.textBox_password.UseSystemPasswordChar = true;
             // 
             // button_reset
@@ -96,7 +97,7 @@
             this.button_reset.Location = new System.Drawing.Point(16, 108);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(75, 33);
-            this.button_reset.TabIndex = 6;
+            this.button_reset.TabIndex = 5;
             this.button_reset.Text = "重置";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -116,7 +117,7 @@
             this.button_patSys.Location = new System.Drawing.Point(131, 108);
             this.button_patSys.Name = "button_patSys";
             this.button_patSys.Size = new System.Drawing.Size(94, 33);
-            this.button_patSys.TabIndex = 8;
+            this.button_patSys.TabIndex = 6;
             this.button_patSys.Text = "病人系統";
             this.button_patSys.UseVisualStyleBackColor = true;
             this.button_patSys.Click += new System.EventHandler(this.button_patSys_Click);
@@ -132,11 +133,12 @@
             // 
             // comboBox_role
             // 
+            this.comboBox_role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_role.FormattingEnabled = true;
             this.comboBox_role.Location = new System.Drawing.Point(95, 40);
             this.comboBox_role.Name = "comboBox_role";
             this.comboBox_role.Size = new System.Drawing.Size(248, 28);
-            this.comboBox_role.TabIndex = 10;
+            this.comboBox_role.TabIndex = 3;
             // 
             // Login
             // 

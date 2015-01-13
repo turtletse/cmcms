@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace CMCMS
 {
-    public partial class searchPatientInputPanel : UserControl
+    public partial class SearchPatientInputPanel : UserControl
     {
         bool showInclDeceasedCB = false;
         bool inclDeceased = false;
-        public searchPatientInputPanel()
+        public SearchPatientInputPanel()
         {
             InitializeComponent();
             checkBox_search_inclDeceased.Checked = inclDeceased;

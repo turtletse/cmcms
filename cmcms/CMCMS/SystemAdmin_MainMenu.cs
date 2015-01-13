@@ -46,6 +46,12 @@ namespace CMCMS
             amdClinicDataForm.ShowDialog();
         }
 
+        private void button_userAdm_Click(object sender, EventArgs e)
+        {
+            UserAdm userAdm = new UserAdm();
+            userAdm.ShowDialog();
+        }
+
 
     }
 }

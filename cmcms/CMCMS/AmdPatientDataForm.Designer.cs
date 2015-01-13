@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.searchPatientInputPanel1 = new CMCMS.searchPatientInputPanel();
+            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.patientRegistration1 = new CMCMS.PatientRegistration();
             this.button_selectPatient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -129,7 +129,7 @@
 
         #endregion
 
-        private searchPatientInputPanel searchPatientInputPanel1;
+        private SearchPatientInputPanel searchPatientInputPanel1;
         private PatientRegistration patientRegistration1;
         private System.Windows.Forms.Button button_selectPatient;
         private System.Windows.Forms.Label label1;

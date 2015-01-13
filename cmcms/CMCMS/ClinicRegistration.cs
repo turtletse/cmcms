@@ -30,7 +30,7 @@ namespace CMCMS
 
         public void setSuspendedCBVisibility()
         {
-            if (Login.user!=null && Login.user.CurrentLoginRole == 4)
+            if (Login.user!=null && Login.user.CurrentLoginRole == 40)
                 checkBox_isSuspended.Show();
             else
                 checkBox_isSuspended.Hide();

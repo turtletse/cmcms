@@ -112,6 +112,12 @@
     <Compile Include="NewPatient.Designer.cs">
       <DependentUpon>NewPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserAdm.Designer.cs">
+      <DependentUpon>UserAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="PatientMgr.cs" />
     <Compile Include="PatientObj.cs" />
@@ -139,14 +145,14 @@
     <Compile Include="NewPatientForm.Designer.cs">
       <DependentUpon>NewPatientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="permissibleValueObj.cs" />
+    <Compile Include="PermissibleValueObj.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="searchPatientInputPanel.cs">
+    <Compile Include="SearchPatientInputPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="searchPatientInputPanel.Designer.cs">
-      <DependentUpon>searchPatientInputPanel.cs</DependentUpon>
+    <Compile Include="SearchPatientInputPanel.Designer.cs">
+      <DependentUpon>SearchPatientInputPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="SubDrugObj.cs" />
     <Compile Include="SystemAdmin_MainMenu.cs">
@@ -157,6 +163,12 @@
     </Compile>
     <Compile Include="UserClinicMgr.cs" />
     <Compile Include="UserObj.cs" />
+    <Compile Include="UserRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserRegistration.Designer.cs">
+      <DependentUpon>UserRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="AmdClinicDataForm.resx">
       <DependentUpon>AmdClinicDataForm.cs</DependentUpon>
@@ -178,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAdm.resx">
+      <DependentUpon>UserAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientRegistration.resx">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
@@ -201,11 +216,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="searchPatientInputPanel.resx">
-      <DependentUpon>searchPatientInputPanel.cs</DependentUpon>
+    <EmbeddedResource Include="SearchPatientInputPanel.resx">
+      <DependentUpon>SearchPatientInputPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemAdmin_MainMenu.resx">
       <DependentUpon>SystemAdmin_MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegistration.resx">
+      <DependentUpon>UserRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">

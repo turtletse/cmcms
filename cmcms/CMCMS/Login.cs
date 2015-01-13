@@ -12,8 +12,8 @@ namespace CMCMS
     public partial class Login : Form
     {
         UserClinicMgr ucMgr = new UserClinicMgr();
-        public static UserObj user;
-        public static ClinicObj clinic;
+        public static UserObj user = new UserObj();
+        public static ClinicObj clinic = new ClinicObj ();
         public Login()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace CMCMS
             {
                 if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
                 {
-                    if (user.CurrentLoginRole == 4)
+                    if (user.CurrentLoginRole == 40)
                     {
                         SystemAdmin_MainMenu sysAdmMainMenu = new SystemAdmin_MainMenu();
                         this.Hide();

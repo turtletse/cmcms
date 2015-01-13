@@ -19,3 +19,5 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.SystemAdmin_Ma
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.ClinicRegistration.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.NewClinicForm.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.AmdClinicDataForm.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.UserRegistration.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.UserAdm.resources

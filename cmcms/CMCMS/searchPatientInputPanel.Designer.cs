@@ -1,6 +1,6 @@
 ﻿namespace CMCMS
 {
-    partial class searchPatientInputPanel
+    partial class SearchPatientInputPanel
     {
         /// <summary> 
         /// Required designer variable.
