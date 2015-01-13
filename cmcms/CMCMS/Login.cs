@@ -13,7 +13,7 @@ namespace CMCMS
     {
         UserClinicMgr ucMgr = new UserClinicMgr();
         public static UserObj user = new UserObj();
-        public static ClinicObj clinic = new ClinicObj ();
+        public static ClinicObj clinic = new ClinicObj();
         public Login()
         {
             InitializeComponent();

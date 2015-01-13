@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.userRegistration_newUser = new CMCMS.UserRegistration();
             this.button_newUser_reset = new System.Windows.Forms.Button();
             this.button_newUser = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_newUser = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.userRegistration_newUser = new CMCMS.UserRegistration();
             this.tabControl1.SuspendLayout();
             this.tabPage_newUser.SuspendLayout();
             this.SuspendLayout();
@@ -47,15 +47,6 @@
             this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "新增用戶";
-            // 
-            // userRegistration_newUser
-            // 
-            this.userRegistration_newUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userRegistration_newUser.Location = new System.Drawing.Point(7, 28);
-            this.userRegistration_newUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.userRegistration_newUser.Name = "userRegistration_newUser";
-            this.userRegistration_newUser.Size = new System.Drawing.Size(701, 144);
-            this.userRegistration_newUser.TabIndex = 1;
             // 
             // button_newUser_reset
             // 
@@ -89,9 +80,9 @@
             // 
             // tabPage_newUser
             // 
+            this.tabPage_newUser.Controls.Add(this.userRegistration_newUser);
             this.tabPage_newUser.Controls.Add(this.label1);
             this.tabPage_newUser.Controls.Add(this.button_newUser);
-            this.tabPage_newUser.Controls.Add(this.userRegistration_newUser);
             this.tabPage_newUser.Controls.Add(this.button_newUser_reset);
             this.tabPage_newUser.Location = new System.Drawing.Point(4, 29);
             this.tabPage_newUser.Name = "tabPage_newUser";
@@ -106,12 +97,21 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(844, 266);
+            this.tabPage2.Size = new System.Drawing.Size(1105, 538);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // NewUserForm
+            // userRegistration_newUser
+            // 
+            this.userRegistration_newUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userRegistration_newUser.Location = new System.Drawing.Point(10, 28);
+            this.userRegistration_newUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.userRegistration_newUser.Name = "userRegistration_newUser";
+            this.userRegistration_newUser.Size = new System.Drawing.Size(701, 144);
+            this.userRegistration_newUser.TabIndex = 4;
+            // 
+            // UserAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,7 +121,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "NewUserForm";
+            this.Name = "UserAdm";
             this.Text = "用戶管理";
             this.tabControl1.ResumeLayout(false);
             this.tabPage_newUser.ResumeLayout(false);
@@ -133,11 +133,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private UserRegistration userRegistration_newUser;
         private System.Windows.Forms.Button button_newUser_reset;
         private System.Windows.Forms.Button button_newUser;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_newUser;
         private System.Windows.Forms.TabPage tabPage2;
+        private UserRegistration userRegistration_newUser;
     }
 }
