@@ -33,7 +33,10 @@ BEGIN
                     END,
 				chin_name = in_chin_name,
 				eng_name = in_eng_name,
-				reg_no = in_reg_no,
+				reg_no = CASE
+					WHEN LENGTH(in_reg_no) = 0 THEN NULL
+                    ELSE in_reg_no
+                    END,
 				isSuspended = in_isSuspended
 			WHERE user_id = in_user_id;
 		COMMIT;
