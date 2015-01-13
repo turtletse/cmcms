@@ -12,8 +12,8 @@ namespace CMCMS
     public partial class Login : Form
     {
         UserClinicMgr ucMgr = new UserClinicMgr();
-        public static UserObj user = new UserObj();
-        public static ClinicObj clinic = new ClinicObj();
+        public static UserObj user;
+        public static ClinicObj clinic;
         public Login()
         {
             InitializeComponent();
@@ -46,12 +46,47 @@ namespace CMCMS
             {
                 if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
                 {
-                    if (user.CurrentLoginRole == 40)
+                    if (!user.IsSuspended)
                     {
-                        SystemAdmin_MainMenu sysAdmMainMenu = new SystemAdmin_MainMenu();
-                        this.Hide();
-                        sysAdmMainMenu.ShowDialog();
-                        this.Show();
+                        if (user.CurrentLoginRole != 0)
+                        {
+                            if (user.CurrentLoginRole == 40)
+                            {
+                                SystemAdmin_MainMenu sysAdmMainMenu = new SystemAdmin_MainMenu();
+                                this.Hide();
+                                sysAdmMainMenu.ShowDialog();
+                                this.Show();
+                            }
+                            else if (user.CurrentLoginRole == 10)
+                            {
+                                
+                                this.Hide();
+                                
+                                this.Show();
+                            }
+                            else if (user.CurrentLoginRole == 20)
+                            {
+
+                                this.Hide();
+
+                                this.Show();
+                            }
+                            else if (user.CurrentLoginRole == 30)
+                            {
+
+                                this.Hide();
+
+                                this.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("此用戶沒有權限存取此診所資料", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("此用戶已被停用", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 else

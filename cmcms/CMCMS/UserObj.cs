@@ -32,9 +32,16 @@ namespace CMCMS
             this.currentLoginClinicId = currentLoginClinicId;
         }
 
-        public UserObj()
+        public UserObj(String userId, String hashedPw, String chineseName, String englishName, String regNo, String lastLogoutDtm, String lastLogoutClinicId, bool isSuspended)
+            : base(userId + " " + chineseName, userId)
         {
-            // TODO: Complete member initialization
+            this.userId = userId;
+            this.hashedPw = hashedPw;
+            this.chineseName = chineseName;
+            this.englishName = englishName;
+            this.regNo = regNo;
+            this.lastLogoutDtm = lastLogoutDtm;
+            this.lastLogoutClinicId = lastLogoutClinicId;
         }
 
         public bool IsSuspended

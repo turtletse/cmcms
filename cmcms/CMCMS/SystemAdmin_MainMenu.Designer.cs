@@ -125,6 +125,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SystemAdmin_MainMenu";
             this.Text = "主目錄";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SystemAdmin_MainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

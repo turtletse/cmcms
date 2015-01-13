@@ -24,11 +24,6 @@ namespace CMCMS
             this.phoneNo = phoneNo;
             this.isSuspended = isSuspended;
         }
-
-        public ClinicObj()
-        {
-            // TODO: Complete member initialization
-        }
         
         public bool IsSuspended
         {

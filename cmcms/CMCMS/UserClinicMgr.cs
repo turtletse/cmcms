@@ -73,31 +73,87 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
-        //userRegistration
-        public void setNewUserClinicCombo(System.Windows.Forms.ComboBox cb)
+        //userAdmin
+        public void setUserPermissibleClinicCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_clinic_get ('" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
+            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_clinic_get ('" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
+            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_clinic_get ('" + "ALL" + "', " + 40 + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cb.Items.Add(new ClinicObj(dr["clinic_id"].ToString(), dr["clinic_chin_name"].ToString(), dr["clinic_eng_name"].ToString(), dr["clinic_addr"].ToString(), dr["clinic_phone_no"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
             }
         }
 
-        public void setNewUserRoleCombo(System.Windows.Forms.ComboBox cb)
+        public void setUserPermissibleRoleCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_role_get (" + Login.user.CurrentLoginRole + ")");
+            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_role_get (" + Login.user.CurrentLoginRole + ")");
+            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_role_get (" + 40 + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cb.Items.Add(new PermissibleValueObj(dr["role_desc"].ToString(), dr["role_id"].ToString()));
             }
         }
 
-        //newUserForm
+        //newUser
         public bool createAccount(String userId, String chiName, String engName, String regNo, String hashedPw, String clinicId, int roleId, bool isSuspended, ref String statusMsg)
         {
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_account ('" + userId + "', '" + chiName + "', '" + engName + "', '" + regNo + "', '" + hashedPw + "', '" + clinicId + "', " + roleId + ", " +(isSuspended ? "1" : "0") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        //amdUser
+        public void setAmdUserCombo(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_user_account_get ('" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
+            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_user_account_get ('" + "ALL" + "', " + 40 + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                cb.Items.Add(new UserObj(dr["user_id"].ToString(), dr["hashed_password"].ToString(), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["reg_no"].ToString(), dr["last_logout_dtm"].ToString(), dr["last_logout_clinic_id"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
+            }
+        }
+
+        public bool amdUserAccount(String userId, String hashedPw, String chiName, String engName, String regNo, bool isSuspended, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_user_account ('" + userId + "', '" + hashedPw + "', '" + chiName + "', '" + engName + "', '" + regNo + "', " + (isSuspended ? "1" : "0") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        //amdRole
+        public void setGrantedClinicRoleListbox(System.Windows.Forms.ListBox listbox, String userId)
+        {
+            listbox.Items.Clear();
+            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + userId + "', '" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
+            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + userId + "', '" + "ALL" + "', " + 40 + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                listbox.Items.Add(new PermissibleValueObj(dr["display_name"].ToString(), dr["sp_value"].ToString()));
+            }
+        }
+
+        public bool addRole(String userId, String clinicId, String roleId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_add_user_clinic_role ('" + userId + "', '" + clinicId + "', " + roleId + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool removeRole(String userId, String clinicId, String roleId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_remove_user_clinic_role ('" + userId + "', '" + clinicId + "', " + roleId + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        //Logout
+        public bool logout(ref String statusMsg)
+        {
+            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + Login.user.UserId + "', '" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
+            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_user_logout ('" + "SYSADM" + "', '" + "ALL" + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }

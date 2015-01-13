@@ -52,6 +52,23 @@ namespace CMCMS
             userAdm.ShowDialog();
         }
 
+        private void SystemAdmin_MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UserClinicMgr ucMgr = new UserClinicMgr();
+
+            String statusMsg = "";
+            bool isSuccess;
+            isSuccess = ucMgr.logout(ref statusMsg);
+            if (isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
     }
 }

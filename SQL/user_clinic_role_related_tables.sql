@@ -26,6 +26,9 @@ CREATE TABLE user_clinic_role_mapping(
 );
 CREATE INDEX user_clinic_role_mapping_x1 on user_clinic_role_mapping(user_id, clinic_id, user_role_id);
 insert into user_clinic_role_mapping values ('SYSADM', 'ALL', 40);
+insert into user_clinic_role_mapping values ('CITYCD1', 'CITYC', 20);
+insert into user_clinic_role_mapping values ('CITYCA1', 'CITYC', 30);
+insert into user_clinic_role_mapping values ('CITYCS1', 'CITYC', 10);
 
 CREATE TABLE user_role(
 	-- 0=no access, 1=staff, 2=doctor, 3=clinic admin, 4=system admin
@@ -52,3 +55,4 @@ insert into clinic values ('ALL', '系統管理', 'SYSTEM ADMIN', '-', '-', 0);
 insert into clinic values ('CITYC', '城市診所', 'CITY CLINIC', '1 CITY RD', '23456788, 23456789, 23000000', 0);
 
 -- select * from user_account;
+-- select * from clinic

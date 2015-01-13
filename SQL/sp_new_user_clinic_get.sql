@@ -10,9 +10,10 @@ BEGIN
 		clinic_phone_no,
         isSuspended
 	from clinic
-    WHERE (in_role_id = 4 OR clinic_id = in_clinic_id)
+    WHERE (in_role_id = 40 OR (in_role_id <> 40 AND clinic_id = in_clinic_id))
 	ORDER BY clinic_id;
 END $$
 delimiter ;
 
 -- CALL sp_new_user_clinic_get('CITYC', 3);
+-- CALL sp_new_user_clinic_get ('ALL', 40);
