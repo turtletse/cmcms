@@ -64,7 +64,7 @@ namespace CMCMS
         public bool insertSubDrugRecord(int drugId, String subDrugName, ref String statusMsg)
         {
 
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_sub_drug_item (" + drugId + ", '" + subDrugName + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_sub_drug_item (" + drugId + ", '" + subDrugName + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
