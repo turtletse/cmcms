@@ -173,6 +173,11 @@ namespace CMCMS
             return checkBox_isDeceased.Checked;
         }
 
+        public bool getIsPregnant()
+        {
+            return checkBox_isPregnant.Checked;
+        }
+
         public void setSelectedDrugList(String drugIds)
         {
             DrugMgr drugMgr = new DrugMgr();
@@ -219,6 +224,33 @@ namespace CMCMS
                 label_deceasedRptDate.Text = "紀錄於" + pat.DeceasedRecordDtm;
             else
                 label_deceasedRptDate.Text = "";
+            checkBox_isPregnant.Checked = pat.IsPregnant;
+        }
+
+        private void radioButton_female_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_female.Checked)
+            {
+                checkBox_isPregnant.Enabled = true;
+            }
+            else
+            {
+                checkBox_isPregnant.Enabled = false;
+                checkBox_isPregnant.Checked = false;
+            }
+        }
+
+        private void radioButton_male_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_male.Checked)
+            {
+                checkBox_isPregnant.Enabled = false;
+                checkBox_isPregnant.Checked = false;
+            }
+            else
+            {
+                checkBox_isPregnant.Enabled = true;
+            }
         }
     }
 }

@@ -72,6 +72,12 @@
     <Compile Include="AmdClinicDataForm.Designer.cs">
       <DependentUpon>AmdClinicDataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClinicAdm_mainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinicAdm_mainMenu.Designer.cs">
+      <DependentUpon>ClinicAdm_mainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClinicObj.cs" />
     <Compile Include="ClinicRegistration.cs">
       <SubType>UserControl</SubType>
@@ -173,6 +179,9 @@
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="AmdClinicDataForm.resx">
       <DependentUpon>AmdClinicDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinicAdm_mainMenu.resx">
+      <DependentUpon>ClinicAdm_mainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClinicRegistration.resx">
       <DependentUpon>ClinicRegistration.cs</DependentUpon>

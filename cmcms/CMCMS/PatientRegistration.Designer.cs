@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_deceasedRptDate = new System.Windows.Forms.Label();
+            this.checkBox_isDeceased = new System.Windows.Forms.CheckBox();
             this.textBox_patReg_confirmPassword = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_patReg_password = new System.Windows.Forms.TextBox();
@@ -60,8 +62,7 @@
             this.button_removeSelectedDrug = new System.Windows.Forms.Button();
             this.button_selectAllergicDrug = new System.Windows.Forms.Button();
             this.DSP_allergic = new CMCMS.DrugSelectionPanel();
-            this.checkBox_isDeceased = new System.Windows.Forms.CheckBox();
-            this.label_deceasedRptDate = new System.Windows.Forms.Label();
+            this.checkBox_isPregnant = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox_isPregnant);
             this.groupBox1.Controls.Add(this.label_deceasedRptDate);
             this.groupBox1.Controls.Add(this.checkBox_isDeceased);
             this.groupBox1.Controls.Add(this.textBox_patReg_confirmPassword);
@@ -97,6 +99,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "個人資料";
+            // 
+            // label_deceasedRptDate
+            // 
+            this.label_deceasedRptDate.AutoSize = true;
+            this.label_deceasedRptDate.Location = new System.Drawing.Point(778, 151);
+            this.label_deceasedRptDate.Name = "label_deceasedRptDate";
+            this.label_deceasedRptDate.Size = new System.Drawing.Size(0, 20);
+            this.label_deceasedRptDate.TabIndex = 23;
+            // 
+            // checkBox_isDeceased
+            // 
+            this.checkBox_isDeceased.AutoSize = true;
+            this.checkBox_isDeceased.Location = new System.Drawing.Point(712, 147);
+            this.checkBox_isDeceased.Name = "checkBox_isDeceased";
+            this.checkBox_isDeceased.Size = new System.Drawing.Size(60, 24);
+            this.checkBox_isDeceased.TabIndex = 22;
+            this.checkBox_isDeceased.Text = "已故";
+            this.checkBox_isDeceased.UseVisualStyleBackColor = true;
             // 
             // textBox_patReg_confirmPassword
             // 
@@ -205,6 +225,7 @@
             this.radioButton_female.TabStop = true;
             this.radioButton_female.Text = "女";
             this.radioButton_female.UseVisualStyleBackColor = true;
+            this.radioButton_female.CheckedChanged += new System.EventHandler(this.radioButton_female_CheckedChanged);
             // 
             // radioButton_male
             // 
@@ -216,6 +237,7 @@
             this.radioButton_male.TabStop = true;
             this.radioButton_male.Text = "男";
             this.radioButton_male.UseVisualStyleBackColor = true;
+            this.radioButton_male.CheckedChanged += new System.EventHandler(this.radioButton_male_CheckedChanged);
             // 
             // label9
             // 
@@ -383,23 +405,15 @@
             this.DSP_allergic.Size = new System.Drawing.Size(829, 371);
             this.DSP_allergic.TabIndex = 0;
             // 
-            // checkBox_isDeceased
+            // checkBox_isPregnant
             // 
-            this.checkBox_isDeceased.AutoSize = true;
-            this.checkBox_isDeceased.Location = new System.Drawing.Point(712, 147);
-            this.checkBox_isDeceased.Name = "checkBox_isDeceased";
-            this.checkBox_isDeceased.Size = new System.Drawing.Size(60, 24);
-            this.checkBox_isDeceased.TabIndex = 22;
-            this.checkBox_isDeceased.Text = "已故";
-            this.checkBox_isDeceased.UseVisualStyleBackColor = true;
-            // 
-            // label_deceasedRptDate
-            // 
-            this.label_deceasedRptDate.AutoSize = true;
-            this.label_deceasedRptDate.Location = new System.Drawing.Point(778, 151);
-            this.label_deceasedRptDate.Name = "label_deceasedRptDate";
-            this.label_deceasedRptDate.Size = new System.Drawing.Size(0, 20);
-            this.label_deceasedRptDate.TabIndex = 23;
+            this.checkBox_isPregnant.AutoSize = true;
+            this.checkBox_isPregnant.Location = new System.Drawing.Point(994, 145);
+            this.checkBox_isPregnant.Name = "checkBox_isPregnant";
+            this.checkBox_isPregnant.Size = new System.Drawing.Size(60, 24);
+            this.checkBox_isPregnant.TabIndex = 24;
+            this.checkBox_isPregnant.Text = "懷孕";
+            this.checkBox_isPregnant.UseVisualStyleBackColor = true;
             // 
             // PatientRegistration
             // 
@@ -460,5 +474,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label_deceasedRptDate;
         private System.Windows.Forms.CheckBox checkBox_isDeceased;
+        private System.Windows.Forms.CheckBox checkBox_isPregnant;
     }
 }

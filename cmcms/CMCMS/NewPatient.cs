@@ -33,7 +33,7 @@ namespace CMCMS
 
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = patMgr.insertPatientRecord(patientRegistration1.getChiName(), Utilities.stringDataParse4SQL(patientRegistration1.getEngName()), patientRegistration1.getHashedPassword(), patientRegistration1.getPIDDocType(), patientRegistration1.getPIDDocNo(), patientRegistration1.getPhoneNo(), patientRegistration1.getDOB(), patientRegistration1.getSex(), patientRegistration1.getIsG6PD(), Utilities.stringDataParse4SQL(patientRegistration1.getAddr().Trim()), patientRegistration1.getAllergicDrugsIdString(), ref statusMsg);
+            isSuccess = patMgr.insertPatientRecord(patientRegistration1.getChiName(), Utilities.stringDataParse4SQL(patientRegistration1.getEngName()), patientRegistration1.getHashedPassword(), patientRegistration1.getPIDDocType(), patientRegistration1.getPIDDocNo(), patientRegistration1.getPhoneNo(), patientRegistration1.getDOB(), patientRegistration1.getSex(), patientRegistration1.getIsG6PD(), Utilities.stringDataParse4SQL(patientRegistration1.getAddr().Trim()), patientRegistration1.getAllergicDrugsIdString(), patientRegistration1.getIsPregnant(), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);

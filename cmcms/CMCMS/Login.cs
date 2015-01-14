@@ -52,6 +52,7 @@ namespace CMCMS
                         {
                             if (user.CurrentLoginRole == 40)
                             {
+                                //SYSADM
                                 SystemAdmin_MainMenu sysAdmMainMenu = new SystemAdmin_MainMenu();
                                 this.Hide();
                                 sysAdmMainMenu.ShowDialog();
@@ -59,23 +60,24 @@ namespace CMCMS
                             }
                             else if (user.CurrentLoginRole == 10)
                             {
-                                
+                                //STAFF
                                 this.Hide();
                                 
                                 this.Show();
                             }
                             else if (user.CurrentLoginRole == 20)
                             {
-
+                                //DOCTOR
                                 this.Hide();
 
                                 this.Show();
                             }
                             else if (user.CurrentLoginRole == 30)
                             {
-
+                                //CLINIC ADM
+                                ClinicAdm_mainMenu cAdmMainMenu = new ClinicAdm_mainMenu();
                                 this.Hide();
-
+                                cAdmMainMenu.ShowDialog();
                                 this.Show();
                             }
                         }

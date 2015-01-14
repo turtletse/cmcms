@@ -14,7 +14,8 @@ CREATE PROCEDURE sp_update_patient_record (
     IN in_isG6PD INT(1),
     IN in_addr varchar(300),
     IN in_allergic_drug_ids varchar(1000),
-    IN in_isDeceased int(1)
+    IN in_isDeceased int(1),
+    IN in_isPregnant INT(1)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -52,7 +53,8 @@ BEGIN
                 deceased_record_dtm = CASE
 					WHEN in_isDeceased = 0 THEN null
                     WHEN in_isDeceased = 1 then NOW()
-				END
+				END,
+                isPregnant = in_isPregnant
 			WHERE patient_id = in_patient_id;
 		COMMIT;
         
@@ -65,5 +67,5 @@ END $$
 DELIMITER ;
 
 -- select * from patient_record;
--- CALL sp_update_patient_record (1, '一', 'yat yat yat', '', 'HKID', '1', '1', '09/01/1990', 'M', 1, '123', '', 0, NULL);
+-- CALL sp_update_patient_record (2, '二', 'YEE', '', 'PASSPORT', '2', '22222222', '11/01/2015', 'F', 1, '1234', '101001', 0, 1)
 -- DELETE FROM patient_record WHERE patient_id>0

@@ -21,6 +21,13 @@ namespace CMCMS
         private String allergicDrugIds;
         private bool isDeceased;
         private String deceasedRecordDtm;
+        private bool isPregnant;
+
+        public bool IsPregnant
+        {
+            get { return isPregnant; }
+            set { isPregnant = value; }
+        }
 
         public int PatientId
         {
@@ -106,7 +113,7 @@ namespace CMCMS
             set { deceasedRecordDtm = value; }
         }
 
-        public PatientObj(int patientId, String chineseName, String englishName, String hashedPW, String idDocType, String idDocNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, String deceasedRecordDtm):base((chineseName+" "+englishName).Trim(), patientId.ToString())
+        public PatientObj(int patientId, String chineseName, String englishName, String hashedPW, String idDocType, String idDocNo, String phoneNo, String dob, String sex, bool isG6PD, String addr, String allergicDrugIds, bool isDeceased, String deceasedRecordDtm, bool isPregnant):base((chineseName+" "+englishName).Trim(), patientId.ToString())
         {
             this.patientId = patientId;
             this.chineseName = chineseName;
@@ -122,6 +129,7 @@ namespace CMCMS
             this.allergicDrugIds = allergicDrugIds;
             this.isDeceased = isDeceased;
             this.deceasedRecordDtm = deceasedRecordDtm;
+            this.isPregnant = isPregnant;
         }
     }
 }

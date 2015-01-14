@@ -21,7 +21,8 @@ BEGIN
 		addr,
 		allergic_drug_ids,
 		isDeceased,
-		IFNULL(DATE_FORMAT(deceased_record_dtm, '%d/%m/%Y'), '') deceased_record_dtm
+		IFNULL(DATE_FORMAT(deceased_record_dtm, '%d/%m/%Y'), '') deceased_record_dtm,
+        isPregnant
 	from patient_record
 	where 
 		(in_patient_id IS NULL OR patient_id = in_patient_id)
