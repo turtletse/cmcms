@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.DGV_selected = new System.Windows.Forms.DataGridView();
-            this.button_addFromDSP = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_drugInput = new System.Windows.Forms.TextBox();
-            this.button_addFromFreeText = new System.Windows.Forms.Button();
             this.Column_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column_drugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_drugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.button_addFromDSP = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_drugInput = new System.Windows.Forms.TextBox();
+            this.button_addFromFreeText = new System.Windows.Forms.Button();
+            this.button_clear = new System.Windows.Forms.Button();
             this.DSP = new CMCMS.DrugSelectionPanel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_selected)).BeginInit();
             this.SuspendLayout();
@@ -57,44 +58,10 @@
             this.DGV_selected.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DGV_selected.Name = "DGV_selected";
             this.DGV_selected.ShowRowErrors = false;
-            this.DGV_selected.Size = new System.Drawing.Size(368, 584);
+            this.DGV_selected.Size = new System.Drawing.Size(368, 502);
+            this.DGV_selected.StandardTab = true;
             this.DGV_selected.TabIndex = 1;
             this.DGV_selected.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_selected_CellClick);
-            // 
-            // button_addFromDSP
-            // 
-            this.button_addFromDSP.Location = new System.Drawing.Point(970, 189);
-            this.button_addFromDSP.Name = "button_addFromDSP";
-            this.button_addFromDSP.Size = new System.Drawing.Size(45, 65);
-            this.button_addFromDSP.TabIndex = 2;
-            this.button_addFromDSP.Text = ">>";
-            this.button_addFromDSP.UseVisualStyleBackColor = true;
-            this.button_addFromDSP.Click += new System.EventHandler(this.button_addFromDSP_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 408);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "輸入檢索 (逗號分隔): ";
-            // 
-            // textBox_drugInput
-            // 
-            this.textBox_drugInput.Location = new System.Drawing.Point(177, 405);
-            this.textBox_drugInput.Name = "textBox_drugInput";
-            this.textBox_drugInput.Size = new System.Drawing.Size(753, 26);
-            this.textBox_drugInput.TabIndex = 4;
-            // 
-            // button_addFromFreeText
-            // 
-            this.button_addFromFreeText.Location = new System.Drawing.Point(936, 402);
-            this.button_addFromFreeText.Name = "button_addFromFreeText";
-            this.button_addFromFreeText.Size = new System.Drawing.Size(75, 29);
-            this.button_addFromFreeText.TabIndex = 5;
-            this.button_addFromFreeText.Text = ">>";
-            this.button_addFromFreeText.UseVisualStyleBackColor = true;
             // 
             // Column_Delete
             // 
@@ -135,6 +102,52 @@
             this.Column_unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column_unit.Width = 70;
             // 
+            // button_addFromDSP
+            // 
+            this.button_addFromDSP.Location = new System.Drawing.Point(970, 189);
+            this.button_addFromDSP.Name = "button_addFromDSP";
+            this.button_addFromDSP.Size = new System.Drawing.Size(45, 65);
+            this.button_addFromDSP.TabIndex = 2;
+            this.button_addFromDSP.Text = ">>";
+            this.button_addFromDSP.UseVisualStyleBackColor = true;
+            this.button_addFromDSP.Click += new System.EventHandler(this.button_addFromDSP_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 408);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "輸入檢索 (逗號分隔): ";
+            // 
+            // textBox_drugInput
+            // 
+            this.textBox_drugInput.Location = new System.Drawing.Point(177, 405);
+            this.textBox_drugInput.Name = "textBox_drugInput";
+            this.textBox_drugInput.Size = new System.Drawing.Size(753, 26);
+            this.textBox_drugInput.TabIndex = 4;
+            // 
+            // button_addFromFreeText
+            // 
+            this.button_addFromFreeText.Location = new System.Drawing.Point(936, 402);
+            this.button_addFromFreeText.Name = "button_addFromFreeText";
+            this.button_addFromFreeText.Size = new System.Drawing.Size(75, 29);
+            this.button_addFromFreeText.TabIndex = 5;
+            this.button_addFromFreeText.Text = ">>";
+            this.button_addFromFreeText.UseVisualStyleBackColor = true;
+            this.button_addFromFreeText.Click += new System.EventHandler(this.button_addFromFreeText_Click);
+            // 
+            // button_clear
+            // 
+            this.button_clear.Location = new System.Drawing.Point(1018, 533);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(368, 50);
+            this.button_clear.TabIndex = 6;
+            this.button_clear.Text = "清空";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
             // DSP
             // 
             this.DSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,6 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button_clear);
             this.Controls.Add(this.button_addFromFreeText);
             this.Controls.Add(this.textBox_drugInput);
             this.Controls.Add(this.label1);
@@ -177,5 +191,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_drugName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_dosage;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column_unit;
+        private System.Windows.Forms.Button button_clear;
     }
 }

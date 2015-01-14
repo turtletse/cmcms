@@ -24,7 +24,7 @@ namespace CMCMS
                 data = Convert.ToString(cmd.ExecuteScalar());
                 return data;
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 data = "OTZ";
                 return data;
@@ -52,7 +52,7 @@ namespace CMCMS
                 adr.Fill(data);
                 return data;
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 //return data;
                 return null;

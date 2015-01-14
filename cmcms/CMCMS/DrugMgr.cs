@@ -192,5 +192,36 @@ namespace CMCMS
             }
             return units;
         }
+
+        public Dictionary<String,String> getDosageUnitForDrug()
+        {
+            Dictionary<String, String> units = new Dictionary<String, String>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dosage_unit_combo_get ()");
+            foreach (DataRow dr in data.Rows)
+            {
+                units.Add(dr["unit_desc"].ToString(), dr["unit_id"].ToString());
+            }
+            return units;
+        }
+
+        public List<PermissibleValueObj> getDrugIdByNames(String drugNames, ref String notFoundDrugs)
+        {
+            List<PermissibleValueObj> drugs = new List<PermissibleValueObj>();
+            notFoundDrugs = "";
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_PP_search_drug_by_drug_name_get ('" + drugNames + "')");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    if (Convert.ToBoolean(dr["isFound"]))
+                        drugs.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+                    else
+                        notFoundDrugs += ", " + dr["drug_name"].ToString();
+                }
+            }
+            if (notFoundDrugs.Length > 0)
+                notFoundDrugs = notFoundDrugs.Substring(2);
+            return drugs;
+        }
     }
 }
