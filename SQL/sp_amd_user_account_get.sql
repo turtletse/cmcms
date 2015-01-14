@@ -2,7 +2,7 @@ DROP procedure if EXISTS sp_amd_user_account_get;
 delimiter $$
 CREATE PROCEDURE sp_amd_user_account_get (IN in_clinic_id VARCHAR(10), IN in_role_id int)
 BEGIN
-	select
+	select distinct
 		user_id,
 		hashed_password,
 		chin_name,

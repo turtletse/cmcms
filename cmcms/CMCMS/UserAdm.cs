@@ -87,27 +87,16 @@ namespace CMCMS
             userRegistration_amdUser.Enabled = true;
         }
 
-        private void button_amdUser_select_Click(object sender, EventArgs e)
-        {
-            userRegistration_amdUser.setUser((UserObj)comboBox_amdUser_userId.SelectedItem);
-        }
-
         private void tabPage_amdRole_Enter(object sender, EventArgs e)
         {
             textBox_amdRole_userId.Clear();
-            ucMgr.setAmdUserCombo(comboBox_amdRole_user);
+            ucMgr.setAmdRoleUserCombo(comboBox_amdRole_user);
             comboBox_amdRole_user.SelectedIndex = 0;
             ucMgr.setUserPermissibleClinicCombo(comboBox_amdRole_clinic);
             comboBox_amdRole_clinic.SelectedIndex = 0;
             ucMgr.setUserPermissibleRoleCombo(comboBox_amdRole_role);
             comboBox_amdRole_role.SelectedIndex = 0;
             listBox_amdRole_grantedClinicRole.Items.Clear();
-        }
-
-        private void button_amdRole_select_Click(object sender, EventArgs e)
-        {
-            textBox_amdRole_userId.Text = ((UserObj)(comboBox_amdRole_user.SelectedItem)).UserId;
-            ucMgr.setGrantedClinicRoleListbox(listBox_amdRole_grantedClinicRole, textBox_amdRole_userId.Text);
         }
 
         private void button_amdRole_add_Click(object sender, EventArgs e)
@@ -155,6 +144,17 @@ namespace CMCMS
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             tabControl1.Enabled = true;
+        }
+
+        private void comboBox_amdUser_userId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            userRegistration_amdUser.setUser((UserObj)comboBox_amdUser_userId.SelectedItem);
+        }
+
+        private void comboBox_amdRole_user_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox_amdRole_userId.Text = ((UserObj)(comboBox_amdRole_user.SelectedItem)).UserId;
+            ucMgr.setGrantedClinicRoleListbox(listBox_amdRole_grantedClinicRole, textBox_amdRole_userId.Text);
         }
         
 

@@ -148,6 +148,15 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+        public void setAmdRoleUserCombo(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_role_user_account_get ()");
+            foreach (DataRow dr in data.Rows)
+            {
+                cb.Items.Add(new UserObj(dr["user_id"].ToString(), dr["hashed_password"].ToString(), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["reg_no"].ToString(), dr["last_logout_dtm"].ToString(), dr["last_logout_clinic_id"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
+            }
+        }
 
         //Logout
         public bool logout(ref String statusMsg)

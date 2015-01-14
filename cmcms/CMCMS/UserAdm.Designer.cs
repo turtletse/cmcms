@@ -33,31 +33,29 @@
             this.button_newUser = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_newUser = new System.Windows.Forms.TabPage();
+            this.userRegistration_newUser = new CMCMS.UserRegistration();
             this.tabPage_amdUserData = new System.Windows.Forms.TabPage();
+            this.userRegistration_amdUser = new CMCMS.UserRegistration();
             this.button_amdUser = new System.Windows.Forms.Button();
             this.button_amdUser_reset = new System.Windows.Forms.Button();
-            this.button_amdUser_select = new System.Windows.Forms.Button();
             this.comboBox_amdUser_userId = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage_amdRole = new System.Windows.Forms.TabPage();
-            this.button_amdRole_select = new System.Windows.Forms.Button();
+            this.button_amdRole_reset = new System.Windows.Forms.Button();
+            this.button_amdRole_delete = new System.Windows.Forms.Button();
+            this.button_amdRole_add = new System.Windows.Forms.Button();
+            this.comboBox_amdRole_role = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox_amdRole_clinic = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listBox_amdRole_grantedClinicRole = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_amdRole_userId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboBox_amdRole_user = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox_amdRole_userId = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBox_amdRole_grantedClinicRole = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox_amdRole_clinic = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox_amdRole_role = new System.Windows.Forms.ComboBox();
-            this.button_amdRole_add = new System.Windows.Forms.Button();
-            this.button_amdRole_delete = new System.Windows.Forms.Button();
-            this.button_amdRole_reset = new System.Windows.Forms.Button();
-            this.userRegistration_newUser = new CMCMS.UserRegistration();
-            this.userRegistration_amdUser = new CMCMS.UserRegistration();
             this.tabControl1.SuspendLayout();
             this.tabPage_newUser.SuspendLayout();
             this.tabPage_amdUserData.SuspendLayout();
@@ -120,12 +118,20 @@
             this.tabPage_newUser.UseVisualStyleBackColor = true;
             this.tabPage_newUser.Enter += new System.EventHandler(this.tabPage_newUser_Enter);
             // 
+            // userRegistration_newUser
+            // 
+            this.userRegistration_newUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userRegistration_newUser.Location = new System.Drawing.Point(11, 37);
+            this.userRegistration_newUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.userRegistration_newUser.Name = "userRegistration_newUser";
+            this.userRegistration_newUser.Size = new System.Drawing.Size(701, 144);
+            this.userRegistration_newUser.TabIndex = 4;
+            // 
             // tabPage_amdUserData
             // 
             this.tabPage_amdUserData.Controls.Add(this.userRegistration_amdUser);
             this.tabPage_amdUserData.Controls.Add(this.button_amdUser);
             this.tabPage_amdUserData.Controls.Add(this.button_amdUser_reset);
-            this.tabPage_amdUserData.Controls.Add(this.button_amdUser_select);
             this.tabPage_amdUserData.Controls.Add(this.comboBox_amdUser_userId);
             this.tabPage_amdUserData.Controls.Add(this.label3);
             this.tabPage_amdUserData.Controls.Add(this.label2);
@@ -137,6 +143,15 @@
             this.tabPage_amdUserData.Text = "更改用戶資料";
             this.tabPage_amdUserData.UseVisualStyleBackColor = true;
             this.tabPage_amdUserData.Enter += new System.EventHandler(this.tabPage_amdUserData_Enter);
+            // 
+            // userRegistration_amdUser
+            // 
+            this.userRegistration_amdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userRegistration_amdUser.Location = new System.Drawing.Point(14, 77);
+            this.userRegistration_amdUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.userRegistration_amdUser.Name = "userRegistration_amdUser";
+            this.userRegistration_amdUser.Size = new System.Drawing.Size(701, 144);
+            this.userRegistration_amdUser.TabIndex = 7;
             // 
             // button_amdUser
             // 
@@ -158,16 +173,6 @@
             this.button_amdUser_reset.UseVisualStyleBackColor = true;
             this.button_amdUser_reset.Click += new System.EventHandler(this.button_amdUser_reset_Click);
             // 
-            // button_amdUser_select
-            // 
-            this.button_amdUser_select.Location = new System.Drawing.Point(492, 40);
-            this.button_amdUser_select.Name = "button_amdUser_select";
-            this.button_amdUser_select.Size = new System.Drawing.Size(75, 29);
-            this.button_amdUser_select.TabIndex = 3;
-            this.button_amdUser_select.Text = "選擇";
-            this.button_amdUser_select.UseVisualStyleBackColor = true;
-            this.button_amdUser_select.Click += new System.EventHandler(this.button_amdUser_select_Click);
-            // 
             // comboBox_amdUser_userId
             // 
             this.comboBox_amdUser_userId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -176,6 +181,7 @@
             this.comboBox_amdUser_userId.Name = "comboBox_amdUser_userId";
             this.comboBox_amdUser_userId.Size = new System.Drawing.Size(396, 28);
             this.comboBox_amdUser_userId.TabIndex = 2;
+            this.comboBox_amdUser_userId.SelectedIndexChanged += new System.EventHandler(this.comboBox_amdUser_userId_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -209,7 +215,6 @@
             this.tabPage_amdRole.Controls.Add(this.label7);
             this.tabPage_amdRole.Controls.Add(this.textBox_amdRole_userId);
             this.tabPage_amdRole.Controls.Add(this.label6);
-            this.tabPage_amdRole.Controls.Add(this.button_amdRole_select);
             this.tabPage_amdRole.Controls.Add(this.comboBox_amdRole_user);
             this.tabPage_amdRole.Controls.Add(this.label4);
             this.tabPage_amdRole.Controls.Add(this.label5);
@@ -222,15 +227,106 @@
             this.tabPage_amdRole.UseVisualStyleBackColor = true;
             this.tabPage_amdRole.Enter += new System.EventHandler(this.tabPage_amdRole_Enter);
             // 
-            // button_amdRole_select
+            // button_amdRole_reset
             // 
-            this.button_amdRole_select.Location = new System.Drawing.Point(492, 40);
-            this.button_amdRole_select.Name = "button_amdRole_select";
-            this.button_amdRole_select.Size = new System.Drawing.Size(75, 29);
-            this.button_amdRole_select.TabIndex = 7;
-            this.button_amdRole_select.Text = "選擇";
-            this.button_amdRole_select.UseVisualStyleBackColor = true;
-            this.button_amdRole_select.Click += new System.EventHandler(this.button_amdRole_select_Click);
+            this.button_amdRole_reset.Location = new System.Drawing.Point(604, 229);
+            this.button_amdRole_reset.Name = "button_amdRole_reset";
+            this.button_amdRole_reset.Size = new System.Drawing.Size(85, 41);
+            this.button_amdRole_reset.TabIndex = 18;
+            this.button_amdRole_reset.Text = "重置";
+            this.button_amdRole_reset.UseVisualStyleBackColor = true;
+            this.button_amdRole_reset.Click += new System.EventHandler(this.button_amdRole_reset_Click);
+            // 
+            // button_amdRole_delete
+            // 
+            this.button_amdRole_delete.Location = new System.Drawing.Point(270, 126);
+            this.button_amdRole_delete.Name = "button_amdRole_delete";
+            this.button_amdRole_delete.Size = new System.Drawing.Size(85, 41);
+            this.button_amdRole_delete.TabIndex = 17;
+            this.button_amdRole_delete.Text = "移除";
+            this.button_amdRole_delete.UseVisualStyleBackColor = true;
+            this.button_amdRole_delete.Click += new System.EventHandler(this.button_amdRole_delete_Click);
+            // 
+            // button_amdRole_add
+            // 
+            this.button_amdRole_add.Location = new System.Drawing.Point(503, 147);
+            this.button_amdRole_add.Name = "button_amdRole_add";
+            this.button_amdRole_add.Size = new System.Drawing.Size(85, 41);
+            this.button_amdRole_add.TabIndex = 16;
+            this.button_amdRole_add.Text = "增加";
+            this.button_amdRole_add.UseVisualStyleBackColor = true;
+            this.button_amdRole_add.Click += new System.EventHandler(this.button_amdRole_add_Click);
+            // 
+            // comboBox_amdRole_role
+            // 
+            this.comboBox_amdRole_role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_amdRole_role.FormattingEnabled = true;
+            this.comboBox_amdRole_role.Location = new System.Drawing.Point(503, 113);
+            this.comboBox_amdRole_role.Name = "comboBox_amdRole_role";
+            this.comboBox_amdRole_role.Size = new System.Drawing.Size(186, 28);
+            this.comboBox_amdRole_role.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(416, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "身份: ";
+            // 
+            // comboBox_amdRole_clinic
+            // 
+            this.comboBox_amdRole_clinic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_amdRole_clinic.FormattingEnabled = true;
+            this.comboBox_amdRole_clinic.Location = new System.Drawing.Point(503, 82);
+            this.comboBox_amdRole_clinic.Name = "comboBox_amdRole_clinic";
+            this.comboBox_amdRole_clinic.Size = new System.Drawing.Size(186, 28);
+            this.comboBox_amdRole_clinic.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(416, 85);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 20);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "診所代號: ";
+            // 
+            // listBox_amdRole_grantedClinicRole
+            // 
+            this.listBox_amdRole_grantedClinicRole.FormattingEnabled = true;
+            this.listBox_amdRole_grantedClinicRole.ItemHeight = 20;
+            this.listBox_amdRole_grantedClinicRole.Location = new System.Drawing.Point(98, 126);
+            this.listBox_amdRole_grantedClinicRole.Name = "listBox_amdRole_grantedClinicRole";
+            this.listBox_amdRole_grantedClinicRole.Size = new System.Drawing.Size(166, 144);
+            this.listBox_amdRole_grantedClinicRole.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "診所/身份: ";
+            // 
+            // textBox_amdRole_userId
+            // 
+            this.textBox_amdRole_userId.Location = new System.Drawing.Point(94, 82);
+            this.textBox_amdRole_userId.Name = "textBox_amdRole_userId";
+            this.textBox_amdRole_userId.ReadOnly = true;
+            this.textBox_amdRole_userId.Size = new System.Drawing.Size(170, 26);
+            this.textBox_amdRole_userId.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "用戶名稱: ";
             // 
             // comboBox_amdRole_user
             // 
@@ -240,6 +336,7 @@
             this.comboBox_amdRole_user.Name = "comboBox_amdRole_user";
             this.comboBox_amdRole_user.Size = new System.Drawing.Size(396, 28);
             this.comboBox_amdRole_user.TabIndex = 6;
+            this.comboBox_amdRole_user.SelectedIndexChanged += new System.EventHandler(this.comboBox_amdRole_user_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -259,125 +356,6 @@
             this.label5.Size = new System.Drawing.Size(163, 29);
             this.label5.TabIndex = 4;
             this.label5.Text = "更改用戶資料";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 85);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "用戶名稱: ";
-            // 
-            // textBox_amdRole_userId
-            // 
-            this.textBox_amdRole_userId.Location = new System.Drawing.Point(94, 82);
-            this.textBox_amdRole_userId.Name = "textBox_amdRole_userId";
-            this.textBox_amdRole_userId.ReadOnly = true;
-            this.textBox_amdRole_userId.Size = new System.Drawing.Size(170, 26);
-            this.textBox_amdRole_userId.TabIndex = 9;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 126);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 20);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "診所/身份: ";
-            // 
-            // listBox_amdRole_grantedClinicRole
-            // 
-            this.listBox_amdRole_grantedClinicRole.FormattingEnabled = true;
-            this.listBox_amdRole_grantedClinicRole.ItemHeight = 20;
-            this.listBox_amdRole_grantedClinicRole.Location = new System.Drawing.Point(98, 126);
-            this.listBox_amdRole_grantedClinicRole.Name = "listBox_amdRole_grantedClinicRole";
-            this.listBox_amdRole_grantedClinicRole.Size = new System.Drawing.Size(166, 144);
-            this.listBox_amdRole_grantedClinicRole.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(416, 85);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 20);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "診所代號: ";
-            // 
-            // comboBox_amdRole_clinic
-            // 
-            this.comboBox_amdRole_clinic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_amdRole_clinic.FormattingEnabled = true;
-            this.comboBox_amdRole_clinic.Location = new System.Drawing.Point(503, 82);
-            this.comboBox_amdRole_clinic.Name = "comboBox_amdRole_clinic";
-            this.comboBox_amdRole_clinic.Size = new System.Drawing.Size(186, 28);
-            this.comboBox_amdRole_clinic.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(416, 116);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "身份: ";
-            // 
-            // comboBox_amdRole_role
-            // 
-            this.comboBox_amdRole_role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_amdRole_role.FormattingEnabled = true;
-            this.comboBox_amdRole_role.Location = new System.Drawing.Point(503, 113);
-            this.comboBox_amdRole_role.Name = "comboBox_amdRole_role";
-            this.comboBox_amdRole_role.Size = new System.Drawing.Size(186, 28);
-            this.comboBox_amdRole_role.TabIndex = 15;
-            // 
-            // button_amdRole_add
-            // 
-            this.button_amdRole_add.Location = new System.Drawing.Point(503, 147);
-            this.button_amdRole_add.Name = "button_amdRole_add";
-            this.button_amdRole_add.Size = new System.Drawing.Size(85, 41);
-            this.button_amdRole_add.TabIndex = 16;
-            this.button_amdRole_add.Text = "增加";
-            this.button_amdRole_add.UseVisualStyleBackColor = true;
-            this.button_amdRole_add.Click += new System.EventHandler(this.button_amdRole_add_Click);
-            // 
-            // button_amdRole_delete
-            // 
-            this.button_amdRole_delete.Location = new System.Drawing.Point(270, 126);
-            this.button_amdRole_delete.Name = "button_amdRole_delete";
-            this.button_amdRole_delete.Size = new System.Drawing.Size(85, 41);
-            this.button_amdRole_delete.TabIndex = 17;
-            this.button_amdRole_delete.Text = "移除";
-            this.button_amdRole_delete.UseVisualStyleBackColor = true;
-            this.button_amdRole_delete.Click += new System.EventHandler(this.button_amdRole_delete_Click);
-            // 
-            // button_amdRole_reset
-            // 
-            this.button_amdRole_reset.Location = new System.Drawing.Point(604, 229);
-            this.button_amdRole_reset.Name = "button_amdRole_reset";
-            this.button_amdRole_reset.Size = new System.Drawing.Size(85, 41);
-            this.button_amdRole_reset.TabIndex = 18;
-            this.button_amdRole_reset.Text = "重置";
-            this.button_amdRole_reset.UseVisualStyleBackColor = true;
-            this.button_amdRole_reset.Click += new System.EventHandler(this.button_amdRole_reset_Click);
-            // 
-            // userRegistration_newUser
-            // 
-            this.userRegistration_newUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userRegistration_newUser.Location = new System.Drawing.Point(11, 37);
-            this.userRegistration_newUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.userRegistration_newUser.Name = "userRegistration_newUser";
-            this.userRegistration_newUser.Size = new System.Drawing.Size(701, 144);
-            this.userRegistration_newUser.TabIndex = 4;
-            // 
-            // userRegistration_amdUser
-            // 
-            this.userRegistration_amdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userRegistration_amdUser.Location = new System.Drawing.Point(14, 77);
-            this.userRegistration_amdUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.userRegistration_amdUser.Name = "userRegistration_amdUser";
-            this.userRegistration_amdUser.Size = new System.Drawing.Size(701, 144);
-            this.userRegistration_amdUser.TabIndex = 7;
             // 
             // UserAdm
             // 
@@ -413,13 +391,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_amdUser;
         private System.Windows.Forms.Button button_amdUser_reset;
-        private System.Windows.Forms.Button button_amdUser_select;
         private System.Windows.Forms.ComboBox comboBox_amdUser_userId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPage_amdRole;
         private UserRegistration userRegistration_newUser;
         private UserRegistration userRegistration_amdUser;
-        private System.Windows.Forms.Button button_amdRole_select;
         private System.Windows.Forms.ComboBox comboBox_amdRole_user;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
