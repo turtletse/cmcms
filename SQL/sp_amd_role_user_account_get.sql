@@ -2,7 +2,7 @@ DROP procedure if EXISTS sp_amd_role_user_account_get;
 delimiter $$
 CREATE PROCEDURE sp_amd_role_user_account_get ()
 BEGIN
-	select
+	select distinct
 		user_id,
 		hashed_password,
 		chin_name,

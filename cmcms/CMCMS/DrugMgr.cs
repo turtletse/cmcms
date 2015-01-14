@@ -177,5 +177,20 @@ namespace CMCMS
                 }
             }
         }
+
+        //PrescroptionPanel
+        public List<PermissibleValueObj> getPermissibleUnitForDrug(String drugId)
+        {
+            List<PermissibleValueObj> units = new List<PermissibleValueObj>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_permissible_dosage_unit_for_drug_get (" + drugId + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    units.Add(new PermissibleValueObj(dr["unit_desc"].ToString(), dr["unit_id"].ToString()));
+                }
+            }
+            return units;
+        }
     }
 }

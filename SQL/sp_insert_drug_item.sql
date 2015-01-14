@@ -25,12 +25,12 @@ CREATE PROCEDURE sp_insert_drug_item (
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
     
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;
+	END;*/
     -- CALL debug_logger('sp_insert_drug_item pt0');
 	if (select count(*) from master_drug_list where drug_name = in_drug_name) > 0 THEN
         SET curr_status_id = 1;
@@ -60,7 +60,7 @@ BEGIN
 				drug_w5,
 				drug_w6)
 			VALUES (
-				(SELECT IFNULL(max(x.drug_id)+1, in_drug_pri_type*10000+in_drug_sec_type*100+1) from master_drug_list x where x.drug_id > in_drug_pri_type*10000+in_drug_sec_type*100),
+				(SELECT IFNULL(max(drug_id)+1 , in_drug_pri_type*10000+in_drug_sec_type*100+1) from master_drug_list x where x.drug_id < in_drug_pri_type*10000+in_drug_sec_type*100+99),
                 in_drug_name,
                 in_drug_min_dosage_val,
 				in_drug_min_dosage_unit,
