@@ -29,7 +29,7 @@ BEGIN
 				)
 			VALUES (
 				in_drug_id,
-				(SELECT IFNULL(max(x.sub_drug_id)+1, 1) from master_sub_drug_list x where x.sub_drug_id > 1 and drug_id = in_drug_id),
+				(SELECT IFNULL(max(x.sub_drug_id)+1, 1) from master_sub_drug_list x where drug_id = in_drug_id),
                 in_sub_drug_name
             );
 		COMMIT;
@@ -40,7 +40,6 @@ END $$
 DELIMITER ;
 
 -- CALL sp_insert_sub_drug_item (101001, '淨麻黃');
-
 -- select * from debug_log order by log_dtm desc
 
 /*

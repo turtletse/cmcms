@@ -3,9 +3,9 @@ DROP PROCEDURE IF EXISTS sp_insert_drug_item;
 DELIMITER $$
 CREATE PROCEDURE sp_insert_drug_item (
 	IN in_drug_name varchar(30),
-	IN in_drug_min_dosage_val int,
+	IN in_drug_min_dosage_val decimal,
     IN in_drug_min_dosage_unit int,
-    IN in_drug_max_dosage_val int,
+    IN in_drug_max_dosage_val decimal,
     IN in_drug_max_dosage_unit int,
     IN in_drug_pri_type int,
     IN in_drug_sec_type int,
@@ -60,7 +60,7 @@ BEGIN
 				drug_w5,
 				drug_w6)
 			VALUES (
-				(SELECT IFNULL(max(drug_id)+1 , in_drug_pri_type*10000+in_drug_sec_type*100+1) from master_drug_list x where x.drug_id < in_drug_pri_type*10000+in_drug_sec_type*100+99),
+				(SELECT IFNULL(max(drug_id)+1 , in_drug_pri_type*10000+in_drug_sec_type*100+1) from master_drug_list x where x.drug_id BETWEEN in_drug_pri_type*10000+in_drug_sec_type*100 AND in_drug_pri_type*10000+in_drug_sec_type*100+99),
                 in_drug_name,
                 in_drug_min_dosage_val,
 				in_drug_min_dosage_unit,

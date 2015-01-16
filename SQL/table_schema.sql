@@ -21,7 +21,7 @@ CREATE TABLE master_drug_list (
     drug_min_dosage_val int,
     drug_min_dosage_unit int,
     drug_max_dosage_val int,
-    drug_man_dosage_unit int,
+    drug_max_dosage_unit int,
     drug_pri_type int,			--fk master_drug_type
     drug_sec_type int,			--fk master_drug_type
     drug_name_stroke_idx int,	--第一個字劃數

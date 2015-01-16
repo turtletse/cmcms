@@ -7,12 +7,12 @@ namespace CMCMS
 {
     public class DrugObj : PermissibleValueObj
     {
-        private String minDoseVal;
-        private String minDoseUnit;
-        private String maxDoseVal;
-        private String maxDoseUnit;
-        private String priType;
-        private String secType;
+        private decimal minDoseVal;
+        private int minDoseUnit;
+        private decimal maxDoseVal;
+        private int maxDoseUnit;
+        private int priType;
+        private int secType;
         private bool deleted;
         private bool q1;
         private bool q2;
@@ -27,37 +27,37 @@ namespace CMCMS
         private String pregContra;
         private String g6pdContra;
 
-        public String MinDoseVal
+        public decimal MinDoseVal
         {
             get { return minDoseVal; }
             private set { minDoseVal = value; }
         }
         
-        public String MinDoseUnit
+        public int MinDoseUnit
         {
             get { return minDoseUnit; }
             private set { minDoseUnit = value; }
         }
 
-        public String MaxDoseVal
+        public decimal MaxDoseVal
         {
             get { return maxDoseVal; }
             private set { maxDoseVal = value; }
         }
 
-        public String MaxDoseUnit
+        public int MaxDoseUnit
         {
             get { return maxDoseUnit; }
             private set { maxDoseUnit = value; }
         }
 
-        public String PriType
+        public int PriType
         {
             get { return priType; }
             private set { priType = value; }
         }
 
-        public String SecType
+        public int SecType
         {
             get { return secType; }
             private set { secType = value; }
@@ -141,7 +141,8 @@ namespace CMCMS
             private set { g6pdContra = value; }
         }
 
-        public DrugObj(String name, String value, String minDoseVal, String minDoseUnit, String maxDoseVal, String maxDoseUnit, String priType, String secType, bool deleted, bool q1, bool q2, bool q3, bool q4, bool w1, bool w2, bool w3, bool w4, bool w5, bool w6, String pregContra, String g6pdContra) : base(name, value)
+        public DrugObj(String name, String value, decimal minDoseVal, int minDoseUnit, decimal maxDoseVal, int maxDoseUnit, int priType, int secType, bool deleted, bool q1, bool q2, bool q3, bool q4, bool w1, bool w2, bool w3, bool w4, bool w5, bool w6, String pregContra, String g6pdContra)
+            : base(name, value)
         {
             this.minDoseVal=minDoseVal;
             this.minDoseUnit=minDoseUnit;

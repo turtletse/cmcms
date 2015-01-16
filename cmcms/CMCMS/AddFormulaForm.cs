@@ -16,9 +16,27 @@ namespace CMCMS
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_addPredefPres_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(prescriptionPanel1.getPrescriptionDataString());
+            DrugMgr drugMgr = new DrugMgr();
+            String statusMsg = "";
+            bool isSuccess;
+            isSuccess = drugMgr.insertPredifinedPrescription(textBox_presName.Text.Trim(), prescriptionPanel1.getPrescriptionDataString(), ref statusMsg);
+            if (isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                button_addPredefPres_reset_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button_addPredefPres_reset_Click(object sender, EventArgs e)
+        {
+            textBox_presName.Clear();
+            prescriptionPanel1.reset();
         }
     }
 }

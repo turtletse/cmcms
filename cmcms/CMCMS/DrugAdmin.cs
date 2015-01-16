@@ -135,9 +135,9 @@ namespace CMCMS
             {
                 textBox_amdDrug_drugName.Text = drug.getName();
                 textBox_amdDrug_subDrugName.Clear();
-                textBox_amdDrug_minDoseVal.Text = drug.MinDoseVal;
+                textBox_amdDrug_minDoseVal.Text = drug.MinDoseVal.ToString();
                 comboBox_amdDrug_minDoseUnit.SelectedValue = drug.MinDoseUnit;
-                textBox_amdDrug_maxDoseVal.Text = drug.MaxDoseVal;
+                textBox_amdDrug_maxDoseVal.Text = drug.MaxDoseVal.ToString();
                 comboBox_amdDrug_maxDoseUnit.SelectedValue = drug.MaxDoseUnit;
                 comboBox_amdDrug_pri_type.SelectedValue = drug.PriType;
                 comboBox_amdDrug_sec_type.SelectedValue = drug.SecType;
@@ -200,7 +200,7 @@ namespace CMCMS
             bool isSuccess;
             if (selectedSubDrug == null || selectedSubDrug.getValue().Split(new String[] {"||"}, System.StringSplitOptions.None)[1].Equals("0"))
             {
-                isSuccess = drugMgr.updateDrugRecord(selectedDrug.getValue(), textBox_amdDrug_drugName.Text.Trim(), int.Parse(textBox_amdDrug_minDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_amdDrug_maxDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_sec_type.SelectedItem)).getValue()), checkBox_amdDrug_q1.Checked, checkBox_amdDrug_q2.Checked, checkBox_amdDrug_q3.Checked, checkBox_amdDrug_q4.Checked, checkBox_amdDrug_w1.Checked, checkBox_amdDrug_w2.Checked, checkBox_amdDrug_w3.Checked, checkBox_amdDrug_w4.Checked, checkBox_amdDrug_w5.Checked, checkBox_amdDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_amdDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_g6pd_contra.SelectedItem)).getValue()), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
+                isSuccess = drugMgr.updateDrugRecord(selectedDrug.getValue(), textBox_amdDrug_drugName.Text.Trim(), decimal.Parse(textBox_amdDrug_minDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_minDoseUnit.SelectedItem)).getValue()), decimal.Parse(textBox_amdDrug_maxDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_sec_type.SelectedItem)).getValue()), checkBox_amdDrug_q1.Checked, checkBox_amdDrug_q2.Checked, checkBox_amdDrug_q3.Checked, checkBox_amdDrug_q4.Checked, checkBox_amdDrug_w1.Checked, checkBox_amdDrug_w2.Checked, checkBox_amdDrug_w3.Checked, checkBox_amdDrug_w4.Checked, checkBox_amdDrug_w5.Checked, checkBox_amdDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_amdDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_g6pd_contra.SelectedItem)).getValue()), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
                 if (isSuccess)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);

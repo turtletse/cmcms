@@ -12,6 +12,7 @@ namespace CMCMS
     public partial class PrescriptionPanel : UserControl
     {
         Dictionary<String, String> units;
+        Dictionary<String, String> methods;
         DrugMgr drugMgr = new DrugMgr();
         public PrescriptionPanel()
         {
@@ -23,6 +24,14 @@ namespace CMCMS
             DSP.setSubDrugSelectionEnabled(true);
             DSP.refresh();
             units = drugMgr.getDosageUnitForDrug();
+            methods = drugMgr.getPrepMethod();
+        }
+
+        public void reset()
+        {
+            DSP.refresh();
+            textBox_drugInput.Clear();
+            DGV_selected.Rows.Clear();
         }
 
         private void button_addFromDSP_Click(object sender, EventArgs e)
@@ -64,6 +73,14 @@ namespace CMCMS
                 ((DataGridViewComboBoxCell)row.Cells[4]).Value = ((DataGridViewComboBoxCell)row.Cells[4]).Items[0];
             }
 
+            List<String> methodDesc = methods.Keys.ToList();
+            foreach (String m in methodDesc)
+                ((DataGridViewComboBoxCell)row.Cells[5]).Items.Add(m);
+            if (((DataGridViewComboBoxCell)row.Cells[5]) != null)
+            {
+                ((DataGridViewComboBoxCell)row.Cells[5]).Value = ((DataGridViewComboBoxCell)row.Cells[5]).Items[(((DataGridViewComboBoxCell)row.Cells[5]).Items.Count>1?1:0)];
+            }
+
             DGV_selected.Rows.Add(row);
         }
 
@@ -82,11 +99,11 @@ namespace CMCMS
 
         public String getPrescriptionDataString()
         {
-            //FORMAT: drugId||subDrugId^^dosage^^unit##
+            //FORMAT: drugId||subDrugId^^dosage^^unit^^method##
             String prescription = "";
             foreach (DataGridViewRow row in DGV_selected.Rows)
             {
-                prescription += "##" + row.Cells[1].Value + "^^" + row.Cells[3].Value + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()];
+                prescription += "##" + row.Cells[1].Value + "^^" + row.Cells[3].Value + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()] + "^^" + methods[((DataGridViewComboBoxCell)row.Cells[5]).EditedFormattedValue.ToString()];
             }
             return prescription.Substring(2);
         }

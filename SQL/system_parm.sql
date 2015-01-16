@@ -11,3 +11,5 @@ CREATE INDEX system_parm_x1 on system_parm (parm_name);
 -- INSERT INTO system_parm VALUES ('pat_id_cnt', '0', 'for generation of patient_id');
 -- SELECT * FROM SYSTEM_PARM
 -- UPDATE system_parm SET parm_value = '0' where parm_name = 'pat_id_cnt'
+
+-- INSERT INTO system_parm VALUES ('predef_prescription_cnt', '0', 'for generation of predef_pres_id');

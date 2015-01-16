@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.DGV_selected = new System.Windows.Forms.DataGridView();
-            this.Column_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column_drugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_drugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.button_addFromDSP = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_drugInput = new System.Windows.Forms.TextBox();
             this.button_addFromFreeText = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
+            this.Column_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column_drugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_drugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column_preparationMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DSP = new CMCMS.DrugSelectionPanel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_selected)).BeginInit();
             this.SuspendLayout();
@@ -53,54 +54,17 @@
             this.Column_drugId,
             this.Column_drugName,
             this.Column_dosage,
-            this.Column_unit});
+            this.Column_unit,
+            this.Column_preparationMethod});
             this.DGV_selected.Location = new System.Drawing.Point(1018, 23);
             this.DGV_selected.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DGV_selected.Name = "DGV_selected";
+            this.DGV_selected.RowHeadersWidth = 21;
             this.DGV_selected.ShowRowErrors = false;
             this.DGV_selected.Size = new System.Drawing.Size(368, 502);
             this.DGV_selected.StandardTab = true;
             this.DGV_selected.TabIndex = 1;
             this.DGV_selected.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_selected_CellClick);
-            // 
-            // Column_Delete
-            // 
-            this.Column_Delete.HeaderText = "刪除";
-            this.Column_Delete.Name = "Column_Delete";
-            this.Column_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column_Delete.Text = "X";
-            this.Column_Delete.UseColumnTextForButtonValue = true;
-            this.Column_Delete.Width = 35;
-            // 
-            // Column_drugId
-            // 
-            this.Column_drugId.HeaderText = "藥物編號";
-            this.Column_drugId.Name = "Column_drugId";
-            this.Column_drugId.ReadOnly = true;
-            this.Column_drugId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column_drugId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column_drugId.Visible = false;
-            // 
-            // Column_drugName
-            // 
-            this.Column_drugName.HeaderText = "藥名";
-            this.Column_drugName.Name = "Column_drugName";
-            this.Column_drugName.ReadOnly = true;
-            this.Column_drugName.Width = 150;
-            // 
-            // Column_dosage
-            // 
-            this.Column_dosage.HeaderText = "劑量";
-            this.Column_dosage.Name = "Column_dosage";
-            this.Column_dosage.Width = 70;
-            // 
-            // Column_unit
-            // 
-            this.Column_unit.HeaderText = "單位";
-            this.Column_unit.MaxDropDownItems = 20;
-            this.Column_unit.Name = "Column_unit";
-            this.Column_unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column_unit.Width = 70;
             // 
             // button_addFromDSP
             // 
@@ -142,11 +106,55 @@
             // 
             this.button_clear.Location = new System.Drawing.Point(1018, 533);
             this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(368, 50);
+            this.button_clear.Size = new System.Drawing.Size(120, 50);
             this.button_clear.TabIndex = 6;
             this.button_clear.Text = "清空";
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
+            // Column_Delete
+            // 
+            this.Column_Delete.HeaderText = "刪除";
+            this.Column_Delete.Name = "Column_Delete";
+            this.Column_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_Delete.Text = "X";
+            this.Column_Delete.UseColumnTextForButtonValue = true;
+            this.Column_Delete.Width = 35;
+            // 
+            // Column_drugId
+            // 
+            this.Column_drugId.HeaderText = "藥物編號";
+            this.Column_drugId.Name = "Column_drugId";
+            this.Column_drugId.ReadOnly = true;
+            this.Column_drugId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_drugId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_drugId.Visible = false;
+            // 
+            // Column_drugName
+            // 
+            this.Column_drugName.HeaderText = "藥名";
+            this.Column_drugName.Name = "Column_drugName";
+            this.Column_drugName.ReadOnly = true;
+            // 
+            // Column_dosage
+            // 
+            this.Column_dosage.HeaderText = "劑量";
+            this.Column_dosage.Name = "Column_dosage";
+            this.Column_dosage.Width = 70;
+            // 
+            // Column_unit
+            // 
+            this.Column_unit.HeaderText = "單位";
+            this.Column_unit.MaxDropDownItems = 20;
+            this.Column_unit.Name = "Column_unit";
+            this.Column_unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_unit.Width = 70;
+            // 
+            // Column_preparationMethod
+            // 
+            this.Column_preparationMethod.HeaderText = "煎法";
+            this.Column_preparationMethod.Name = "Column_preparationMethod";
+            this.Column_preparationMethod.Width = 70;
             // 
             // DSP
             // 
@@ -186,11 +194,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_drugInput;
         private System.Windows.Forms.Button button_addFromFreeText;
+        private System.Windows.Forms.Button button_clear;
         private System.Windows.Forms.DataGridViewButtonColumn Column_Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_drugId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_drugName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_dosage;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column_unit;
-        private System.Windows.Forms.Button button_clear;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column_preparationMethod;
     }
 }
