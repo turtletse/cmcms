@@ -14,6 +14,7 @@ namespace CMCMS
         public AddFormulaForm()
         {
             InitializeComponent();
+            prescriptionPanel1.setIsInclDeletedPredefPres(false);
         }
 
         private void button_addPredefPres_Click(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace CMCMS
     {
         Dictionary<String, String> units;
         Dictionary<String, String> methods;
+        bool isInclDeletedPredefPres = false;
         DrugMgr drugMgr = new DrugMgr();
         public PrescriptionPanel()
         {
@@ -25,6 +26,19 @@ namespace CMCMS
             DSP.refresh();
             units = drugMgr.getDosageUnitForDrug();
             methods = drugMgr.getPrepMethod();
+            drugMgr.setPredefPresCB(comboBox_existingPredefPres, isInclDeletedPredefPres);
+            if (comboBox_existingPredefPres.Items.Count > 0)
+                comboBox_existingPredefPres.SelectedIndex = 0;
+        }
+
+        public void setIsInclDeletedPredefPres(bool isInclDeletedPredefPres){
+            if (this.isInclDeletedPredefPres != isInclDeletedPredefPres)
+            {
+                drugMgr.setPredefPresCB(comboBox_existingPredefPres, isInclDeletedPredefPres);
+                if (comboBox_existingPredefPres.Items.Count > 0)
+                    comboBox_existingPredefPres.SelectedIndex = 0;
+                this.isInclDeletedPredefPres = isInclDeletedPredefPres;
+            }
         }
 
         public void reset()
@@ -32,6 +46,9 @@ namespace CMCMS
             DSP.refresh();
             textBox_drugInput.Clear();
             DGV_selected.Rows.Clear();
+            drugMgr.setPredefPresCB(comboBox_existingPredefPres, isInclDeletedPredefPres);
+            if (comboBox_existingPredefPres.Items.Count > 0)
+                comboBox_existingPredefPres.SelectedIndex = 0;
         }
 
         private void button_addFromDSP_Click(object sender, EventArgs e)
@@ -55,14 +72,16 @@ namespace CMCMS
         {
             DataGridViewRow row = new DataGridViewRow();
             row.CreateCells(DGV_selected);
-            foreach (DataGridViewRow r in DGV_selected.Rows)
+            /*foreach (DataGridViewRow r in DGV_selected.Rows)
             {
                 if (((String)r.Cells[1].Value) == drug.getValue())
                 {
                     MessageBox.Show("此藥已在藥單上", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-            }
+            }*/
+            if (isExistInDGV_selected(drug.getValue(), drug.getName()))
+                return;
             row.Cells[1].Value = drug.getValue();
             row.Cells[2].Value = drug.getName();
             List<PermissibleValueObj> units = drugMgr.getPermissibleUnitForDrug(drug.getValue().Split(new String[] { "||" }, StringSplitOptions.None)[0]);
@@ -88,7 +107,7 @@ namespace CMCMS
         {
             if (e.ColumnIndex == DGV_selected.Columns[0].Index)
             {
-                DGV_selected.Rows.RemoveAt(e.ColumnIndex);
+                DGV_selected.Rows.RemoveAt(e.RowIndex);
             }
         }
 
@@ -121,6 +140,52 @@ namespace CMCMS
                 MessageBox.Show("以下藥物名稱不存在:\n" + notFoundDrugs, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             textBox_drugInput.Text = notFoundDrugs;
+        }
+
+        private bool isExistInDGV_selected(String drugId, String drugName)
+        {
+            foreach (DataGridViewRow r in DGV_selected.Rows)
+            {
+                if (((String)r.Cells[1].Value) == drugId)
+                {
+                    MessageBox.Show("此藥已在藥單上: " + drugName, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void button_addFromExistingPres_Click(object sender, EventArgs e)
+        {
+            List<List<String>> pres = drugMgr.getPrescriptionById(int.Parse(((PermissibleValueObj)(comboBox_existingPredefPres.SelectedItem)).getValue()));
+            foreach (List<String> drugRow in pres)
+            {
+                if (isExistInDGV_selected(drugRow[0], drugRow[1]))
+                    continue;
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(DGV_selected);
+
+                row.Cells[1].Value = drugRow[0];
+                row.Cells[2].Value = drugRow[1];
+                row.Cells[3].Value = drugRow[2];
+                List<PermissibleValueObj> units = drugMgr.getPermissibleUnitForDrug(drugRow[0].Split(new String[] { "||" }, StringSplitOptions.None)[0]);
+                foreach (PermissibleValueObj o in units)
+                    ((DataGridViewComboBoxCell)row.Cells[4]).Items.Add(o.getName());
+                if (((DataGridViewComboBoxCell)row.Cells[4]) != null)
+                {
+                    ((DataGridViewComboBoxCell)row.Cells[4]).Value = ((DataGridViewComboBoxCell)row.Cells[4]).Items[((DataGridViewComboBoxCell)row.Cells[4]).Items.IndexOf(drugRow[3])];
+                }
+
+                List<String> methodDesc = methods.Keys.ToList();
+                foreach (String m in methodDesc)
+                    ((DataGridViewComboBoxCell)row.Cells[5]).Items.Add(m);
+                if (((DataGridViewComboBoxCell)row.Cells[5]) != null)
+                {
+                    ((DataGridViewComboBoxCell)row.Cells[5]).Value = ((DataGridViewComboBoxCell)row.Cells[5]).Items[((DataGridViewComboBoxCell)row.Cells[5]).Items.IndexOf(drugRow[4])];
+                }
+
+                DGV_selected.Rows.Add(row);
+            }
         }
     }
 }

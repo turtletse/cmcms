@@ -250,7 +250,7 @@ namespace CMCMS
             foreach (DataRow dr in data.Rows)
             {
                 List<String> row = new List<String>();
-                row.Add(dr["drug_id"].ToString());
+                row.Add(dr["drug_code"].ToString());
                 row.Add(dr["drug_name"].ToString());
                 row.Add(dr["dosage"].ToString());
                 row.Add(dr["unit_desc"].ToString());
@@ -263,7 +263,7 @@ namespace CMCMS
         public void setPredefPresCB(System.Windows.Forms.ComboBox cb, bool isInclDeleted)
         {
             cb.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_predef_pres_list_get ()");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_predef_pres_list_get (" + (isInclDeleted ? 1 : 0) + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cb.Items.Add(new PermissibleValueObj(dr["predef_pres_name"].ToString(), dr["predef_pres_id"].ToString()));
