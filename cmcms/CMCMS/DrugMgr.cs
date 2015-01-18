@@ -243,7 +243,7 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
-        public List<List<String>> getPrescriptionById(int presId)
+        public List<List<String>> getPredefPrescriptionById(int presId)
         {
             List<List<String>> pres = new List<List<string>>();
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_predef_pres_dt_get (" + presId + ")");

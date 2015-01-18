@@ -35,6 +35,7 @@
             this.button_newClinic = new System.Windows.Forms.Button();
             this.button_amdClinic = new System.Windows.Forms.Button();
             this.button_userAdm = new System.Windows.Forms.Button();
+            this.button_newPredefPres = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +81,7 @@
             // 
             // button_newClinic
             // 
-            this.button_newClinic.Location = new System.Drawing.Point(19, 235);
+            this.button_newClinic.Location = new System.Drawing.Point(19, 292);
             this.button_newClinic.Name = "button_newClinic";
             this.button_newClinic.Size = new System.Drawing.Size(221, 51);
             this.button_newClinic.TabIndex = 7;
@@ -90,7 +91,7 @@
             // 
             // button_amdClinic
             // 
-            this.button_amdClinic.Location = new System.Drawing.Point(19, 292);
+            this.button_amdClinic.Location = new System.Drawing.Point(19, 349);
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
             this.button_amdClinic.TabIndex = 8;
@@ -100,7 +101,7 @@
             // 
             // button_userAdm
             // 
-            this.button_userAdm.Location = new System.Drawing.Point(19, 349);
+            this.button_userAdm.Location = new System.Drawing.Point(19, 406);
             this.button_userAdm.Name = "button_userAdm";
             this.button_userAdm.Size = new System.Drawing.Size(221, 51);
             this.button_userAdm.TabIndex = 9;
@@ -108,11 +109,22 @@
             this.button_userAdm.UseVisualStyleBackColor = true;
             this.button_userAdm.Click += new System.EventHandler(this.button_userAdm_Click);
             // 
+            // button_newPredefPres
+            // 
+            this.button_newPredefPres.Location = new System.Drawing.Point(19, 235);
+            this.button_newPredefPres.Name = "button_newPredefPres";
+            this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
+            this.button_newPredefPres.TabIndex = 10;
+            this.button_newPredefPres.Text = "新增方劑";
+            this.button_newPredefPres.UseVisualStyleBackColor = true;
+            this.button_newPredefPres.Click += new System.EventHandler(this.button_newPredefPres_Click);
+            // 
             // SystemAdmin_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 548);
+            this.Controls.Add(this.button_newPredefPres);
             this.Controls.Add(this.button_userAdm);
             this.Controls.Add(this.button_amdClinic);
             this.Controls.Add(this.button_newClinic);
@@ -140,6 +152,7 @@
         private System.Windows.Forms.Button button_newClinic;
         private System.Windows.Forms.Button button_amdClinic;
         private System.Windows.Forms.Button button_userAdm;
+        private System.Windows.Forms.Button button_newPredefPres;
 
     }
 }

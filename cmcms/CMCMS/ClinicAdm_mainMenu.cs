@@ -62,5 +62,11 @@ namespace CMCMS
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button_newPredefPres_Click(object sender, EventArgs e)
+        {
+            AddFormulaForm newPredefPres = new AddFormulaForm();
+            newPredefPres.ShowDialog();
+        }
     }
 }

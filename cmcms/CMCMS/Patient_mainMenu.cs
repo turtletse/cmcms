@@ -27,5 +27,11 @@ namespace CMCMS
             AmdPatientDataForm amdPatDataForm = new AmdPatientDataForm();
             amdPatDataForm.ShowDialog();
         }
+
+        private void button_reg_Click(object sender, EventArgs e)
+        {
+            EnterQueue enterQ = new EnterQueue();
+            enterQ.ShowDialog();
+        }
     }
 }

@@ -157,7 +157,7 @@ namespace CMCMS
 
         private void button_addFromExistingPres_Click(object sender, EventArgs e)
         {
-            List<List<String>> pres = drugMgr.getPrescriptionById(int.Parse(((PermissibleValueObj)(comboBox_existingPredefPres.SelectedItem)).getValue()));
+            List<List<String>> pres = drugMgr.getPredefPrescriptionById(int.Parse(((PermissibleValueObj)(comboBox_existingPredefPres.SelectedItem)).getValue()));
             foreach (List<String> drugRow in pres)
             {
                 if (isExistInDGV_selected(drugRow[0], drugRow[1]))

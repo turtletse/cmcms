@@ -82,12 +82,13 @@
             this.button_reg.TabIndex = 4;
             this.button_reg.Text = "掛號 / 查詢輪候狀況";
             this.button_reg.UseVisualStyleBackColor = true;
+            this.button_reg.Click += new System.EventHandler(this.button_reg_Click);
             // 
             // Patient_mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 310);
+            this.ClientSize = new System.Drawing.Size(272, 307);
             this.Controls.Add(this.button_reg);
             this.Controls.Add(this.button_amdPatientData);
             this.Controls.Add(this.label2);

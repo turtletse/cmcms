@@ -106,6 +106,12 @@
     <Compile Include="DrugSelectionPanel.Designer.cs">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnterQueue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterQueue.Designer.cs">
+      <DependentUpon>EnterQueue.cs</DependentUpon>
+    </Compile>
     <Compile Include="IDSPSelectedDrugChange.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DrugSelectionPanel.resx">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterQueue.resx">
+      <DependentUpon>EnterQueue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

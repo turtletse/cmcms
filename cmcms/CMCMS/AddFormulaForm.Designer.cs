@@ -53,9 +53,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 29);
+            this.label1.Size = new System.Drawing.Size(113, 29);
             this.label1.TabIndex = 2;
-            this.label1.Text = "新增預設方劑";
+            this.label1.Text = "新增方劑";
             // 
             // label2
             // 
@@ -105,9 +105,10 @@
             this.Controls.Add(this.button_addPredefPres);
             this.Controls.Add(this.prescriptionPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddFormulaForm";
-            this.Text = "AddFormulaForm";
+            this.Text = "新增方劑";
             this.ResumeLayout(false);
             this.PerformLayout();
 

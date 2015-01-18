@@ -34,6 +34,7 @@
             this.button_drugAdm = new System.Windows.Forms.Button();
             this.button_amdPatData = new System.Windows.Forms.Button();
             this.button_NewPatient = new System.Windows.Forms.Button();
+            this.button_newPredefPres = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +50,7 @@
             // 
             // button_userAdm
             // 
-            this.button_userAdm.Location = new System.Drawing.Point(26, 288);
+            this.button_userAdm.Location = new System.Drawing.Point(26, 345);
             this.button_userAdm.Name = "button_userAdm";
             this.button_userAdm.Size = new System.Drawing.Size(221, 51);
             this.button_userAdm.TabIndex = 16;
@@ -59,7 +60,7 @@
             // 
             // button_amdClinic
             // 
-            this.button_amdClinic.Location = new System.Drawing.Point(26, 231);
+            this.button_amdClinic.Location = new System.Drawing.Point(26, 288);
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
             this.button_amdClinic.TabIndex = 15;
@@ -97,11 +98,22 @@
             this.button_NewPatient.UseVisualStyleBackColor = true;
             this.button_NewPatient.Click += new System.EventHandler(this.button_NewPatient_Click);
             // 
+            // button_newPredefPres
+            // 
+            this.button_newPredefPres.Location = new System.Drawing.Point(26, 231);
+            this.button_newPredefPres.Name = "button_newPredefPres";
+            this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
+            this.button_newPredefPres.TabIndex = 17;
+            this.button_newPredefPres.Text = "新增方劑";
+            this.button_newPredefPres.UseVisualStyleBackColor = true;
+            this.button_newPredefPres.Click += new System.EventHandler(this.button_newPredefPres_Click);
+            // 
             // ClinicAdm_mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 458);
+            this.ClientSize = new System.Drawing.Size(276, 541);
+            this.Controls.Add(this.button_newPredefPres);
             this.Controls.Add(this.button_userAdm);
             this.Controls.Add(this.button_amdClinic);
             this.Controls.Add(this.button_drugAdm);
@@ -128,5 +140,6 @@
         private System.Windows.Forms.Button button_drugAdm;
         private System.Windows.Forms.Button button_amdPatData;
         private System.Windows.Forms.Button button_NewPatient;
+        private System.Windows.Forms.Button button_newPredefPres;
     }
 }
