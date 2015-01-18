@@ -26,6 +26,12 @@ BEGIN
 		SET @sql_str = CONCAT('CREATE INDEX ', tabname, '_x2 ON ', tabname,'(patient_id);');
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
+        SET @sql_str = CONCAT('DELETE FROM system_parm WHERE parm_name = ''', tabname, '_LOCK'';');
+		PREPARE stmt FROM @sql_str;
+		EXECUTE stmt;
+        SET @sql_str = CONCAT('INSERT INTO system_parm (parm_name, parm_value, parm_desc) VALUES (''', tabname, '_LOCK'', NULL, ''queue table lock for clinic ', in_clinic_id, ''')');
+		PREPARE stmt FROM @sql_str;
+		EXECUTE stmt;
 	END IF;
 	SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
     PREPARE stmt FROM @sql_str;
@@ -54,4 +60,5 @@ DELIMITER ;
 
 -- CALL sp_enter_patient_queue(1, 'CITYC');
 -- DROP TABLE  queuing_table_CITYC;
--- SELECT * FROM queuing_table_CITYC
+-- SELECT * FROM SYSTEM_PARM
+-- SELECT * FROM queuing_table_CITYC;
