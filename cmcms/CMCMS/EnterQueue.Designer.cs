@@ -49,7 +49,7 @@
             this.button_enterQueue.Name = "button_enterQueue";
             this.button_enterQueue.Size = new System.Drawing.Size(273, 36);
             this.button_enterQueue.TabIndex = 2;
-            this.button_enterQueue.Text = "掛號";
+            this.button_enterQueue.Text = "掛號 / 查詢輪候狀況";
             this.button_enterQueue.UseVisualStyleBackColor = true;
             this.button_enterQueue.Click += new System.EventHandler(this.button_enterQueue_Click);
             // 
@@ -75,7 +75,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "EnterQueue";
-            this.Text = "EnterQueue";
+            this.Text = "掛號";
             this.ResumeLayout(false);
             this.PerformLayout();
 

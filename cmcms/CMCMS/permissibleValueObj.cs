@@ -8,7 +8,19 @@ namespace CMCMS
     public class PermissibleValueObj
     {
         private String name;
+
+        public String Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
         private String value;
+
+        public String Value
+        {
+            get { return this.value; }
+            set { this.value = value; }
+        }
 
         public PermissibleValueObj()
         {

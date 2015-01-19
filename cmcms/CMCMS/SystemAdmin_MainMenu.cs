@@ -75,5 +75,11 @@ namespace CMCMS
             newPredefPresForm.ShowDialog();
         }
 
+        private void button_updatePredefPres_Click(object sender, EventArgs e)
+        {
+            UpdateFormulaForm updatePredefPresForm = new UpdateFormulaForm();
+            updatePredefPresForm.ShowDialog();
+        }
+
     }
 }

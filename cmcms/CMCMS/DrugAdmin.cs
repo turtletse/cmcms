@@ -13,7 +13,7 @@ namespace CMCMS
     {
         DrugMgr drugMgr;
         DrugObj selectedDrug;
-        SubDrugObj selectedSubDrug;
+        PermissibleValueObjWithDelFlag selectedSubDrug;
        
         public DrugAdmin()
         {
@@ -136,9 +136,11 @@ namespace CMCMS
                 textBox_amdDrug_drugName.Text = drug.getName();
                 textBox_amdDrug_subDrugName.Clear();
                 textBox_amdDrug_minDoseVal.Text = drug.MinDoseVal.ToString();
-                comboBox_amdDrug_minDoseUnit.SelectedValue = drug.MinDoseUnit;
+                //comboBox_amdDrug_minDoseUnit.SelectedValue = drug.MinDoseUnit.ToString();
+                Utilities.SelectItemByValue(comboBox_amdDrug_minDoseUnit, drug.MinDoseUnit.ToString());
                 textBox_amdDrug_maxDoseVal.Text = drug.MaxDoseVal.ToString();
-                comboBox_amdDrug_maxDoseUnit.SelectedValue = drug.MaxDoseUnit;
+                //comboBox_amdDrug_maxDoseUnit.SelectedValue = drug.MaxDoseUnit.ToString();
+                Utilities.SelectItemByValue(comboBox_amdDrug_maxDoseUnit, drug.MaxDoseUnit.ToString());
                 comboBox_amdDrug_pri_type.SelectedValue = drug.PriType;
                 comboBox_amdDrug_sec_type.SelectedValue = drug.SecType;
                 checkBox_amdDrug_q1.Checked = drug.Q1;
@@ -158,7 +160,7 @@ namespace CMCMS
             }
         }
 
-        public void DSPselectedSubDrugChanged(SubDrugObj subDrug)
+        public void DSPselectedSubDrugChanged(PermissibleValueObjWithDelFlag subDrug)
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
             selectedSubDrug = subDrug;

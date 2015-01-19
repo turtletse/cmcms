@@ -154,9 +154,9 @@ namespace CMCMS
             return (DrugObj)listBox_drugList.SelectedItem;
         }
 
-        public SubDrugObj getSelectedSubDrug()
+        public PermissibleValueObjWithDelFlag getSelectedSubDrug()
         {
-            return (SubDrugObj)listBox_subDrugList.SelectedItem;
+            return (PermissibleValueObjWithDelFlag)listBox_subDrugList.SelectedItem;
         }
 
         public System.Windows.Forms.ListBox getDrugListBox()

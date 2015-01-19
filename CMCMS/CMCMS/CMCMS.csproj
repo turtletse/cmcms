@@ -137,6 +137,12 @@
     <Compile Include="PrescriptionPanel.Designer.cs">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateFormulaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateFormulaForm.Designer.cs">
+      <DependentUpon>UpdateFormulaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,7 +185,7 @@
     <Compile Include="SearchPatientInputPanel.Designer.cs">
       <DependentUpon>SearchPatientInputPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubDrugObj.cs" />
+    <Compile Include="PermissibleValueObjWithDelFlag.cs" />
     <Compile Include="SystemAdmin_MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     <EmbeddedResource Include="PrescriptionPanel.resx">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateFormulaForm.resx">
+      <DependentUpon>UpdateFormulaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserAdm.resx">
       <DependentUpon>UserAdm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +272,7 @@
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
+    <None Include="Properties\DataSources\PermissibleValueObj.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

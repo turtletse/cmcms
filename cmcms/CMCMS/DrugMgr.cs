@@ -158,7 +158,7 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_sub_drug_listbox_item_get (" + drugId + ", " + incl_not_specified + ", " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
-                Listbox.Items.Add(new SubDrugObj(dr["item_name"].ToString(), dr["item_id"].ToString(), Convert.ToBoolean(dr["isDeleted"])));
+                Listbox.Items.Add(new PermissibleValueObjWithDelFlag(dr["item_name"].ToString(), dr["item_id"].ToString(), Convert.ToBoolean(dr["isDeleted"])));
                 //Listbox.Items.Add(new PermissibleValueObj(dr["item_name"].ToString(), dr["item_id"].ToString()));
             }
         }
@@ -235,7 +235,7 @@ namespace CMCMS
             return methods;
         }
 
-        public bool insertPredifinedPrescription(String presName, String drugDataString, ref String statusMsg)
+        public bool insertPredefinedPrescription(String presName, String drugDataString, ref String statusMsg)
         {
 
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_predef_pres ('" + presName + "', '" + drugDataString + "')");
@@ -266,8 +266,16 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_predef_pres_list_get (" + (isInclDeleted ? 1 : 0) + ")");
             foreach (DataRow dr in data.Rows)
             {
-                cb.Items.Add(new PermissibleValueObj(dr["predef_pres_name"].ToString(), dr["predef_pres_id"].ToString()));
+                cb.Items.Add(new PermissibleValueObjWithDelFlag(dr["predef_pres_name"].ToString(), dr["predef_pres_id"].ToString(), Convert.ToBoolean(dr["isDeleted"])));
             }
+        }
+
+        //UpdatePredefPres
+        public bool UpdatePredefinedPrescription(int predefPresId, String presName, String drugDataString, bool isDeleted, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_predef_pres (" + predefPresId + ", '" + presName + "', '" + drugDataString + "', " + (isDeleted ? "1" : "0") + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
     }
 }

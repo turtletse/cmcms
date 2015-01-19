@@ -54,7 +54,7 @@ namespace CMCMS
         private void button_addFromDSP_Click(object sender, EventArgs e)
         {
             //DGV 0=BUTTON, 1=DRUG_ID, 2=DRUG_NAME, 3=DOSAGE, 4=UNIT
-            SubDrugObj subDrug = DSP.getSelectedSubDrug();
+            PermissibleValueObjWithDelFlag subDrug = DSP.getSelectedSubDrug();
             DrugObj drug = DSP.getSelectedDrug();
 
             if (subDrug == null || subDrug.getValue().Split(new String[] { "||" }, StringSplitOptions.None)[1] == "0")
@@ -158,6 +158,40 @@ namespace CMCMS
         private void button_addFromExistingPres_Click(object sender, EventArgs e)
         {
             List<List<String>> pres = drugMgr.getPredefPrescriptionById(int.Parse(((PermissibleValueObj)(comboBox_existingPredefPres.SelectedItem)).getValue()));
+            foreach (List<String> drugRow in pres)
+            {
+                if (isExistInDGV_selected(drugRow[0], drugRow[1]))
+                    continue;
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(DGV_selected);
+
+                row.Cells[1].Value = drugRow[0];
+                row.Cells[2].Value = drugRow[1];
+                row.Cells[3].Value = drugRow[2];
+                List<PermissibleValueObj> units = drugMgr.getPermissibleUnitForDrug(drugRow[0].Split(new String[] { "||" }, StringSplitOptions.None)[0]);
+                foreach (PermissibleValueObj o in units)
+                    ((DataGridViewComboBoxCell)row.Cells[4]).Items.Add(o.getName());
+                if (((DataGridViewComboBoxCell)row.Cells[4]) != null)
+                {
+                    ((DataGridViewComboBoxCell)row.Cells[4]).Value = ((DataGridViewComboBoxCell)row.Cells[4]).Items[((DataGridViewComboBoxCell)row.Cells[4]).Items.IndexOf(drugRow[3])];
+                }
+
+                List<String> methodDesc = methods.Keys.ToList();
+                foreach (String m in methodDesc)
+                    ((DataGridViewComboBoxCell)row.Cells[5]).Items.Add(m);
+                if (((DataGridViewComboBoxCell)row.Cells[5]) != null)
+                {
+                    ((DataGridViewComboBoxCell)row.Cells[5]).Value = ((DataGridViewComboBoxCell)row.Cells[5]).Items[((DataGridViewComboBoxCell)row.Cells[5]).Items.IndexOf(drugRow[4])];
+                }
+
+                DGV_selected.Rows.Add(row);
+            }
+        }
+
+        public void setPredefPres(int predefPresId)
+        {
+            DGV_selected.Rows.Clear();
+            List<List<String>> pres = drugMgr.getPredefPrescriptionById(predefPresId);
             foreach (List<String> drugRow in pres)
             {
                 if (isExistInDGV_selected(drugRow[0], drugRow[1]))

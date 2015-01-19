@@ -5,7 +5,7 @@ CREATE PROCEDURE sp_predef_pres_list_get (
 	IN in_incl_deleted INT
 )
 BEGIN
-	SELECT predef_pres_id, predef_pres_name
+	SELECT predef_pres_id, predef_pres_name, isDeleted
     FROM predefined_prescription
     WHERE isDeleted<=in_incl_deleted
     ORDER BY predef_pres_id;

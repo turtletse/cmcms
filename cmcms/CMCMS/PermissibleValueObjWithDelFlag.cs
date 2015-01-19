@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CMCMS
 {
-    public class SubDrugObj : PermissibleValueObj
+    public class PermissibleValueObjWithDelFlag : PermissibleValueObj
     {
         private bool deleted;
 
@@ -15,7 +15,7 @@ namespace CMCMS
             private set { deleted = value; }
         }
 
-        public SubDrugObj(String name, String value, bool deleted)
+        public PermissibleValueObjWithDelFlag(String name, String value, bool deleted)
             : base(name, value)
         {
             this.deleted = deleted;

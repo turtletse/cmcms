@@ -68,5 +68,11 @@ namespace CMCMS
             AddFormulaForm newPredefPres = new AddFormulaForm();
             newPredefPres.ShowDialog();
         }
+
+        private void button_updatePredefPres_Click(object sender, EventArgs e)
+        {
+            UpdateFormulaForm updatePredefPresForm = new UpdateFormulaForm();
+            updatePredefPresForm.ShowDialog();
+        }
     }
 }

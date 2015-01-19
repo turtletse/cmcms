@@ -3,9 +3,9 @@ DROP PROCEDURE IF EXISTS sp_insert_drug_item;
 DELIMITER $$
 CREATE PROCEDURE sp_insert_drug_item (
 	IN in_drug_name varchar(30),
-	IN in_drug_min_dosage_val decimal,
+	IN in_drug_min_dosage_val decimal(8,4),
     IN in_drug_min_dosage_unit int,
-    IN in_drug_max_dosage_val decimal,
+    IN in_drug_max_dosage_val decimal(8,4),
     IN in_drug_max_dosage_unit int,
     IN in_drug_pri_type int,
     IN in_drug_sec_type int,
@@ -25,12 +25,12 @@ CREATE PROCEDURE sp_insert_drug_item (
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
     
-    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
     -- CALL debug_logger('sp_insert_drug_item pt0');
 	if (select count(*) from master_drug_list where drug_name = in_drug_name) > 0 THEN
         SET curr_status_id = 1;

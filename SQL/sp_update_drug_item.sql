@@ -4,9 +4,9 @@ DELIMITER $$
 CREATE PROCEDURE sp_update_drug_item (
 	IN in_drug_id int,
 	IN in_drug_name varchar(30),
-	IN in_drug_min_dosage_val decimal,
+	IN in_drug_min_dosage_val decimal(8,4),
     IN in_drug_min_dosage_unit int,
-    IN in_drug_max_dosage_val decimal,
+    IN in_drug_max_dosage_val decimal(8,4),
     IN in_drug_max_dosage_unit int,
     IN in_drug_pri_type int,
     IN in_drug_sec_type int,

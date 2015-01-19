@@ -11,5 +11,18 @@ namespace CMCMS
         {
             return data.Replace("'", "''");
         }
+
+        public static void SelectItemByValue(System.Windows.Forms.ComboBox cb, string value)
+        {
+            for (int i = 0; i < cb.Items.Count; i++)
+            {
+                String permissibleValue = ((PermissibleValueObj)(cb.Items[i])).Value;
+                if (permissibleValue != null && permissibleValue == value)
+                {
+                    cb.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace CMCMS
             DrugMgr drugMgr = new DrugMgr();
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = drugMgr.insertPredifinedPrescription(textBox_presName.Text.Trim(), prescriptionPanel1.getPrescriptionDataString(), ref statusMsg);
+            isSuccess = drugMgr.insertPredefinedPrescription(textBox_presName.Text.Trim(), prescriptionPanel1.getPrescriptionDataString(), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
