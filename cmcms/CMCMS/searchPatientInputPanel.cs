@@ -40,6 +40,8 @@ namespace CMCMS
             PatientMgr patMgr = new PatientMgr();
             listBox_search_result.Enabled = false;
             patMgr.setSearchPatientResultListbox(listBox_search_result, textBox_search_patientID.Text.Trim(), textBox_search_IDNo.Text.Trim(), textBox_search_phoneNo.Text.Trim(), inclDeceased);
+            if (listBox_search_result.Items.Count > 0)
+                listBox_search_result.SelectedIndex = 0;
             listBox_search_result.Enabled = true;
         }
 

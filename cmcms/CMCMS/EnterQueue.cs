@@ -11,6 +11,7 @@ namespace CMCMS
 {
     public partial class EnterQueue : Form
     {
+        PatientMgr patMgr = new PatientMgr();
         public EnterQueue()
         {
             InitializeComponent();
@@ -25,20 +26,28 @@ namespace CMCMS
 
         private void button_enterQueue_Click(object sender, EventArgs e)
         {
-            PatientMgr patMgr = new PatientMgr();
             String statusMsg = "";
-            bool isSuccess;
+            //bool isSuccess;
             PatientObj pat = searchPatientInputPanel1.getSelectedPatient();
-            isSuccess = patMgr.enterQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
-            if (isSuccess)
-            {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reset();
-            }
-            else
-            {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            if (pat == null)
+                return;
+            //isSuccess = patMgr.enterQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
+            patMgr.enterQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
+            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            reset();
+        }
+
+        private void button_leaveQ_Click(object sender, EventArgs e)
+        {
+            String statusMsg = "";
+            //bool isSuccess;
+            PatientObj pat = searchPatientInputPanel1.getSelectedPatient();
+            if (pat == null)
+                return;
+            //isSuccess = patMgr.leaveQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
+            patMgr.leaveQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
+            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            reset();
         }
     }
 }

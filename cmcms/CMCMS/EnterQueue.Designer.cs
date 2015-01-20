@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_enterQueue = new System.Windows.Forms.Button();
             this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
+            this.button_leaveQ = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,9 +48,9 @@
             // 
             this.button_enterQueue.Location = new System.Drawing.Point(17, 431);
             this.button_enterQueue.Name = "button_enterQueue";
-            this.button_enterQueue.Size = new System.Drawing.Size(273, 36);
+            this.button_enterQueue.Size = new System.Drawing.Size(133, 36);
             this.button_enterQueue.TabIndex = 2;
-            this.button_enterQueue.Text = "掛號 / 查詢輪候狀況";
+            this.button_enterQueue.Text = "掛號 / 查詢輪候";
             this.button_enterQueue.UseVisualStyleBackColor = true;
             this.button_enterQueue.Click += new System.EventHandler(this.button_enterQueue_Click);
             // 
@@ -62,11 +63,22 @@
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
             this.searchPatientInputPanel1.TabIndex = 3;
             // 
+            // button_leaveQ
+            // 
+            this.button_leaveQ.Location = new System.Drawing.Point(156, 431);
+            this.button_leaveQ.Name = "button_leaveQ";
+            this.button_leaveQ.Size = new System.Drawing.Size(133, 36);
+            this.button_leaveQ.TabIndex = 4;
+            this.button_leaveQ.Text = "取消掛號";
+            this.button_leaveQ.UseVisualStyleBackColor = true;
+            this.button_leaveQ.Click += new System.EventHandler(this.button_leaveQ_Click);
+            // 
             // EnterQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 485);
+            this.Controls.Add(this.button_leaveQ);
             this.Controls.Add(this.searchPatientInputPanel1);
             this.Controls.Add(this.button_enterQueue);
             this.Controls.Add(this.label1);
@@ -86,5 +98,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_enterQueue;
         private SearchPatientInputPanel searchPatientInputPanel1;
+        private System.Windows.Forms.Button button_leaveQ;
     }
 }

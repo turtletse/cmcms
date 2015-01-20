@@ -1,7 +1,7 @@
-DROP PROCEDURE IF EXISTS sp_enter_patient_queue;
+DROP PROCEDURE IF EXISTS sp_leave_patient_queue;
 
 DELIMITER $$
-CREATE PROCEDURE sp_enter_patient_queue (
+CREATE PROCEDURE sp_leave_patient_queue (
 	IN in_patient_id int,
     IN in_clinic_id VARCHAR(10)
 )
@@ -33,32 +33,17 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-	SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
+	SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
     PREPARE stmt FROM @sql_str;
     EXECUTE stmt;
-    IF @cnt > 0 THEN
-		SET curr_status_id = 11;
-        
-        -- SELECT * FROM insert_record_status where status_id = curr_status_id;
+    IF (SELECT ROW_COUNT()) > 0 THEN
+		SET curr_status_id = 0;
 	ELSE
-		SET AUTOCOMMIT =0;
-		START TRANSACTION;
-			SET @sql_str = CONCAT('INSERT INTO ', tabname, ' (patient_id, enter_dtm) VALUES (', in_patient_id, ', now());');
-            PREPARE stmt FROM @sql_str;
-			EXECUTE stmt;
-		COMMIT;
-		SET AUTOCOMMIT=1;
+		SET curr_status_id = 12;
     END IF;
-    SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE enter_dtm <= (SELECT x.enter_dtm FROM ', tabname, ' x WHERE x.patient_id = ', in_patient_id, ');');
-	PREPARE stmt FROM @sql_str;
-    EXECUTE stmt;	
-	SELECT status_id, CONCAT(status_desc, '\n輪候人數:',@cnt,'位') status_desc FROM insert_record_status where status_id = curr_status_id;
+	SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;
 END $$
 
 DELIMITER ;
 
--- CALL sp_enter_patient_queue(1, 'CITYC');
--- DROP TABLE queuing_table_CITYC;
--- SELECT * FROM SYSTEM_PARM
--- SELECT * FROM queuing_table_CITYC;
