@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS patient_status;
+
 CREATE TABLE patient_status(
 	status_id int,
     status_desc varchar(255)
