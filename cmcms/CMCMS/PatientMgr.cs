@@ -65,5 +65,22 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
+        //WaitingList
+        public void refreshWaitingList(System.Windows.Forms.ListView lv)
+        {
+            lv.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_get_patient_queue_for_waitingList ('" + Login.clinic==null?"":Login.clinic.ClinicId + "')");
+            //DataTable data = dbmgr.execSelectStmtSP("CALL sp_get_patient_queue_for_waitingList ('CITYC')");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    string[] row = { dr["seq"].ToString(), dr["patient_id"].ToString(), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["sex"].ToString(), dr["dob"].ToString(), dr["enter_dtm"].ToString(), dr["status_desc"].ToString(), dr["MOIC"].ToString() };
+                    System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(row);
+                    lv.Items.Add(item);
+                }
+            }
+        }
     }
 }

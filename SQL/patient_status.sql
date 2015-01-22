@@ -11,3 +11,4 @@ INSERT INTO patient_status VALUES (0, '輪候中');
 INSERT INTO patient_status VALUES (1, '呼喚');
 INSERT INTO patient_status VALUES (2, '進入診症');
 INSERT INTO patient_status VALUES (3, '診症');
+INSERT INTO patient_status VALUES (4, '稍後再診');

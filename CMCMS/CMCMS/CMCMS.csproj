@@ -143,6 +143,12 @@
     <Compile Include="PrescriptionPanel.Designer.cs">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff_QueuingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_QueuingForm.Designer.cs">
+      <DependentUpon>Staff_QueuingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateFormulaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,12 @@
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
+    <Compile Include="WaitingList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaitingList.Designer.cs">
+      <DependentUpon>WaitingList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddFormulaForm.resx">
       <DependentUpon>AddFormulaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionPanel.resx">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff_QueuingForm.resx">
+      <DependentUpon>Staff_QueuingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateFormulaForm.resx">
       <DependentUpon>UpdateFormulaForm.cs</DependentUpon>
@@ -279,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingList.resx">
+      <DependentUpon>WaitingList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">

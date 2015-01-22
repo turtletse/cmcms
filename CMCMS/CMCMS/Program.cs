@@ -20,6 +20,7 @@ namespace CMCMS
             //Application.Run(new Patient_amdPatientData());
             //Application.Run(new Patient_mainMenu());
             //Application.Run(new AddFormulaForm());
+            //Application.Run(new Staff_QueuingForm());
             Application.Run(new Login());
         }
     }

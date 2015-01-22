@@ -26,3 +26,6 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.PrescriptionPa
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.AddFormulaForm.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.EnterQueue.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.UpdateFormulaForm.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.ConsultationForm.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.Staff_QueuingForm.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.waitingList.resources
