@@ -70,7 +70,7 @@ namespace CMCMS
         public void refreshWaitingList(System.Windows.Forms.ListView lv)
         {
             lv.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_get_patient_queue_for_waitingList ('" + Login.clinic==null?"":Login.clinic.ClinicId + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_queue_for_waitingList_get ('" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "')");
             //DataTable data = dbmgr.execSelectStmtSP("CALL sp_get_patient_queue_for_waitingList ('CITYC')");
             if (data != null)
             {
@@ -81,6 +81,64 @@ namespace CMCMS
                     lv.Items.Add(item);
                 }
             }
+        }
+
+        //Staff_QueuingForm
+        public bool priorityConsultation(int patId, String moicId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_queue_to_priority_consultation (" + patId + ", '" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "', '" + moicId + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool changeMOIC(int patId, String moicId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_queue_change_assigned_moic (" + patId + ", '" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "', '" + moicId + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool callNextPat(String moicId, ref String msg)
+        {
+            msg ="";
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_queue_staff_call_next_pat ('" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "', '" + moicId + "', '" + (Login.user == null?"":Login.user.UserId) + "')");
+            if (data != null && data.Rows.Count > 0)
+            {
+                if (int.Parse(data.Rows[0]["status_id"].ToString()) == 0)
+                {
+                    msg = "以下病人是否在診所?\n\n";
+                    msg += "病人編號: " + data.Rows[0]["patient_id"] + "\n";
+                    msg += "中文姓名: " + data.Rows[0]["chin_name"] + "\n";
+                    msg += "英文姓名: " + data.Rows[0]["eng_name"] + "\n";
+                    msg += "性別: " + data.Rows[0]["sex"] + "\n";
+                    msg += "出生日期: " + data.Rows[0]["dob"];
+                    return true;
+                }
+                else
+                {
+                    msg = data.Rows[0]["status_desc"].ToString();
+                    return false;
+                }
+            }
+            else
+            {
+                msg = "所有輪候中的病人已叫名一次/沒有病人在輪候";
+                return false;
+            }
+        }
+
+        public bool stopCallNextPat(ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_queue_staff_call_release_lock ('" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "', '" + (Login.user == null ? "" : Login.user.UserId) + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool callNextPatAnswered(String moicId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_queue_staff_call_answered ('" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "', '" + moicId + "', '" + (Login.user == null ? "" : Login.user.UserId) + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
     }
 }

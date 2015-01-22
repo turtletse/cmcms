@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button_seaechPanel_leaveQ = new System.Windows.Forms.Button();
-            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.button_enterQueue = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.button_callNext = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.waitingList1 = new CMCMS.WaitingList();
+            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -64,15 +64,6 @@
             this.button_seaechPanel_leaveQ.Text = "取消掛號";
             this.button_seaechPanel_leaveQ.UseVisualStyleBackColor = true;
             this.button_seaechPanel_leaveQ.Click += new System.EventHandler(this.button_seaechPanel_leaveQ_Click);
-            // 
-            // searchPatientInputPanel1
-            // 
-            this.searchPatientInputPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientInputPanel1.Location = new System.Drawing.Point(4, 47);
-            this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
-            this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 7;
             // 
             // button_enterQueue
             // 
@@ -138,6 +129,7 @@
             this.button_changeMOIC_reset.TabIndex = 27;
             this.button_changeMOIC_reset.Text = "重置";
             this.button_changeMOIC_reset.UseVisualStyleBackColor = true;
+            this.button_changeMOIC_reset.Click += new System.EventHandler(this.button_changeMOIC_reset_Click);
             // 
             // button_changeMOIC
             // 
@@ -147,6 +139,7 @@
             this.button_changeMOIC.TabIndex = 26;
             this.button_changeMOIC.Text = "確定";
             this.button_changeMOIC.UseVisualStyleBackColor = true;
+            this.button_changeMOIC.Click += new System.EventHandler(this.button_changeMOIC_Click);
             // 
             // button_NextPat_reset
             // 
@@ -156,6 +149,7 @@
             this.button_NextPat_reset.TabIndex = 25;
             this.button_NextPat_reset.Text = "重置";
             this.button_NextPat_reset.UseVisualStyleBackColor = true;
+            this.button_NextPat_reset.Click += new System.EventHandler(this.button_NextPat_reset_Click);
             // 
             // label8
             // 
@@ -216,6 +210,7 @@
             this.button_piorityCons.TabIndex = 16;
             this.button_piorityCons.Text = "確定";
             this.button_piorityCons.UseVisualStyleBackColor = true;
+            this.button_piorityCons.Click += new System.EventHandler(this.button_piorityCons_Click);
             // 
             // label5
             // 
@@ -261,6 +256,7 @@
             this.button_callNext.TabIndex = 10;
             this.button_callNext.Text = "下一位";
             this.button_callNext.UseVisualStyleBackColor = true;
+            this.button_callNext.Click += new System.EventHandler(this.button_callNext_Click);
             // 
             // label2
             // 
@@ -274,11 +270,21 @@
             // 
             // waitingList1
             // 
+            this.waitingList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.waitingList1.Location = new System.Drawing.Point(628, 12);
             this.waitingList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.waitingList1.Name = "waitingList1";
-            this.waitingList1.Size = new System.Drawing.Size(607, 486);
+            this.waitingList1.Size = new System.Drawing.Size(605, 486);
             this.waitingList1.TabIndex = 11;
+            // 
+            // searchPatientInputPanel1
+            // 
+            this.searchPatientInputPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPatientInputPanel1.Location = new System.Drawing.Point(4, 47);
+            this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
+            this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
+            this.searchPatientInputPanel1.TabIndex = 7;
             // 
             // Staff_QueuingForm
             // 

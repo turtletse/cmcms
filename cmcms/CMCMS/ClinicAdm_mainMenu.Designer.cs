@@ -36,6 +36,7 @@
             this.button_NewPatient = new System.Windows.Forms.Button();
             this.button_newPredefPres = new System.Windows.Forms.Button();
             this.button_updatePredefPres = new System.Windows.Forms.Button();
+            this.button_queuingMgt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +52,7 @@
             // 
             // button_userAdm
             // 
-            this.button_userAdm.Location = new System.Drawing.Point(26, 402);
+            this.button_userAdm.Location = new System.Drawing.Point(26, 459);
             this.button_userAdm.Name = "button_userAdm";
             this.button_userAdm.Size = new System.Drawing.Size(221, 51);
             this.button_userAdm.TabIndex = 16;
@@ -61,7 +62,7 @@
             // 
             // button_amdClinic
             // 
-            this.button_amdClinic.Location = new System.Drawing.Point(26, 345);
+            this.button_amdClinic.Location = new System.Drawing.Point(26, 402);
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
             this.button_amdClinic.TabIndex = 15;
@@ -71,7 +72,7 @@
             // 
             // button_drugAdm
             // 
-            this.button_drugAdm.Location = new System.Drawing.Point(26, 174);
+            this.button_drugAdm.Location = new System.Drawing.Point(26, 231);
             this.button_drugAdm.Name = "button_drugAdm";
             this.button_drugAdm.Size = new System.Drawing.Size(221, 51);
             this.button_drugAdm.TabIndex = 14;
@@ -101,7 +102,7 @@
             // 
             // button_newPredefPres
             // 
-            this.button_newPredefPres.Location = new System.Drawing.Point(26, 231);
+            this.button_newPredefPres.Location = new System.Drawing.Point(26, 288);
             this.button_newPredefPres.Name = "button_newPredefPres";
             this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_newPredefPres.TabIndex = 17;
@@ -111,7 +112,7 @@
             // 
             // button_updatePredefPres
             // 
-            this.button_updatePredefPres.Location = new System.Drawing.Point(26, 288);
+            this.button_updatePredefPres.Location = new System.Drawing.Point(26, 345);
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_updatePredefPres.TabIndex = 18;
@@ -119,11 +120,22 @@
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 
+            // button_queuingMgt
+            // 
+            this.button_queuingMgt.Location = new System.Drawing.Point(26, 174);
+            this.button_queuingMgt.Name = "button_queuingMgt";
+            this.button_queuingMgt.Size = new System.Drawing.Size(221, 51);
+            this.button_queuingMgt.TabIndex = 19;
+            this.button_queuingMgt.Text = "掛號 / 候診病人";
+            this.button_queuingMgt.UseVisualStyleBackColor = true;
+            this.button_queuingMgt.Click += new System.EventHandler(this.button_queuingMgt_Click);
+            // 
             // ClinicAdm_mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(276, 541);
+            this.Controls.Add(this.button_queuingMgt);
             this.Controls.Add(this.button_updatePredefPres);
             this.Controls.Add(this.button_newPredefPres);
             this.Controls.Add(this.button_userAdm);
@@ -154,5 +166,6 @@
         private System.Windows.Forms.Button button_NewPatient;
         private System.Windows.Forms.Button button_newPredefPres;
         private System.Windows.Forms.Button button_updatePredefPres;
+        private System.Windows.Forms.Button button_queuingMgt;
     }
 }

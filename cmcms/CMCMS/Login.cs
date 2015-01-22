@@ -61,8 +61,9 @@ namespace CMCMS
                             else if (user.CurrentLoginRole == 10)
                             {
                                 //STAFF
+                                Staff_MainMenu staffMainMenu = new Staff_MainMenu();
                                 this.Hide();
-                                
+                                staffMainMenu.ShowDialog();
                                 this.Show();
                             }
                             else if (user.CurrentLoginRole == 20)

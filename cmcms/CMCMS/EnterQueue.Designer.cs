@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button_enterQueue = new System.Windows.Forms.Button();
-            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.button_leaveQ = new System.Windows.Forms.Button();
+            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -54,15 +54,6 @@
             this.button_enterQueue.UseVisualStyleBackColor = true;
             this.button_enterQueue.Click += new System.EventHandler(this.button_enterQueue_Click);
             // 
-            // searchPatientInputPanel1
-            // 
-            this.searchPatientInputPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientInputPanel1.Location = new System.Drawing.Point(10, 43);
-            this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
-            this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 3;
-            // 
             // button_leaveQ
             // 
             this.button_leaveQ.Location = new System.Drawing.Point(156, 431);
@@ -72,6 +63,15 @@
             this.button_leaveQ.Text = "取消掛號";
             this.button_leaveQ.UseVisualStyleBackColor = true;
             this.button_leaveQ.Click += new System.EventHandler(this.button_leaveQ_Click);
+            // 
+            // searchPatientInputPanel1
+            // 
+            this.searchPatientInputPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPatientInputPanel1.Location = new System.Drawing.Point(10, 43);
+            this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
+            this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
+            this.searchPatientInputPanel1.TabIndex = 3;
             // 
             // EnterQueue
             // 

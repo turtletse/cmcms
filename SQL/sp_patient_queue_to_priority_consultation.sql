@@ -1,9 +1,10 @@
-DROP PROCEDURE IF EXISTS sp_leave_patient_queue;
+DROP PROCEDURE IF EXISTS sp_patient_queue_to_priority_consultation;
 
 DELIMITER $$
-CREATE PROCEDURE sp_leave_patient_queue (
+CREATE PROCEDURE sp_patient_queue_to_priority_consultation (
 	IN in_patient_id int,
-    IN in_clinic_id VARCHAR(10)
+    IN in_clinic_id VARCHAR(10),
+    IN in_moic_id VARCHAR(10)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -33,17 +34,27 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-	SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
+    SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE doctor_in_charge = ''', in_moic_id, ''' AND patient_status IN (20, 30)');
     PREPARE stmt FROM @sql_str;
     EXECUTE stmt;
-    IF (SELECT ROW_COUNT()) > 0 THEN
-		SET curr_status_id = 0;
-	ELSE
-		SET curr_status_id = 12;
-    END IF;
+    IF @cnt > 0 THEN
+		SET curr_status_id = 14;
+    ELSE
+		SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 20, doctor_in_charge =''', in_moic_id,'''WHERE patient_id = ', in_patient_id, ' AND patient_status = 0');
+		PREPARE stmt FROM @sql_str;
+		EXECUTE stmt;
+		IF (SELECT ROW_COUNT()) > 0 THEN
+			SET curr_status_id = 0;
+		ELSE
+			SET curr_status_id = 12;
+		END IF;
+	END IF;
+    
 	SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;
 END $$
 
 DELIMITER ;
 
+-- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CSM')
+-- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CITYCD1')

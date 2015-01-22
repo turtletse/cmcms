@@ -148,6 +148,7 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
         public void setAmdRoleUserCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
@@ -165,6 +166,20 @@ namespace CMCMS
             /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_user_logout ('" + "SYSADM" + "', '" + "ALL" + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        //Staff_QueuingForm
+        public void setMOICcombobox(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_MOIC_combobox_get ('"+ (Login.clinic==null?"":Login.clinic.ClinicId) +"')");
+            if (data != null && data.Rows.Count > 0)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    cb.Items.Add(new UserObj(dr["user_id"].ToString(), dr["hashed_password"].ToString(), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["reg_no"].ToString(), dr["last_logout_dtm"].ToString(), dr["last_logout_clinic_id"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
+                }
+            }
         }
     }
 }

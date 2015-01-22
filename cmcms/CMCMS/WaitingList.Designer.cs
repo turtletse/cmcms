@@ -56,7 +56,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(607, 486);
+            this.groupBox3.Size = new System.Drawing.Size(605, 486);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             // 
@@ -74,6 +74,7 @@
             this.columnHeader_MOIC});
             this.listView_waitingList.FullRowSelect = true;
             this.listView_waitingList.GridLines = true;
+            this.listView_waitingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView_waitingList.Location = new System.Drawing.Point(6, 85);
             this.listView_waitingList.MultiSelect = false;
             this.listView_waitingList.Name = "listView_waitingList";
@@ -164,12 +165,12 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "輪候名單";
             // 
-            // waitingList
+            // WaitingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
-            this.Name = "waitingList";
+            this.Name = "WaitingList";
             this.Size = new System.Drawing.Size(607, 486);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

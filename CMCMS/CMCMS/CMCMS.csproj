@@ -143,6 +143,12 @@
     <Compile Include="PrescriptionPanel.Designer.cs">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff_MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_MainMenu.Designer.cs">
+      <DependentUpon>Staff_MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff_QueuingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionPanel.resx">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff_MainMenu.resx">
+      <DependentUpon>Staff_MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff_QueuingForm.resx">
       <DependentUpon>Staff_QueuingForm.cs</DependentUpon>

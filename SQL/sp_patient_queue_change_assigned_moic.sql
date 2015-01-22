@@ -1,9 +1,10 @@
-DROP PROCEDURE IF EXISTS sp_leave_patient_queue;
+DROP PROCEDURE IF EXISTS sp_patient_queue_change_assigned_moic;
 
 DELIMITER $$
-CREATE PROCEDURE sp_leave_patient_queue (
+CREATE PROCEDURE sp_patient_queue_change_assigned_moic (
 	IN in_patient_id int,
-    IN in_clinic_id VARCHAR(10)
+    IN in_clinic_id VARCHAR(10),
+    IN in_moic_id VARCHAR(10)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -33,13 +34,13 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-	SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
+	SET @sql_str = CONCAT('UPDATE ', tabname, ' SET doctor_in_charge =''', in_moic_id,'''WHERE patient_id = ', in_patient_id, ' AND patient_status > 10 AND doctor_in_charge IS NOT NULL AND CHAR_LENGTH(doctor_in_charge)>0;');
     PREPARE stmt FROM @sql_str;
     EXECUTE stmt;
     IF (SELECT ROW_COUNT()) > 0 THEN
 		SET curr_status_id = 0;
 	ELSE
-		SET curr_status_id = 12;
+		SET curr_status_id = 13;
     END IF;
 	SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;
@@ -47,3 +48,4 @@ END $$
 
 DELIMITER ;
 
+-- CALL sp_patient_queue_change_assigned_moic (1, 'CITYC', 'CSM')

@@ -74,5 +74,11 @@ namespace CMCMS
             UpdateFormulaForm updatePredefPresForm = new UpdateFormulaForm();
             updatePredefPresForm.ShowDialog();
         }
+
+        private void button_queuingMgt_Click(object sender, EventArgs e)
+        {
+            Staff_QueuingForm sqf = new Staff_QueuingForm();
+            sqf.Show();
+        }
     }
 }

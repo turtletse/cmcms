@@ -17,7 +17,7 @@ BEGIN
 	END;
     SET tabname = CONCAT('queuing_table_', in_clinic_id);
 	IF (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'cmcms' AND table_name = tabname) = 0 THEN
-		SET @sql_str = CONCAT('CREATE TABLE ', tabname, ' (patient_id int, enter_dtm DATETIME, missed_call int default 0, patient_status int default 0, doctor_in_charge VARCHAR(10) DEFAULT NULL);');
+		SET @sql_str = CONCAT('CREATE TABLE ', tabname, ' (patient_id int, enter_dtm DATETIME(6), missed_call int default 0, patient_status int default 0, doctor_in_charge VARCHAR(10) DEFAULT NULL);');
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 		SET @sql_str = CONCAT('CREATE INDEX ', tabname, '_x1 ON ', tabname,'(enter_dtm, patient_id);');
@@ -43,7 +43,7 @@ BEGIN
 	ELSE
 		SET AUTOCOMMIT =0;
 		START TRANSACTION;
-			SET @sql_str = CONCAT('INSERT INTO ', tabname, ' (patient_id, enter_dtm) VALUES (', in_patient_id, ', now());');
+			SET @sql_str = CONCAT('INSERT INTO ', tabname, ' (patient_id, enter_dtm) VALUES (', in_patient_id, ', sysdate(6));');
             PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
 		COMMIT;
