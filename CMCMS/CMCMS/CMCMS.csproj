@@ -98,6 +98,18 @@
       <DependentUpon>ConsultationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBMgr.cs" />
+    <Compile Include="Doctor_MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor_MainMenu.Designer.cs">
+      <DependentUpon>Doctor_MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor_QueuingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor_QueuingForm.Designer.cs">
+      <DependentUpon>Doctor_QueuingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrugAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultationForm.resx">
       <DependentUpon>ConsultationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor_MainMenu.resx">
+      <DependentUpon>Doctor_MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor_QueuingForm.resx">
+      <DependentUpon>Doctor_QueuingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrugAdmin.resx">
       <DependentUpon>DrugAdmin.cs</DependentUpon>

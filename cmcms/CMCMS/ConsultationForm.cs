@@ -15,5 +15,9 @@ namespace CMCMS
         {
             InitializeComponent();
         }
+
+        private void getCurrentPatient()
+        {
+        }
     }
 }

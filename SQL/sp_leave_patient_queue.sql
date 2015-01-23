@@ -33,7 +33,7 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-	SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
+	SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id, ' AND patient_status<>30');
     PREPARE stmt FROM @sql_str;
     EXECUTE stmt;
     IF (SELECT ROW_COUNT()) > 0 THEN

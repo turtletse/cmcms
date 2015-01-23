@@ -11,11 +11,15 @@ CREATE TABLE consultation_record(
     dx_code VARCHAR(255),
     dx_desc VARCHAR(255),
     pres_id VARCHAR(255),
-    dr_rmk VARCHAR(450)
+    dr_rmk VARCHAR(450),
+    isFinished int DEFAULT 0,
+    last_update_dtm DATETIME
 );
 CREATE INDEX consultation_record_x1 ON consultation_record(clinic_id, cons_id);
 CREATE INDEX consultation_record_x2 ON consultation_record(cons_id);
 CREATE INDEX consultation_record_x3 ON consultation_record(dr_id);
+CREATE INDEX consultation_record_x4 ON consultation_record(last_update_dtm);
+CREATE INDEX consultation_record_x5 ON consultation_record(isFinished);
 
 
 
@@ -24,9 +28,11 @@ CREATE TABLE prescription(
 	pres_id int,
     instruction VARCHAR(255),
     no_of_dose int,
-    method_of_treatment VARCHAR(255)
+    method_of_treatment VARCHAR(255),
+    isIssued int
 );
 CREATE INDEX prescription_x1 ON prescription(pres_id);
+CREATE INDEX prescription_x2 ON prescription(isIssued);
 
 
 

@@ -69,8 +69,9 @@ namespace CMCMS
                             else if (user.CurrentLoginRole == 20)
                             {
                                 //DOCTOR
+                                Doctor_MainMenu drMainMenu = new Doctor_MainMenu();
                                 this.Hide();
-
+                                drMainMenu.ShowDialog();
                                 this.Show();
                             }
                             else if (user.CurrentLoginRole == 30)

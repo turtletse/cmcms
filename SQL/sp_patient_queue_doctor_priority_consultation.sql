@@ -1,11 +1,10 @@
-DROP PROCEDURE IF EXISTS sp_patient_queue_change_assigned_moic;
+DROP PROCEDURE IF EXISTS sp_patient_queue_doctor_priority_consultation;
 
 DELIMITER $$
-CREATE PROCEDURE sp_patient_queue_change_assigned_moic (
+CREATE PROCEDURE sp_patient_queue_doctor_priority_consultation (
 	IN in_patient_id int,
     IN in_clinic_id VARCHAR(10),
-    IN in_moic_id VARCHAR(10),
-    IN in_user_id VARCHAR(10)
+    IN in_moic_id VARCHAR(10)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -48,20 +47,20 @@ BEGIN
             PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
 			IF @tablock IS NULL OR @tablock = in_user_id THEN
-				SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_user_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
+				SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
 				PREPARE stmt FROM @sql_str;
 				EXECUTE stmt;
                 COMMIT;
-				SET @sql_str = CONCAT('UPDATE ', tabname, ' SET doctor_in_charge =''', in_moic_id,'''WHERE patient_id = ', in_patient_id, ' AND patient_status > 10 AND doctor_in_charge IS NOT NULL AND CHAR_LENGTH(doctor_in_charge)>0;');
+				SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 30, doctor_in_charge =''', in_moic_id,'''WHERE patient_id = ', in_patient_id, ' AND patient_status = 0');
 				PREPARE stmt FROM @sql_str;
 				EXECUTE stmt;
 				IF (SELECT ROW_COUNT()) > 0 THEN
 					SET curr_status_id = 0;
 				ELSE
-					SET curr_status_id = 13;
+					SET curr_status_id = 12;
 				END IF;
                 SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
-                CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_user_id);
+                CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
 			ELSE
 				SET curr_status_id = 15;
                 SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
@@ -75,4 +74,5 @@ END $$
 
 DELIMITER ;
 
--- CALL sp_patient_queue_change_assigned_moic (1, 'CITYC', 'CSM')
+-- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CSM')
+-- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CITYCD1')

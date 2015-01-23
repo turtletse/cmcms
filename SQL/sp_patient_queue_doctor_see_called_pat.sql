@@ -1,9 +1,9 @@
-DROP PROCEDURE IF EXISTS sp_enter_patient_queue;
+DROP PROCEDURE IF EXISTS sp_patient_queue_doctor_see_called_pat;
 
 DELIMITER $$
-CREATE PROCEDURE sp_enter_patient_queue (
-	IN in_patient_id int,
-    IN in_clinic_id VARCHAR(10)
+CREATE PROCEDURE sp_patient_queue_doctor_see_called_pat (
+    IN in_clinic_id VARCHAR(10),
+    IN in_moic_id VARCHAR(10)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -15,6 +15,7 @@ BEGIN
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	END;
+    
     SET tabname = CONCAT('queuing_table_', in_clinic_id);
 	IF (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'cmcms' AND table_name = tabname) = 0 THEN
 		SET @sql_str = CONCAT('CREATE TABLE ', tabname, ' (patient_id int, enter_dtm DATETIME(6), missed_call int default 0, patient_status int default 0, doctor_in_charge VARCHAR(10) DEFAULT NULL);');
@@ -33,32 +34,39 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-	SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE patient_id = ', in_patient_id);
-    PREPARE stmt FROM @sql_str;
-    EXECUTE stmt;
-    IF @cnt > 0 THEN
-		SET curr_status_id = 11;
-        
-        -- SELECT * FROM insert_record_status where status_id = curr_status_id;
-	ELSE
-		SET AUTOCOMMIT =0;
-		START TRANSACTION;
-			SET @sql_str = CONCAT('INSERT INTO ', tabname, ' (patient_id, enter_dtm) VALUES (', in_patient_id, ', sysdate(6));');
-            PREPARE stmt FROM @sql_str;
+    
+	SET AUTOCOMMIT=0;
+	START TRANSACTION;
+		SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
+		PREPARE stmt FROM @sql_str;
+		EXECUTE stmt;
+		IF @tablock IS NULL OR @tablock = in_moic_id THEN
+			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
+			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-		COMMIT;
-		SET AUTOCOMMIT=1;
-    END IF;
-    SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE enter_dtm <= (SELECT x.enter_dtm FROM ', tabname, ' x WHERE x.patient_id = ', in_patient_id, ');');
-	PREPARE stmt FROM @sql_str;
-    EXECUTE stmt;	
-	SELECT status_id, CONCAT(status_desc, '\n輪候人數: ',@cnt,'位') status_desc FROM insert_record_status where status_id = curr_status_id;
+			COMMIT;
+			SET @sql_str = CONCAT('UPDATE ',tabname,' SET patient_status = 30, doctor_in_charge =''', in_moic_id, ''' WHERE patient_status = 20;');
+			PREPARE stmt FROM @sql_str;
+			EXECUTE stmt;
+			IF (SELECT ROW_COUNT()) > 0  THEN
+				SET curr_status_id = 0;
+			ELSE
+				SET curr_status_id = 17;
+			END IF;
+            COMMIT;
+			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =NULL WHERE parm_name = ''',tabname,'_LOCK''');
+			PREPARE stmt FROM @sql_str;
+			EXECUTE stmt;
+		ELSE
+			SET curr_status_id = 16;
+		END IF;
+	COMMIT;
+	SET AUTOCOMMIT=1;
+    SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;
 END $$
 
 DELIMITER ;
 
--- CALL sp_enter_patient_queue(1, 'CITYC');
--- DROP TABLE queuing_table_CITYC;
--- SELECT * FROM SYSTEM_PARM
--- SELECT * FROM queuing_table_CITYC;
+-- SELECT * FROM queuing_table_cityc
+-- CALL sp_patient_queue_doctor_see_called_pat ('CITYC', 'CITYCD1')

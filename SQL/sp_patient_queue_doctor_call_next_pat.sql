@@ -1,9 +1,9 @@
-DROP PROCEDURE IF EXISTS sp_patient_queue_staff_call_release_lock;
+DROP PROCEDURE IF EXISTS sp_patient_queue_doctor_call_next_pat;
 
 DELIMITER $$
-CREATE PROCEDURE sp_patient_queue_staff_call_release_lock (
+CREATE PROCEDURE sp_patient_queue_doctor_call_next_pat (
     IN in_clinic_id VARCHAR(10),
-    IN in_user_id VARCHAR(10)
+    IN in_moic_id VARCHAR(10)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -40,24 +40,35 @@ BEGIN
 		SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
-		IF @tablock = in_user_id THEN
-            SET @sql_str = CONCAT('UPDATE ',tabname,' SET patient_status = 0, missed_call=missed_call+1  WHERE patient_status = 10;');
+		IF @tablock IS NULL OR @tablock = in_moic_id THEN
+			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-            COMMIT;
-			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =NULL WHERE parm_name = ''',tabname,'_LOCK''');
+			COMMIT;
+			SET @cnt = -1;
+			SET @sql_str = CONCAT('SELECT @cnt:=@cnt+1 status_id, LAST_INSERT_ID(patient_id) patient_id, chin_name, eng_name, sex, DATE_FORMAT(patient_record.dob, ''%d/%m/%Y'') dob FROM ', tabname,' NATURAL JOIN patient_record JOIN patient_status ON patient_status = status_id WHERE patient_status = 0 AND enter_dtm = (select min(enter_dtm) FROM ', tabname,' WHERE patient_status = 0);');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
+			IF (@cnt) = -1 THEN
+				COMMIT;
+				CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
+			ELSE
+				SET @sql_str = CONCAT('UPDATE ', tabname,' SET patient_status=10 WHERE patient_id = ',LAST_INSERT_ID());
+				PREPARE stmt FROM @sql_str;
+				EXECUTE stmt;
+				DEALLOCATE PREPARE stmt;
+			END IF;
 		ELSE
-			SET curr_status_id = 16;
+			SET curr_status_id = 15;
 		END IF;
 	COMMIT;
 	SET AUTOCOMMIT=1;
     SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
-    DEALLOCATE PREPARE stmt;
+    
 END $$
 
 DELIMITER ;
 
+-- UPDATE queuing_table_cityc SET patient_status=0, doctor_in_charge=NULL
 -- SELECT * FROM queuing_table_cityc
--- CALL sp_patient_queue_staff_call_release_lock ('CITYC', 'CITYCS1')
+-- CALL sp_patient_queue_doctor_call_next_pat ('CITYC', 'CITYCD1')

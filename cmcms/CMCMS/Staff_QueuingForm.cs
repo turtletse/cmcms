@@ -79,7 +79,7 @@ namespace CMCMS
         private void button_piorityCons_Click(object sender, EventArgs e)
         {
             String statusMsg = "";
-            patMgr.priorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref statusMsg);
+            patMgr.staffAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref statusMsg);
             MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             nextPatReset();
             waitingList1.refresh();
@@ -100,14 +100,14 @@ namespace CMCMS
             String msg = "";
 
             callNextPatient:
-                isGetPatSuccess=patMgr.callNextPat(((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref msg);
+                isGetPatSuccess=patMgr.staffCallNextPat(((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref msg);
                 if (isGetPatSuccess)
                 {
                     DialogResult isHere;
                     isHere = MessageBox.Show(msg, "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (isHere == System.Windows.Forms.DialogResult.Yes)
                     {
-                        patMgr.callNextPatAnswered(((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref msg);
+                        patMgr.staffCallNextPatAnswered(((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref msg);
                     }
                     else if (isHere == System.Windows.Forms.DialogResult.No)
                     {

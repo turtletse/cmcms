@@ -11,7 +11,7 @@ DELIMITER $$
 
 CREATE PROCEDURE debug_logger (IN msg varchar(255))
 BEGIN
-	INSERT INTO debug_log VALUES (NOW(), msg);
+	INSERT INTO debug_log VALUES (sysdate(3), msg);
 END $$
 
 DELIMITER ;

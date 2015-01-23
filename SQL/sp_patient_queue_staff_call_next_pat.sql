@@ -51,15 +51,18 @@ BEGIN
 				SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_user_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
 				PREPARE stmt FROM @sql_str;
 				EXECUTE stmt;
-				SET @sql_str = CONCAT('SELECT 0 status_id, LAST_INSERT_ID(patient_id) patient_id, chin_name, eng_name, sex, DATE_FORMAT(patient_record.dob, ''%d/%m/%Y'') dob FROM ', tabname,' NATURAL JOIN patient_record JOIN patient_status ON patient_status = status_id WHERE patient_status = 0 AND enter_dtm = (select min(enter_dtm) FROM ', tabname,' WHERE patient_status = 0)');
+                COMMIT;
+                SET @cnt = -1;
+				SET @sql_str = CONCAT('SELECT @cnt:=@cnt+1 status_id, LAST_INSERT_ID(patient_id) patient_id, chin_name, eng_name, sex, DATE_FORMAT(patient_record.dob, ''%d/%m/%Y'') dob FROM ', tabname,' NATURAL JOIN patient_record JOIN patient_status ON patient_status = status_id WHERE patient_status = 0 AND enter_dtm = (select min(enter_dtm) FROM ', tabname,' WHERE patient_status = 0);');
 				PREPARE stmt FROM @sql_str;
 				EXECUTE stmt;
-                SET @sql_str = CONCAT('UPDATE ', tabname,' SET patient_status=10 WHERE patient_id = ',LAST_INSERT_ID());
-				PREPARE stmt FROM @sql_str;
-				EXECUTE stmt;
-                IF (SELECT ROW_COUNT()) = 0 THEN
+                IF (@cnt) = -1 THEN
+					COMMIT;
 					CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_user_id);
 				ELSE
+                    SET @sql_str = CONCAT('UPDATE ', tabname,' SET patient_status=10 WHERE patient_id = ',LAST_INSERT_ID());
+					PREPARE stmt FROM @sql_str;
+					EXECUTE stmt;
 					DEALLOCATE PREPARE stmt;
 				END IF;
 			ELSE
@@ -73,6 +76,8 @@ BEGIN
 END $$
 
 DELIMITER ;
-
+-- SELECT * FROM system_parm
+-- SELECT * FROM debug_log;
+-- UPDATE queuing_table_cityc SET patient_status=0, doctor_in_charge=NULL
 -- SELECT * FROM queuing_table_cityc
 -- CALL sp_patient_queue_staff_call_next_pat ('CITYC', 'CITYCD1', 'CITYCS1')
