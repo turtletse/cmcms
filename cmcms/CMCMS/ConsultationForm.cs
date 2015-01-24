@@ -11,13 +11,23 @@ namespace CMCMS
 {
     public partial class ConsultationForm : Form
     {
+        PatientMgr patMgr = new PatientMgr();
         public ConsultationForm()
         {
             InitializeComponent();
         }
 
-        private void getCurrentPatient()
+        private void ConsultationForm_Shown(object sender, EventArgs e)
         {
+            String statusMsg="";
+            bool isSuccess;
+            isSuccess = patMgr.setPatientInfoForConsultation(textBox_patId, textBox_pat_chiName, textBox_pat_engName, textBox_pat_IDNo, textBox_pat_sex, checkBox_pat_isPregnant, textBox_pat_DOB, textBox_pat_age, checkBox_pat_isG6PD, textBox_pat_drugAllergy, ref statusMsg);
+            if (!isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        
     }
 }

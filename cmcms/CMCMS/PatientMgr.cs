@@ -193,6 +193,28 @@ namespace CMCMS
         }
 
         //consultation
-
+        public bool setPatientInfoForConsultation(System.Windows.Forms.TextBox tbPatId, System.Windows.Forms.TextBox tbChiName, System.Windows.Forms.TextBox tbEngName, System.Windows.Forms.TextBox tbHKID, System.Windows.Forms.TextBox tbSex, System.Windows.Forms.CheckBox cbIsPregnant, System.Windows.Forms.TextBox tbDOB, System.Windows.Forms.TextBox tbAge, System.Windows.Forms.CheckBox cbIsG6PD, System.Windows.Forms.TextBox tbAllergicDrug, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_currentPatientGet ('" + (Login.clinic == null ? "" : Login.clinic.ClinicId) + "', '" + (Login.user == null ? "" : Login.user.UserId) + "')");
+            if (data != null && data.Rows.Count > 0)
+            {
+                tbPatId.Text = data.Rows[0]["patient_id"].ToString();
+                tbChiName.Text = data.Rows[0]["chin_name"].ToString();
+                tbEngName.Text = data.Rows[0]["eng_name"].ToString();
+                tbHKID.Text = data.Rows[0]["id_doc_no"].ToString();
+                tbSex.Text = data.Rows[0]["sex"].ToString();
+                cbIsPregnant.Checked = Convert.ToBoolean(data.Rows[0]["isPregnant"]);
+                tbDOB.Text = data.Rows[0]["dob"].ToString();
+                tbAge.Text = data.Rows[0]["age"].ToString();
+                cbIsG6PD.Checked = Convert.ToBoolean(data.Rows[0]["isG6PD"]);
+                tbAllergicDrug.Text = data.Rows[0]["allergic_drug"].ToString();
+                return true;
+            }
+            else
+            {
+                statusMsg = "沒有正在診治的病人";
+                return false;
+            }
+        }
     }
 }

@@ -46,7 +46,7 @@ BEGIN
 			SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
             PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-			IF @tablock IS NULL OR @tablock = in_user_id THEN
+			IF @tablock IS NULL OR @tablock = in_moic_id THEN
 				SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
 				PREPARE stmt FROM @sql_str;
 				EXECUTE stmt;
@@ -76,3 +76,4 @@ DELIMITER ;
 
 -- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CSM')
 -- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CITYCD1')
+-- CALL sp_patient_queue_doctor_priority_consultation (2, 'CITYC', 'CSM')

@@ -61,6 +61,7 @@ namespace CMCMS
                 if (isHere == System.Windows.Forms.DialogResult.Yes)
                 {
                     patMgr.doctorCallNextPatAnswered(ref msg);
+                    openConsultationForm();
                 }
                 else if (isHere == System.Windows.Forms.DialogResult.No)
                 {
@@ -81,12 +82,25 @@ namespace CMCMS
         private void button_calledPat_Click(object sender, EventArgs e)
         {
             String statusMsg = "";
-            patMgr.doctorSeeCalledPat(ref statusMsg);
-            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            enterQueueReset();
+            bool isSuccess;
+            isSuccess = patMgr.doctorSeeCalledPat(ref statusMsg);
+            if (isSuccess)
+            {
+                openConsultationForm();
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void Doctor_QueuingForm_Shown(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        private void reset()
         {
             enterQueueReset();
             nextPatReset();
@@ -96,8 +110,16 @@ namespace CMCMS
         private void button_piorityCons_Click(object sender, EventArgs e)
         {
             String statusMsg = "";
-            patMgr.doctorAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ref statusMsg);
-            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            bool isSuccess;
+            isSuccess = patMgr.doctorAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ref statusMsg);
+            if (isSuccess)
+            {
+                openConsultationForm();
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void nextPatReset()
@@ -108,6 +130,15 @@ namespace CMCMS
         private void button_NextPat_reset_Click(object sender, EventArgs e)
         {
             nextPatReset();
+        }
+
+        private void openConsultationForm()
+        {
+            ConsultationForm consForm = new ConsultationForm();
+            this.Hide();
+            consForm.ShowDialog();
+            reset();
+            this.Show();
         }
     }
 }
