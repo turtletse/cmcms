@@ -13,6 +13,7 @@ namespace CMCMS
     {
         PatientMgr patMgr = new PatientMgr();
         UserClinicMgr ucMgr = new UserClinicMgr();
+
         public Doctor_QueuingForm()
         {
             InitializeComponent();

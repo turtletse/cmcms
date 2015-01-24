@@ -12,6 +12,12 @@ namespace CMCMS
     public partial class ConsultationForm : Form
     {
         PatientMgr patMgr = new PatientMgr();
+
+        List<List<String>> examination = new List<List<string>>();
+        List<List<String>> differentiation = new List<List<string>>();
+        List<List<String>> diagnosis = new List<List<string>>();
+        List<String> prescription = new List<string>();
+
         public ConsultationForm()
         {
             InitializeComponent();

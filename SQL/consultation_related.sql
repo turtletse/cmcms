@@ -3,7 +3,7 @@ CREATE TABLE consultation_record(
 	cons_id int,
     clinic_id VARCHAR(10),
     dr_id VARCHAR(10),
-    cons_dtm DATETIME,
+    first_record_dtm DATETIME,
     ex_code VARCHAR(255),
     ex_desc VARCHAR(255),
     diff_code VARCHAR(255),
@@ -16,7 +16,7 @@ CREATE TABLE consultation_record(
     last_update_dtm DATETIME
 );
 CREATE INDEX consultation_record_x1 ON consultation_record(clinic_id, cons_id);
-CREATE INDEX consultation_record_x2 ON consultation_record(cons_id);
+CREATE INDEX consultation_record_x2 ON consultation_record(first_record_dtm);
 CREATE INDEX consultation_record_x3 ON consultation_record(dr_id);
 CREATE INDEX consultation_record_x4 ON consultation_record(last_update_dtm);
 CREATE INDEX consultation_record_x5 ON consultation_record(isFinished);
@@ -29,10 +29,10 @@ CREATE TABLE prescription(
     instruction VARCHAR(255),
     no_of_dose int,
     method_of_treatment VARCHAR(255),
-    isIssued int
+    -- isIssued int
 );
 CREATE INDEX prescription_x1 ON prescription(pres_id);
-CREATE INDEX prescription_x2 ON prescription(isIssued);
+-- CREATE INDEX prescription_x2 ON prescription(isIssued);
 
 
 
