@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_patId = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.checkBox_pat_isG6PD = new System.Windows.Forms.CheckBox();
             this.textBox_pat_drugAllergy = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_pat_chiName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox_patId = new System.Windows.Forms.TextBox();
             this.button_finish = new System.Windows.Forms.Button();
             this.button_conLater = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.button_finalSave = new System.Windows.Forms.Button();
             this.button_tmpSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_use_previous = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader_firstRecDtm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_dx = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -61,31 +62,30 @@
             this.columnHeader_diff = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_pres = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button_change_exam = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox_diff = new System.Windows.Forms.TextBox();
-            this.button_change_diff = new System.Windows.Forms.Button();
-            this.textBox_dx = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button_dx = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBox_presId = new System.Windows.Forms.ComboBox();
-            this.button_change_pres = new System.Windows.Forms.Button();
-            this.button_add_pres = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
+            this.button_change_drRmk = new System.Windows.Forms.Button();
             this.textBox_drRmk = new System.Windows.Forms.TextBox();
-            this.button_add_drRmk = new System.Windows.Forms.Button();
-            this.button_use_previous = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button_add_pres = new System.Windows.Forms.Button();
+            this.button_change_pres = new System.Windows.Forms.Button();
+            this.comboBox_presId = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button_dx = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_dx = new System.Windows.Forms.TextBox();
+            this.button_change_diff = new System.Windows.Forms.Button();
+            this.textBox_diff = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button_change_exam = new System.Windows.Forms.Button();
             this.groupBox_sickLeaveCert = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox_sickLeaveNDays = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.dateTimePicker_sickLeaveStart = new System.Windows.Forms.DateTimePicker();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker_sickLeaveEnd = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dateTimePicker_sickLeaveEnd = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dateTimePicker_sickLeaveStart = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox_sickLeaveNDays = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.button_consCert = new System.Windows.Forms.Button();
             this.button_pregCert = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -120,6 +120,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "病人資料";
+            // 
+            // textBox_patId
+            // 
+            this.textBox_patId.Location = new System.Drawing.Point(103, 35);
+            this.textBox_patId.Name = "textBox_patId";
+            this.textBox_patId.ReadOnly = true;
+            this.textBox_patId.Size = new System.Drawing.Size(132, 26);
+            this.textBox_patId.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "病人編號: ";
             // 
             // checkBox_pat_isG6PD
             // 
@@ -261,23 +278,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "姓名(中文): ";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 41);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 20);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "病人編號: ";
-            // 
-            // textBox_patId
-            // 
-            this.textBox_patId.Location = new System.Drawing.Point(103, 35);
-            this.textBox_patId.Name = "textBox_patId";
-            this.textBox_patId.ReadOnly = true;
-            this.textBox_patId.Size = new System.Drawing.Size(132, 26);
-            this.textBox_patId.TabIndex = 17;
-            // 
             // button_finish
             // 
             this.button_finish.Location = new System.Drawing.Point(1270, 735);
@@ -343,6 +343,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "病歷";
             // 
+            // button_use_previous
+            // 
+            this.button_use_previous.Location = new System.Drawing.Point(6, 191);
+            this.button_use_previous.Name = "button_use_previous";
+            this.button_use_previous.Size = new System.Drawing.Size(245, 29);
+            this.button_use_previous.TabIndex = 1;
+            this.button_use_previous.Text = "使用已選紀錄作藍本";
+            this.button_use_previous.UseVisualStyleBackColor = true;
+            // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -389,7 +398,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button_add_drRmk);
+            this.groupBox3.Controls.Add(this.button_change_drRmk);
             this.groupBox3.Controls.Add(this.textBox_drRmk);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.button_conLater);
@@ -415,104 +424,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "是次診症紀錄";
             // 
-            // button_change_exam
+            // button_change_drRmk
             // 
-            this.button_change_exam.Location = new System.Drawing.Point(357, 33);
-            this.button_change_exam.Name = "button_change_exam";
-            this.button_change_exam.Size = new System.Drawing.Size(142, 49);
-            this.button_change_exam.TabIndex = 7;
-            this.button_change_exam.Text = "修改";
-            this.button_change_exam.UseVisualStyleBackColor = true;
+            this.button_change_drRmk.Location = new System.Drawing.Point(904, 174);
+            this.button_change_drRmk.Name = "button_change_drRmk";
+            this.button_change_drRmk.Size = new System.Drawing.Size(142, 49);
+            this.button_change_drRmk.TabIndex = 20;
+            this.button_change_drRmk.Text = "修改";
+            this.button_change_drRmk.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // textBox_drRmk
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 174);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 20);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "辨症: ";
-            // 
-            // textBox_diff
-            // 
-            this.textBox_diff.Location = new System.Drawing.Point(93, 171);
-            this.textBox_diff.Multiline = true;
-            this.textBox_diff.Name = "textBox_diff";
-            this.textBox_diff.ReadOnly = true;
-            this.textBox_diff.Size = new System.Drawing.Size(258, 126);
-            this.textBox_diff.TabIndex = 9;
-            // 
-            // button_change_diff
-            // 
-            this.button_change_diff.Location = new System.Drawing.Point(357, 174);
-            this.button_change_diff.Name = "button_change_diff";
-            this.button_change_diff.Size = new System.Drawing.Size(142, 49);
-            this.button_change_diff.TabIndex = 10;
-            this.button_change_diff.Text = "修改";
-            this.button_change_diff.UseVisualStyleBackColor = true;
-            // 
-            // textBox_dx
-            // 
-            this.textBox_dx.Location = new System.Drawing.Point(93, 320);
-            this.textBox_dx.Multiline = true;
-            this.textBox_dx.Name = "textBox_dx";
-            this.textBox_dx.ReadOnly = true;
-            this.textBox_dx.Size = new System.Drawing.Size(258, 126);
-            this.textBox_dx.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 323);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 20);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "診斷: ";
-            // 
-            // button_dx
-            // 
-            this.button_dx.Location = new System.Drawing.Point(357, 323);
-            this.button_dx.Name = "button_dx";
-            this.button_dx.Size = new System.Drawing.Size(142, 49);
-            this.button_dx.TabIndex = 13;
-            this.button_dx.Text = "修改";
-            this.button_dx.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(545, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 20);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "處方: ";
-            // 
-            // comboBox_presId
-            // 
-            this.comboBox_presId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_presId.FormattingEnabled = true;
-            this.comboBox_presId.Location = new System.Drawing.Point(600, 30);
-            this.comboBox_presId.Name = "comboBox_presId";
-            this.comboBox_presId.Size = new System.Drawing.Size(217, 28);
-            this.comboBox_presId.TabIndex = 15;
-            // 
-            // button_change_pres
-            // 
-            this.button_change_pres.Location = new System.Drawing.Point(823, 29);
-            this.button_change_pres.Name = "button_change_pres";
-            this.button_change_pres.Size = new System.Drawing.Size(75, 28);
-            this.button_change_pres.TabIndex = 16;
-            this.button_change_pres.Text = "修改";
-            this.button_change_pres.UseVisualStyleBackColor = true;
-            // 
-            // button_add_pres
-            // 
-            this.button_add_pres.Location = new System.Drawing.Point(904, 29);
-            this.button_add_pres.Name = "button_add_pres";
-            this.button_add_pres.Size = new System.Drawing.Size(75, 28);
-            this.button_add_pres.TabIndex = 17;
-            this.button_add_pres.Text = "新增";
-            this.button_add_pres.UseVisualStyleBackColor = true;
+            this.textBox_drRmk.Location = new System.Drawing.Point(600, 171);
+            this.textBox_drRmk.Multiline = true;
+            this.textBox_drRmk.Name = "textBox_drRmk";
+            this.textBox_drRmk.Size = new System.Drawing.Size(298, 126);
+            this.textBox_drRmk.TabIndex = 19;
             // 
             // label13
             // 
@@ -523,31 +450,105 @@
             this.label13.TabIndex = 18;
             this.label13.Text = "醫囑: ";
             // 
-            // textBox_drRmk
+            // button_add_pres
             // 
-            this.textBox_drRmk.Location = new System.Drawing.Point(600, 171);
-            this.textBox_drRmk.Multiline = true;
-            this.textBox_drRmk.Name = "textBox_drRmk";
-            this.textBox_drRmk.Size = new System.Drawing.Size(298, 126);
-            this.textBox_drRmk.TabIndex = 19;
+            this.button_add_pres.Location = new System.Drawing.Point(904, 29);
+            this.button_add_pres.Name = "button_add_pres";
+            this.button_add_pres.Size = new System.Drawing.Size(75, 28);
+            this.button_add_pres.TabIndex = 17;
+            this.button_add_pres.Text = "新增";
+            this.button_add_pres.UseVisualStyleBackColor = true;
             // 
-            // button_add_drRmk
+            // button_change_pres
             // 
-            this.button_add_drRmk.Location = new System.Drawing.Point(904, 174);
-            this.button_add_drRmk.Name = "button_add_drRmk";
-            this.button_add_drRmk.Size = new System.Drawing.Size(142, 49);
-            this.button_add_drRmk.TabIndex = 20;
-            this.button_add_drRmk.Text = "加入預設項目";
-            this.button_add_drRmk.UseVisualStyleBackColor = true;
+            this.button_change_pres.Location = new System.Drawing.Point(823, 29);
+            this.button_change_pres.Name = "button_change_pres";
+            this.button_change_pres.Size = new System.Drawing.Size(75, 28);
+            this.button_change_pres.TabIndex = 16;
+            this.button_change_pres.Text = "修改";
+            this.button_change_pres.UseVisualStyleBackColor = true;
             // 
-            // button_use_previous
+            // comboBox_presId
             // 
-            this.button_use_previous.Location = new System.Drawing.Point(6, 191);
-            this.button_use_previous.Name = "button_use_previous";
-            this.button_use_previous.Size = new System.Drawing.Size(245, 29);
-            this.button_use_previous.TabIndex = 1;
-            this.button_use_previous.Text = "使用已選紀錄作藍本";
-            this.button_use_previous.UseVisualStyleBackColor = true;
+            this.comboBox_presId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_presId.FormattingEnabled = true;
+            this.comboBox_presId.Location = new System.Drawing.Point(600, 30);
+            this.comboBox_presId.Name = "comboBox_presId";
+            this.comboBox_presId.Size = new System.Drawing.Size(217, 28);
+            this.comboBox_presId.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(545, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 20);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "處方: ";
+            // 
+            // button_dx
+            // 
+            this.button_dx.Location = new System.Drawing.Point(357, 323);
+            this.button_dx.Name = "button_dx";
+            this.button_dx.Size = new System.Drawing.Size(142, 49);
+            this.button_dx.TabIndex = 13;
+            this.button_dx.Text = "修改";
+            this.button_dx.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 323);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 20);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "診斷: ";
+            // 
+            // textBox_dx
+            // 
+            this.textBox_dx.Location = new System.Drawing.Point(93, 320);
+            this.textBox_dx.Multiline = true;
+            this.textBox_dx.Name = "textBox_dx";
+            this.textBox_dx.ReadOnly = true;
+            this.textBox_dx.Size = new System.Drawing.Size(258, 126);
+            this.textBox_dx.TabIndex = 11;
+            // 
+            // button_change_diff
+            // 
+            this.button_change_diff.Location = new System.Drawing.Point(357, 174);
+            this.button_change_diff.Name = "button_change_diff";
+            this.button_change_diff.Size = new System.Drawing.Size(142, 49);
+            this.button_change_diff.TabIndex = 10;
+            this.button_change_diff.Text = "修改";
+            this.button_change_diff.UseVisualStyleBackColor = true;
+            // 
+            // textBox_diff
+            // 
+            this.textBox_diff.Location = new System.Drawing.Point(93, 171);
+            this.textBox_diff.Multiline = true;
+            this.textBox_diff.Name = "textBox_diff";
+            this.textBox_diff.ReadOnly = true;
+            this.textBox_diff.Size = new System.Drawing.Size(258, 126);
+            this.textBox_diff.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 174);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 20);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "辨症: ";
+            // 
+            // button_change_exam
+            // 
+            this.button_change_exam.Location = new System.Drawing.Point(357, 33);
+            this.button_change_exam.Name = "button_change_exam";
+            this.button_change_exam.Size = new System.Drawing.Size(142, 49);
+            this.button_change_exam.TabIndex = 7;
+            this.button_change_exam.Text = "修改";
+            this.button_change_exam.UseVisualStyleBackColor = true;
+            this.button_change_exam.Click += new System.EventHandler(this.button_change_exam_Click);
             // 
             // groupBox_sickLeaveCert
             // 
@@ -567,67 +568,14 @@
             this.groupBox_sickLeaveCert.TabStop = false;
             this.groupBox_sickLeaveCert.Text = "病假";
             // 
-            // label14
+            // button1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 38);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "日數: ";
-            // 
-            // textBox_sickLeaveNDays
-            // 
-            this.textBox_sickLeaveNDays.Location = new System.Drawing.Point(61, 35);
-            this.textBox_sickLeaveNDays.Name = "textBox_sickLeaveNDays";
-            this.textBox_sickLeaveNDays.Size = new System.Drawing.Size(64, 26);
-            this.textBox_sickLeaveNDays.TabIndex = 1;
-            this.textBox_sickLeaveNDays.Text = "1";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 73);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 20);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "日期: ";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(61, 73);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 20);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "由(即日)";
-            // 
-            // dateTimePicker_sickLeaveStart
-            // 
-            this.dateTimePicker_sickLeaveStart.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker_sickLeaveStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(134, 73);
-            this.dateTimePicker_sickLeaveStart.Name = "dateTimePicker_sickLeaveStart";
-            this.dateTimePicker_sickLeaveStart.Size = new System.Drawing.Size(157, 26);
-            this.dateTimePicker_sickLeaveStart.TabIndex = 4;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(61, 111);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(25, 20);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "至";
-            // 
-            // dateTimePicker_sickLeaveEnd
-            // 
-            this.dateTimePicker_sickLeaveEnd.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker_sickLeaveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_sickLeaveEnd.Location = new System.Drawing.Point(134, 106);
-            this.dateTimePicker_sickLeaveEnd.Name = "dateTimePicker_sickLeaveEnd";
-            this.dateTimePicker_sickLeaveEnd.Size = new System.Drawing.Size(157, 26);
-            this.dateTimePicker_sickLeaveEnd.TabIndex = 6;
+            this.button1.Location = new System.Drawing.Point(6, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(330, 49);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "確認並發出證明書";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -638,14 +586,67 @@
             this.label18.TabIndex = 7;
             this.label18.Text = "(包括首尾兩天)";
             // 
-            // button1
+            // dateTimePicker_sickLeaveEnd
             // 
-            this.button1.Location = new System.Drawing.Point(6, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(330, 49);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "確認並發出證明書";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dateTimePicker_sickLeaveEnd.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_sickLeaveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_sickLeaveEnd.Location = new System.Drawing.Point(134, 106);
+            this.dateTimePicker_sickLeaveEnd.Name = "dateTimePicker_sickLeaveEnd";
+            this.dateTimePicker_sickLeaveEnd.Size = new System.Drawing.Size(157, 26);
+            this.dateTimePicker_sickLeaveEnd.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(61, 111);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 20);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "至";
+            // 
+            // dateTimePicker_sickLeaveStart
+            // 
+            this.dateTimePicker_sickLeaveStart.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_sickLeaveStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(134, 73);
+            this.dateTimePicker_sickLeaveStart.Name = "dateTimePicker_sickLeaveStart";
+            this.dateTimePicker_sickLeaveStart.Size = new System.Drawing.Size(157, 26);
+            this.dateTimePicker_sickLeaveStart.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(61, 73);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(67, 20);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "由(即日)";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 73);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 20);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "日期: ";
+            // 
+            // textBox_sickLeaveNDays
+            // 
+            this.textBox_sickLeaveNDays.Location = new System.Drawing.Point(61, 35);
+            this.textBox_sickLeaveNDays.Name = "textBox_sickLeaveNDays";
+            this.textBox_sickLeaveNDays.Size = new System.Drawing.Size(64, 26);
+            this.textBox_sickLeaveNDays.TabIndex = 1;
+            this.textBox_sickLeaveNDays.Text = "1";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "日數: ";
             // 
             // button_consCert
             // 
@@ -732,7 +733,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button_change_exam;
         private System.Windows.Forms.Button button_use_previous;
-        private System.Windows.Forms.Button button_add_drRmk;
+        private System.Windows.Forms.Button button_change_drRmk;
         private System.Windows.Forms.TextBox textBox_drRmk;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button_add_pres;

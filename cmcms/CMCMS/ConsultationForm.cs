@@ -13,14 +13,27 @@ namespace CMCMS
     {
         PatientMgr patMgr = new PatientMgr();
 
-        List<List<String>> examination = new List<List<string>>();
-        List<List<String>> differentiation = new List<List<string>>();
-        List<List<String>> diagnosis = new List<List<string>>();
+        List<PermissibleValueObj> examination = new List<PermissibleValueObj>();
+        List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
+        List<PermissibleValueObj> diagnosis = new List<PermissibleValueObj>();
         List<String> prescription = new List<string>();
+
+        ExaminationResultSelectionForm ersf = new ExaminationResultSelectionForm();
 
         public ConsultationForm()
         {
             InitializeComponent();
+            ersf.setSelectedExamResult(ref examination);
+        }
+
+        private String permissibleValueObjListToString(List<PermissibleValueObj> list)
+        {
+            String s = "";
+            foreach (PermissibleValueObj o in list)
+            {
+                s += o.Name + "; ";
+            }
+            return s;
         }
 
         private void ConsultationForm_Shown(object sender, EventArgs e)
@@ -32,6 +45,12 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button_change_exam_Click(object sender, EventArgs e)
+        {
+            ersf.ShowDialog();
+            textBox_exam.Text = permissibleValueObjListToString(examination);
         }
 
         

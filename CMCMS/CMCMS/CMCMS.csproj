@@ -97,6 +97,7 @@
     <Compile Include="ConsultationForm.Designer.cs">
       <DependentUpon>ConsultationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultationMgr.cs" />
     <Compile Include="DBMgr.cs" />
     <Compile Include="Doctor_MainMenu.cs">
       <SubType>Form</SubType>
@@ -129,6 +130,12 @@
     </Compile>
     <Compile Include="EnterQueue.Designer.cs">
       <DependentUpon>EnterQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExaminationResultSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExaminationResultSelectionForm.Designer.cs">
+      <DependentUpon>ExaminationResultSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IDSPSelectedDrugChange.cs" />
     <Compile Include="Login.cs">
@@ -266,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EnterQueue.resx">
       <DependentUpon>EnterQueue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExaminationResultSelectionForm.resx">
+      <DependentUpon>ExaminationResultSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
