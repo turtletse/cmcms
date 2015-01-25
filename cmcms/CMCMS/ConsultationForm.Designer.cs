@@ -494,6 +494,7 @@
             this.button_dx.TabIndex = 13;
             this.button_dx.Text = "修改";
             this.button_dx.UseVisualStyleBackColor = true;
+            this.button_dx.Click += new System.EventHandler(this.button_dx_Click);
             // 
             // label11
             // 
@@ -521,6 +522,7 @@
             this.button_change_diff.TabIndex = 10;
             this.button_change_diff.Text = "修改";
             this.button_change_diff.UseVisualStyleBackColor = true;
+            this.button_change_diff.Click += new System.EventHandler(this.button_change_diff_Click);
             // 
             // textBox_diff
             // 

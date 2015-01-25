@@ -89,7 +89,7 @@ namespace CMCMS
             this.Hide();
         }
 
-        private void button_remoceSelected_Click(object sender, EventArgs e)
+        private void button_removeSelected_Click(object sender, EventArgs e)
         {
             if (listBox_selectedExamResult.SelectedIndex != -1)
             {
@@ -101,8 +101,26 @@ namespace CMCMS
         {
             if (listBox_lv4.SelectedIndex != -1)
             {
-                listBox_selectedExamResult.Items.Add(listBox_lv4.SelectedItem);
+                PermissibleValueObj objToBeAdded = ((PermissibleValueObj)(listBox_lv4.SelectedItem));
+                if (checkDuplication(objToBeAdded))
+                {
+                    MessageBox.Show("項目已經存在", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                listBox_selectedExamResult.Items.Add(objToBeAdded);
             }
+        }
+
+        private bool checkDuplication(PermissibleValueObj objToBeAdded)
+        {
+            foreach (PermissibleValueObj o in listBox_selectedExamResult.Items)
+            {
+                if (o.Name == objToBeAdded.Name)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void button_addFromFreeText_Click(object sender, EventArgs e)
@@ -111,7 +129,9 @@ namespace CMCMS
             String[] freeTextEx = textBox_freeText.Text.Split(new String[] { ";" }, StringSplitOptions.None);
             foreach (String s in freeTextEx)
             {
-                listBox_selectedExamResult.Items.Add(new PermissibleValueObj(s, "FreeText"));
+                PermissibleValueObj objToBeAdded = new PermissibleValueObj(s, "FreeText");
+                if (!checkDuplication(objToBeAdded))
+                    listBox_selectedExamResult.Items.Add(objToBeAdded);
             }
         }
     }

@@ -76,5 +76,99 @@ namespace CMCMS
             }
         }
 
+
+        //DifferentiationResultSearchForm
+        public void setDiffLv1(System.Windows.Forms.ListBox Listbox)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_differentiation_result_lv1_get ()");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["lv1"].ToString()));
+                }
+            }
+        }
+
+        public void setDiffLv2(System.Windows.Forms.ListBox Listbox, int lv1)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_differentiation_result_lv2_get (" + lv1 + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["lv2"].ToString()));
+                }
+            }
+        }
+
+        public void setDiffLv3(System.Windows.Forms.ListBox Listbox, int lv1, int lv2)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_differentiation_result_lv3_get (" + lv1 + ", " + lv2 + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["result_code"].ToString()));
+                }
+            }
+        }
+
+        public void setDiffLv3BySearch(System.Windows.Forms.ListBox Listbox, String keywords)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_differentiation_result_search_get ('" + keywords + "')");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["result_code"].ToString()));
+                }
+            }
+        }
+
+
+        //DxResultSelectionForm
+        public void setDxLv1(System.Windows.Forms.ListBox Listbox)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dx_result_lv1_get ()");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["lv1"].ToString()));
+                }
+            }
+        }
+
+        public void setDxLv2(System.Windows.Forms.ListBox Listbox, int lv1)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dx_result_lv2_get (" + lv1 + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["result_code"].ToString()));
+                }
+            }
+        }
+
+        public void setDxLv2BySearch(System.Windows.Forms.ListBox Listbox, String keywords)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dx_result_search_get ('" + keywords + "')");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["result_code"].ToString()));
+                }
+            }
+        }
     }
 }

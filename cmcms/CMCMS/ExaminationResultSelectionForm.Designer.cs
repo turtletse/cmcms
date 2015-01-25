@@ -46,7 +46,7 @@
             this.button_reset = new System.Windows.Forms.Button();
             this.button_confirm = new System.Windows.Forms.Button();
             this.button_clearSelectedLV = new System.Windows.Forms.Button();
-            this.button_remoceSelected = new System.Windows.Forms.Button();
+            this.button_removeSelected = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -217,15 +217,15 @@
             this.button_clearSelectedLV.UseVisualStyleBackColor = true;
             this.button_clearSelectedLV.Click += new System.EventHandler(this.button_clearSelectedLV_Click);
             // 
-            // button_remoceSelected
+            // button_removeSelected
             // 
-            this.button_remoceSelected.Location = new System.Drawing.Point(653, 373);
-            this.button_remoceSelected.Name = "button_remoceSelected";
-            this.button_remoceSelected.Size = new System.Drawing.Size(85, 40);
-            this.button_remoceSelected.TabIndex = 18;
-            this.button_remoceSelected.Text = "刪除";
-            this.button_remoceSelected.UseVisualStyleBackColor = true;
-            this.button_remoceSelected.Click += new System.EventHandler(this.button_remoceSelected_Click);
+            this.button_removeSelected.Location = new System.Drawing.Point(653, 373);
+            this.button_removeSelected.Name = "button_removeSelected";
+            this.button_removeSelected.Size = new System.Drawing.Size(85, 40);
+            this.button_removeSelected.TabIndex = 18;
+            this.button_removeSelected.Text = "刪除";
+            this.button_removeSelected.UseVisualStyleBackColor = true;
+            this.button_removeSelected.Click += new System.EventHandler(this.button_removeSelected_Click);
             // 
             // label6
             // 
@@ -242,7 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 432);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button_remoceSelected);
+            this.Controls.Add(this.button_removeSelected);
             this.Controls.Add(this.button_confirm);
             this.Controls.Add(this.button_clearSelectedLV);
             this.Controls.Add(this.button_reset);
@@ -293,7 +293,7 @@
         private System.Windows.Forms.Button button_reset;
         private System.Windows.Forms.Button button_confirm;
         private System.Windows.Forms.Button button_clearSelectedLV;
-        private System.Windows.Forms.Button button_remoceSelected;
+        private System.Windows.Forms.Button button_removeSelected;
         private System.Windows.Forms.Label label6;
     }
 }
