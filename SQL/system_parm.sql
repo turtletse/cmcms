@@ -17,4 +17,6 @@ CREATE INDEX system_parm_x1 on system_parm (parm_name);
 
 -- INSERT INTO system_parm VALUES ('consultation_cnt', '0', 'for generation of cons_id');
 
--- INSERT INTO system_parm VALUES ('prescription_id', '0', 'for generation of pres_id');
+-- INSERT INTO system_parm VALUES ('prescription_cnt', '0', 'for generation of pres_id');
+
+-- INSERT INTO system_parm VALUES ('dr_rmk_cnt', '0', 'for generation of rmk_id for dr_rmk_prefined_list');

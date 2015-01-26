@@ -117,6 +117,12 @@
     <Compile Include="Doctor_QueuingForm.Designer.cs">
       <DependentUpon>Doctor_QueuingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DrRmkEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrRmkEditForm.Designer.cs">
+      <DependentUpon>DrRmkEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrugAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="DrugSelectionPanel.Designer.cs">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DxResultSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DxResultSelectionForm.Designer.cs">
+      <DependentUpon>DxResultSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EnterQueue.cs">
       <SubType>Form</SubType>
@@ -161,6 +173,12 @@
     </Compile>
     <Compile Include="NewPatient.Designer.cs">
       <DependentUpon>NewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionForm.Designer.cs">
+      <DependentUpon>PrescriptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrescriptionPanel.cs">
       <SubType>UserControl</SubType>
@@ -274,11 +292,17 @@
     <EmbeddedResource Include="Doctor_QueuingForm.resx">
       <DependentUpon>Doctor_QueuingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DrRmkEditForm.resx">
+      <DependentUpon>DrRmkEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DrugAdmin.resx">
       <DependentUpon>DrugAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrugSelectionPanel.resx">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DxResultSelectionForm.resx">
+      <DependentUpon>DxResultSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterQueue.resx">
       <DependentUpon>EnterQueue.cs</DependentUpon>
@@ -294,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionForm.resx">
+      <DependentUpon>PrescriptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionPanel.resx">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>

@@ -16,11 +16,13 @@ namespace CMCMS
         List<PermissibleValueObj> examination = new List<PermissibleValueObj>();
         List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
         List<PermissibleValueObj> diagnosis = new List<PermissibleValueObj>();
+        String drRmk = "";
         List<String> prescription = new List<string>();
 
         ExaminationResultSelectionForm ersf = new ExaminationResultSelectionForm();
         DifferentiationResultSelectionForm drsf = new DifferentiationResultSelectionForm();
         DxResultSelectionForm dxrsf = new DxResultSelectionForm();
+        DrRmkEditForm dref = new DrRmkEditForm();
 
         public ConsultationForm()
         {
@@ -28,6 +30,7 @@ namespace CMCMS
             ersf.setSelectedExamResult(ref examination);
             drsf.setSelectedDiffResult(ref differentiation);
             dxrsf.setSelectedDxResult(ref diagnosis);
+            dref.setRmk(ref drRmk);
         }
 
         private String permissibleValueObjListToString(List<PermissibleValueObj> list)
@@ -67,6 +70,12 @@ namespace CMCMS
         {
             dxrsf.ShowDialog();
             textBox_dx.Text = permissibleValueObjListToString(diagnosis);
+        }
+
+        private void button_change_drRmk_Click(object sender, EventArgs e)
+        {
+            dref.ShowDialog();
+            textBox_drRmk.Text = drRmk;
         }
 
         

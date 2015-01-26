@@ -77,7 +77,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button_change_exam = new System.Windows.Forms.Button();
             this.groupBox_sickLeaveCert = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_issueSickLeaveCert = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.dateTimePicker_sickLeaveEnd = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
@@ -88,6 +88,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button_consCert = new System.Windows.Forms.Button();
             this.button_pregCert = new System.Windows.Forms.Button();
+            this.button_delPres = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -398,6 +399,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button_delPres);
             this.groupBox3.Controls.Add(this.button_change_drRmk);
             this.groupBox3.Controls.Add(this.textBox_drRmk);
             this.groupBox3.Controls.Add(this.label13);
@@ -432,12 +434,14 @@
             this.button_change_drRmk.TabIndex = 20;
             this.button_change_drRmk.Text = "修改";
             this.button_change_drRmk.UseVisualStyleBackColor = true;
+            this.button_change_drRmk.Click += new System.EventHandler(this.button_change_drRmk_Click);
             // 
             // textBox_drRmk
             // 
             this.textBox_drRmk.Location = new System.Drawing.Point(600, 171);
             this.textBox_drRmk.Multiline = true;
             this.textBox_drRmk.Name = "textBox_drRmk";
+            this.textBox_drRmk.ReadOnly = true;
             this.textBox_drRmk.Size = new System.Drawing.Size(298, 126);
             this.textBox_drRmk.TabIndex = 19;
             // 
@@ -452,18 +456,18 @@
             // 
             // button_add_pres
             // 
-            this.button_add_pres.Location = new System.Drawing.Point(904, 29);
+            this.button_add_pres.Location = new System.Drawing.Point(975, 29);
             this.button_add_pres.Name = "button_add_pres";
-            this.button_add_pres.Size = new System.Drawing.Size(75, 28);
+            this.button_add_pres.Size = new System.Drawing.Size(71, 28);
             this.button_add_pres.TabIndex = 17;
             this.button_add_pres.Text = "新增";
             this.button_add_pres.UseVisualStyleBackColor = true;
             // 
             // button_change_pres
             // 
-            this.button_change_pres.Location = new System.Drawing.Point(823, 29);
+            this.button_change_pres.Location = new System.Drawing.Point(821, 29);
             this.button_change_pres.Name = "button_change_pres";
-            this.button_change_pres.Size = new System.Drawing.Size(75, 28);
+            this.button_change_pres.Size = new System.Drawing.Size(71, 28);
             this.button_change_pres.TabIndex = 16;
             this.button_change_pres.Text = "修改";
             this.button_change_pres.UseVisualStyleBackColor = true;
@@ -474,7 +478,7 @@
             this.comboBox_presId.FormattingEnabled = true;
             this.comboBox_presId.Location = new System.Drawing.Point(600, 30);
             this.comboBox_presId.Name = "comboBox_presId";
-            this.comboBox_presId.Size = new System.Drawing.Size(217, 28);
+            this.comboBox_presId.Size = new System.Drawing.Size(215, 28);
             this.comboBox_presId.TabIndex = 15;
             // 
             // label12
@@ -554,7 +558,7 @@
             // 
             // groupBox_sickLeaveCert
             // 
-            this.groupBox_sickLeaveCert.Controls.Add(this.button1);
+            this.groupBox_sickLeaveCert.Controls.Add(this.button_issueSickLeaveCert);
             this.groupBox_sickLeaveCert.Controls.Add(this.label18);
             this.groupBox_sickLeaveCert.Controls.Add(this.dateTimePicker_sickLeaveEnd);
             this.groupBox_sickLeaveCert.Controls.Add(this.label17);
@@ -570,14 +574,14 @@
             this.groupBox_sickLeaveCert.TabStop = false;
             this.groupBox_sickLeaveCert.Text = "病假";
             // 
-            // button1
+            // button_issueSickLeaveCert
             // 
-            this.button1.Location = new System.Drawing.Point(6, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(330, 49);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "確認並發出證明書";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_issueSickLeaveCert.Location = new System.Drawing.Point(6, 174);
+            this.button_issueSickLeaveCert.Name = "button_issueSickLeaveCert";
+            this.button_issueSickLeaveCert.Size = new System.Drawing.Size(330, 49);
+            this.button_issueSickLeaveCert.TabIndex = 8;
+            this.button_issueSickLeaveCert.Text = "確認並發出證明書";
+            this.button_issueSickLeaveCert.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -668,6 +672,15 @@
             this.button_pregCert.Text = "懷孕證明書";
             this.button_pregCert.UseVisualStyleBackColor = true;
             // 
+            // button_delPres
+            // 
+            this.button_delPres.Location = new System.Drawing.Point(898, 30);
+            this.button_delPres.Name = "button_delPres";
+            this.button_delPres.Size = new System.Drawing.Size(71, 28);
+            this.button_delPres.TabIndex = 21;
+            this.button_delPres.Text = "新增";
+            this.button_delPres.UseVisualStyleBackColor = true;
+            // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -735,7 +748,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button_change_exam;
         private System.Windows.Forms.Button button_use_previous;
-        private System.Windows.Forms.Button button_change_drRmk;
         private System.Windows.Forms.TextBox textBox_drRmk;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button_add_pres;
@@ -749,7 +761,7 @@
         private System.Windows.Forms.TextBox textBox_diff;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox_sickLeaveCert;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_issueSickLeaveCert;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DateTimePicker dateTimePicker_sickLeaveEnd;
         private System.Windows.Forms.Label label17;
@@ -760,5 +772,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button_consCert;
         private System.Windows.Forms.Button button_pregCert;
+        private System.Windows.Forms.Button button_change_drRmk;
+        private System.Windows.Forms.Button button_delPres;
     }
 }

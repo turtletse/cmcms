@@ -170,5 +170,37 @@ namespace CMCMS
                 }
             }
         }
+
+
+        //DrRmkEditForm
+        public void setDrRmkPredefined(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dr_rmk_predefined_get ()");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    cb.Items.Add(new PermissibleValueObj(dr["rmk_desc"].ToString(), dr["rmk_id"].ToString()));
+                }
+            }
+        }
+
+
+        //prescriptionForm
+        public bool newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, ref String presId)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "')");
+            if (data != null)
+            {
+                if (data.Rows[0]["status_id"].ToString() == "0")
+                {
+                    presId = data.Rows[0]["pres_id"].ToString();
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
     }
 }

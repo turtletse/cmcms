@@ -127,6 +127,17 @@ namespace CMCMS
             return prescription.Substring(2);
         }
 
+        public String getConsultationPrescriptionDataString()
+        {
+            //FORMAT: drugId||subDrugId^^drug_name^^dosage^^unit^^method##
+            String prescription = "";
+            foreach (DataGridViewRow row in DGV_selected.Rows)
+            {
+                prescription += "##" + row.Cells[1].Value + "^^" + row.Cells[2].Value + "^^" + row.Cells[3].Value + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()] + "^^" + methods[((DataGridViewComboBoxCell)row.Cells[5]).EditedFormattedValue.ToString()];
+            }
+            return prescription.Substring(2);
+        }
+
         private void button_addFromFreeText_Click(object sender, EventArgs e)
         {
             String notFoundDrugs = "";

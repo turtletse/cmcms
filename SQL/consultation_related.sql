@@ -28,7 +28,7 @@ CREATE TABLE prescription(
 	pres_id int,
     instruction VARCHAR(255),
     no_of_dose int,
-    method_of_treatment VARCHAR(255),
+    method_of_treatment VARCHAR(255)
     -- isIssued int
 );
 CREATE INDEX prescription_x1 ON prescription(pres_id);
@@ -44,6 +44,7 @@ CREATE TABLE prescription_dt(
     drug_name VARCHAR(255),
     dosage int,
     unit int,
+    preparation_method int,
     display_order int
 );
 CREATE INDEX prescription_dt_x1 ON prescription_dt(pres_id, display_order);
