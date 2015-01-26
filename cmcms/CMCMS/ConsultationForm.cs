@@ -16,13 +16,12 @@ namespace CMCMS
         List<PermissibleValueObj> examination = new List<PermissibleValueObj>();
         List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
         List<PermissibleValueObj> diagnosis = new List<PermissibleValueObj>();
-        String drRmk = "";
+        PermissibleValueObj drRmk = new PermissibleValueObj("","");
 
         ExaminationResultSelectionForm ersf = new ExaminationResultSelectionForm();
         DifferentiationResultSelectionForm drsf = new DifferentiationResultSelectionForm();
         DxResultSelectionForm dxrsf = new DxResultSelectionForm();
         DrRmkEditForm dref = new DrRmkEditForm();
-        PrescriptionForm pf = new PrescriptionForm();
 
         public ConsultationForm()
         {
@@ -75,7 +74,7 @@ namespace CMCMS
         private void button_change_drRmk_Click(object sender, EventArgs e)
         {
             dref.ShowDialog();
-            textBox_drRmk.Text = drRmk;
+            textBox_drRmk.Text = drRmk.Value;
         }
 
         private void button_delPres_Click(object sender, EventArgs e)
@@ -85,7 +84,8 @@ namespace CMCMS
 
         private void button_add_pres_Click(object sender, EventArgs e)
         {
-            String presId = "";
+            PrescriptionForm pf = new PrescriptionForm();
+            PermissibleValueObj presId = new PermissibleValueObj("","");
             pf.setPresId(ref presId);
             pf.ShowDialog();
             comboBox_presId.Items.Add(presId);
@@ -93,6 +93,14 @@ namespace CMCMS
             {
                 comboBox_presId.SelectedIndex = comboBox_presId.Items.Count - 1;
             }
+        }
+
+        private void button_change_pres_Click(object sender, EventArgs e)
+        {
+            PrescriptionForm pf = new PrescriptionForm();
+            PermissibleValueObj presId = new PermissibleValueObj(comboBox_presId.SelectedItem.ToString(),comboBox_presId.SelectedItem.ToString());
+            pf.setPresId(ref presId);
+            pf.ShowDialog();
         }
 
         

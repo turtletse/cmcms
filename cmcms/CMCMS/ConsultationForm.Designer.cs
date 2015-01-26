@@ -482,6 +482,7 @@
             this.button_change_pres.TabIndex = 16;
             this.button_change_pres.Text = "修改";
             this.button_change_pres.UseVisualStyleBackColor = true;
+            this.button_change_pres.Click += new System.EventHandler(this.button_change_pres_Click);
             // 
             // comboBox_presId
             // 

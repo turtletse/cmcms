@@ -188,19 +188,19 @@ namespace CMCMS
 
 
         //prescriptionForm
-        public bool newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, ref String presId)
+        public bool newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, ref String presId, ref String statusMsg)
         {
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "')");
-            if (data != null)
-            {
-                if (data.Rows[0]["status_id"].ToString() == "0")
-                {
-                    presId = data.Rows[0]["pres_id"].ToString();
-                    return true;
-                }
-                return false;
-            }
-            return false;
+            presId = data.Rows[0]["pres_id"].ToString();
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
     }
 }

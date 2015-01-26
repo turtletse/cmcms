@@ -12,17 +12,17 @@ namespace CMCMS
     public partial class DrRmkEditForm : Form
     {
         ConsultationMgr consMgr = new ConsultationMgr();
-        String drRmk = "";
+        PermissibleValueObj drRmk;
 
         public DrRmkEditForm()
         {
             InitializeComponent();
         }
 
-        public void setRmk(ref String drRmk)
+        public void setRmk(ref PermissibleValueObj drRmk)
         {
             this.drRmk = drRmk;
-            textBox_drRmk.Text = drRmk;
+            textBox_drRmk.Text = drRmk.Value;
         }
 
         private void button_clear_Click(object sender, EventArgs e)
@@ -32,12 +32,14 @@ namespace CMCMS
 
         private void button_reset_Click(object sender, EventArgs e)
         {
-            textBox_drRmk.Text = drRmk;
+            textBox_drRmk.Text = drRmk.Value;
         }
 
         private void button_confirm_Click(object sender, EventArgs e)
         {
-            drRmk = textBox_drRmk.Text.Trim();
+            drRmk.Value = textBox_drRmk.Text.Trim();
+            drRmk.Name = drRmk.Value;
+            this.Hide();
         }
 
         private void button_select_Click(object sender, EventArgs e)

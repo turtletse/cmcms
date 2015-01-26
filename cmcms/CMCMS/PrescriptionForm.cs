@@ -11,7 +11,7 @@ namespace CMCMS
 {
     public partial class PrescriptionForm : Form
     {
-        String presId = "";
+        PermissibleValueObj presId;
 
         ConsultationMgr consMgr = new ConsultationMgr();
 
@@ -20,7 +20,7 @@ namespace CMCMS
             InitializeComponent();
         }
 
-        public void setPresId(ref String presId)
+        public void setPresId(ref PermissibleValueObj presId)
         {
             this.presId = presId;
         }
@@ -37,12 +37,31 @@ namespace CMCMS
 
         private void button_confirm_Click(object sender, EventArgs e)
         {
-            if (presId == "")
+            String statusMsg = "";
+            String tmp = presId.Value;
+            if (presId.Value == "")
             {
-                consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), ref presId);
+                if (!consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), ref tmp, ref statusMsg))
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    presId.Value = tmp;
+                    presId.Name = tmp;
+                    this.Hide();
+                }
             }
             else
             {
+                if (consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), ref statusMsg))
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.Hide();
+                }
             }
         }
     }
