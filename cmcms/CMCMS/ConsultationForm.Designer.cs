@@ -62,6 +62,7 @@
             this.columnHeader_diff = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_pres = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button_delPres = new System.Windows.Forms.Button();
             this.button_change_drRmk = new System.Windows.Forms.Button();
             this.textBox_drRmk = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button_consCert = new System.Windows.Forms.Button();
             this.button_pregCert = new System.Windows.Forms.Button();
-            this.button_delPres = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -426,6 +426,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "是次診症紀錄";
             // 
+            // button_delPres
+            // 
+            this.button_delPres.Location = new System.Drawing.Point(898, 30);
+            this.button_delPres.Name = "button_delPres";
+            this.button_delPres.Size = new System.Drawing.Size(71, 28);
+            this.button_delPres.TabIndex = 21;
+            this.button_delPres.Text = "刪除";
+            this.button_delPres.UseVisualStyleBackColor = true;
+            this.button_delPres.Click += new System.EventHandler(this.button_delPres_Click);
+            // 
             // button_change_drRmk
             // 
             this.button_change_drRmk.Location = new System.Drawing.Point(904, 174);
@@ -462,6 +472,7 @@
             this.button_add_pres.TabIndex = 17;
             this.button_add_pres.Text = "新增";
             this.button_add_pres.UseVisualStyleBackColor = true;
+            this.button_add_pres.Click += new System.EventHandler(this.button_add_pres_Click);
             // 
             // button_change_pres
             // 
@@ -671,15 +682,6 @@
             this.button_pregCert.TabIndex = 10;
             this.button_pregCert.Text = "懷孕證明書";
             this.button_pregCert.UseVisualStyleBackColor = true;
-            // 
-            // button_delPres
-            // 
-            this.button_delPres.Location = new System.Drawing.Point(898, 30);
-            this.button_delPres.Name = "button_delPres";
-            this.button_delPres.Size = new System.Drawing.Size(71, 28);
-            this.button_delPres.TabIndex = 21;
-            this.button_delPres.Text = "新增";
-            this.button_delPres.UseVisualStyleBackColor = true;
             // 
             // ConsultationForm
             // 

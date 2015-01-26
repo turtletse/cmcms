@@ -17,12 +17,12 @@ namespace CMCMS
         List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
         List<PermissibleValueObj> diagnosis = new List<PermissibleValueObj>();
         String drRmk = "";
-        List<String> prescription = new List<string>();
 
         ExaminationResultSelectionForm ersf = new ExaminationResultSelectionForm();
         DifferentiationResultSelectionForm drsf = new DifferentiationResultSelectionForm();
         DxResultSelectionForm dxrsf = new DxResultSelectionForm();
         DrRmkEditForm dref = new DrRmkEditForm();
+        PrescriptionForm pf = new PrescriptionForm();
 
         public ConsultationForm()
         {
@@ -76,6 +76,23 @@ namespace CMCMS
         {
             dref.ShowDialog();
             textBox_drRmk.Text = drRmk;
+        }
+
+        private void button_delPres_Click(object sender, EventArgs e)
+        {
+            comboBox_presId.Items.RemoveAt(comboBox_presId.SelectedIndex);
+        }
+
+        private void button_add_pres_Click(object sender, EventArgs e)
+        {
+            String presId = "";
+            pf.setPresId(ref presId);
+            pf.ShowDialog();
+            comboBox_presId.Items.Add(presId);
+            if (comboBox_presId.Items.Count > 0)
+            {
+                comboBox_presId.SelectedIndex = comboBox_presId.Items.Count - 1;
+            }
         }
 
         
