@@ -52,5 +52,4 @@ DELIMITER ;
 
 
 
--- SELECT * from prescription_dt
--- CALL sp_pres_dt_get (1)
+-- CALL sp_start_consultation ('CITYC', 'CSM', 1)

@@ -77,7 +77,7 @@ BEGIN
                     preparation_method,
 					display_order
 				)VALUES(
-					pres_id,
+					in_pres_id,
 					CAST(tmp_drug_code AS UNSIGNED),
 					CAST(tmp_sub_drug_code AS UNSIGNED),
                     tmp_drug_name,

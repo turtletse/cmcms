@@ -34,40 +34,33 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-    SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE doctor_in_charge = ''', in_moic_id, ''' AND patient_status IN (20, 30)');
-    PREPARE stmt FROM @sql_str;
-    EXECUTE stmt;
-    IF @cnt > 0 THEN
-		SET curr_status_id = 14;
-        SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
-    ELSE
-		SET AUTOCOMMIT=0;
-		START TRANSACTION;
-			SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
-            PREPARE stmt FROM @sql_str;
+
+	SET AUTOCOMMIT=0;
+	START TRANSACTION;
+		SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
+		PREPARE stmt FROM @sql_str;
+		EXECUTE stmt;
+		IF @tablock IS NULL OR @tablock = in_moic_id THEN
+			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
+			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-			IF @tablock IS NULL OR @tablock = in_moic_id THEN
-				SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
-				PREPARE stmt FROM @sql_str;
-				EXECUTE stmt;
-                COMMIT;
-				SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 30, doctor_in_charge =''', in_moic_id,'''WHERE patient_id = ', in_patient_id, ' AND patient_status = 0');
-				PREPARE stmt FROM @sql_str;
-				EXECUTE stmt;
-				IF (SELECT ROW_COUNT()) > 0 THEN
-					SET curr_status_id = 0;
-				ELSE
-					SET curr_status_id = 12;
-				END IF;
-                SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
-                CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
+			COMMIT;
+			SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 30, doctor_in_charge =''', in_moic_id,'''WHERE (patient_id = ', in_patient_id, ' AND patient_status IN (0, 40)) OR (patient_id = ', in_patient_id, ' AND patient_status = 30 AND doctor_in_charge=''', in_moic_id, ''')');
+			PREPARE stmt FROM @sql_str;
+			EXECUTE stmt;
+			IF (SELECT ROW_COUNT()) > 0 THEN
+				SET curr_status_id = 0;
 			ELSE
-				SET curr_status_id = 15;
-                SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
+				SET curr_status_id = 12;
 			END IF;
-		COMMIT;
-		SET AUTOCOMMIT=1;
-	END IF;
+			SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
+			CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
+		ELSE
+			SET curr_status_id = 15;
+			SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
+		END IF;
+	COMMIT;
+	SET AUTOCOMMIT=1;
 	
     DEALLOCATE PREPARE stmt;
 END $$

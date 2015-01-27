@@ -22,11 +22,14 @@ namespace CMCMS
         public void setSelectedExamResult(ref List<PermissibleValueObj> selectedExamResult)
         {
             this.selectedExamResult = selectedExamResult;
-            listBox_selectedExamResult.Items.Clear();
-            listBox_selectedExamResult.Items.AddRange(selectedExamResult.ToArray());
         }
 
         private void button_reset_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        public void reset()
         {
             textBox_search_keywords.Clear();
             textBox_freeText.Clear();
@@ -34,11 +37,11 @@ namespace CMCMS
             listBox_lv3.Items.Clear();
             listBox_lv2.Items.Clear();
             consMgr.setExamLv1(listBox_lv1);
-        }
-
-        private void ExaminationResultSelectionForm_Shown(object sender, EventArgs e)
-        {
-            consMgr.setExamLv1(listBox_lv1);
+            listBox_selectedExamResult.Items.Clear();
+            foreach (PermissibleValueObj o in selectedExamResult)
+            {
+                listBox_selectedExamResult.Items.Add(o);
+            }
         }
 
         private void listBox_lv1_SelectedIndexChanged(object sender, EventArgs e)

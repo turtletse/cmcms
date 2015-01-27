@@ -74,7 +74,7 @@
             this.button_change_pres = new System.Windows.Forms.Button();
             this.comboBox_presId = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button_dx = new System.Windows.Forms.Button();
+            this.button_change_dx = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_dx = new System.Windows.Forms.TextBox();
             this.button_change_diff = new System.Windows.Forms.Button();
@@ -300,6 +300,7 @@
             this.button_conLater.TabIndex = 2;
             this.button_conLater.Text = "稍後再診";
             this.button_conLater.UseVisualStyleBackColor = true;
+            this.button_conLater.Click += new System.EventHandler(this.button_conLater_Click);
             // 
             // label9
             // 
@@ -327,6 +328,7 @@
             this.button_finalSave.TabIndex = 5;
             this.button_finalSave.Text = "確定無誤並儲存";
             this.button_finalSave.UseVisualStyleBackColor = true;
+            this.button_finalSave.Click += new System.EventHandler(this.button_finalSave_Click);
             // 
             // button_tmpSave
             // 
@@ -336,6 +338,7 @@
             this.button_tmpSave.TabIndex = 6;
             this.button_tmpSave.Text = "暫存";
             this.button_tmpSave.UseVisualStyleBackColor = true;
+            this.button_tmpSave.Click += new System.EventHandler(this.button_tmpSave_Click);
             // 
             // groupBox2
             // 
@@ -418,7 +421,7 @@
             this.groupBox3.Controls.Add(this.button_change_pres);
             this.groupBox3.Controls.Add(this.comboBox_presId);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.button_dx);
+            this.groupBox3.Controls.Add(this.button_change_dx);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.textBox_dx);
             this.groupBox3.Controls.Add(this.button_change_diff);
@@ -436,16 +439,16 @@
             // 
             // textBox_startDtm
             // 
-            this.textBox_startDtm.Location = new System.Drawing.Point(161, 502);
+            this.textBox_startDtm.Location = new System.Drawing.Point(763, 420);
             this.textBox_startDtm.Name = "textBox_startDtm";
             this.textBox_startDtm.ReadOnly = true;
-            this.textBox_startDtm.Size = new System.Drawing.Size(136, 26);
+            this.textBox_startDtm.Size = new System.Drawing.Size(283, 26);
             this.textBox_startDtm.TabIndex = 25;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(38, 505);
+            this.label20.Location = new System.Drawing.Point(608, 423);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(117, 20);
             this.label20.TabIndex = 24;
@@ -453,16 +456,16 @@
             // 
             // textBox_lastUpdateDtm
             // 
-            this.textBox_lastUpdateDtm.Location = new System.Drawing.Point(458, 502);
+            this.textBox_lastUpdateDtm.Location = new System.Drawing.Point(763, 455);
             this.textBox_lastUpdateDtm.Name = "textBox_lastUpdateDtm";
             this.textBox_lastUpdateDtm.ReadOnly = true;
-            this.textBox_lastUpdateDtm.Size = new System.Drawing.Size(136, 26);
+            this.textBox_lastUpdateDtm.Size = new System.Drawing.Size(283, 26);
             this.textBox_lastUpdateDtm.TabIndex = 23;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(303, 505);
+            this.label19.Location = new System.Drawing.Point(608, 458);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(149, 20);
             this.label19.TabIndex = 22;
@@ -544,15 +547,15 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "處方: ";
             // 
-            // button_dx
+            // button_change_dx
             // 
-            this.button_dx.Location = new System.Drawing.Point(357, 323);
-            this.button_dx.Name = "button_dx";
-            this.button_dx.Size = new System.Drawing.Size(142, 49);
-            this.button_dx.TabIndex = 13;
-            this.button_dx.Text = "修改";
-            this.button_dx.UseVisualStyleBackColor = true;
-            this.button_dx.Click += new System.EventHandler(this.button_dx_Click);
+            this.button_change_dx.Location = new System.Drawing.Point(357, 323);
+            this.button_change_dx.Name = "button_change_dx";
+            this.button_change_dx.Size = new System.Drawing.Size(142, 49);
+            this.button_change_dx.TabIndex = 13;
+            this.button_change_dx.Text = "修改";
+            this.button_change_dx.UseVisualStyleBackColor = true;
+            this.button_change_dx.Click += new System.EventHandler(this.button_dx_Click);
             // 
             // label11
             // 
@@ -799,7 +802,7 @@
         private System.Windows.Forms.Button button_change_pres;
         private System.Windows.Forms.ComboBox comboBox_presId;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button_dx;
+        private System.Windows.Forms.Button button_change_dx;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox_dx;
         private System.Windows.Forms.Button button_change_diff;

@@ -17,7 +17,7 @@ namespace CMCMS
         List<PermissibleValueObj> examination = new List<PermissibleValueObj>();
         List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
         List<PermissibleValueObj> diagnosis = new List<PermissibleValueObj>();
-        PermissibleValueObj drRmk = new PermissibleValueObj("","");
+        List<PermissibleValueObj> drRmk = new List<PermissibleValueObj>();
 
         ExaminationResultSelectionForm ersf = new ExaminationResultSelectionForm();
         DifferentiationResultSelectionForm drsf = new DifferentiationResultSelectionForm();
@@ -26,24 +26,45 @@ namespace CMCMS
 
         String consId = "";
 
+        String isFinished = "0";
+
         public ConsultationForm()
         {
             InitializeComponent();
             ersf.setSelectedExamResult(ref examination);
             drsf.setSelectedDiffResult(ref differentiation);
             dxrsf.setSelectedDxResult(ref diagnosis);
+            drRmk.Add(new PermissibleValueObj("", ""));
             dref.setRmk(ref drRmk);
         }
 
-        private String permissibleValueObjListToString(List<PermissibleValueObj> list)
+        private String permissibleValueObjListNameToString(List<PermissibleValueObj> list)
         {
             String s = "";
             foreach (PermissibleValueObj o in list)
             {
-                s += o.Name + "; ";
+                if (o.Name != "" && o.Value != "")
+                    s += o.Name + "; ";
             }
             return s;
         }
+
+        private String permissibleValueObjListValueToString(List<PermissibleValueObj> list)
+        {
+            String s = "";
+            foreach (PermissibleValueObj o in list)
+            {
+                if (o.Name != "" && o.Value != "")
+                    s += "||"+o.Value;
+            }
+            if (s.Length > 0)
+            {
+                s = s.Substring(2);
+            }
+            return s;
+        }
+
+
 
         private void ConsultationForm_Shown(object sender, EventArgs e)
         {
@@ -54,77 +75,143 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            refresh_consultation_data(true);
 
-            Dictionary<String, String> consData = consMgr.startConsultation(int.Parse(textBox_patId.Text));
+        }
+
+        private void refresh_consultation_data(bool isNewCons)
+        {
+            Dictionary<String, String> consData;
+            if (isNewCons)
+                consData = consMgr.startConsultation(int.Parse(textBox_patId.Text));
+            else
+                consData = consMgr.getConsultation(int.Parse(consId));
 
             consId = consData["cons_id"];
             textBox_startDtm.Text = consData["first_record_dtm"];
             textBox_lastUpdateDtm.Text = consData["last_update_dtm"];
+            isFinished = consData["isFinished"];
 
             String[] code;
             String[] desc;
 
             examination.Clear();
             code = consData["ex_code"].Split(new String[] { "||" }, StringSplitOptions.None);
-            desc = consData["ex_desc"].Split(new String[] { "||" }, StringSplitOptions.None);
+            desc = consData["ex_desc"].Split(new String[] { "; " }, StringSplitOptions.None);
             for (int i = 0; i < code.Length; i++)
             {
-                examination.Add(new PermissibleValueObj(code[i], desc[i]));
+                if(desc[i]!="" && code[i]!="")
+                    examination.Add(new PermissibleValueObj(desc[i], code[i]));
             }
+            textBox_exam.Text = permissibleValueObjListNameToString(examination);
 
             differentiation.Clear();
             code = consData["diff_code"].Split(new String[] { "||" }, StringSplitOptions.None);
-            desc = consData["diff_desc"].Split(new String[] { "||" }, StringSplitOptions.None);
+            desc = consData["diff_desc"].Split(new String[] { "; " }, StringSplitOptions.None);
             for (int i = 0; i < code.Length; i++)
             {
-                differentiation.Add(new PermissibleValueObj(code[i], desc[i]));
+                if (desc[i] != "" && code[i] != "")
+                    differentiation.Add(new PermissibleValueObj(desc[i], code[i]));
             }
+            textBox_diff.Text = permissibleValueObjListNameToString(differentiation);
 
             diagnosis.Clear();
             code = consData["dx_code"].Split(new String[] { "||" }, StringSplitOptions.None);
-            desc = consData["dx_desc"].Split(new String[] { "||" }, StringSplitOptions.None);
+            desc = consData["dx_desc"].Split(new String[] { "; " }, StringSplitOptions.None);
             for (int i = 0; i < code.Length; i++)
             {
-                diagnosis.Add(new PermissibleValueObj(code[i], desc[i]));
+                if (desc[i] != "" && code[i] != "")
+                    diagnosis.Add(new PermissibleValueObj(desc[i], code[i]));
             }
-
+            textBox_dx.Text = permissibleValueObjListNameToString(diagnosis);
 
             comboBox_presId.Items.Clear();
             code = consData["pres_id"].Split(new String[] { "||" }, StringSplitOptions.None);
             for (int i = 0; i < code.Length; i++)
             {
-                comboBox_presId.Items.Add(new PermissibleValueObj(code[i], code[i]));
+                if (code[i] != "")
+                    comboBox_presId.Items.Add(new PermissibleValueObj(code[i], code[i]));
+            }
+            if (comboBox_presId.Items.Count > 0)
+            {
+                comboBox_presId.SelectedIndex = 0;
             }
 
-            drRmk = new PermissibleValueObj(consData["dr_rmk"], consData["dr_rmk"]);
+            drRmk.Clear();
+            drRmk.Add(new PermissibleValueObj(consData["dr_rmk"], consData["dr_rmk"]));
+            textBox_drRmk.Text = drRmk[0].Value;
+
+            if (isFinished == "0")
+            {
+                groupBox_sickLeaveCert.Enabled = false;
+                button_consCert.Enabled = false;
+                button_pregCert.Enabled = false;
+                button_change_exam.Enabled = true;
+                button_change_diff.Enabled = true;
+                button_change_dx.Enabled = true;
+                button_change_pres.Enabled = true;
+                button_delPres.Enabled = true;
+                button_add_pres.Enabled = true;
+                button_tmpSave.Enabled = true;
+                button_finalSave.Enabled = true;
+                button_conLater.Enabled = true;
+                button_finish.Enabled = false;
+            }
+            else if (isFinished == "1")
+            {
+                groupBox_sickLeaveCert.Enabled = true;
+                button_consCert.Enabled = true;
+                button_pregCert.Enabled = true;
+                button_change_exam.Enabled = false;
+                button_change_diff.Enabled = false;
+                button_change_dx.Enabled = false;
+                button_change_pres.Enabled = false;
+                button_delPres.Enabled = false;
+                button_add_pres.Enabled = false;
+                button_tmpSave.Enabled = false;
+                button_finalSave.Enabled = false;
+                button_conLater.Enabled = false;
+                button_finish.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("資料狀態錯誤!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private void button_change_exam_Click(object sender, EventArgs e)
         {
+            ersf.reset();
             ersf.ShowDialog();
-            textBox_exam.Text = permissibleValueObjListToString(examination);
+            textBox_exam.Text = permissibleValueObjListNameToString(examination);
         }
 
         private void button_change_diff_Click(object sender, EventArgs e)
         {
+            drsf.reset();
             drsf.ShowDialog();
-            textBox_diff.Text = permissibleValueObjListToString(differentiation);
+            textBox_diff.Text = permissibleValueObjListNameToString(differentiation);
         }
 
         private void button_dx_Click(object sender, EventArgs e)
         {
+            dxrsf.reset();
             dxrsf.ShowDialog();
-            textBox_dx.Text = permissibleValueObjListToString(diagnosis);
+            textBox_dx.Text = permissibleValueObjListNameToString(diagnosis);
         }
 
         private void button_change_drRmk_Click(object sender, EventArgs e)
         {
             dref.ShowDialog();
-            textBox_drRmk.Text = drRmk.Value;
+            textBox_drRmk.Text = drRmk[0].Value;
         }
 
         private void button_delPres_Click(object sender, EventArgs e)
         {
+            if (comboBox_presId.SelectedIndex == -1)
+                return;
             comboBox_presId.Items.RemoveAt(comboBox_presId.SelectedIndex);
         }
 
@@ -143,10 +230,91 @@ namespace CMCMS
 
         private void button_change_pres_Click(object sender, EventArgs e)
         {
+            if (comboBox_presId.SelectedIndex == -1)
+                return;
             PrescriptionForm pf = new PrescriptionForm();
             PermissibleValueObj presId = new PermissibleValueObj(comboBox_presId.SelectedItem.ToString(),comboBox_presId.SelectedItem.ToString());
             pf.setPresId(ref presId);
             pf.ShowDialog();
+        }
+
+        private void button_tmpSave_Click(object sender, EventArgs e)
+        {
+            String statusMsg="";
+            bool isSuccess;
+
+            String presIds="";
+            foreach(PermissibleValueObj o in comboBox_presId.Items)
+            {
+                presIds+="||"+o.Value;
+            }
+            if (presIds.Length>0)
+            {
+                presIds=presIds.Substring(2);
+            }
+            isSuccess = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (isSuccess)
+            {
+                refresh_consultation_data(false);
+            }
+        }
+
+        private void button_conLater_Click(object sender, EventArgs e)
+        {
+            String statusMsg = "";
+            bool isSuccess;
+
+            String presIds = "";
+            foreach (PermissibleValueObj o in comboBox_presId.Items)
+            {
+                presIds += "||" + o.Value;
+            }
+            if (presIds.Length > 0)
+            {
+                presIds = presIds.Substring(2);
+            }
+            isSuccess = consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (isSuccess)
+            {
+                this.Close();
+            }
+        }
+
+        private void button_finalSave_Click(object sender, EventArgs e)
+        {
+            String statusMsg = "";
+            bool isSuccess;
+
+            String presIds = "";
+            foreach (PermissibleValueObj o in comboBox_presId.Items)
+            {
+                presIds += "||" + o.Value;
+            }
+            if (presIds.Length > 0)
+            {
+                presIds = presIds.Substring(2);
+            }
+            isSuccess = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+            if (isSuccess)
+            {
+                refresh_consultation_data(false);
+                DialogResult isFinal = MessageBox.Show("[注意]一經確定將無法再次修改!\n\n資料是否正確無誤?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (isFinal == DialogResult.Yes)
+                {
+                    isSuccess = consMgr.confirmedConsultation(consId, ref statusMsg);
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (isSuccess)
+                    {
+                        refresh_consultation_data(false);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }        
     }
 }

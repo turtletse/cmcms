@@ -267,7 +267,6 @@
             this.MaximizeBox = false;
             this.Name = "ExaminationResultSelectionForm";
             this.Text = "病徵";
-            this.Shown += new System.EventHandler(this.ExaminationResultSelectionForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

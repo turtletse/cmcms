@@ -22,22 +22,25 @@ namespace CMCMS
         public void setSelectedDiffResult(ref List<PermissibleValueObj> selectedDiffResult)
         {
             this.selectedDiffResult = selectedDiffResult;
-            listBox_selectedDiffResult.Items.Clear();
-            listBox_selectedDiffResult.Items.AddRange(selectedDiffResult.ToArray());
         }
 
         private void button_reset_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        public void reset()
         {
             textBox_search_keywords.Clear();
             textBox_freeText.Clear();
             listBox_lv3.Items.Clear();
             listBox_lv2.Items.Clear();
             consMgr.setDiffLv1(listBox_lv1);
-        }
-
-        private void ExaminationResultSelectionForm_Shown(object sender, EventArgs e)
-        {
-            consMgr.setDiffLv1(listBox_lv1);
+            listBox_selectedDiffResult.Items.Clear();
+            foreach (PermissibleValueObj o in selectedDiffResult)
+            {
+                listBox_selectedDiffResult.Items.Add(o);
+            }
         }
 
         private void listBox_lv1_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,6 +126,11 @@ namespace CMCMS
                 selectedDiffResult.Add(o);
             }
             this.Hide();
+        }
+
+        private void DifferentiationResultSelectionForm_Shown(object sender, EventArgs e)
+        {
+            consMgr.setDiffLv1(listBox_lv1);
         }
     }
 }

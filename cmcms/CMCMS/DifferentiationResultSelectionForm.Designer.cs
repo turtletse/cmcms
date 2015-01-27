@@ -255,6 +255,7 @@
             this.MaximizeBox = false;
             this.Name = "DifferentiationResultSelectionForm";
             this.Text = "辨證";
+            this.Shown += new System.EventHandler(this.DifferentiationResultSelectionForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
