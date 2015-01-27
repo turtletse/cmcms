@@ -62,6 +62,10 @@
             this.columnHeader_diff = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_pres = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox_startDtm = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox_lastUpdateDtm = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.button_delPres = new System.Windows.Forms.Button();
             this.button_change_drRmk = new System.Windows.Forms.Button();
             this.textBox_drRmk = new System.Windows.Forms.TextBox();
@@ -399,6 +403,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox_startDtm);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.textBox_lastUpdateDtm);
+            this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.button_delPres);
             this.groupBox3.Controls.Add(this.button_change_drRmk);
             this.groupBox3.Controls.Add(this.textBox_drRmk);
@@ -425,6 +433,40 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "是次診症紀錄";
+            // 
+            // textBox_startDtm
+            // 
+            this.textBox_startDtm.Location = new System.Drawing.Point(161, 502);
+            this.textBox_startDtm.Name = "textBox_startDtm";
+            this.textBox_startDtm.ReadOnly = true;
+            this.textBox_startDtm.Size = new System.Drawing.Size(136, 26);
+            this.textBox_startDtm.TabIndex = 25;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(38, 505);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(117, 20);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "開始日期/時間: ";
+            // 
+            // textBox_lastUpdateDtm
+            // 
+            this.textBox_lastUpdateDtm.Location = new System.Drawing.Point(458, 502);
+            this.textBox_lastUpdateDtm.Name = "textBox_lastUpdateDtm";
+            this.textBox_lastUpdateDtm.ReadOnly = true;
+            this.textBox_lastUpdateDtm.Size = new System.Drawing.Size(136, 26);
+            this.textBox_lastUpdateDtm.TabIndex = 23;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(303, 505);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(149, 20);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "最後更新日期/時間: ";
             // 
             // button_delPres
             // 
@@ -777,5 +819,9 @@
         private System.Windows.Forms.Button button_pregCert;
         private System.Windows.Forms.Button button_change_drRmk;
         private System.Windows.Forms.Button button_delPres;
+        private System.Windows.Forms.TextBox textBox_lastUpdateDtm;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox_startDtm;
+        private System.Windows.Forms.Label label20;
     }
 }

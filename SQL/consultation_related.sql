@@ -3,6 +3,7 @@ CREATE TABLE consultation_record(
 	cons_id int,
     clinic_id VARCHAR(10),
     dr_id VARCHAR(10),
+    patient_id INT,
     first_record_dtm DATETIME,
     ex_code VARCHAR(255),
     ex_desc VARCHAR(255),
@@ -20,6 +21,7 @@ CREATE INDEX consultation_record_x2 ON consultation_record(first_record_dtm);
 CREATE INDEX consultation_record_x3 ON consultation_record(dr_id);
 CREATE INDEX consultation_record_x4 ON consultation_record(last_update_dtm);
 CREATE INDEX consultation_record_x5 ON consultation_record(isFinished);
+CREATE INDEX consultation_record_x6 ON consultation_record(patient_id);
 
 
 

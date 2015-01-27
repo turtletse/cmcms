@@ -232,5 +232,30 @@ namespace CMCMS
             }
             return pres;
         }
+
+        public Dictionary<String, String> startConsultation(int patId)
+        {
+            Dictionary<String, String> pres = new Dictionary<String, String>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_start_consultation ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + ", " + patId + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                pres.Add("cons_id", dr["cons_id"].ToString());
+                pres.Add("clinic_id", dr["clinic_id"].ToString());
+                pres.Add("dr_id", dr["dr_id"].ToString());
+                pres.Add("patient_id", dr["patient_id"].ToString());
+                pres.Add("first_record_dtm", dr["first_record_dtm"].ToString());
+                pres.Add("ex_code", dr["ex_code"].ToString());
+                pres.Add("ex_desc", dr["ex_desc"].ToString());
+                pres.Add("diff_code", dr["diff_code"].ToString());
+                pres.Add("diff_desc", dr["diff_desc"].ToString());
+                pres.Add("dx_code", dr["dx_code"].ToString());
+                pres.Add("dx_desc", dr["dx_desc"].ToString());
+                pres.Add("pres_id", dr["pres_id"].ToString());
+                pres.Add("dr_rmk", dr["dr_rmk"].ToString());
+                pres.Add("isFinished", dr["isFinished"].ToString());
+                pres.Add("last_update_dtm", dr["last_update_dtm"].ToString());
+            }
+            return pres;
+        }
     }
 }

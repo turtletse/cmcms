@@ -12,6 +12,7 @@ namespace CMCMS
     public partial class ConsultationForm : Form
     {
         PatientMgr patMgr = new PatientMgr();
+        ConsultationMgr consMgr = new ConsultationMgr();
 
         List<PermissibleValueObj> examination = new List<PermissibleValueObj>();
         List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
@@ -22,6 +23,8 @@ namespace CMCMS
         DifferentiationResultSelectionForm drsf = new DifferentiationResultSelectionForm();
         DxResultSelectionForm dxrsf = new DxResultSelectionForm();
         DrRmkEditForm dref = new DrRmkEditForm();
+
+        String consId = "";
 
         public ConsultationForm()
         {
@@ -51,6 +54,49 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            Dictionary<String, String> consData = consMgr.startConsultation(int.Parse(textBox_patId.Text));
+
+            consId = consData["cons_id"];
+            textBox_startDtm.Text = consData["first_record_dtm"];
+            textBox_lastUpdateDtm.Text = consData["last_update_dtm"];
+
+            String[] code;
+            String[] desc;
+
+            examination.Clear();
+            code = consData["ex_code"].Split(new String[] { "||" }, StringSplitOptions.None);
+            desc = consData["ex_desc"].Split(new String[] { "||" }, StringSplitOptions.None);
+            for (int i = 0; i < code.Length; i++)
+            {
+                examination.Add(new PermissibleValueObj(code[i], desc[i]));
+            }
+
+            differentiation.Clear();
+            code = consData["diff_code"].Split(new String[] { "||" }, StringSplitOptions.None);
+            desc = consData["diff_desc"].Split(new String[] { "||" }, StringSplitOptions.None);
+            for (int i = 0; i < code.Length; i++)
+            {
+                differentiation.Add(new PermissibleValueObj(code[i], desc[i]));
+            }
+
+            diagnosis.Clear();
+            code = consData["dx_code"].Split(new String[] { "||" }, StringSplitOptions.None);
+            desc = consData["dx_desc"].Split(new String[] { "||" }, StringSplitOptions.None);
+            for (int i = 0; i < code.Length; i++)
+            {
+                diagnosis.Add(new PermissibleValueObj(code[i], desc[i]));
+            }
+
+
+            comboBox_presId.Items.Clear();
+            code = consData["pres_id"].Split(new String[] { "||" }, StringSplitOptions.None);
+            for (int i = 0; i < code.Length; i++)
+            {
+                comboBox_presId.Items.Add(new PermissibleValueObj(code[i], code[i]));
+            }
+
+            drRmk = new PermissibleValueObj(consData["dr_rmk"], consData["dr_rmk"]);
         }
 
         private void button_change_exam_Click(object sender, EventArgs e)
@@ -101,8 +147,6 @@ namespace CMCMS
             PermissibleValueObj presId = new PermissibleValueObj(comboBox_presId.SelectedItem.ToString(),comboBox_presId.SelectedItem.ToString());
             pf.setPresId(ref presId);
             pf.ShowDialog();
-        }
-
-        
+        }        
     }
 }
