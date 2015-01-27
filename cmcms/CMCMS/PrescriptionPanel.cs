@@ -199,10 +199,8 @@ namespace CMCMS
             }
         }
 
-        public void setPredefPres(int predefPresId)
+        private void setPres(List<List<String>> pres)
         {
-            DGV_selected.Rows.Clear();
-            List<List<String>> pres = drugMgr.getPredefPrescriptionById(predefPresId);
             foreach (List<String> drugRow in pres)
             {
                 if (isExistInDGV_selected(drugRow[0], drugRow[1]))
@@ -231,6 +229,21 @@ namespace CMCMS
 
                 DGV_selected.Rows.Add(row);
             }
+        }
+
+        public void setPredefPres(int predefPresId)
+        {
+            DGV_selected.Rows.Clear();
+            List<List<String>> pres = drugMgr.getPredefPrescriptionById(predefPresId);
+            setPres(pres);
+        }
+
+        public void setConsPres(int predefPresId)
+        {
+            ConsultationMgr consMgr = new ConsultationMgr();
+            DGV_selected.Rows.Clear();
+            List<List<String>> pres = consMgr.getPrescriptionDtById(predefPresId);
+            setPres(pres);
         }
     }
 }

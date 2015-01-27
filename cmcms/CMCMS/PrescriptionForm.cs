@@ -23,6 +23,14 @@ namespace CMCMS
         public void setPresId(ref PermissibleValueObj presId)
         {
             this.presId = presId;
+            if (presId.Value != "")
+            {
+                Dictionary<String, String> pres = consMgr.getPrescriptionById(int.Parse(presId.Value));
+                textBox_instruction.Text = pres["instruction"];
+                textBox_nDose.Text = pres["no_of_dose"];
+                textBox_methodOfTreatment.Text = pres["method_of_treatment"];
+                prescriptionPanel1.setConsPres(int.Parse(presId.Value));
+            }
         }
 
         private void button_selectInstruction_Click(object sender, EventArgs e)
@@ -62,6 +70,25 @@ namespace CMCMS
                 {
                     this.Hide();
                 }
+            }
+        }
+
+        private void button_reset_Click(object sender, EventArgs e)
+        {
+            if (presId.Value != "")
+            {
+                Dictionary<String, String> pres = consMgr.getPrescriptionById(int.Parse(presId.Value));
+                textBox_instruction.Text = pres["instruction"];
+                textBox_nDose.Text = pres["no_of_dose"];
+                textBox_methodOfTreatment.Text = pres["method_of_treatment"];
+                prescriptionPanel1.setConsPres(int.Parse(presId.Value));
+            }
+            else
+            {
+                textBox_instruction.Clear();
+                textBox_nDose.Clear();
+                textBox_methodOfTreatment.Clear();
+                prescriptionPanel1.reset();
             }
         }
     }

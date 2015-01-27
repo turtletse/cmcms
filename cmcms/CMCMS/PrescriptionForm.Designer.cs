@@ -70,6 +70,7 @@
             this.button_reset.TabIndex = 8;
             this.button_reset.Text = "還原";
             this.button_reset.UseVisualStyleBackColor = true;
+            this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
             // 
             // label1
             // 

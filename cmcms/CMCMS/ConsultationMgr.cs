@@ -202,5 +202,35 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
+        public List<List<String>> getPrescriptionDtById(int presId)
+        {
+            List<List<String>> pres = new List<List<String>>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_pres_dt_get (" + presId + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                List<String> row = new List<String>();
+                row.Add(dr["drug_code"].ToString());
+                row.Add(dr["drug_name"].ToString());
+                row.Add(dr["dosage"].ToString());
+                row.Add(dr["unit_desc"].ToString());
+                row.Add(dr["method_desc"].ToString());
+                pres.Add(row);
+            }
+            return pres;
+        }
+
+        public Dictionary<String, String> getPrescriptionById(int presId)
+        {
+            Dictionary<String, String> pres = new Dictionary<String, String>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_pres_get (" + presId + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                pres.Add("instruction", dr["instruction"].ToString());
+                pres.Add("no_of_dose", dr["no_of_dose"].ToString());
+                pres.Add("method_of_treatment", dr["method_of_treatment"].ToString());
+            }
+            return pres;
+        }
     }
 }
