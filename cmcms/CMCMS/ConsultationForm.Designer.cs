@@ -297,6 +297,7 @@
             this.button_finish.TabIndex = 1;
             this.button_finish.Text = "完成診症";
             this.button_finish.UseVisualStyleBackColor = true;
+            this.button_finish.Click += new System.EventHandler(this.button_finish_Click);
             // 
             // button_conLater
             // 

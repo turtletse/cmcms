@@ -183,6 +183,7 @@
             this.MaximizeBox = false;
             this.Name = "PrescriptionForm";
             this.Text = "處方";
+            this.Shown += new System.EventHandler(this.PrescriptionForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -48,6 +48,10 @@ namespace CMCMS
             if (listBox_lv1.SelectedIndex != -1)
             {
                 consMgr.setDiffLv2(listBox_lv2, int.Parse(((PermissibleValueObj)(listBox_lv1.SelectedItem)).Value));
+                if (listBox_lv2.Items.Count == 1)
+                {
+                    listBox_lv2.SelectedIndex = 0;
+                }
             }
         }
 

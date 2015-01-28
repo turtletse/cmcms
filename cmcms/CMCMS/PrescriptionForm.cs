@@ -91,5 +91,20 @@ namespace CMCMS
                 prescriptionPanel1.reset();
             }
         }
+
+        private void PrescriptionForm_Shown(object sender, EventArgs e)
+        {
+            consMgr.setPredefInstructionCB(comboBox_predefInstruction);
+            if (comboBox_predefInstruction.Items.Count > 0)
+            {
+                comboBox_predefInstruction.SelectedIndex = 0;
+            }
+
+            consMgr.setPredefMOTCB(comboBox_predefMOT);
+            if (comboBox_predefMOT.Items.Count > 0)
+            {
+                comboBox_predefMOT.SelectedIndex = 0;
+            }
+        }
     }
 }

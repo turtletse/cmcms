@@ -233,57 +233,85 @@ namespace CMCMS
             return pres;
         }
 
+        public void setPredefInstructionCB(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_prescription_instruction_combo_get ()");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    cb.Items.Add(new PermissibleValueObj(dr["instruction_desc"].ToString(), dr["instruction_desc"].ToString()));
+                }
+            }
+        }
+
+        public void setPredefMOTCB(System.Windows.Forms.ComboBox cb)
+        {
+            cb.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_prescription_MOT_combo_get ()");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    cb.Items.Add(new PermissibleValueObj(dr["result_desc"].ToString(), dr["result_desc"].ToString()));
+                }
+            }
+        }
+
+
+        //consultationForm
         public Dictionary<String, String> startConsultation(int patId)
         {
-            Dictionary<String, String> pres = new Dictionary<String, String>();
+            Dictionary<String, String> cons = new Dictionary<String, String>();
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_start_consultation ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ")");
             foreach (DataRow dr in data.Rows)
             {
-                pres.Add("cons_id", dr["cons_id"].ToString());
-                pres.Add("clinic_id", dr["clinic_id"].ToString());
-                pres.Add("dr_id", dr["dr_id"].ToString());
-                pres.Add("patient_id", dr["patient_id"].ToString());
-                pres.Add("first_record_dtm", dr["first_record_dtm"].ToString());
-                pres.Add("ex_code", dr["ex_code"].ToString());
-                pres.Add("ex_desc", dr["ex_desc"].ToString());
-                pres.Add("diff_code", dr["diff_code"].ToString());
-                pres.Add("diff_desc", dr["diff_desc"].ToString());
-                pres.Add("dx_code", dr["dx_code"].ToString());
-                pres.Add("dx_desc", dr["dx_desc"].ToString());
-                pres.Add("pres_id", dr["pres_id"].ToString());
-                pres.Add("dr_rmk", dr["dr_rmk"].ToString());
-                pres.Add("isFinished", dr["isFinished"].ToString());
-                pres.Add("last_update_dtm", dr["last_update_dtm"].ToString());
+                cons.Add("cons_id", dr["cons_id"].ToString());
+                cons.Add("clinic_id", dr["clinic_id"].ToString());
+                cons.Add("dr_id", dr["dr_id"].ToString());
+                cons.Add("patient_id", dr["patient_id"].ToString());
+                cons.Add("first_record_dtm", dr["first_record_dtm"].ToString());
+                cons.Add("ex_code", dr["ex_code"].ToString());
+                cons.Add("ex_desc", dr["ex_desc"].ToString());
+                cons.Add("diff_code", dr["diff_code"].ToString());
+                cons.Add("diff_desc", dr["diff_desc"].ToString());
+                cons.Add("dx_code", dr["dx_code"].ToString());
+                cons.Add("dx_desc", dr["dx_desc"].ToString());
+                cons.Add("pres_id", dr["pres_id"].ToString());
+                cons.Add("dr_rmk", dr["dr_rmk"].ToString());
+                cons.Add("isFinished", dr["isFinished"].ToString());
+                cons.Add("last_update_dtm", dr["last_update_dtm"].ToString());
             }
-            return pres;
+            return cons;
         }
 
         public Dictionary<String, String> getConsultation(int consId)
         {
-            Dictionary<String, String> pres = new Dictionary<String, String>();
+            Dictionary<String, String> cons = new Dictionary<String, String>();
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_get ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + consId + ")");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
                 {
-                    pres.Add("cons_id", dr["cons_id"].ToString());
-                    pres.Add("clinic_id", dr["clinic_id"].ToString());
-                    pres.Add("dr_id", dr["dr_id"].ToString());
-                    pres.Add("patient_id", dr["patient_id"].ToString());
-                    pres.Add("first_record_dtm", dr["first_record_dtm"].ToString());
-                    pres.Add("ex_code", dr["ex_code"].ToString());
-                    pres.Add("ex_desc", dr["ex_desc"].ToString());
-                    pres.Add("diff_code", dr["diff_code"].ToString());
-                    pres.Add("diff_desc", dr["diff_desc"].ToString());
-                    pres.Add("dx_code", dr["dx_code"].ToString());
-                    pres.Add("dx_desc", dr["dx_desc"].ToString());
-                    pres.Add("pres_id", dr["pres_id"].ToString());
-                    pres.Add("dr_rmk", dr["dr_rmk"].ToString());
-                    pres.Add("isFinished", dr["isFinished"].ToString());
-                    pres.Add("last_update_dtm", dr["last_update_dtm"].ToString());
+                    cons.Add("cons_id", dr["cons_id"].ToString());
+                    cons.Add("clinic_id", dr["clinic_id"].ToString());
+                    cons.Add("dr_id", dr["dr_id"].ToString());
+                    cons.Add("patient_id", dr["patient_id"].ToString());
+                    cons.Add("first_record_dtm", dr["first_record_dtm"].ToString());
+                    cons.Add("ex_code", dr["ex_code"].ToString());
+                    cons.Add("ex_desc", dr["ex_desc"].ToString());
+                    cons.Add("diff_code", dr["diff_code"].ToString());
+                    cons.Add("diff_desc", dr["diff_desc"].ToString());
+                    cons.Add("dx_code", dr["dx_code"].ToString());
+                    cons.Add("dx_desc", dr["dx_desc"].ToString());
+                    cons.Add("pres_id", dr["pres_id"].ToString());
+                    cons.Add("dr_rmk", dr["dr_rmk"].ToString());
+                    cons.Add("isFinished", dr["isFinished"].ToString());
+                    cons.Add("last_update_dtm", dr["last_update_dtm"].ToString());
                 }
             }
-            return pres;
+            return cons;
         }
 
         public bool saveConsultation(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String drRmk, ref String statusMsg){
@@ -309,6 +337,13 @@ namespace CMCMS
         public void updatePtPregFlag(int patId, bool isPregnant)
         {
             dbmgr.execSelectStmtSP("CALL sp_update_pat_preg_flag (" + patId + ", " + (isPregnant ? "1" : "0") + ")");
+        }
+
+        public bool finishConsultation(String consId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_finish_consultation (" + consId + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
     }
 }

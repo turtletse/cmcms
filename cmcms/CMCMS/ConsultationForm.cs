@@ -356,6 +356,21 @@ namespace CMCMS
             ReportViewer prtViewer = new ReportViewer();
             prtViewer.preparePrescription(consId);
             prtViewer.ShowDialog();
+        }
+
+        private void button_finish_Click(object sender, EventArgs e)
+        {
+            String statusMsg = "";
+            bool isSuccess;
+            isSuccess = consMgr.finishConsultation(consId, ref statusMsg);
+            if (!isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                this.Close();
+            }
         }        
     }
 }

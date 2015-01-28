@@ -49,6 +49,10 @@ namespace CMCMS
             if (listBox_lv1.SelectedIndex != -1)
             {
                 consMgr.setExamLv2(listBox_lv2, int.Parse(((PermissibleValueObj)(listBox_lv1.SelectedItem)).Value));
+                if (listBox_lv2.Items.Count == 1)
+                {
+                    listBox_lv2.SelectedIndex = 0;
+                }
             }
         }
 
@@ -57,6 +61,10 @@ namespace CMCMS
             if (listBox_lv1.SelectedIndex != -1 && listBox_lv2.SelectedIndex != -1)
             {
                 consMgr.setExamLv3(listBox_lv3, int.Parse(((PermissibleValueObj)(listBox_lv1.SelectedItem)).Value), int.Parse(((PermissibleValueObj)(listBox_lv2.SelectedItem)).Value));
+                if (listBox_lv3.Items.Count == 1)
+                {
+                    listBox_lv3.SelectedIndex = 0;
+                }
             }
         }
 

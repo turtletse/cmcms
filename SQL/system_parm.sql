@@ -21,3 +21,5 @@ CREATE INDEX system_parm_x1 on system_parm (parm_name);
 -- UPDATE system_parm SET parm_value = '0' where parm_name = 'prescription_cnt'
 
 -- INSERT INTO system_parm VALUES ('dr_rmk_cnt', '0', 'for generation of rmk_id for dr_rmk_prefined_list');
+
+-- INSERT INTO system_parm VALUES ('instruction_cnt', '0', 'for generation of insturction_id');
