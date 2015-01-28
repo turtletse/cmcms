@@ -16,14 +16,14 @@ namespace CMCMS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Prescription : ReportClass {
+    public class ClinicHeader : ReportClass {
         
-        public Prescription() {
+        public ClinicHeader() {
         }
         
         public override string ResourceName {
             get {
-                return "Prescription.rpt";
+                return "ClinicHeader.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CMCMS {
         
         public override string FullResourceName {
             get {
-                return "CMCMS.Prescription.rpt";
+                return "CMCMS.ClinicHeader.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace CMCMS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace CMCMS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace CMCMS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,39 +90,7 @@ namespace CMCMS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection2 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[7];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
-            get {
-                return this.ReportDefinition.Sections[8];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_in_cons_id {
+        public CrystalDecisions.Shared.IParameterField Parameter_in_clinc_id {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -130,9 +98,9 @@ namespace CMCMS {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPrescription : Component, ICachedReport {
+    public class CachedClinicHeader : Component, ICachedReport {
         
-        public CachedPrescription() {
+        public CachedClinicHeader() {
         }
         
         [Browsable(false)]
@@ -169,7 +137,7 @@ namespace CMCMS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Prescription rpt = new Prescription();
+            ClinicHeader rpt = new ClinicHeader();
             rpt.Site = this.Site;
             return rpt;
         }

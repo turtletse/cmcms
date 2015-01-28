@@ -743,6 +743,7 @@
             this.button_prnPres.TabIndex = 11;
             this.button_prnPres.Text = "列印處方";
             this.button_prnPres.UseVisualStyleBackColor = true;
+            this.button_prnPres.Click += new System.EventHandler(this.button_prnPres_Click);
             // 
             // groupBox_pregCert
             // 

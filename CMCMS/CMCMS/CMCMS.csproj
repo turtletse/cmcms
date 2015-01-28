@@ -111,6 +111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicHeader.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DBMgr.cs" />
     <Compile Include="DifferentiationResultSelectionForm.cs">
@@ -192,6 +193,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Prescription.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="PrescriptionForm.cs">
       <SubType>Form</SubType>
@@ -351,6 +354,7 @@
     <EmbeddedResource Include="Prescription.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Prescription.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionForm.resx">
       <DependentUpon>PrescriptionForm.cs</DependentUpon>

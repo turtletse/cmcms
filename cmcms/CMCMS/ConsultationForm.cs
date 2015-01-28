@@ -309,6 +309,11 @@ namespace CMCMS
                     if (isSuccess)
                     {
                         refresh_consultation_data(false);
+                        DialogResult isPrint = MessageBox.Show("列印處方?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (isPrint == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            button_prnPres_Click(sender, e);
+                        }
                     }
                 }
             }
@@ -344,6 +349,13 @@ namespace CMCMS
                 }
                 consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
             }
+        }
+
+        private void button_prnPres_Click(object sender, EventArgs e)
+        {
+            ReportViewer prtViewer = new ReportViewer();
+            prtViewer.preparePrescription(consId);
+            prtViewer.ShowDialog();
         }        
     }
 }
