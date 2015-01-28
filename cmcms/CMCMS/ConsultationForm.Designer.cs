@@ -93,10 +93,15 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button_consCert = new System.Windows.Forms.Button();
             this.button_pregCert = new System.Windows.Forms.Button();
+            this.button_prnPres = new System.Windows.Forms.Button();
+            this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
+            this.textBox_pregNWks = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox_sickLeaveCert.SuspendLayout();
+            this.groupBox_pregCert.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -180,6 +185,7 @@
             this.checkBox_pat_isPregnant.TabIndex = 12;
             this.checkBox_pat_isPregnant.Text = "懷孕";
             this.checkBox_pat_isPregnant.UseVisualStyleBackColor = true;
+            this.checkBox_pat_isPregnant.CheckedChanged += new System.EventHandler(this.checkBox_pat_isPregnant_CheckedChanged);
             // 
             // textBox_pat_IDNo
             // 
@@ -713,7 +719,7 @@
             // 
             // button_consCert
             // 
-            this.button_consCert.Location = new System.Drawing.Point(1076, 515);
+            this.button_consCert.Location = new System.Drawing.Point(1076, 625);
             this.button_consCert.Name = "button_consCert";
             this.button_consCert.Size = new System.Drawing.Size(330, 49);
             this.button_consCert.TabIndex = 9;
@@ -722,19 +728,58 @@
             // 
             // button_pregCert
             // 
-            this.button_pregCert.Location = new System.Drawing.Point(1076, 603);
+            this.button_pregCert.Location = new System.Drawing.Point(6, 72);
             this.button_pregCert.Name = "button_pregCert";
             this.button_pregCert.Size = new System.Drawing.Size(330, 49);
             this.button_pregCert.TabIndex = 10;
-            this.button_pregCert.Text = "懷孕證明書";
+            this.button_pregCert.Text = "確認並發出證明書";
             this.button_pregCert.UseVisualStyleBackColor = true;
+            // 
+            // button_prnPres
+            // 
+            this.button_prnPres.Location = new System.Drawing.Point(1076, 680);
+            this.button_prnPres.Name = "button_prnPres";
+            this.button_prnPres.Size = new System.Drawing.Size(330, 49);
+            this.button_prnPres.TabIndex = 11;
+            this.button_prnPres.Text = "列印處方";
+            this.button_prnPres.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_pregCert
+            // 
+            this.groupBox_pregCert.Controls.Add(this.textBox_pregNWks);
+            this.groupBox_pregCert.Controls.Add(this.label21);
+            this.groupBox_pregCert.Controls.Add(this.button_pregCert);
+            this.groupBox_pregCert.Location = new System.Drawing.Point(1070, 492);
+            this.groupBox_pregCert.Name = "groupBox_pregCert";
+            this.groupBox_pregCert.Size = new System.Drawing.Size(342, 127);
+            this.groupBox_pregCert.TabIndex = 12;
+            this.groupBox_pregCert.TabStop = false;
+            this.groupBox_pregCert.Text = "懷孕證明";
+            // 
+            // textBox_pregNWks
+            // 
+            this.textBox_pregNWks.Location = new System.Drawing.Point(61, 35);
+            this.textBox_pregNWks.Name = "textBox_pregNWks";
+            this.textBox_pregNWks.Size = new System.Drawing.Size(100, 26);
+            this.textBox_pregNWks.TabIndex = 12;
+            this.textBox_pregNWks.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 38);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(49, 20);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "週數: ";
             // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 802);
-            this.Controls.Add(this.button_pregCert);
+            this.Controls.Add(this.groupBox_pregCert);
+            this.Controls.Add(this.button_prnPres);
             this.Controls.Add(this.button_consCert);
             this.Controls.Add(this.groupBox_sickLeaveCert);
             this.Controls.Add(this.groupBox3);
@@ -747,6 +792,7 @@
             this.MaximizeBox = false;
             this.Name = "ConsultationForm";
             this.Text = "診症";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultationForm_FormClosing);
             this.Shown += new System.EventHandler(this.ConsultationForm_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -755,6 +801,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox_sickLeaveCert.ResumeLayout(false);
             this.groupBox_sickLeaveCert.PerformLayout();
+            this.groupBox_pregCert.ResumeLayout(false);
+            this.groupBox_pregCert.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -826,5 +874,9 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox_startDtm;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button_prnPres;
+        private System.Windows.Forms.GroupBox groupBox_pregCert;
+        private System.Windows.Forms.TextBox textBox_pregNWks;
+        private System.Windows.Forms.Label label21;
     }
 }

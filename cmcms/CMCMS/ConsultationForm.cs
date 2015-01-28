@@ -145,7 +145,7 @@ namespace CMCMS
             {
                 groupBox_sickLeaveCert.Enabled = false;
                 button_consCert.Enabled = false;
-                button_pregCert.Enabled = false;
+                groupBox_pregCert.Enabled = false;
                 button_change_exam.Enabled = true;
                 button_change_diff.Enabled = true;
                 button_change_dx.Enabled = true;
@@ -161,7 +161,8 @@ namespace CMCMS
             {
                 groupBox_sickLeaveCert.Enabled = true;
                 button_consCert.Enabled = true;
-                button_pregCert.Enabled = true;
+                groupBox_pregCert.Enabled = true;
+                textBox_pregNWks.Enabled = checkBox_pat_isPregnant.Checked;
                 button_change_exam.Enabled = false;
                 button_change_diff.Enabled = false;
                 button_change_dx.Enabled = false;
@@ -314,6 +315,34 @@ namespace CMCMS
             else
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void checkBox_pat_isPregnant_CheckedChanged(object sender, EventArgs e)
+        {
+            consMgr.updatePtPregFlag(int.Parse(textBox_patId.Text), checkBox_pat_isPregnant.Checked);
+            if (isFinished == "1")
+            {
+                refresh_consultation_data(false);
+            }
+        }
+
+        private void ConsultationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isFinished == "0")
+            {
+                String statusMsg = "";
+
+                String presIds = "";
+                foreach (PermissibleValueObj o in comboBox_presId.Items)
+                {
+                    presIds += "||" + o.Value;
+                }
+                if (presIds.Length > 0)
+                {
+                    presIds = presIds.Substring(2);
+                }
+                consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
             }
         }        
     }

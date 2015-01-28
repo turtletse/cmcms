@@ -305,5 +305,10 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
+        public void updatePtPregFlag(int patId, bool isPregnant)
+        {
+            dbmgr.execSelectStmtSP("CALL sp_update_pat_preg_flag (" + patId + ", " + (isPregnant ? "1" : "0") + ")");
+        }
     }
 }

@@ -33,14 +33,21 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-	SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id, ' AND patient_status<>30');
-    PREPARE stmt FROM @sql_str;
-    EXECUTE stmt;
-    IF (SELECT ROW_COUNT()) > 0 THEN
-		SET curr_status_id = 0;
-	ELSE
-		SET curr_status_id = 12;
-    END IF;
+    SET AUTOCOMMIT = 0;
+    START TRANSACTION;
+		SET @sql_str = CONCAT('DELETE FROM ', tabname, ' WHERE patient_id = ', in_patient_id, ' AND patient_status<>30');
+		PREPARE stmt FROM @sql_str;
+		EXECUTE stmt;
+		IF (SELECT ROW_COUNT()) > 0 THEN
+			SET curr_status_id = 0;
+		ELSE
+			SET curr_status_id = 12;
+		END IF;
+		UPDATE consultation_record
+        SET isFinished = -1
+        WHERE patient_id = in_patient_id
+			AND clinic_id = in_clinic_id;
+	COMMIT;
 	SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;
 END $$
