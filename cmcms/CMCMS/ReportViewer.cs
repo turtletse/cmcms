@@ -35,6 +35,7 @@ namespace CMCMS
         {
             setRptName("Prescription.rpt");
             cryRpt.Load(rptName);
+            
 
             crParameterDiscreteValue.Value = consId;
             crParameterFieldDefinitions = cryRpt.DataDefinition.ParameterFields;
