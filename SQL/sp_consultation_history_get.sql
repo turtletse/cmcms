@@ -34,7 +34,7 @@ BEGIN
                 UPDATE consData SET pres_data_str = (SELECT CONCAT('[',GROUP_CONCAT(presStr SEPARATOR '] ['),']') FROM presDt) WHERE cons_id = tmp_cons_id;
 			END IF;
 		UNTIL done END REPEAT;
-		CLOSE cur1;
+	CLOSE cur1;
     
     SELECT cons_id, DATE_FORMAT(last_update_dtm, '%d/%m/%Y %T') cons_dtm, dx_desc, ex_desc, diff_desc, pres_data_str
     FROM consData

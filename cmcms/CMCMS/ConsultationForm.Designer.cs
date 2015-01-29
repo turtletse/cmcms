@@ -367,6 +367,7 @@
             this.button_use_previous.TabIndex = 1;
             this.button_use_previous.Text = "使用已選紀錄作藍本";
             this.button_use_previous.UseVisualStyleBackColor = true;
+            this.button_use_previous.Click += new System.EventHandler(this.button_use_previous_Click);
             // 
             // listView1
             // 

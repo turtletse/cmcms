@@ -359,6 +359,13 @@ namespace CMCMS
                     lv.Items.Add(item);
                 }
             }
-        } 
+        }
+
+        public bool usePreviousConsultationAsTemplate(int currConsId, int prevConsId, ref String statusMsg)
+        {
+            Dictionary<String, String> cons = new Dictionary<String, String>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_use_selected_cons_as_template ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + currConsId + ", " + prevConsId + ")");
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
     }
 }

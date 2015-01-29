@@ -376,6 +376,18 @@ namespace CMCMS
             {
                 this.Close();
             }
+        }
+
+        private void button_use_previous_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+
+            String statusMsg ="";
+            if (consMgr.usePreviousConsultationAsTemplate(int.Parse(consId), int.Parse((listView1.SelectedItems[0].GetSubItemAt(0, 0)).ToString()), ref statusMsg))
+            {
+            }
+
         }        
     }
 }
