@@ -345,5 +345,20 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
+        public void refreshHistoryLV(System.Windows.Forms.ListView lv, int patId)
+        {
+            lv.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_history_get ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    string[] row = { dr["cons_id"].ToString(), dr["cons_dtm"].ToString(), dr["dx_desc"].ToString(), dr["ex_desc"].ToString(), dr["diff_desc"].ToString(), dr["pres_data_str"].ToString() };
+                    System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(row);
+                    lv.Items.Add(item);
+                }
+            }
+        } 
     }
 }

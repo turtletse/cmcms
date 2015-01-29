@@ -6,4 +6,4 @@ BEGIN
 END $$
 delimiter ;
 
--- CALL sp_dosage_unit_combo_get ();
+-- CALL sp_prescription_MOT_combo_get ();

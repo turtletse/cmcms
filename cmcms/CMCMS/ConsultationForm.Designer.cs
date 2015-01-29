@@ -97,6 +97,7 @@
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.textBox_pregNWks = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.columnHeader_consId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -370,6 +371,7 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader_consId,
             this.columnHeader_firstRecDtm,
             this.columnHeader_dx,
             this.columnHeader_exam,
@@ -775,6 +777,10 @@
             this.label21.TabIndex = 11;
             this.label21.Text = "週數: ";
             // 
+            // columnHeader_consId
+            // 
+            this.columnHeader_consId.Text = "#";
+            // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -880,5 +886,6 @@
         private System.Windows.Forms.GroupBox groupBox_pregCert;
         private System.Windows.Forms.TextBox textBox_pregNWks;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ColumnHeader columnHeader_consId;
     }
 }

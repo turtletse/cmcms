@@ -75,8 +75,11 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            refresh_consultation_data(true);
-
+            else
+            {
+                refresh_consultation_data(true);
+                consMgr.refreshHistoryLV(listView1, int.Parse(textBox_patId.Text));
+            }
         }
 
         private void refresh_consultation_data(bool isNewCons)
@@ -156,6 +159,7 @@ namespace CMCMS
                 button_finalSave.Enabled = true;
                 button_conLater.Enabled = true;
                 button_finish.Enabled = false;
+                button_use_previous.Enabled = true;
             }
             else if (isFinished == "1")
             {
@@ -173,6 +177,7 @@ namespace CMCMS
                 button_finalSave.Enabled = false;
                 button_conLater.Enabled = false;
                 button_finish.Enabled = true;
+                button_use_previous.Enabled = false;
             }
             else
             {
