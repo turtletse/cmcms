@@ -26,4 +26,6 @@ BEGIN
 END $$
 delimiter ;
 
+
+-- select * from sick_leave_cert
 -- CALL sp_crrpt_sick_leave_cert_get(1);
