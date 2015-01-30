@@ -56,6 +56,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button_use_previous = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader_consId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_firstRecDtm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_dx = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_exam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -97,7 +98,6 @@
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.textBox_pregNWks = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.columnHeader_consId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -389,6 +389,10 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader_consId
+            // 
+            this.columnHeader_consId.Text = "#";
+            // 
             // columnHeader_firstRecDtm
             // 
             this.columnHeader_firstRecDtm.Text = "日期 / 時間";
@@ -653,7 +657,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(61, 145);
+            this.label18.Location = new System.Drawing.Point(61, 101);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(115, 20);
             this.label18.TabIndex = 7;
@@ -663,15 +667,16 @@
             // 
             this.dateTimePicker_sickLeaveEnd.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker_sickLeaveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_sickLeaveEnd.Location = new System.Drawing.Point(134, 106);
+            this.dateTimePicker_sickLeaveEnd.Location = new System.Drawing.Point(134, 62);
             this.dateTimePicker_sickLeaveEnd.Name = "dateTimePicker_sickLeaveEnd";
             this.dateTimePicker_sickLeaveEnd.Size = new System.Drawing.Size(157, 26);
             this.dateTimePicker_sickLeaveEnd.TabIndex = 6;
+            this.dateTimePicker_sickLeaveEnd.ValueChanged += new System.EventHandler(this.dateTimePicker_sickLeaveEnd_ValueChanged);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(61, 111);
+            this.label17.Location = new System.Drawing.Point(61, 67);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(25, 20);
             this.label17.TabIndex = 5;
@@ -680,8 +685,9 @@
             // dateTimePicker_sickLeaveStart
             // 
             this.dateTimePicker_sickLeaveStart.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_sickLeaveStart.Enabled = false;
             this.dateTimePicker_sickLeaveStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(134, 73);
+            this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(134, 29);
             this.dateTimePicker_sickLeaveStart.Name = "dateTimePicker_sickLeaveStart";
             this.dateTimePicker_sickLeaveStart.Size = new System.Drawing.Size(157, 26);
             this.dateTimePicker_sickLeaveStart.TabIndex = 4;
@@ -689,7 +695,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(61, 73);
+            this.label16.Location = new System.Drawing.Point(61, 29);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(67, 20);
             this.label16.TabIndex = 3;
@@ -698,7 +704,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 73);
+            this.label15.Location = new System.Drawing.Point(6, 29);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(49, 20);
             this.label15.TabIndex = 2;
@@ -706,16 +712,16 @@
             // 
             // textBox_sickLeaveNDays
             // 
-            this.textBox_sickLeaveNDays.Location = new System.Drawing.Point(61, 35);
+            this.textBox_sickLeaveNDays.Location = new System.Drawing.Point(61, 133);
             this.textBox_sickLeaveNDays.Name = "textBox_sickLeaveNDays";
+            this.textBox_sickLeaveNDays.ReadOnly = true;
             this.textBox_sickLeaveNDays.Size = new System.Drawing.Size(64, 26);
             this.textBox_sickLeaveNDays.TabIndex = 1;
-            this.textBox_sickLeaveNDays.Text = "1";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 38);
+            this.label14.Location = new System.Drawing.Point(6, 136);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 20);
             this.label14.TabIndex = 0;
@@ -777,10 +783,6 @@
             this.label21.Size = new System.Drawing.Size(49, 20);
             this.label21.TabIndex = 11;
             this.label21.Text = "週數: ";
-            // 
-            // columnHeader_consId
-            // 
-            this.columnHeader_consId.Text = "#";
             // 
             // ConsultationForm
             // 

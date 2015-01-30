@@ -23,3 +23,5 @@ CREATE INDEX system_parm_x1 on system_parm (parm_name);
 -- INSERT INTO system_parm VALUES ('dr_rmk_cnt', '0', 'for generation of rmk_id for dr_rmk_prefined_list');
 
 -- INSERT INTO system_parm VALUES ('instruction_cnt', '0', 'for generation of insturction_id');
+
+-- INSERT INTO system_parm VALUES ('sick_leave_cert_cnt', '0', 'for generation of sick_leave_cert_id');

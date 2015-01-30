@@ -93,6 +93,10 @@ namespace CMCMS
             consId = consData["cons_id"];
             textBox_startDtm.Text = consData["first_record_dtm"];
             textBox_lastUpdateDtm.Text = consData["last_update_dtm"];
+            dateTimePicker_sickLeaveStart.Value = DateTime.ParseExact(textBox_lastUpdateDtm.Text.Substring(0,textBox_lastUpdateDtm.Text.IndexOf(' ')) , "dd/MM/yyyy", null);
+            dateTimePicker_sickLeaveEnd.MinDate = dateTimePicker_sickLeaveStart.Value;
+            dateTimePicker_sickLeaveEnd.MaxDate = dateTimePicker_sickLeaveStart.Value.AddDays(7);
+            dateTimePicker_sickLeaveEnd.Value = DateTime.Today;
             isFinished = consData["isFinished"];
 
             String[] code;
@@ -397,6 +401,11 @@ namespace CMCMS
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }        
+        }
+
+        private void dateTimePicker_sickLeaveEnd_ValueChanged(object sender, EventArgs e)
+        {
+            textBox_sickLeaveNDays.Text = ((dateTimePicker_sickLeaveEnd.Value - dateTimePicker_sickLeaveStart.Value).Days+1).ToString();
+        }      
     }
 }
