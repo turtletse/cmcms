@@ -61,7 +61,7 @@ namespace CMCMS.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to server=localhost;userid=cmcms;password=abc3###2015A;database=cmcms.
+        ///   Looks up a localized string similar to DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS; user=cmcms; password=abc3###2015A; database=cmcms; OPTION=3.
         /// </summary>
         internal static string connectionString {
             get {

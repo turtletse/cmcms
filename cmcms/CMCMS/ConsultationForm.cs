@@ -384,8 +384,13 @@ namespace CMCMS
                 return;
 
             String statusMsg ="";
-            if (consMgr.usePreviousConsultationAsTemplate(int.Parse(consId), int.Parse((listView1.SelectedItems[0].GetSubItemAt(0, 0)).ToString()), ref statusMsg))
+            if (consMgr.usePreviousConsultationAsTemplate(int.Parse(consId), int.Parse((listView1.SelectedItems[0].Text).ToString()), ref statusMsg))
             {
+                refresh_consultation_data(false);
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }        

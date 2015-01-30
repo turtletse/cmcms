@@ -15,11 +15,12 @@ namespace CMCMS
     {
         String rptName = "";
 
-        ReportDocument cryRpt = new ReportDocument();
+        ReportDocument crRpt = new ReportDocument();
         ParameterFieldDefinitions crParameterFieldDefinitions ;
         ParameterFieldDefinition crParameterFieldDefinition ;
         ParameterValues crParameterValues = new ParameterValues();
         ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+        String sql = "";
 
         public ReportViewer()
         {
@@ -34,22 +35,50 @@ namespace CMCMS
         public void preparePrescription(String consId)
         {
             setRptName("Prescription.rpt");
-            cryRpt.Load(rptName);
+            crRpt.Load(rptName);
             
+            //crRpt.SetDatabaseLogon("cmcms", "abc3###2015A", "CMCMS", "cmcms");
+            //crRpt.SetParameterValue("in_cons_id", consId);
 
             crParameterDiscreteValue.Value = consId;
-            crParameterFieldDefinitions = cryRpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinitions = crRpt.DataDefinition.ParameterFields;
             crParameterFieldDefinition = crParameterFieldDefinitions["in_cons_id"];
             crParameterValues = crParameterFieldDefinition.CurrentValues;
 
             crParameterValues.Clear();
             crParameterValues.Add(crParameterDiscreteValue);
             crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+            /*sql = "CALL sp_crrpt_consultation_get('" + consId + "')";
+            DBMgr dbmgr = new DBMgr();
+            crRpt.SetDataSource(dbmgr.execSelectStmtSP(sql));*/
         }
 
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
-            crystalReportViewer1.ReportSource = cryRpt;
+            ConnectionInfo crConnectionInfo = new ConnectionInfo();
+            crConnectionInfo.ServerName = "DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS;";
+            crConnectionInfo.DatabaseName = "cmcms";
+            crConnectionInfo.UserID = "cmcms";
+            crConnectionInfo.Password = "abc3###2015A";
+            TableLogOnInfo crTableLogoninfo = new TableLogOnInfo();
+
+            foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in crRpt.Database.Tables)
+            {
+                crTableLogoninfo = CrTable.LogOnInfo;
+                crTableLogoninfo.ConnectionInfo = crConnectionInfo;
+                CrTable.ApplyLogOnInfo(crTableLogoninfo);
+            }
+            foreach (ReportDocument subreport in crRpt.Subreports)
+            {
+                foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in subreport.Database.Tables)
+                {
+                    crTableLogoninfo = CrTable.LogOnInfo;
+                    crTableLogoninfo.ConnectionInfo = crConnectionInfo;
+                    CrTable.ApplyLogOnInfo(crTableLogoninfo);
+                }
+            }
+
+            crystalReportViewer1.ReportSource = crRpt;
             crystalReportViewer1.Refresh();
         }
     }

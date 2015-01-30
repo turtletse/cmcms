@@ -58,11 +58,13 @@
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -311,10 +313,11 @@
     <EmbeddedResource Include="ConsultationForm.resx">
       <DependentUpon>ConsultationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClinicHeader.rpt">
+    <Content Include="ClinicHeader.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ClinicHeader.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="DifferentiationResultSelectionForm.resx">
       <DependentUpon>DifferentiationResultSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,11 +354,11 @@
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prescription.rpt">
+    <Content Include="Prescription.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Prescription.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="PrescriptionForm.resx">
       <DependentUpon>PrescriptionForm.cs</DependentUpon>
     </EmbeddedResource>

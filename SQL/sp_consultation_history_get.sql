@@ -38,7 +38,7 @@ BEGIN
     
     SELECT cons_id, DATE_FORMAT(last_update_dtm, '%d/%m/%Y %T') cons_dtm, dx_desc, ex_desc, diff_desc, pres_data_str
     FROM consData
-    ORDER BY last_update_dtm;
+    ORDER BY last_update_dtm desc;
         
     DROP TEMPORARY TABLE presDt;
     DROP TEMPORARY TABLE presIds;

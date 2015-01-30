@@ -10,18 +10,12 @@ BEGIN
     DECLARE cur1 CURSOR FOR SELECT pres_id FROM presIds;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	/*DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;
-    
-    DROP TEMPORARY TABLE IF EXISTS consData;    
-    CREATE TEMPORARY TABLE consData
-	select cons_id, last_update_dtm, dx_desc, ex_desc, diff_desc, pres_id pres_data_str
-	from consultation_record JOIN patient_record ON consultation_record.patient_id = patient_record.patient_id
-    WHERE (clinic_id = in_clinic_id OR dr_id = in_dr_id) AND isFinished = 2 AND consultation_record.patient_id = in_pat_id;
+	END;*/
 	
     SET AUTOCOMMIT = 0;
     START TRANSACTION;
@@ -68,14 +62,13 @@ BEGIN
             a.pres_id = (SELECT group_concat(pres_id SEPARATOR '||') FROM newPres),
 			a.dr_rmk = b.dr_rmk,
             a.last_update_dtm = sysdate()
-		WHERE b.cons_id = in_cons_id;
+		WHERE b.cons_id = in_sel_cons_id;
 	COMMIT;
     SET AUTOCOMMIT=1;
         
 	DROP TEMPORARY TABLE newPres;
     DROP TEMPORARY TABLE presDt;
     DROP TEMPORARY TABLE presIds;
-    DROP TEMPORARY TABLE consData;
     DROP TEMPORARY TABLE splitResult;
     SELECT * FROM insert_record_status where status_id = curr_status_id;
     -- CALL sp_consultation_get (in_clinic_id, in_dr_id, in_cons_id);
@@ -83,4 +76,4 @@ END $$
 delimiter ;
 
 
--- CALL sp_consultation_history_get('CITYC', 'CSM', 1)
+-- CALL sp_use_selected_cons_as_template ('CITYC', 'CSM', 3, 2)
