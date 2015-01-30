@@ -128,6 +128,10 @@ namespace CMCMS
                 checkBox_isSuspended.Checked = false;
                 checkBox_isSuspended.Enabled = false;
             }
+            else
+            {
+                checkBox_isSuspended.Enabled = true;
+            }
         }
     }
 }

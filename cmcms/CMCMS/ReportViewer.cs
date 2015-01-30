@@ -20,7 +20,6 @@ namespace CMCMS
         ParameterFieldDefinition crParameterFieldDefinition ;
         ParameterValues crParameterValues = new ParameterValues();
         ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
-        String sql = "";
 
         public ReportViewer()
         {
@@ -37,9 +36,6 @@ namespace CMCMS
             setRptName("Prescription.rpt");
             crRpt.Load(rptName);
             
-            //crRpt.SetDatabaseLogon("cmcms", "abc3###2015A", "CMCMS", "cmcms");
-            //crRpt.SetParameterValue("in_cons_id", consId);
-
             crParameterDiscreteValue.Value = consId;
             crParameterFieldDefinitions = crRpt.DataDefinition.ParameterFields;
             crParameterFieldDefinition = crParameterFieldDefinitions["in_cons_id"];
@@ -48,9 +44,6 @@ namespace CMCMS
             crParameterValues.Clear();
             crParameterValues.Add(crParameterDiscreteValue);
             crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
-            /*sql = "CALL sp_crrpt_consultation_get('" + consId + "')";
-            DBMgr dbmgr = new DBMgr();
-            crRpt.SetDataSource(dbmgr.execSelectStmtSP(sql));*/
         }
 
         private void ReportViewer_Shown(object sender, EventArgs e)

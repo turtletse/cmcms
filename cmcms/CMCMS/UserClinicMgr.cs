@@ -77,8 +77,7 @@ namespace CMCMS
         public void setUserPermissibleClinicCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_clinic_get ('" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
-            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_clinic_get ('" + "ALL" + "', " + 40 + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_clinic_get ('" + (Login.user == null ? "ALL" : Login.user.CurrentLoginClinicId) + "', " + (Login.user == null ? 0 : Login.user.CurrentLoginRole) + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cb.Items.Add(new ClinicObj(dr["clinic_id"].ToString(), dr["clinic_chin_name"].ToString(), dr["clinic_eng_name"].ToString(), dr["clinic_addr"].ToString(), dr["clinic_phone_no"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
@@ -88,8 +87,7 @@ namespace CMCMS
         public void setUserPermissibleRoleCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_role_get (" + Login.user.CurrentLoginRole + ")");
-            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_role_get (" + 40 + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_user_role_get (" + (Login.user == null ? 0 : Login.user.CurrentLoginRole) + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cb.Items.Add(new PermissibleValueObj(dr["role_desc"].ToString(), dr["role_id"].ToString()));
@@ -108,8 +106,7 @@ namespace CMCMS
         public void setAmdUserCombo(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_user_account_get ('" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
-            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_user_account_get ('" + "ALL" + "', " + 40 + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_amd_user_account_get ('" + (Login.user == null ? "SYSADM" : Login.user.CurrentLoginClinicId) + "', " + (Login.user == null ? 0 : Login.user.CurrentLoginRole) + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cb.Items.Add(new UserObj(dr["user_id"].ToString(), dr["hashed_password"].ToString(), dr["chin_name"].ToString(), dr["eng_name"].ToString(), dr["reg_no"].ToString(), dr["last_logout_dtm"].ToString(), dr["last_logout_clinic_id"].ToString(), Convert.ToBoolean(dr["isSuspended"])));
@@ -127,8 +124,7 @@ namespace CMCMS
         public void setGrantedClinicRoleListbox(System.Windows.Forms.ListBox listbox, String userId)
         {
             listbox.Items.Clear();
-            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + userId + "', '" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
-            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + userId + "', '" + "ALL" + "', " + 40 + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + userId + "', '" + (Login.user == null ? "ALL" : Login.user.CurrentLoginClinicId) + "', " + (Login.user == null ? 0 : Login.user.CurrentLoginRole) + ")");
             foreach (DataRow dr in data.Rows)
             {
                 listbox.Items.Add(new PermissibleValueObj(dr["display_name"].ToString(), dr["sp_value"].ToString()));
@@ -162,8 +158,7 @@ namespace CMCMS
         //Logout
         public bool logout(ref String statusMsg)
         {
-            /*FOR COMPLIE*///   DataTable data = dbmgr.execSelectStmtSP("CALL sp_granted_clinic_role_get ('" + Login.user.UserId + "', '" + Login.user.CurrentLoginClinicId + "', " + Login.user.CurrentLoginRole + ")");
-            /*FOR DEV*/         DataTable data = dbmgr.execSelectStmtSP("CALL sp_user_logout ('" + "SYSADM" + "', '" + "ALL" + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_user_logout ('" + (Login.user == null ? "SYSADM" : Login.user.UserId) + "', '" + (Login.user == null ? "ALL" : Login.user.CurrentLoginClinicId) + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -172,7 +167,7 @@ namespace CMCMS
         public void setMOICcombobox(System.Windows.Forms.ComboBox cb)
         {
             cb.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_MOIC_combobox_get ('"+ (Login.clinic==null?"":Login.clinic.ClinicId) +"')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_MOIC_combobox_get ('"+ (Login.clinic==null?"ALL":Login.clinic.ClinicId) +"')");
             if (data != null && data.Rows.Count > 0)
             {
                 foreach (DataRow dr in data.Rows)

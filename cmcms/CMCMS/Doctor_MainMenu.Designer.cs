@@ -114,6 +114,7 @@
             this.MaximizeBox = false;
             this.Name = "Doctor_MainMenu";
             this.Text = "Doctor_MainMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Doctor_MainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
