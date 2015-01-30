@@ -6,7 +6,7 @@ CREATE TABLE sick_leave_cert(
     start_date DATE,
     end_date DATE,
     nDays INT,
-    isVoid INT
+    isVoid INT DEFAULT 0
 );
 
 CREATE INDEX sick_leave_cert_x1 ON sick_leave_cert(cert_id);

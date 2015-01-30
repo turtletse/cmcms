@@ -368,5 +368,12 @@ namespace CMCMS
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
+
+        public int issue_sick_leave_cert(int consId, String startDate, String endDate, int nDays)
+        {
+            Dictionary<String, String> cons = new Dictionary<String, String>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_sick_leave_cert (" + consId + ", '" + startDate + "', '" + endDate + "', " + nDays + ")");
+            return int.Parse(data.Rows[0]["cert_id"].ToString());
+        }
     }
 }

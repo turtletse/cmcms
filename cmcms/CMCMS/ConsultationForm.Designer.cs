@@ -96,8 +96,8 @@
             this.button_pregCert = new System.Windows.Forms.Button();
             this.button_prnPres = new System.Windows.Forms.Button();
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
-            this.textBox_pregNWks = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -653,6 +653,7 @@
             this.button_issueSickLeaveCert.TabIndex = 8;
             this.button_issueSickLeaveCert.Text = "確認並發出證明書";
             this.button_issueSickLeaveCert.UseVisualStyleBackColor = true;
+            this.button_issueSickLeaveCert.Click += new System.EventHandler(this.button_issueSickLeaveCert_Click);
             // 
             // label18
             // 
@@ -685,12 +686,12 @@
             // dateTimePicker_sickLeaveStart
             // 
             this.dateTimePicker_sickLeaveStart.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker_sickLeaveStart.Enabled = false;
             this.dateTimePicker_sickLeaveStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(134, 29);
             this.dateTimePicker_sickLeaveStart.Name = "dateTimePicker_sickLeaveStart";
             this.dateTimePicker_sickLeaveStart.Size = new System.Drawing.Size(157, 26);
             this.dateTimePicker_sickLeaveStart.TabIndex = 4;
+            this.dateTimePicker_sickLeaveStart.ValueChanged += new System.EventHandler(this.dateTimePicker_sickLeaveStart_ValueChanged);
             // 
             // label16
             // 
@@ -757,8 +758,8 @@
             // 
             // groupBox_pregCert
             // 
-            this.groupBox_pregCert.Controls.Add(this.textBox_pregNWks);
-            this.groupBox_pregCert.Controls.Add(this.label21);
+            this.groupBox_pregCert.Controls.Add(this.dateTimePicker_edc);
+            this.groupBox_pregCert.Controls.Add(this.checkBox_preg_edc);
             this.groupBox_pregCert.Controls.Add(this.button_pregCert);
             this.groupBox_pregCert.Location = new System.Drawing.Point(1070, 492);
             this.groupBox_pregCert.Name = "groupBox_pregCert";
@@ -767,22 +768,24 @@
             this.groupBox_pregCert.TabStop = false;
             this.groupBox_pregCert.Text = "懷孕證明";
             // 
-            // textBox_pregNWks
+            // checkBox_preg_edc
             // 
-            this.textBox_pregNWks.Location = new System.Drawing.Point(61, 35);
-            this.textBox_pregNWks.Name = "textBox_pregNWks";
-            this.textBox_pregNWks.Size = new System.Drawing.Size(100, 26);
-            this.textBox_pregNWks.TabIndex = 12;
-            this.textBox_pregNWks.Text = "0";
+            this.checkBox_preg_edc.AutoSize = true;
+            this.checkBox_preg_edc.Location = new System.Drawing.Point(10, 35);
+            this.checkBox_preg_edc.Name = "checkBox_preg_edc";
+            this.checkBox_preg_edc.Size = new System.Drawing.Size(100, 24);
+            this.checkBox_preg_edc.TabIndex = 11;
+            this.checkBox_preg_edc.Text = "預產日期: ";
+            this.checkBox_preg_edc.UseVisualStyleBackColor = true;
             // 
-            // label21
+            // dateTimePicker_edc
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 38);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(49, 20);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "週數: ";
+            this.dateTimePicker_edc.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_edc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_edc.Location = new System.Drawing.Point(116, 35);
+            this.dateTimePicker_edc.Name = "dateTimePicker_edc";
+            this.dateTimePicker_edc.Size = new System.Drawing.Size(157, 26);
+            this.dateTimePicker_edc.TabIndex = 12;
             // 
             // ConsultationForm
             // 
@@ -887,8 +890,8 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button_prnPres;
         private System.Windows.Forms.GroupBox groupBox_pregCert;
-        private System.Windows.Forms.TextBox textBox_pregNWks;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ColumnHeader columnHeader_consId;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_edc;
+        private System.Windows.Forms.CheckBox checkBox_preg_edc;
     }
 }

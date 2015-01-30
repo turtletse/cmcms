@@ -94,9 +94,10 @@ namespace CMCMS
             textBox_startDtm.Text = consData["first_record_dtm"];
             textBox_lastUpdateDtm.Text = consData["last_update_dtm"];
             dateTimePicker_sickLeaveStart.Value = DateTime.ParseExact(textBox_lastUpdateDtm.Text.Substring(0,textBox_lastUpdateDtm.Text.IndexOf(' ')) , "dd/MM/yyyy", null);
+            dateTimePicker_sickLeaveStart.MinDate = dateTimePicker_sickLeaveStart.Value;
             dateTimePicker_sickLeaveEnd.MinDate = dateTimePicker_sickLeaveStart.Value;
-            dateTimePicker_sickLeaveEnd.MaxDate = dateTimePicker_sickLeaveStart.Value.AddDays(7);
             dateTimePicker_sickLeaveEnd.Value = DateTime.Today;
+            dateTimePicker_edc.Value = DateTime.Today;
             isFinished = consData["isFinished"];
 
             String[] code;
@@ -172,7 +173,8 @@ namespace CMCMS
                 groupBox_sickLeaveCert.Enabled = true;
                 button_consCert.Enabled = true;
                 groupBox_pregCert.Enabled = true;
-                textBox_pregNWks.Enabled = checkBox_pat_isPregnant.Checked;
+                checkBox_preg_edc.Enabled = checkBox_pat_isPregnant.Checked;
+                dateTimePicker_edc.Enabled = checkBox_pat_isPregnant.Checked;
                 button_change_exam.Enabled = false;
                 button_change_diff.Enabled = false;
                 button_change_dx.Enabled = false;
@@ -366,9 +368,9 @@ namespace CMCMS
 
         private void button_prnPres_Click(object sender, EventArgs e)
         {
-            ReportViewer prtViewer = new ReportViewer();
-            prtViewer.preparePrescription(consId);
-            prtViewer.ShowDialog();
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.preparePrescription(consId);
+            rptViewer.ShowDialog();
         }
 
         private void button_finish_Click(object sender, EventArgs e)
@@ -406,6 +408,18 @@ namespace CMCMS
         private void dateTimePicker_sickLeaveEnd_ValueChanged(object sender, EventArgs e)
         {
             textBox_sickLeaveNDays.Text = ((dateTimePicker_sickLeaveEnd.Value - dateTimePicker_sickLeaveStart.Value).Days+1).ToString();
+        }
+
+        private void button_issueSickLeaveCert_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareSickLeaveCert(consMgr.issue_sick_leave_cert(int.Parse(consId), dateTimePicker_sickLeaveStart.Value.ToString("dd/MM/yyyy"), dateTimePicker_sickLeaveEnd.Value.ToString("dd/MM/yyyy"), int.Parse(textBox_sickLeaveNDays.Text)));
+            rptViewer.ShowDialog();
+        }
+
+        private void dateTimePicker_sickLeaveStart_ValueChanged(object sender, EventArgs e)
+        {
+            textBox_sickLeaveNDays.Text = ((dateTimePicker_sickLeaveEnd.Value - dateTimePicker_sickLeaveStart.Value).Days + 1).ToString();
         }      
     }
 }

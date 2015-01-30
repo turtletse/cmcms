@@ -62,12 +62,11 @@ BEGIN
             a.pres_id = (SELECT group_concat(pres_id SEPARATOR '||') FROM newPres),
 			a.dr_rmk = b.dr_rmk,
             a.last_update_dtm = sysdate()
-		WHERE b.cons_id = in_sel_cons_id;
+		WHERE b.cons_id = in_sel_cons_id AND a.cons_id = in_curr_cons_id;
 	COMMIT;
     SET AUTOCOMMIT=1;
         
 	DROP TEMPORARY TABLE newPres;
-    DROP TEMPORARY TABLE presDt;
     DROP TEMPORARY TABLE presIds;
     DROP TEMPORARY TABLE splitResult;
     SELECT * FROM insert_record_status where status_id = curr_status_id;
