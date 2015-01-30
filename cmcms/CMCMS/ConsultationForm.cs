@@ -155,11 +155,13 @@ namespace CMCMS
                 button_change_pres.Enabled = true;
                 button_delPres.Enabled = true;
                 button_add_pres.Enabled = true;
+                button_change_drRmk.Enabled = true;
                 button_tmpSave.Enabled = true;
                 button_finalSave.Enabled = true;
                 button_conLater.Enabled = true;
                 button_finish.Enabled = false;
                 button_use_previous.Enabled = true;
+                checkBox_pat_isPregnant.Enabled = true;
             }
             else if (isFinished == "1")
             {
@@ -173,11 +175,13 @@ namespace CMCMS
                 button_change_pres.Enabled = false;
                 button_delPres.Enabled = false;
                 button_add_pres.Enabled = false;
+                button_change_drRmk.Enabled = false;
                 button_tmpSave.Enabled = false;
                 button_finalSave.Enabled = false;
                 button_conLater.Enabled = false;
                 button_finish.Enabled = true;
                 button_use_previous.Enabled = false;
+                checkBox_pat_isPregnant.Enabled = false;
             }
             else
             {

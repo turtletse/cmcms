@@ -20,7 +20,7 @@ BEGIN
     FROM prescription NATURAL JOIN prescription_dt JOIN dosage_unit ON unit = unit_id JOIN preparation_method ON preparation_method = method_id
     WHERE pres_id IN (SELECT pres_id FROM presIds);
     
-    SELECT clinic_id, cons_id, cons_id_barcode, pat_name, dr_name, reg_no, dx_desc, dr_rmk, last_update_dtm, pres_id, instruction, no_of_dose, method_of_treatment, drug_name, dosage, preparation_method, case when method_desc = '-' then '' else method_desc end method_desc, display_order
+    SELECT clinic_id, cons_id, cons_id_barcode, pat_name, dr_name, reg_no, dx_desc, dr_rmk, last_update_dtm, pres_id, instruction, no_of_dose, method_of_treatment, drug_name, dosage, preparation_method, case when method_desc = '-' then '正常煎煮' else method_desc end method_desc, display_order
     FROM consData JOIN presDt
     ORDER BY pres_id, preparation_method, display_order;
     
