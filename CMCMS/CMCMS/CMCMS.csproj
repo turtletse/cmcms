@@ -115,6 +115,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="ConsultationCert.cs">
+      <DependentUpon>ConsultationCert.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="DBMgr.cs" />
     <Compile Include="DifferentiationResultSelectionForm.cs">
       <SubType>Form</SubType>
@@ -325,6 +332,11 @@
       <LastGenOutput>ClinicHeader.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="ConsultationCert.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConsultationCert.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="DifferentiationResultSelectionForm.resx">
       <DependentUpon>DifferentiationResultSelectionForm.cs</DependentUpon>
     </EmbeddedResource>

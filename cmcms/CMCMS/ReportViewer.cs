@@ -61,6 +61,21 @@ namespace CMCMS
             crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
         }
 
+        public void prepareConsultationCert(int consId)
+        {
+            setRptName("ConsultationCert.rpt");
+            crRpt.Load(rptName);
+
+            crParameterDiscreteValue.Value = consId;
+            crParameterFieldDefinitions = crRpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinition = crParameterFieldDefinitions["in_cons_id"];
+            crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+            crParameterValues.Clear();
+            crParameterValues.Add(crParameterDiscreteValue);
+            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+        }
+
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
             ConnectionInfo crConnectionInfo = new ConnectionInfo();

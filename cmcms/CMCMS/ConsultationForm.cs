@@ -420,6 +420,13 @@ namespace CMCMS
         private void dateTimePicker_sickLeaveStart_ValueChanged(object sender, EventArgs e)
         {
             textBox_sickLeaveNDays.Text = ((dateTimePicker_sickLeaveEnd.Value - dateTimePicker_sickLeaveStart.Value).Days + 1).ToString();
+        }
+
+        private void button_consCert_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareConsultationCert(int.Parse(consId));
+            rptViewer.ShowDialog();
         }      
     }
 }

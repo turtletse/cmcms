@@ -96,8 +96,8 @@
             this.button_pregCert = new System.Windows.Forms.Button();
             this.button_prnPres = new System.Windows.Forms.Button();
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
-            this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
             this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
+            this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -736,6 +736,7 @@
             this.button_consCert.TabIndex = 9;
             this.button_consCert.Text = "到診紀錄證明書";
             this.button_consCert.UseVisualStyleBackColor = true;
+            this.button_consCert.Click += new System.EventHandler(this.button_consCert_Click);
             // 
             // button_pregCert
             // 
@@ -768,6 +769,15 @@
             this.groupBox_pregCert.TabStop = false;
             this.groupBox_pregCert.Text = "懷孕證明";
             // 
+            // dateTimePicker_edc
+            // 
+            this.dateTimePicker_edc.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_edc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_edc.Location = new System.Drawing.Point(116, 35);
+            this.dateTimePicker_edc.Name = "dateTimePicker_edc";
+            this.dateTimePicker_edc.Size = new System.Drawing.Size(157, 26);
+            this.dateTimePicker_edc.TabIndex = 12;
+            // 
             // checkBox_preg_edc
             // 
             this.checkBox_preg_edc.AutoSize = true;
@@ -777,15 +787,6 @@
             this.checkBox_preg_edc.TabIndex = 11;
             this.checkBox_preg_edc.Text = "預產日期: ";
             this.checkBox_preg_edc.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker_edc
-            // 
-            this.dateTimePicker_edc.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker_edc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_edc.Location = new System.Drawing.Point(116, 35);
-            this.dateTimePicker_edc.Name = "dateTimePicker_edc";
-            this.dateTimePicker_edc.Size = new System.Drawing.Size(157, 26);
-            this.dateTimePicker_edc.TabIndex = 12;
             // 
             // ConsultationForm
             // 
