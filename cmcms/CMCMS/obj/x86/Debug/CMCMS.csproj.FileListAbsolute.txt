@@ -46,3 +46,5 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\SickLeaveCert.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\SickLeaveCert.cs
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ConsultationCert.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ConsultationCert.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\PregCert.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\PregCert.cs

@@ -746,6 +746,7 @@
             this.button_pregCert.TabIndex = 10;
             this.button_pregCert.Text = "確認並發出證明書";
             this.button_pregCert.UseVisualStyleBackColor = true;
+            this.button_pregCert.Click += new System.EventHandler(this.button_pregCert_Click);
             // 
             // button_prnPres
             // 

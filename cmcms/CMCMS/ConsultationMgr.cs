@@ -375,5 +375,12 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_sick_leave_cert (" + consId + ", '" + startDate + "', '" + endDate + "', " + nDays + ")");
             return int.Parse(data.Rows[0]["cert_id"].ToString());
         }
+
+        public int issue_preg_cert(int consId, bool isPreg, String edc)
+        {
+            Dictionary<String, String> cons = new Dictionary<String, String>();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_preg_cert (" + consId + ", " + (isPreg ? "1" : "0") + ", " + (isPreg ? ("'" + edc + "'") : "NULL") + ")");
+            return int.Parse(data.Rows[0]["cert_id"].ToString());
+        }
     }
 }

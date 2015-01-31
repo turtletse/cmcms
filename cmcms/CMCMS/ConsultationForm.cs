@@ -427,6 +427,13 @@ namespace CMCMS
             ReportViewer rptViewer = new ReportViewer();
             rptViewer.prepareConsultationCert(int.Parse(consId));
             rptViewer.ShowDialog();
+        }
+
+        private void button_pregCert_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.preparePregCert(consMgr.issue_preg_cert(int.Parse(consId), checkBox_pat_isPregnant.Checked, dateTimePicker_edc.Value.ToString("dd/MM/yyyy")));
+            rptViewer.ShowDialog();
         }      
     }
 }

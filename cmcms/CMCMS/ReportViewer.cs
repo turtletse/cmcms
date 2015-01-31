@@ -61,6 +61,21 @@ namespace CMCMS
             crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
         }
 
+        public void preparePregCert(int pregCertId)
+        {
+            setRptName("PregCert.rpt");
+            crRpt.Load(rptName);
+
+            crParameterDiscreteValue.Value = pregCertId;
+            crParameterFieldDefinitions = crRpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinition = crParameterFieldDefinitions["in_cert_id"];
+            crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+            crParameterValues.Clear();
+            crParameterValues.Add(crParameterDiscreteValue);
+            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+        }
+
         public void prepareConsultationCert(int consId)
         {
             setRptName("ConsultationCert.rpt");
