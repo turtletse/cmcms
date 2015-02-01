@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="connectionString" xml:space="preserve">
-    <value>DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS; user=cmcms; password=abc3###2015A; database=cmcms; OPTION=3</value>
+    <value>DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS; uid=cmcms; pwd=abc3###2015A; database=cmcms; SERVER=PRJ69.cs.cityu.edu.hk</value>
   </data>
 </root>

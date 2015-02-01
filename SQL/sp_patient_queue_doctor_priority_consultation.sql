@@ -48,7 +48,10 @@ BEGIN
 			SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 30, doctor_in_charge =''', in_moic_id,'''WHERE (patient_id = ', in_patient_id, ' AND patient_status IN (0, 40)) OR (patient_id = ', in_patient_id, ' AND patient_status = 30 AND doctor_in_charge=''', in_moic_id, ''')');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-			IF (SELECT ROW_COUNT()) > 0 THEN
+            SET @sql_str = CONCAT('SELECT COUNT(*) into @cnt FROM ',tabname,' WHERE patient_status = 30 AND doctor_in_charge =''', in_moic_id, ''';');
+			PREPARE stmt FROM @sql_str;
+			EXECUTE stmt;
+			IF @cnt > 0 THEN
 				SET curr_status_id = 0;
 			ELSE
 				SET curr_status_id = 12;
