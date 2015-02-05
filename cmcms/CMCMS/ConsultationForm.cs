@@ -154,6 +154,7 @@ namespace CMCMS
                 groupBox_sickLeaveCert.Enabled = false;
                 button_consCert.Enabled = false;
                 groupBox_pregCert.Enabled = false;
+                button_prnPres.Enabled = false;
                 button_change_exam.Enabled = true;
                 button_change_diff.Enabled = true;
                 button_change_dx.Enabled = true;
@@ -175,6 +176,7 @@ namespace CMCMS
                 groupBox_pregCert.Enabled = true;
                 checkBox_preg_edc.Enabled = checkBox_pat_isPregnant.Checked;
                 dateTimePicker_edc.Enabled = checkBox_pat_isPregnant.Checked;
+                button_prnPres.Enabled = true;
                 button_change_exam.Enabled = false;
                 button_change_diff.Enabled = false;
                 button_change_dx.Enabled = false;

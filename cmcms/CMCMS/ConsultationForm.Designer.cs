@@ -807,6 +807,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "ConsultationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "診症";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultationForm_FormClosing);
             this.Shown += new System.EventHandler(this.ConsultationForm_Shown);

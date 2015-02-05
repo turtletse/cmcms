@@ -32,6 +32,7 @@
             this.button_enterQueue = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button_changeMOIC_reset = new System.Windows.Forms.Button();
             this.button_changeMOIC = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.button_callNext = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.waitingList1 = new CMCMS.WaitingList();
-            this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,15 @@
             this.label1.Size = new System.Drawing.Size(63, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "掛號";
+            // 
+            // searchPatientInputPanel1
+            // 
+            this.searchPatientInputPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPatientInputPanel1.Location = new System.Drawing.Point(4, 47);
+            this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
+            this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
+            this.searchPatientInputPanel1.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -277,15 +286,6 @@
             this.waitingList1.Size = new System.Drawing.Size(605, 486);
             this.waitingList1.TabIndex = 11;
             // 
-            // searchPatientInputPanel1
-            // 
-            this.searchPatientInputPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientInputPanel1.Location = new System.Drawing.Point(4, 47);
-            this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
-            this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 7;
-            // 
             // Staff_QueuingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -299,6 +299,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Staff_QueuingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Staff_QueuingForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

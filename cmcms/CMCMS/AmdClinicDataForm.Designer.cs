@@ -120,6 +120,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "AmdClinicDataForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AmdClinicDataForm";
             this.ResumeLayout(false);
             this.PerformLayout();

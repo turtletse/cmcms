@@ -35,34 +35,41 @@ BEGIN
 		EXECUTE stmt;
 	END IF;
     
-	SET AUTOCOMMIT=0;
-	START TRANSACTION;
-		SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
-		PREPARE stmt FROM @sql_str;
-		EXECUTE stmt;
-		IF @tablock IS NULL OR @tablock = in_moic_id THEN
-			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
+	SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE doctor_in_charge = ''', in_moic_id, ''' AND patient_status IN (20, 30)');
+    PREPARE stmt FROM @sql_str;
+    EXECUTE stmt;
+    IF @cnt > 0 THEN
+		SET curr_status_id = 14;
+    ELSE
+		SET AUTOCOMMIT=0;
+		START TRANSACTION;
+			SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-			COMMIT;
-			SET @cnt = -1;
-			SET @sql_str = CONCAT('SELECT @cnt:=@cnt+1 status_id, LAST_INSERT_ID(patient_id) patient_id, chin_name, eng_name, sex, DATE_FORMAT(patient_record.dob, ''%d/%m/%Y'') dob FROM ', tabname,' NATURAL JOIN patient_record JOIN patient_status ON patient_status = status_id WHERE patient_status = 0 AND enter_dtm = (select min(enter_dtm) FROM ', tabname,' WHERE patient_status = 0);');
-			PREPARE stmt FROM @sql_str;
-			EXECUTE stmt;
-			IF (@cnt) = -1 THEN
-				COMMIT;
-				CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
-			ELSE
-				SET @sql_str = CONCAT('UPDATE ', tabname,' SET patient_status=10 WHERE patient_id = ',LAST_INSERT_ID());
+			IF @tablock IS NULL OR @tablock = in_moic_id THEN
+				SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =''', in_moic_id,''' WHERE parm_name = ''',tabname,'_LOCK''');
 				PREPARE stmt FROM @sql_str;
 				EXECUTE stmt;
-				DEALLOCATE PREPARE stmt;
+				COMMIT;
+				SET @cnt = -1;
+				SET @sql_str = CONCAT('SELECT @cnt:=@cnt+1 status_id, LAST_INSERT_ID(patient_id) patient_id, chin_name, eng_name, sex, DATE_FORMAT(patient_record.dob, ''%d/%m/%Y'') dob FROM ', tabname,' NATURAL JOIN patient_record JOIN patient_status ON patient_status = status_id WHERE patient_status = 0 AND enter_dtm = (select min(enter_dtm) FROM ', tabname,' WHERE patient_status = 0);');
+				PREPARE stmt FROM @sql_str;
+				EXECUTE stmt;
+				IF (@cnt) = -1 THEN
+					COMMIT;
+					CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
+				ELSE
+					SET @sql_str = CONCAT('UPDATE ', tabname,' SET patient_status=10 WHERE patient_id = ',LAST_INSERT_ID());
+					PREPARE stmt FROM @sql_str;
+					EXECUTE stmt;
+					DEALLOCATE PREPARE stmt;
+				END IF;
+			ELSE
+				SET curr_status_id = 15;
 			END IF;
-		ELSE
-			SET curr_status_id = 15;
-		END IF;
-	COMMIT;
-	SET AUTOCOMMIT=1;
+		COMMIT;
+		SET AUTOCOMMIT=1;
+	END IF;
     SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     
 END $$

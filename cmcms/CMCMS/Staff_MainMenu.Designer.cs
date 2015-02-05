@@ -89,6 +89,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Staff_MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "主目錄";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Staff_MainMenu_FormClosing);
             this.ResumeLayout(false);

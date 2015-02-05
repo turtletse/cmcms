@@ -266,6 +266,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "ExaminationResultSelectionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "病徵";
             this.ResumeLayout(false);
             this.PerformLayout();

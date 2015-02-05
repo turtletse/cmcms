@@ -254,6 +254,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "DifferentiationResultSelectionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "辨證";
             this.Shown += new System.EventHandler(this.DifferentiationResultSelectionForm_Shown);
             this.ResumeLayout(false);

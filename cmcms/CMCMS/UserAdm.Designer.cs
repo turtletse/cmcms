@@ -368,6 +368,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "UserAdm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "用戶管理";
             this.tabControl1.ResumeLayout(false);
             this.tabPage_newUser.ResumeLayout(false);

@@ -58,6 +58,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "ReportViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReportViewer";
             this.Shown += new System.EventHandler(this.ReportViewer_Shown);
             this.ResumeLayout(false);

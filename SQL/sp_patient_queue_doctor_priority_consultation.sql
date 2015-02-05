@@ -34,7 +34,7 @@ BEGIN
 		PREPARE stmt FROM @sql_str;
 		EXECUTE stmt;
 	END IF;
-
+    
 	SET AUTOCOMMIT=0;
 	START TRANSACTION;
 		SET @sql_str = CONCAT('SELECT parm_value into @tablock FROM system_parm WHERE parm_name =''',tabname,'_LOCK'' FOR UPDATE');
@@ -45,10 +45,17 @@ BEGIN
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
 			COMMIT;
-			SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 30, doctor_in_charge =''', in_moic_id,'''WHERE (patient_id = ', in_patient_id, ' AND patient_status IN (0, 40)) OR (patient_id = ', in_patient_id, ' AND patient_status = 30 AND doctor_in_charge=''', in_moic_id, ''')');
+			
+			SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE doctor_in_charge = ''', in_moic_id, ''' AND patient_status IN (20)');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-            SET @sql_str = CONCAT('SELECT COUNT(*) into @cnt FROM ',tabname,' WHERE patient_status = 30 AND doctor_in_charge =''', in_moic_id, ''';');
+			IF @cnt = 0 THEN
+				SET @sql_str = CONCAT('UPDATE ', tabname, ' SET patient_status = 30, doctor_in_charge =''', in_moic_id,'''WHERE (patient_id = ', in_patient_id, ' AND patient_status IN (0, 40)) OR (patient_id = ', in_patient_id, ' AND patient_status = 30 AND doctor_in_charge=''', in_moic_id, ''')');
+				PREPARE stmt FROM @sql_str;
+				EXECUTE stmt;
+			END IF;
+			
+			SET @sql_str = CONCAT('SELECT COUNT(*) into @cnt FROM ',tabname,' WHERE patient_status = 30 AND doctor_in_charge =''', in_moic_id, ''';');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
 			IF @cnt > 0 THEN
@@ -57,19 +64,20 @@ BEGIN
 				SET curr_status_id = 12;
 			END IF;
 			SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
+            DEALLOCATE PREPARE stmt;
 			CALL sp_patient_queue_staff_call_release_lock(in_clinic_id, in_moic_id);
 		ELSE
 			SET curr_status_id = 15;
 			SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
+            DEALLOCATE PREPARE stmt;
 		END IF;
 	COMMIT;
 	SET AUTOCOMMIT=1;
-	
-    DEALLOCATE PREPARE stmt;
+    
 END $$
 
 DELIMITER ;
 
 -- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CSM')
 -- CALL sp_patient_queue_to_priority_consultation (2, 'CITYC', 'CITYCD1')
--- CALL sp_patient_queue_doctor_priority_consultation (2, 'CITYC', 'CSM')
+-- CALL sp_patient_queue_doctor_priority_consultation (1, 'CITYC', 'CSM')

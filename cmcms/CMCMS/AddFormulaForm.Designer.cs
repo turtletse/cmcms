@@ -104,10 +104,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_addPredefPres);
             this.Controls.Add(this.prescriptionPanel1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddFormulaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新增方劑";
             this.ResumeLayout(false);
             this.PerformLayout();

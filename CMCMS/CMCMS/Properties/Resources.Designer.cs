@@ -61,11 +61,20 @@ namespace CMCMS.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS; uid=cmcms; pwd=abc3###2015A; database=cmcms; SERVER=PRJ69.cs.cityu.edu.hk.
+        ///   Looks up a localized string similar to uid=cmcms; pwd=abc3###2015A; database=cmcms;.
         /// </summary>
         internal static string connectionString {
             get {
                 return ResourceManager.GetString("connectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SERVER=localhost;.
+        /// </summary>
+        internal static string server {
+            get {
+                return ResourceManager.GetString("server", resourceCulture);
             }
         }
     }

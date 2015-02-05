@@ -45,10 +45,16 @@ BEGIN
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
 			COMMIT;
-			SET @sql_str = CONCAT('UPDATE ',tabname,' SET patient_status = 30, doctor_in_charge =''', in_moic_id, ''' WHERE patient_status = 20;');
+            
+			SET @sql_str = CONCAT('SELECT count(*) INTO @cnt FROM ', tabname, ' WHERE doctor_in_charge = ''', in_moic_id, ''' AND patient_status IN (30)');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
-            SET @sql_str = CONCAT('SELECT COUNT(*) into @cnt FROM ',tabname,' WHERE patient_status = 30 AND doctor_in_charge =''', in_moic_id, ''';');
+			IF @cnt = 0 THEN
+				SET @sql_str = CONCAT('UPDATE ',tabname,' SET patient_status = 30, doctor_in_charge =''', in_moic_id, ''' WHERE patient_status = 20;');
+				PREPARE stmt FROM @sql_str;
+				EXECUTE stmt;
+			END IF;
+			SET @sql_str = CONCAT('SELECT COUNT(*) into @cnt FROM ',tabname,' WHERE patient_status = 30 AND doctor_in_charge =''', in_moic_id, ''';');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
 			IF (@cnt) > 0  THEN
@@ -56,7 +62,7 @@ BEGIN
 			ELSE
 				SET curr_status_id = 17;
 			END IF;
-            COMMIT;
+			COMMIT;
 			SET @sql_str = CONCAT('UPDATE system_parm SET parm_value =NULL WHERE parm_name = ''',tabname,'_LOCK''');
 			PREPARE stmt FROM @sql_str;
 			EXECUTE stmt;
@@ -65,6 +71,7 @@ BEGIN
 		END IF;
 	COMMIT;
 	SET AUTOCOMMIT=1;
+
     SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;
 END $$

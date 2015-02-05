@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox_isPregnant = new System.Windows.Forms.CheckBox();
             this.label_deceasedRptDate = new System.Windows.Forms.Label();
             this.checkBox_isDeceased = new System.Windows.Forms.CheckBox();
             this.textBox_patReg_confirmPassword = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.button_removeSelectedDrug = new System.Windows.Forms.Button();
             this.button_selectAllergicDrug = new System.Windows.Forms.Button();
             this.DSP_allergic = new CMCMS.DrugSelectionPanel();
-            this.checkBox_isPregnant = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,6 +99,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "個人資料";
+            // 
+            // checkBox_isPregnant
+            // 
+            this.checkBox_isPregnant.AutoSize = true;
+            this.checkBox_isPregnant.Location = new System.Drawing.Point(994, 145);
+            this.checkBox_isPregnant.Name = "checkBox_isPregnant";
+            this.checkBox_isPregnant.Size = new System.Drawing.Size(60, 24);
+            this.checkBox_isPregnant.TabIndex = 24;
+            this.checkBox_isPregnant.Text = "懷孕";
+            this.checkBox_isPregnant.UseVisualStyleBackColor = true;
             // 
             // label_deceasedRptDate
             // 
@@ -356,7 +366,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1066, 415);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "藥物敏感史/病史";
+            this.groupBox2.Text = "藥物敏感史";
             // 
             // label1
             // 
@@ -404,16 +414,6 @@
             this.DSP_allergic.Name = "DSP_allergic";
             this.DSP_allergic.Size = new System.Drawing.Size(829, 371);
             this.DSP_allergic.TabIndex = 0;
-            // 
-            // checkBox_isPregnant
-            // 
-            this.checkBox_isPregnant.AutoSize = true;
-            this.checkBox_isPregnant.Location = new System.Drawing.Point(994, 145);
-            this.checkBox_isPregnant.Name = "checkBox_isPregnant";
-            this.checkBox_isPregnant.Size = new System.Drawing.Size(60, 24);
-            this.checkBox_isPregnant.TabIndex = 24;
-            this.checkBox_isPregnant.Text = "懷孕";
-            this.checkBox_isPregnant.UseVisualStyleBackColor = true;
             // 
             // PatientRegistration
             // 

@@ -104,7 +104,7 @@
             this.button_patDataUpdate.UseVisualStyleBackColor = true;
             this.button_patDataUpdate.Click += new System.EventHandler(this.button_patDataUpdate_Click);
             // 
-            // Patient_amdPatientData
+            // AmdPatientDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,7 +120,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Patient_amdPatientData";
+            this.Name = "AmdPatientDataForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "更改個人資料";
             this.ResumeLayout(false);
             this.PerformLayout();

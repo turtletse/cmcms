@@ -40,10 +40,10 @@ BEGIN
     FROM consData
     ORDER BY last_update_dtm desc;
         
-    DROP TEMPORARY TABLE presDt;
-    DROP TEMPORARY TABLE presIds;
-    DROP TEMPORARY TABLE consData;
-    DROP TEMPORARY TABLE splitResult;
+    DROP TEMPORARY TABLE IF EXISTS presDt;
+    DROP TEMPORARY TABLE IF EXISTS presIds;
+    DROP TEMPORARY TABLE IF EXISTS consData;
+    DROP TEMPORARY TABLE IF EXISTS splitResult;
 END $$
 delimiter ;
 

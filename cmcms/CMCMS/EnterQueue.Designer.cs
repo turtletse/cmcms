@@ -87,6 +87,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "EnterQueue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "掛號";
             this.ResumeLayout(false);
             this.PerformLayout();

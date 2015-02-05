@@ -159,6 +159,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "UpdateFormulaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "更改方劑";
             this.ResumeLayout(false);
             this.PerformLayout();

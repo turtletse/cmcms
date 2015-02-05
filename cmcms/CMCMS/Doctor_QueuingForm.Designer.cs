@@ -96,7 +96,7 @@
             this.button_calledPat.Name = "button_calledPat";
             this.button_calledPat.Size = new System.Drawing.Size(282, 43);
             this.button_calledPat.TabIndex = 27;
-            this.button_calledPat.Text = "已叫名病人";
+            this.button_calledPat.Text = "已叫名 / 診症中 病人";
             this.button_calledPat.UseVisualStyleBackColor = true;
             this.button_calledPat.Click += new System.EventHandler(this.button_calledPat_Click);
             // 
@@ -211,6 +211,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Doctor_QueuingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Doctor_QueuingForm";
             this.Shown += new System.EventHandler(this.Doctor_QueuingForm_Shown);
             this.groupBox2.ResumeLayout(false);
