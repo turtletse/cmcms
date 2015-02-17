@@ -104,7 +104,7 @@ namespace CMCMS
         {
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = drugMgr.insertDrugRecord(textBox_addDrug_drugName.Text.Trim(), int.Parse(textBox_addDrug_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_minDoseUnit.SelectedItem)).getValue()), int.Parse(textBox_addDrug_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_sec_type.SelectedItem)).getValue()), checkBox_addDrug_q1.Checked, checkBox_addDrug_q2.Checked, checkBox_addDrug_q3.Checked, checkBox_addDrug_q4.Checked, checkBox_addDrug_w1.Checked, checkBox_addDrug_w2.Checked, checkBox_addDrug_w3.Checked, checkBox_addDrug_w4.Checked, checkBox_addDrug_w5.Checked, checkBox_addDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_addDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
+            isSuccess = drugMgr.insertDrugRecord(textBox_addDrug_drugName.Text.Trim(), decimal.Parse(textBox_addDrug_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_minDoseUnit.SelectedItem)).getValue()), decimal.Parse(textBox_addDrug_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_sec_type.SelectedItem)).getValue()), checkBox_addDrug_q1.Checked, checkBox_addDrug_q2.Checked, checkBox_addDrug_q3.Checked, checkBox_addDrug_q4.Checked, checkBox_addDrug_w1.Checked, checkBox_addDrug_w2.Checked, checkBox_addDrug_w3.Checked, checkBox_addDrug_w4.Checked, checkBox_addDrug_w5.Checked, checkBox_addDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_addDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -141,8 +141,10 @@ namespace CMCMS
                 textBox_amdDrug_maxDoseVal.Text = drug.MaxDoseVal.ToString();
                 //comboBox_amdDrug_maxDoseUnit.SelectedValue = drug.MaxDoseUnit.ToString();
                 Utilities.SelectItemByValue(comboBox_amdDrug_maxDoseUnit, drug.MaxDoseUnit.ToString());
-                comboBox_amdDrug_pri_type.SelectedValue = drug.PriType;
-                comboBox_amdDrug_sec_type.SelectedValue = drug.SecType;
+                //comboBox_amdDrug_pri_type.SelectedValue = drug.PriType;
+                Utilities.SelectItemByValue(comboBox_amdDrug_pri_type, drug.PriType.ToString());
+                //comboBox_amdDrug_sec_type.SelectedValue = drug.SecType;
+                Utilities.SelectItemByValue(comboBox_amdDrug_sec_type, drug.SecType.ToString());
                 checkBox_amdDrug_q1.Checked = drug.Q1;
                 checkBox_amdDrug_q2.Checked = drug.Q2;
                 checkBox_amdDrug_q3.Checked = drug.Q3;
@@ -153,8 +155,10 @@ namespace CMCMS
                 checkBox_amdDrug_w4.Checked = drug.W4;
                 checkBox_amdDrug_w5.Checked = drug.W5;
                 checkBox_amdDrug_w6.Checked = drug.W6;
-                comboBox_amdDrug_preg_contra.SelectedValue = drug.PregContra;
-                comboBox_amdDrug_g6pd_contra.SelectedValue = drug.G6pdContra;
+                //comboBox_amdDrug_preg_contra.SelectedValue = drug.PregContra;
+                Utilities.SelectItemByValue(comboBox_amdDrug_preg_contra, drug.PregContra.ToString());
+                //comboBox_amdDrug_g6pd_contra.SelectedValue = drug.G6pdContra;
+                Utilities.SelectItemByValue(comboBox_amdDrug_g6pd_contra, drug.G6pdContra.ToString());
                 checkBox_amdDrug_deleteItem.Checked = drug.Deleted;
 
             }
