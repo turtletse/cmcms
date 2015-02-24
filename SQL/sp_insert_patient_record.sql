@@ -13,7 +13,8 @@ CREATE PROCEDURE sp_insert_patient_record (
     IN in_isG6PD INT(1),
     IN in_addr varchar(300),
     IN in_allergic_drug_ids varchar(1000),
-    IN in_isPregnant INT(1)
+    IN in_isPregnant INT(1),
+    IN in_isRecordShared INT(1)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -43,7 +44,8 @@ BEGIN
 				isG6PD,
 				addr,
 				allergic_drug_ids,
-                isPregnant)
+                isPregnant,
+                isRecordShared)
 			VALUES (
 				LAST_INSERT_ID(get_new_patient_id()),
                 in_chin_name,
@@ -57,7 +59,8 @@ BEGIN
 				in_isG6PD,
 				in_addr,
 				in_allergic_drug_ids,
-                in_isPregnant
+                in_isPregnant,
+                in_isRecordShared
             );
 		COMMIT;
         

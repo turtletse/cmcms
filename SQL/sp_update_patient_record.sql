@@ -15,16 +15,17 @@ CREATE PROCEDURE sp_update_patient_record (
     IN in_addr varchar(300),
     IN in_allergic_drug_ids varchar(1000),
     IN in_isDeceased int(1),
-    IN in_isPregnant INT(1)
+    IN in_isPregnant INT(1),
+    IN in_isRecordShared int(1)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
-    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
 	if (select count(*) from patient_record where patient_id = in_patient_id) <> 1 THEN
         SET curr_status_id = 5;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
@@ -54,7 +55,8 @@ BEGIN
 					WHEN in_isDeceased = 0 THEN null
                     WHEN in_isDeceased = 1 then NOW()
 				END,
-                isPregnant = in_isPregnant
+                isPregnant = in_isPregnant,
+                isRecordShared = in_isRecordShared
 			WHERE patient_id = in_patient_id;
 		COMMIT;
         

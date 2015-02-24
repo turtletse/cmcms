@@ -56,6 +56,7 @@ namespace CMCMS
             radioButton_male.Select();
             checkBox_g6pd.Checked = false;
             textBox_patReg_addr.Clear();
+            checkBox_isRecordShared.Checked = false;
             DSP_allergic.refresh();
             listBox_selectedAllergicDrug.Items.Clear();
             textBox_patReg_password.Clear();
@@ -178,6 +179,11 @@ namespace CMCMS
             return checkBox_isPregnant.Checked;
         }
 
+        public bool getIsRecordShared()
+        {
+            return checkBox_isRecordShared.Checked;
+        }
+
         public void setSelectedDrugList(String drugIds)
         {
             DrugMgr drugMgr = new DrugMgr();
@@ -225,6 +231,7 @@ namespace CMCMS
             else
                 label_deceasedRptDate.Text = "";
             checkBox_isPregnant.Checked = pat.IsPregnant;
+            checkBox_isRecordShared.Checked = pat.IsRecordShared;
         }
 
         private void radioButton_female_CheckedChanged(object sender, EventArgs e)

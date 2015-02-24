@@ -1,6 +1,6 @@
-DROP procedure if EXISTS sp_incompatible_drug_insert;
+DROP procedure if EXISTS sp_incompatible_drug_update;
 delimiter $$
-CREATE PROCEDURE sp_incompatible_drug_insert (
+CREATE PROCEDURE sp_incompatible_drug_update (
 	IN in_drug_id INT,
     IN in_incompatible_drug_list VARCHAR(255)
 )

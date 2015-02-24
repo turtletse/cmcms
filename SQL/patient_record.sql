@@ -15,7 +15,8 @@ CREATE TABLE patient_record(
     allergic_drug_ids varchar(1000),
     isDeceased int(1) DEFAULT 0,
     deceased_record_dtm DATE DEFAULT NULL,
-    isPregnant int(1) DEFAULT 0
+    isPregnant int(1) DEFAULT 0,
+	isRecordShared int(1) DEFAULT 0
 );
 
 CREATE INDEX patient_record_x1 on patient_record (patient_id, isDeceased);

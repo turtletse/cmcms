@@ -154,7 +154,6 @@ namespace CMCMS
                 groupBox_sickLeaveCert.Enabled = false;
                 button_consCert.Enabled = false;
                 groupBox_pregCert.Enabled = false;
-                button_prnPres.Enabled = false;
                 button_change_exam.Enabled = true;
                 button_change_diff.Enabled = true;
                 button_change_dx.Enabled = true;
@@ -176,20 +175,19 @@ namespace CMCMS
                 groupBox_pregCert.Enabled = true;
                 checkBox_preg_edc.Enabled = checkBox_pat_isPregnant.Checked;
                 dateTimePicker_edc.Enabled = checkBox_pat_isPregnant.Checked;
-                button_prnPres.Enabled = true;
-                button_change_exam.Enabled = false;
-                button_change_diff.Enabled = false;
-                button_change_dx.Enabled = false;
-                button_change_pres.Enabled = false;
-                button_delPres.Enabled = false;
-                button_add_pres.Enabled = false;
-                button_change_drRmk.Enabled = false;
+                button_change_exam.Enabled = true;
+                button_change_diff.Enabled = true;
+                button_change_dx.Enabled = true;
+                button_change_pres.Enabled = true;
+                button_delPres.Enabled = true;
+                button_add_pres.Enabled = true;
+                button_change_drRmk.Enabled = true;
                 button_tmpSave.Enabled = false;
-                button_finalSave.Enabled = false;
+                button_finalSave.Enabled = true;
                 button_conLater.Enabled = false;
                 button_finish.Enabled = true;
-                button_use_previous.Enabled = false;
-                checkBox_pat_isPregnant.Enabled = false;
+                button_use_previous.Enabled = true;
+                checkBox_pat_isPregnant.Enabled = true;
             }
             else
             {
@@ -318,19 +316,17 @@ namespace CMCMS
             if (isSuccess)
             {
                 refresh_consultation_data(false);
-                DialogResult isFinal = MessageBox.Show("[注意]一經確定將無法再次修改!\n\n資料是否正確無誤?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                if (isFinal == DialogResult.Yes)
+                isSuccess = consMgr.confirmedConsultation(consId, ref statusMsg);
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (isSuccess)
                 {
-                    isSuccess = consMgr.confirmedConsultation(consId, ref statusMsg);
-                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (isSuccess)
+                    refresh_consultation_data(false);
+                    DialogResult isPrint = MessageBox.Show("列印處方?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (isPrint == System.Windows.Forms.DialogResult.Yes)
                     {
-                        refresh_consultation_data(false);
-                        DialogResult isPrint = MessageBox.Show("列印處方?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (isPrint == System.Windows.Forms.DialogResult.Yes)
-                        {
-                            button_prnPres_Click(sender, e);
-                        }
+                        ReportViewer rptViewer = new ReportViewer();
+                        rptViewer.preparePrescription(consId);
+                        rptViewer.ShowDialog();
                     }
                 }
             }
@@ -366,13 +362,6 @@ namespace CMCMS
                 }
                 consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
             }
-        }
-
-        private void button_prnPres_Click(object sender, EventArgs e)
-        {
-            ReportViewer rptViewer = new ReportViewer();
-            rptViewer.preparePrescription(consId);
-            rptViewer.ShowDialog();
         }
 
         private void button_finish_Click(object sender, EventArgs e)

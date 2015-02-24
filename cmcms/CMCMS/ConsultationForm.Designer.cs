@@ -94,7 +94,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button_consCert = new System.Windows.Forms.Button();
             this.button_pregCert = new System.Windows.Forms.Button();
-            this.button_prnPres = new System.Windows.Forms.Button();
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
             this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
@@ -334,7 +333,7 @@
             this.button_finalSave.Name = "button_finalSave";
             this.button_finalSave.Size = new System.Drawing.Size(142, 49);
             this.button_finalSave.TabIndex = 5;
-            this.button_finalSave.Text = "確定無誤並儲存";
+            this.button_finalSave.Text = "確定並列印處方";
             this.button_finalSave.UseVisualStyleBackColor = true;
             this.button_finalSave.Click += new System.EventHandler(this.button_finalSave_Click);
             // 
@@ -730,7 +729,7 @@
             // 
             // button_consCert
             // 
-            this.button_consCert.Location = new System.Drawing.Point(1076, 625);
+            this.button_consCert.Location = new System.Drawing.Point(1076, 638);
             this.button_consCert.Name = "button_consCert";
             this.button_consCert.Size = new System.Drawing.Size(330, 49);
             this.button_consCert.TabIndex = 9;
@@ -747,16 +746,6 @@
             this.button_pregCert.Text = "確認並發出證明書";
             this.button_pregCert.UseVisualStyleBackColor = true;
             this.button_pregCert.Click += new System.EventHandler(this.button_pregCert_Click);
-            // 
-            // button_prnPres
-            // 
-            this.button_prnPres.Location = new System.Drawing.Point(1076, 680);
-            this.button_prnPres.Name = "button_prnPres";
-            this.button_prnPres.Size = new System.Drawing.Size(330, 49);
-            this.button_prnPres.TabIndex = 11;
-            this.button_prnPres.Text = "列印處方";
-            this.button_prnPres.UseVisualStyleBackColor = true;
-            this.button_prnPres.Click += new System.EventHandler(this.button_prnPres_Click);
             // 
             // groupBox_pregCert
             // 
@@ -795,7 +784,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 802);
             this.Controls.Add(this.groupBox_pregCert);
-            this.Controls.Add(this.button_prnPres);
             this.Controls.Add(this.button_consCert);
             this.Controls.Add(this.groupBox_sickLeaveCert);
             this.Controls.Add(this.groupBox3);
@@ -891,7 +879,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox_startDtm;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button_prnPres;
         private System.Windows.Forms.GroupBox groupBox_pregCert;
         private System.Windows.Forms.ColumnHeader columnHeader_consId;
         private System.Windows.Forms.DateTimePicker dateTimePicker_edc;

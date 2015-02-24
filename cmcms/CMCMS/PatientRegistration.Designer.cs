@@ -63,6 +63,7 @@
             this.button_removeSelectedDrug = new System.Windows.Forms.Button();
             this.button_selectAllergicDrug = new System.Windows.Forms.Button();
             this.DSP_allergic = new CMCMS.DrugSelectionPanel();
+            this.checkBox_isRecordShared = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox_isRecordShared);
             this.groupBox1.Controls.Add(this.checkBox_isPregnant);
             this.groupBox1.Controls.Add(this.label_deceasedRptDate);
             this.groupBox1.Controls.Add(this.checkBox_isDeceased);
@@ -166,7 +168,7 @@
             // 
             this.textBox_patReg_addr.Location = new System.Drawing.Point(62, 111);
             this.textBox_patReg_addr.Name = "textBox_patReg_addr";
-            this.textBox_patReg_addr.Size = new System.Drawing.Size(992, 26);
+            this.textBox_patReg_addr.Size = new System.Drawing.Size(840, 26);
             this.textBox_patReg_addr.TabIndex = 17;
             // 
             // dateTimePicker_DOB
@@ -415,6 +417,16 @@
             this.DSP_allergic.Size = new System.Drawing.Size(829, 371);
             this.DSP_allergic.TabIndex = 0;
             // 
+            // checkBox_isRecordShared
+            // 
+            this.checkBox_isRecordShared.AutoSize = true;
+            this.checkBox_isRecordShared.Location = new System.Drawing.Point(930, 113);
+            this.checkBox_isRecordShared.Name = "checkBox_isRecordShared";
+            this.checkBox_isRecordShared.Size = new System.Drawing.Size(124, 24);
+            this.checkBox_isRecordShared.TabIndex = 25;
+            this.checkBox_isRecordShared.Text = "聯網病歷互通";
+            this.checkBox_isRecordShared.UseVisualStyleBackColor = true;
+            // 
             // PatientRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -475,5 +487,6 @@
         private System.Windows.Forms.Label label_deceasedRptDate;
         private System.Windows.Forms.CheckBox checkBox_isDeceased;
         private System.Windows.Forms.CheckBox checkBox_isPregnant;
+        private System.Windows.Forms.CheckBox checkBox_isRecordShared;
     }
 }

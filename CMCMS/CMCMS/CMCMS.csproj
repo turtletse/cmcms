@@ -150,6 +150,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="DrugIncompatibleSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrugIncompatibleSelection.Designer.cs">
+      <DependentUpon>DrugIncompatibleSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="PregCert.cs">
       <DependentUpon>PregCert.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DrugAdmin.resx">
       <DependentUpon>DrugAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugIncompatibleSelection.resx">
+      <DependentUpon>DrugIncompatibleSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrugSelectionPanel.resx">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>

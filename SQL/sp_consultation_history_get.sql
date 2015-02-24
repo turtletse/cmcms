@@ -12,7 +12,7 @@ BEGIN
     CREATE TEMPORARY TABLE consData
 	select cons_id, last_update_dtm, dx_desc, ex_desc, diff_desc, pres_id pres_data_str
 	from consultation_record JOIN patient_record ON consultation_record.patient_id = patient_record.patient_id
-    WHERE (clinic_id = in_clinic_id OR dr_id = in_dr_id) AND isFinished = 2 AND consultation_record.patient_id = in_pat_id;
+    WHERE (clinic_id = in_clinic_id OR dr_id = in_dr_id OR patient_record.isRecordShared = 1) AND isFinished = 2 AND consultation_record.patient_id = in_pat_id;
 	
     OPEN cur1;
 		REPEAT

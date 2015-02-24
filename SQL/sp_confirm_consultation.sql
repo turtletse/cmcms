@@ -19,7 +19,7 @@ BEGIN
 		UPDATE consultation_record
         SET	isFinished = 1
         WHERE cons_id = in_cons_id
-            AND isFinished = 0;
+            AND isFinished IN (0, 1);
 	
     IF (SELECT ROW_COUNT()) = 0 THEN
 		ROLLBACK;

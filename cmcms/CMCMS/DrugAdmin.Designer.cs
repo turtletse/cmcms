@@ -37,7 +37,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox_addDrug_selectedDrugName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_cancelAddDrug = new System.Windows.Forms.Button();
@@ -103,7 +102,20 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_amdDrug_maxDoseVal = new System.Windows.Forms.TextBox();
             this.comboBox_amdDrug_maxDoseUnit = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_cancelIncompatible = new System.Windows.Forms.Button();
+            this.button_updateIncompatible = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.listBox_selectedIncompatibleDrug = new System.Windows.Forms.ListBox();
+            this.button_removeIncompatibleDrug = new System.Windows.Forms.Button();
+            this.button_selectIncompatibleDrug = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button_Incompatible_drug_select = new System.Windows.Forms.Button();
+            this.textBox_incompatible_drugName = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.DSP_addSubDrug = new CMCMS.DrugSelectionPanel();
             this.DSP_amdDrug = new CMCMS.DrugSelectionPanel();
+            this.DSP_incompatibleWith = new CMCMS.DrugSelectionPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -113,12 +125,14 @@
             this.tabPage2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -204,15 +218,6 @@
             this.label8.Size = new System.Drawing.Size(81, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "藥項名稱: ";
-            // 
-            // DSP_addSubDrug
-            // 
-            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
-            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
-            this.DSP_addSubDrug.Size = new System.Drawing.Size(1006, 375);
-            this.DSP_addSubDrug.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -878,6 +883,130 @@
             this.comboBox_amdDrug_maxDoseUnit.Size = new System.Drawing.Size(81, 28);
             this.comboBox_amdDrug_maxDoseUnit.TabIndex = 28;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button_cancelIncompatible);
+            this.tabPage3.Controls.Add(this.button_updateIncompatible);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.listBox_selectedIncompatibleDrug);
+            this.tabPage3.Controls.Add(this.button_removeIncompatibleDrug);
+            this.tabPage3.Controls.Add(this.button_selectIncompatibleDrug);
+            this.tabPage3.Controls.Add(this.DSP_incompatibleWith);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.button_Incompatible_drug_select);
+            this.tabPage3.Controls.Add(this.textBox_incompatible_drugName);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1392, 745);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "配伍禁忌";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Enter += new System.EventHandler(this.tabPage3_Enter);
+            // 
+            // button_cancelIncompatible
+            // 
+            this.button_cancelIncompatible.Location = new System.Drawing.Point(820, 474);
+            this.button_cancelIncompatible.Name = "button_cancelIncompatible";
+            this.button_cancelIncompatible.Size = new System.Drawing.Size(116, 40);
+            this.button_cancelIncompatible.TabIndex = 39;
+            this.button_cancelIncompatible.Text = "取消";
+            this.button_cancelIncompatible.UseVisualStyleBackColor = true;
+            this.button_cancelIncompatible.Click += new System.EventHandler(this.button_cancelIncompatible_Click);
+            // 
+            // button_updateIncompatible
+            // 
+            this.button_updateIncompatible.Location = new System.Drawing.Point(942, 474);
+            this.button_updateIncompatible.Name = "button_updateIncompatible";
+            this.button_updateIncompatible.Size = new System.Drawing.Size(116, 40);
+            this.button_updateIncompatible.TabIndex = 38;
+            this.button_updateIncompatible.Text = "修改項目";
+            this.button_updateIncompatible.UseVisualStyleBackColor = true;
+            this.button_updateIncompatible.Click += new System.EventHandler(this.button_updateIncompatible_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(924, 134);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 20);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "已選藥項";
+            // 
+            // listBox_selectedIncompatibleDrug
+            // 
+            this.listBox_selectedIncompatibleDrug.FormattingEnabled = true;
+            this.listBox_selectedIncompatibleDrug.ItemHeight = 20;
+            this.listBox_selectedIncompatibleDrug.Location = new System.Drawing.Point(928, 157);
+            this.listBox_selectedIncompatibleDrug.Name = "listBox_selectedIncompatibleDrug";
+            this.listBox_selectedIncompatibleDrug.Size = new System.Drawing.Size(130, 304);
+            this.listBox_selectedIncompatibleDrug.TabIndex = 9;
+            // 
+            // button_removeIncompatibleDrug
+            // 
+            this.button_removeIncompatibleDrug.Location = new System.Drawing.Point(843, 322);
+            this.button_removeIncompatibleDrug.Name = "button_removeIncompatibleDrug";
+            this.button_removeIncompatibleDrug.Size = new System.Drawing.Size(75, 99);
+            this.button_removeIncompatibleDrug.TabIndex = 8;
+            this.button_removeIncompatibleDrug.Text = "<<";
+            this.button_removeIncompatibleDrug.UseVisualStyleBackColor = true;
+            // 
+            // button_selectIncompatibleDrug
+            // 
+            this.button_selectIncompatibleDrug.Location = new System.Drawing.Point(843, 193);
+            this.button_selectIncompatibleDrug.Name = "button_selectIncompatibleDrug";
+            this.button_selectIncompatibleDrug.Size = new System.Drawing.Size(75, 99);
+            this.button_selectIncompatibleDrug.TabIndex = 7;
+            this.button_selectIncompatibleDrug.Text = ">>";
+            this.button_selectIncompatibleDrug.UseVisualStyleBackColor = true;
+            this.button_selectIncompatibleDrug.Click += new System.EventHandler(this.button_selectAllergicDrug_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 57);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(221, 20);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "不能與以下所選藥物同時使用:";
+            // 
+            // button_Incompatible_drug_select
+            // 
+            this.button_Incompatible_drug_select.Location = new System.Drawing.Point(271, 9);
+            this.button_Incompatible_drug_select.Name = "button_Incompatible_drug_select";
+            this.button_Incompatible_drug_select.Size = new System.Drawing.Size(89, 31);
+            this.button_Incompatible_drug_select.TabIndex = 2;
+            this.button_Incompatible_drug_select.Text = "選擇藥物";
+            this.button_Incompatible_drug_select.UseVisualStyleBackColor = true;
+            this.button_Incompatible_drug_select.Click += new System.EventHandler(this.button_Incompatible_drug_select_Click);
+            // 
+            // textBox_incompatible_drugName
+            // 
+            this.textBox_incompatible_drugName.Location = new System.Drawing.Point(61, 11);
+            this.textBox_incompatible_drugName.Name = "textBox_incompatible_drugName";
+            this.textBox_incompatible_drugName.ReadOnly = true;
+            this.textBox_incompatible_drugName.Size = new System.Drawing.Size(195, 26);
+            this.textBox_incompatible_drugName.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 14);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(49, 20);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "藥名: ";
+            // 
+            // DSP_addSubDrug
+            // 
+            this.DSP_addSubDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP_addSubDrug.Location = new System.Drawing.Point(7, 27);
+            this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DSP_addSubDrug.Name = "DSP_addSubDrug";
+            this.DSP_addSubDrug.Size = new System.Drawing.Size(1006, 375);
+            this.DSP_addSubDrug.TabIndex = 0;
+            // 
             // DSP_amdDrug
             // 
             this.DSP_amdDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -886,6 +1015,15 @@
             this.DSP_amdDrug.Name = "DSP_amdDrug";
             this.DSP_amdDrug.Size = new System.Drawing.Size(967, 371);
             this.DSP_amdDrug.TabIndex = 0;
+            // 
+            // DSP_incompatibleWith
+            // 
+            this.DSP_incompatibleWith.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP_incompatibleWith.Location = new System.Drawing.Point(7, 95);
+            this.DSP_incompatibleWith.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DSP_incompatibleWith.Name = "DSP_incompatibleWith";
+            this.DSP_incompatibleWith.Size = new System.Drawing.Size(829, 371);
+            this.DSP_incompatibleWith.TabIndex = 6;
             // 
             // DrugAdmin
             // 
@@ -917,6 +1055,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -999,6 +1139,18 @@
         private System.Windows.Forms.TextBox textBox_amdDrug_maxDoseVal;
         private System.Windows.Forms.ComboBox comboBox_amdDrug_maxDoseUnit;
         private System.Windows.Forms.CheckBox checkBox_amdDrug_deleteItem;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button_Incompatible_drug_select;
+        private System.Windows.Forms.TextBox textBox_incompatible_drugName;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ListBox listBox_selectedIncompatibleDrug;
+        private System.Windows.Forms.Button button_removeIncompatibleDrug;
+        private System.Windows.Forms.Button button_selectIncompatibleDrug;
+        private DrugSelectionPanel DSP_incompatibleWith;
+        private System.Windows.Forms.Button button_cancelIncompatible;
+        private System.Windows.Forms.Button button_updateIncompatible;
 
     }
 }

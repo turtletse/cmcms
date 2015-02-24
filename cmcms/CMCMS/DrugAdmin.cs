@@ -32,6 +32,13 @@ namespace CMCMS
             DSP_amdDrug.setSubDrugInclNotSpecified(true);
             DSP_amdDrug.setShowDeletedItemCB(true);
             DSP_amdDrug.setShowDeletedItem(false);
+
+            DSP_incompatibleWith.setDSPform(this);
+            DSP_incompatibleWith.setSubDrugEnabled(false);
+            DSP_incompatibleWith.setSubDrugSelectionEnabled(false);
+            DSP_incompatibleWith.setSubDrugInclNotSpecified(false);
+            DSP_incompatibleWith.setShowDeletedItemCB(false);
+            DSP_incompatibleWith.setShowDeletedItem(false);
         }
 
         private void tabPage1_Enter(object sender, EventArgs e)
@@ -92,6 +99,14 @@ namespace CMCMS
             checkBox_amdDrug_deleteItem.Checked = false;
             DSP_amdDrug.refresh();
             
+        }
+
+        private void tabPage3_Enter(object sender, EventArgs e)
+        {
+            textBox_incompatible_drugName.Clear();
+            DSP_incompatibleWith.refresh();
+            listBox_selectedIncompatibleDrug.Items.Clear();
+            selectedDrug = null;
         }
 
         private void comboBox_pri_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,6 +177,11 @@ namespace CMCMS
                 checkBox_amdDrug_deleteItem.Checked = drug.Deleted;
 
             }
+        }
+
+        public void setSelectedDrug(DrugObj drug)
+        {
+            selectedDrug = drug;
         }
 
         public void DSPselectedSubDrugChanged(PermissibleValueObjWithDelFlag subDrug)
@@ -237,6 +257,56 @@ namespace CMCMS
             drugMgr.setSecondaryDrugTypeCombo(comboBox_amdDrug_sec_type, (comboBox_amdDrug_pri_type.SelectedItem as PermissibleValueObj).getValue());
             comboBox_amdDrug_sec_type.SelectedIndex = 0;
         }
+
+        private void button_selectAllergicDrug_Click(object sender, EventArgs e)
+        {
+            DrugObj DSPselectedDrug = DSP_incompatibleWith.getSelectedDrug();
+            if (DSPselectedDrug != null)
+            {
+                if (DSPselectedDrug.Equals(selectedDrug))
+                {
+                    MessageBox.Show("同一藥物必能配伍", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                foreach (DrugObj drug in listBox_selectedIncompatibleDrug.Items)
+                {
+                    if (DSPselectedDrug.Equals(drug))
+                    {
+                        MessageBox.Show("此項目已被選擇", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                }
+                listBox_selectedIncompatibleDrug.Items.Add(DSPselectedDrug);
+                //DSP_allergic.refresh();
+            }
+        }
+
+        private void button_removeSelectedDrug_Click(object sender, EventArgs e)
+        {
+            if (listBox_selectedIncompatibleDrug.SelectedItems.Count > 0)
+                listBox_selectedIncompatibleDrug.Items.Remove((listBox_selectedIncompatibleDrug.SelectedItems[0]));
+        }
+
+        private void button_Incompatible_drug_select_Click(object sender, EventArgs e)
+        {
+            DrugIncompatibleSelection DIS = new DrugIncompatibleSelection();
+            DIS.setParentForm(this);
+            DIS.ShowDialog();
+            textBox_incompatible_drugName.Text = selectedDrug.Name;
+        }
+
+        private void button_cancelIncompatible_Click(object sender, EventArgs e)
+        {
+            tabPage3_Enter(sender, e);
+        }
+
+        private void button_updateIncompatible_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }
