@@ -88,6 +88,25 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
+        //incompatible tab
+        public void setSelectedIncompatibleListbox(System.Windows.Forms.ListBox Listbox, int drugId)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_incompatible_drug_get (" + drugId + ")");
+            foreach (DataRow dr in data.Rows)
+            {
+                Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
+            }
+        }
+
+        public bool updateIncompatibleDrug(int drugId, String incompatibleWith, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_incompatible_drug_update (" + drugId + ", '"+ incompatibleWith + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
 
         //Drug Selection Panel
         public void setDSPPrimaryDrugTypeListBox(System.Windows.Forms.ListBox Listbox, int inclDeleted)

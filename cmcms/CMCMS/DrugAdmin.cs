@@ -258,19 +258,19 @@ namespace CMCMS
             comboBox_amdDrug_sec_type.SelectedIndex = 0;
         }
 
-        private void button_selectAllergicDrug_Click(object sender, EventArgs e)
+        private void button_selectIncompatibleDrug_Click(object sender, EventArgs e)
         {
-            DrugObj DSPselectedDrug = DSP_incompatibleWith.getSelectedDrug();
+            PermissibleValueObj DSPselectedDrug = DSP_incompatibleWith.getSelectedDrug();
             if (DSPselectedDrug != null)
             {
-                if (DSPselectedDrug.Equals(selectedDrug))
+                if (DSPselectedDrug.Value == selectedDrug.Value)
                 {
                     MessageBox.Show("同一藥物必能配伍", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                foreach (DrugObj drug in listBox_selectedIncompatibleDrug.Items)
+                foreach (PermissibleValueObj drug in listBox_selectedIncompatibleDrug.Items)
                 {
-                    if (DSPselectedDrug.Equals(drug))
+                    if (DSPselectedDrug.Value == drug.Value)
                     {
                         MessageBox.Show("此項目已被選擇", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
@@ -282,7 +282,7 @@ namespace CMCMS
             }
         }
 
-        private void button_removeSelectedDrug_Click(object sender, EventArgs e)
+        private void button_removeIncompatibleDrug_Click(object sender, EventArgs e)
         {
             if (listBox_selectedIncompatibleDrug.SelectedItems.Count > 0)
                 listBox_selectedIncompatibleDrug.Items.Remove((listBox_selectedIncompatibleDrug.SelectedItems[0]));
@@ -294,6 +294,10 @@ namespace CMCMS
             DIS.setParentForm(this);
             DIS.ShowDialog();
             textBox_incompatible_drugName.Text = selectedDrug.Name;
+            if (selectedDrug != null)
+            {
+                drugMgr.setSelectedIncompatibleListbox(listBox_selectedIncompatibleDrug, int.Parse(selectedDrug.Value));
+            }
         }
 
         private void button_cancelIncompatible_Click(object sender, EventArgs e)
@@ -303,10 +307,27 @@ namespace CMCMS
 
         private void button_updateIncompatible_Click(object sender, EventArgs e)
         {
+            String incompatibleWith = "";
+            foreach (PermissibleValueObj o in listBox_selectedIncompatibleDrug.Items)
+            {
+                incompatibleWith += "||" + o.Value;
+            }
+            if (incompatibleWith.Length>0)
+                incompatibleWith = incompatibleWith.Substring(2);
 
+            String statusMsg = "";
+            bool isSuccess;
+            isSuccess = drugMgr.updateIncompatibleDrug(int.Parse(selectedDrug.Value), incompatibleWith, ref statusMsg);
+            if (isSuccess)
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                drugMgr.setSelectedIncompatibleListbox(listBox_selectedIncompatibleDrug, int.Parse(selectedDrug.Value));
+            }
+            else
+            {
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-
 
     }
 }
