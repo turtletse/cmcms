@@ -5,7 +5,9 @@ CREATE PROCEDURE sp_new_pres (
 	IN in_instruction VARCHAR(255),
     IN in_no_of_dose INT,
     IN in_method_of_treatment VARCHAR(255),
-    IN in_drug_data_str VARCHAR(10000)
+    IN in_drug_data_str VARCHAR(10000),
+    IN in_isPreg INT,
+    IN in_isG6PD INT
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -26,12 +28,12 @@ BEGIN
     DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = pres_id;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
 	SET AUTOCOMMIT =0;
 	START TRANSACTION;
     
@@ -117,6 +119,31 @@ BEGIN
 			END IF;
 		UNTIL done END REPEAT;
 	CLOSE cur2;
+    
+    IF in_isG6PD > 0 THEN
+		INSERT INTO chk_result (chk_id, result_desc)
+		SELECT 2, master_drug_list.drug_name
+		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+		WHERE prescription_dt.pres_id = pres_id AND g6pd = 1;
+        
+        INSERT INTO chk_result (chk_id, result_desc)
+		SELECT 3, master_drug_list.drug_name
+		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+		WHERE prescription_dt.pres_id = pres_id AND g6pd = 2;
+    END IF;
+    
+    IF in_isPreg > 0 THEN
+		INSERT INTO chk_result (chk_id, result_desc)
+		SELECT 4, master_drug_list.drug_name
+		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+		WHERE prescription_dt.pres_id = pres_id AND pregnancy = 1;
+        
+        INSERT INTO chk_result (chk_id, result_desc)
+		SELECT 5, master_drug_list.drug_name
+		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+		WHERE prescription_dt.pres_id = pres_id AND pregnancy = 2;
+    END IF;
+    
     COMMIT;
     SET AUTOCOMMIT=1;
     

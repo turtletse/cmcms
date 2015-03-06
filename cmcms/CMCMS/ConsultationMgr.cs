@@ -188,17 +188,17 @@ namespace CMCMS
 
 
         //prescriptionForm
-        public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, ref String presId, ref String statusMsg)
+        public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String presId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") + (isG6pd ? "1" : "0") + ")");
             presId = data.Rows[0]["pres_id"].ToString();
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
 
-        public bool updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, ref String statusMsg)
+        public bool updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") + (isG6pd ? "1" : "0") + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -314,10 +314,10 @@ namespace CMCMS
             return cons;
         }
 
-        public bool saveConsultation(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String drRmk, ref String statusMsg){
+        public int saveConsultation(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String drRmk, ref String statusMsg){
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_save_consultation (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + drRmk + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
-            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+            return (int)data.Rows[0]["status_id"];
         }
 
         public bool confirmedConsultation(String consId, ref String statusMsg)

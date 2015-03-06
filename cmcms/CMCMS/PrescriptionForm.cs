@@ -12,6 +12,8 @@ namespace CMCMS
     public partial class PrescriptionForm : Form
     {
         PermissibleValueObj presId;
+        bool isPreg = false;
+        bool isG6pd = false;
 
         ConsultationMgr consMgr = new ConsultationMgr();
 
@@ -33,6 +35,16 @@ namespace CMCMS
             }
         }
 
+        public void setIsPreg(bool isPreg)
+        {
+            this.isPreg = isPreg;
+        }
+
+        public void setIsG6pd(bool isG6pd)
+        {
+            this.isG6pd = isPreg;
+        }
+
         private void button_selectInstruction_Click(object sender, EventArgs e)
         {
             textBox_instruction.Text += comboBox_predefInstruction.SelectedItem.ToString();
@@ -49,7 +61,7 @@ namespace CMCMS
             String tmp = presId.Value;
             if (presId.Value == "")
             {
-                int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), ref tmp, ref statusMsg);
+                int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), isG6pd, isPreg, ref tmp, ref statusMsg);
                 if (status_id > 0 && status_id != 18)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,7 +84,7 @@ namespace CMCMS
             }
             else
             {
-                if (consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), ref statusMsg))
+                if (consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), isG6pd, isPreg, ref statusMsg))
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

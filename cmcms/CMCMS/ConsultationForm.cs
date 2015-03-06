@@ -236,6 +236,8 @@ namespace CMCMS
             PrescriptionForm pf = new PrescriptionForm();
             PermissibleValueObj presId = new PermissibleValueObj("","");
             pf.setPresId(ref presId);
+            pf.setIsG6pd(checkBox_pat_isG6PD.Checked);
+            pf.setIsPreg(checkBox_pat_isPregnant.Checked);
             pf.ShowDialog();
             comboBox_presId.Items.Add(presId);
             if (comboBox_presId.Items.Count > 0)
@@ -251,6 +253,8 @@ namespace CMCMS
             PrescriptionForm pf = new PrescriptionForm();
             PermissibleValueObj presId = new PermissibleValueObj(comboBox_presId.SelectedItem.ToString(),comboBox_presId.SelectedItem.ToString());
             pf.setPresId(ref presId);
+            pf.setIsG6pd(checkBox_pat_isG6PD.Checked);
+            pf.setIsPreg(checkBox_pat_isPregnant.Checked);
             pf.ShowDialog();
         }
 
@@ -301,7 +305,7 @@ namespace CMCMS
         private void button_finalSave_Click(object sender, EventArgs e)
         {
             String statusMsg = "";
-            bool isSuccess;
+            bool isSuccess = false;
 
             String presIds = "";
             foreach (PermissibleValueObj o in comboBox_presId.Items)
@@ -312,7 +316,33 @@ namespace CMCMS
             {
                 presIds = presIds.Substring(2);
             }
-            isSuccess = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+
+            int saveConStatus = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+
+            if (saveConStatus == 0)
+            {
+                isSuccess = true;
+            }
+            else
+            {
+                if (saveConStatus == 19)
+                {
+                    DialogResult needChange = MessageBox.Show(statusMsg, "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (needChange == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        isSuccess = true;
+                    }
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+
             if (isSuccess)
             {
                 refresh_consultation_data(false);
