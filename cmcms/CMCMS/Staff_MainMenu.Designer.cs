@@ -32,6 +32,7 @@
             this.button_amdPatData = new System.Windows.Forms.Button();
             this.button_NewPatient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_userAmdInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_queuingMgt
@@ -75,11 +76,22 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "診所運作 - 主目錄";
             // 
+            // button_userAmdInfo
+            // 
+            this.button_userAmdInfo.Location = new System.Drawing.Point(21, 226);
+            this.button_userAmdInfo.Name = "button_userAmdInfo";
+            this.button_userAmdInfo.Size = new System.Drawing.Size(221, 51);
+            this.button_userAmdInfo.TabIndex = 24;
+            this.button_userAmdInfo.Text = "更改用戶資料";
+            this.button_userAmdInfo.UseVisualStyleBackColor = true;
+            this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
+            // 
             // Staff_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 400);
+            this.ClientSize = new System.Drawing.Size(269, 298);
+            this.Controls.Add(this.button_userAmdInfo);
             this.Controls.Add(this.button_queuingMgt);
             this.Controls.Add(this.button_amdPatData);
             this.Controls.Add(this.button_NewPatient);
@@ -103,5 +115,6 @@
         private System.Windows.Forms.Button button_amdPatData;
         private System.Windows.Forms.Button button_NewPatient;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_userAmdInfo;
     }
 }

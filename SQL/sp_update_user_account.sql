@@ -20,7 +20,7 @@ BEGIN
 	if (select count(*) from user_account where user_id = in_user_id) <> 1 THEN
         SET curr_status_id = 8;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-    ELSEIF (select count(*) from user_account where reg_no = in_reg_no AND reg_no IS NOT NULL AND LENGTH(reg_no)<>0) > 0 THEN
+    ELSEIF (select count(*) from user_account where reg_no = in_reg_no AND reg_no IS NOT NULL AND LENGTH(reg_no)<>0 AND user_id <> in_user_id) > 0 THEN
         SET curr_status_id = 10;
         SELECT * FROM insert_record_status where status_id = curr_status_id;    
 	ELSE

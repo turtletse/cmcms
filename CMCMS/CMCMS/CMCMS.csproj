@@ -338,6 +338,12 @@
     <Compile Include="SystemAdmin_MainMenu.Designer.cs">
       <DependentUpon>SystemAdmin_MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserAmdInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserAmdInfo.Designer.cs">
+      <DependentUpon>UserAmdInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserClinicMgr.cs" />
     <Compile Include="UserObj.cs" />
     <Compile Include="UserRegistration.cs">
@@ -480,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SystemAdmin_MainMenu.resx">
       <DependentUpon>SystemAdmin_MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAmdInfo.resx">
+      <DependentUpon>UserAmdInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>

@@ -2,7 +2,7 @@ DROP FUNCTION IF EXISTS prescription_safety_check;
 
 DELIMITER $$
 
-CREATE FUNCTION prescription_safety_check(in_pres_id INT, in_is_pregnant INT, in_is_g6pd INT) RETURNS int(11)
+CREATE FUNCTION prescription_safety_check(in_pres_id INT, in_is_pregnant INT, in_is_g6pd INT) RETURNS int(1)
 BEGIN
 	DECLARE safety_violation_log VARCHAR(20);
     DECLARE safety_violation_cnt INT;
@@ -55,7 +55,7 @@ BEGIN
     
 	CALL sp_pres_ignore_safety_chk_logger(in_pres_id, safety_violation_log);
     
-    SELECT incompatible_drug+g6pd_not_recommended,g6pd_forbidden,pregnant_not_recommended,pregnant_forbidden INTO safety_violation_cnt
+    SELECT incompatible_drug+g6pd_not_recommended+g6pd_forbidden+pregnant_not_recommended+pregnant_forbidden INTO safety_violation_cnt
     FROM pres_ignore_safety_chk
     WHERE pres_id = in_pres_id;
     
@@ -68,3 +68,5 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+-- SELECT prescription_safety_check(14, 0, 0)

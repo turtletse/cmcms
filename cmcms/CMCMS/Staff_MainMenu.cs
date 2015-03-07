@@ -51,5 +51,11 @@ namespace CMCMS
             }
         }
 
+        private void button_userAmdInfo_Click(object sender, EventArgs e)
+        {
+            UserAmdInfo uai = new UserAmdInfo();
+            uai.ShowDialog();
+        }
+
     }
 }

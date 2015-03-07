@@ -34,6 +34,7 @@
             this.button_updatePredefPres = new System.Windows.Forms.Button();
             this.button_newPredefPres = new System.Windows.Forms.Button();
             this.button_consultation = new System.Windows.Forms.Button();
+            this.button_userAmdInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_amdPatData
@@ -97,11 +98,22 @@
             this.button_consultation.UseVisualStyleBackColor = true;
             this.button_consultation.Click += new System.EventHandler(this.button_consultation_Click);
             // 
+            // button_userAmdInfo
+            // 
+            this.button_userAmdInfo.Location = new System.Drawing.Point(21, 340);
+            this.button_userAmdInfo.Name = "button_userAmdInfo";
+            this.button_userAmdInfo.Size = new System.Drawing.Size(221, 51);
+            this.button_userAmdInfo.TabIndex = 29;
+            this.button_userAmdInfo.Text = "更改用戶資料";
+            this.button_userAmdInfo.UseVisualStyleBackColor = true;
+            this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
+            // 
             // Doctor_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 355);
+            this.ClientSize = new System.Drawing.Size(269, 414);
+            this.Controls.Add(this.button_userAmdInfo);
             this.Controls.Add(this.button_consultation);
             this.Controls.Add(this.button_updatePredefPres);
             this.Controls.Add(this.button_newPredefPres);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.Button button_updatePredefPres;
         private System.Windows.Forms.Button button_newPredefPres;
         private System.Windows.Forms.Button button_consultation;
+        private System.Windows.Forms.Button button_userAmdInfo;
     }
 }

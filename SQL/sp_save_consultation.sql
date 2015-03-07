@@ -56,14 +56,18 @@ BEGIN
     END IF;
     
     SELECT patient_record.isPregnant, patient_record.isG6PD INTO isPreg, isG6PD FROM patient_record WHERE patient_id = in_patient_id;
+    
     DROP TEMPORARY TABLE IF EXISTS pres_with_contraindication;
     CREATE TEMPORARY TABLE pres_with_contraindication (pres_id INT);
     CALL split(in_pres_id, '||');
+    
     DROP TEMPORARY TABLE IF EXISTS tmp_pres_id_list;
+    
     CREATE TEMPORARY TABLE tmp_pres_id_list
     SELECT CAST(split_value AS UNSIGNED) pres_id
     FROM splitResult
     WHERE split_value <> '';
+    
     DROP TEMPORARY TABLE IF EXISTS splitResult;
     
     OPEN cur2;
@@ -78,11 +82,11 @@ BEGIN
 	CLOSE cur2;
     COMMIT;
     SET AUTOCOMMIT = 1;
-    
     IF (SELECT COUNT(*) FROM pres_with_contraindication) = 0 THEN
 		SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
 	ELSE
-		SELECT status_id, CONCAT(status_desc, '\n', (SELECT GROUP_CONCAT(pres_id SEPARATOR '\n') FROM pres_with_contraindication ORDER BY pres_id)) status_desc 
+		SET curr_status_id = 19;
+		SELECT status_id, CONCAT(status_desc, ':\n', (SELECT GROUP_CONCAT(pres_id SEPARATOR '\n') FROM pres_with_contraindication ORDER BY pres_id), '\n\n需要修改?') status_desc 
         FROM insert_record_status 
         where status_id = curr_status_id;
     END IF;
@@ -90,5 +94,7 @@ END $$
 
 DELIMITER ;
 
+-- CALL sp_save_consultation (9, 'CSM', 'CSM', 2, '2.2.16||2.2.19||2.3.113', '噴嚏; 喘鳴; 鼻塞; ', '2.6.2', '外風證; ', '3.1.7', '感冒; ', '14', '宜醫囑一')
 -- SELECT * from consultation_record
 -- CALL sp_pres_dt_get (1)
+-- SELECT * FROM DEBUG_LOG ORDER BY log_dtm desc
