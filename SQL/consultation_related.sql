@@ -12,6 +12,8 @@ CREATE TABLE consultation_record(
     dx_code VARCHAR(255),
     dx_desc VARCHAR(255),
     pres_id VARCHAR(255),
+    acupuncture_code VARCHAR(255),
+    acupuncture_desc VARCHAR(255),
     dr_rmk VARCHAR(450),
     isFinished int DEFAULT 0,
     last_update_dtm DATETIME

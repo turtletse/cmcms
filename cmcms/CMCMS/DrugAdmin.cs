@@ -293,9 +293,9 @@ namespace CMCMS
             DrugIncompatibleSelection DIS = new DrugIncompatibleSelection();
             DIS.setParentForm(this);
             DIS.ShowDialog();
-            textBox_incompatible_drugName.Text = selectedDrug.Name;
             if (selectedDrug != null)
             {
+                textBox_incompatible_drugName.Text = selectedDrug.Name;
                 drugMgr.setSelectedIncompatibleListbox(listBox_selectedIncompatibleDrug, int.Parse(selectedDrug.Value));
             }
         }

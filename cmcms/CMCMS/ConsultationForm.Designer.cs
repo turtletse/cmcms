@@ -63,6 +63,9 @@
             this.columnHeader_diff = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_pres = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button_changeAcupunture = new System.Windows.Forms.Button();
+            this.textBox_acupuncture = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.textBox_startDtm = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_lastUpdateDtm = new System.Windows.Forms.TextBox();
@@ -419,6 +422,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button_changeAcupunture);
+            this.groupBox3.Controls.Add(this.textBox_acupuncture);
+            this.groupBox3.Controls.Add(this.label21);
             this.groupBox3.Controls.Add(this.textBox_startDtm);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.textBox_lastUpdateDtm);
@@ -450,9 +456,37 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "是次診症紀錄";
             // 
+            // button_changeAcupunture
+            // 
+            this.button_changeAcupunture.Location = new System.Drawing.Point(904, 326);
+            this.button_changeAcupunture.Name = "button_changeAcupunture";
+            this.button_changeAcupunture.Size = new System.Drawing.Size(142, 49);
+            this.button_changeAcupunture.TabIndex = 28;
+            this.button_changeAcupunture.Text = "修改";
+            this.button_changeAcupunture.UseVisualStyleBackColor = true;
+            this.button_changeAcupunture.Click += new System.EventHandler(this.button_changeAcupunture_Click);
+            // 
+            // textBox_acupuncture
+            // 
+            this.textBox_acupuncture.Location = new System.Drawing.Point(600, 323);
+            this.textBox_acupuncture.Multiline = true;
+            this.textBox_acupuncture.Name = "textBox_acupuncture";
+            this.textBox_acupuncture.ReadOnly = true;
+            this.textBox_acupuncture.Size = new System.Drawing.Size(298, 126);
+            this.textBox_acupuncture.TabIndex = 27;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(545, 323);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(49, 20);
+            this.label21.TabIndex = 26;
+            this.label21.Text = "針灸: ";
+            // 
             // textBox_startDtm
             // 
-            this.textBox_startDtm.Location = new System.Drawing.Point(763, 420);
+            this.textBox_startDtm.Location = new System.Drawing.Point(161, 469);
             this.textBox_startDtm.Name = "textBox_startDtm";
             this.textBox_startDtm.ReadOnly = true;
             this.textBox_startDtm.Size = new System.Drawing.Size(283, 26);
@@ -461,7 +495,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(608, 423);
+            this.label20.Location = new System.Drawing.Point(6, 472);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(117, 20);
             this.label20.TabIndex = 24;
@@ -469,7 +503,7 @@
             // 
             // textBox_lastUpdateDtm
             // 
-            this.textBox_lastUpdateDtm.Location = new System.Drawing.Point(763, 455);
+            this.textBox_lastUpdateDtm.Location = new System.Drawing.Point(161, 502);
             this.textBox_lastUpdateDtm.Name = "textBox_lastUpdateDtm";
             this.textBox_lastUpdateDtm.ReadOnly = true;
             this.textBox_lastUpdateDtm.Size = new System.Drawing.Size(283, 26);
@@ -478,7 +512,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(608, 458);
+            this.label19.Location = new System.Drawing.Point(6, 505);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(149, 20);
             this.label19.TabIndex = 22;
@@ -883,5 +917,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader_consId;
         private System.Windows.Forms.DateTimePicker dateTimePicker_edc;
         private System.Windows.Forms.CheckBox checkBox_preg_edc;
+        private System.Windows.Forms.Button button_changeAcupunture;
+        private System.Windows.Forms.TextBox textBox_acupuncture;
+        private System.Windows.Forms.Label label21;
     }
 }

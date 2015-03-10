@@ -18,11 +18,13 @@ namespace CMCMS
         List<PermissibleValueObj> differentiation = new List<PermissibleValueObj>();
         List<PermissibleValueObj> diagnosis = new List<PermissibleValueObj>();
         List<PermissibleValueObj> drRmk = new List<PermissibleValueObj>();
+        List<PermissibleValueObj> acupuncture = new List<PermissibleValueObj>();
 
         ExaminationResultSelectionForm ersf = new ExaminationResultSelectionForm();
         DifferentiationResultSelectionForm drsf = new DifferentiationResultSelectionForm();
         DxResultSelectionForm dxrsf = new DxResultSelectionForm();
         DrRmkEditForm dref = new DrRmkEditForm();
+        AcupunctureSelectionForm asf = new AcupunctureSelectionForm();
 
         String consId = "";
 
@@ -34,6 +36,7 @@ namespace CMCMS
             ersf.setSelectedExamResult(ref examination);
             drsf.setSelectedDiffResult(ref differentiation);
             dxrsf.setSelectedDxResult(ref diagnosis);
+            asf.setSelectedAcupuncturePt(ref acupuncture);
             drRmk.Add(new PermissibleValueObj("", ""));
             dref.setRmk(ref drRmk);
         }
@@ -245,6 +248,13 @@ namespace CMCMS
                 comboBox_presId.SelectedIndex = comboBox_presId.Items.Count - 1;
             }
         }
+
+        private void button_changeAcupunture_Click(object sender, EventArgs e)
+        {
+            asf.reset();
+            asf.ShowDialog();
+            textBox_acupuncture.Text = permissibleValueObjListNameToString(acupuncture);
+        }   
 
         private void button_change_pres_Click(object sender, EventArgs e)
         {
@@ -478,6 +488,8 @@ namespace CMCMS
             ReportViewer rptViewer = new ReportViewer();
             rptViewer.preparePregCert(consMgr.issue_preg_cert(int.Parse(consId), checkBox_pat_isPregnant.Checked, dateTimePicker_edc.Value.ToString("dd/MM/yyyy")));
             rptViewer.ShowDialog();
-        }      
+        }
+
+   
     }
 }

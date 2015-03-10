@@ -76,6 +76,72 @@ namespace CMCMS
             }
         }
 
+        //AcupunctureSelectionForm
+        public void setAPLv1(System.Windows.Forms.ListBox Listbox)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_lv1_get ()");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["mv_desc"].ToString(), dr["mv_id"].ToString()));
+                }
+            }
+        }
+
+        public void setAPLv2(System.Windows.Forms.ListBox Listbox, int mvId)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_lv2_get (" + mvId + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["part_desc"].ToString(), dr["part_id"].ToString()));
+                }
+            }
+        }
+
+        public void setAPLv3(System.Windows.Forms.ListBox Listbox, int mvId, int partId)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_lv3_get (" + mvId + ", " + partId + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["pt_desc"].ToString(), dr["pt_cd"].ToString()));
+                }
+            }
+        }
+
+        public void setAPLv3ByKeywordsSearch(System.Windows.Forms.ListBox Listbox, String keywords)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_keywords_search_get ('" + keywords + "')");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["pt_desc"].ToString(), dr["pt_cd"].ToString()));
+                }
+            }
+        }
+
+        public void setAPLv3ByCodeSearch(System.Windows.Forms.ListBox Listbox, String codes)
+        {
+            Listbox.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_code_search_get ('" + codes + "')");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Listbox.Items.Add(new PermissibleValueObj(dr["pt_desc"].ToString(), dr["pt_cd"].ToString()));
+                }
+            }
+        }
+
 
         //DifferentiationResultSearchForm
         public void setDiffLv1(System.Windows.Forms.ListBox Listbox)
