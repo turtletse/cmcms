@@ -96,8 +96,8 @@ namespace CMCMS
             consId = consData["cons_id"];
             textBox_startDtm.Text = consData["first_record_dtm"];
             textBox_lastUpdateDtm.Text = consData["last_update_dtm"];
-            dateTimePicker_sickLeaveStart.Value = DateTime.ParseExact(textBox_lastUpdateDtm.Text.Substring(0,textBox_lastUpdateDtm.Text.IndexOf(' ')) , "dd/MM/yyyy", null);
-            dateTimePicker_sickLeaveStart.MinDate = dateTimePicker_sickLeaveStart.Value;
+            dateTimePicker_sickLeaveStart.Value = DateTime.ParseExact(textBox_startDtm.Text.Substring(0, textBox_lastUpdateDtm.Text.IndexOf(' ')), "dd/MM/yyyy", null);
+            dateTimePicker_sickLeaveStart.MinDate = DateTime.ParseExact(textBox_startDtm.Text.Substring(0, textBox_lastUpdateDtm.Text.IndexOf(' ')), "dd/MM/yyyy", null);
             dateTimePicker_sickLeaveEnd.MinDate = dateTimePicker_sickLeaveStart.Value;
             dateTimePicker_sickLeaveEnd.Value = DateTime.Today;
             dateTimePicker_edc.Value = DateTime.Today;
@@ -282,7 +282,7 @@ namespace CMCMS
             {
                 presIds=presIds.Substring(2);
             }
-            int saveConStatus = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+            int saveConStatus = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, permissibleValueObjListValueToString(acupuncture), permissibleValueObjListNameToString(acupuncture), drRmk[0].Value, ref statusMsg);
             if (saveConStatus == 0)
             {
                 isSuccess = true;
@@ -327,7 +327,7 @@ namespace CMCMS
             {
                 presIds = presIds.Substring(2);
             }
-            isSuccess = consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+            isSuccess = consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, permissibleValueObjListValueToString(acupuncture), permissibleValueObjListNameToString(acupuncture), drRmk[0].Value, ref statusMsg);
             MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (isSuccess)
             {
@@ -350,7 +350,7 @@ namespace CMCMS
                 presIds = presIds.Substring(2);
             }
 
-            int saveConStatus = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+            int saveConStatus = consMgr.saveConsultation(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, permissibleValueObjListValueToString(acupuncture), permissibleValueObjListNameToString(acupuncture), drRmk[0].Value, ref statusMsg);
 
             if (saveConStatus == 0)
             {
@@ -423,7 +423,7 @@ namespace CMCMS
                 {
                     presIds = presIds.Substring(2);
                 }
-                consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, drRmk[0].Value, ref statusMsg);
+                consMgr.consLater(consId, textBox_patId.Text, permissibleValueObjListValueToString(examination), permissibleValueObjListNameToString(examination), permissibleValueObjListValueToString(differentiation), permissibleValueObjListNameToString(differentiation), permissibleValueObjListValueToString(diagnosis), permissibleValueObjListNameToString(diagnosis), presIds, permissibleValueObjListValueToString(acupuncture), permissibleValueObjListNameToString(acupuncture), drRmk[0].Value, ref statusMsg);
             }
         }
 

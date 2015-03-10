@@ -100,6 +100,7 @@
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
             this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
+            this.columnHeader_acupuncture = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -379,7 +380,8 @@
             this.columnHeader_dx,
             this.columnHeader_exam,
             this.columnHeader_diff,
-            this.columnHeader_pres});
+            this.columnHeader_pres,
+            this.columnHeader_acupuncture});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -418,7 +420,7 @@
             // columnHeader_pres
             // 
             this.columnHeader_pres.Text = "處方簡要";
-            this.columnHeader_pres.Width = 441;
+            this.columnHeader_pres.Width = 230;
             // 
             // groupBox3
             // 
@@ -812,6 +814,11 @@
             this.checkBox_preg_edc.Text = "預產日期: ";
             this.checkBox_preg_edc.UseVisualStyleBackColor = true;
             // 
+            // columnHeader_acupuncture
+            // 
+            this.columnHeader_acupuncture.Text = "針灸";
+            this.columnHeader_acupuncture.Width = 211;
+            // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -920,5 +927,6 @@
         private System.Windows.Forms.Button button_changeAcupunture;
         private System.Windows.Forms.TextBox textBox_acupuncture;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ColumnHeader columnHeader_acupuncture;
     }
 }

@@ -13,6 +13,8 @@ CREATE PROCEDURE sp_cons_later (
 	IN in_dx_code VARCHAR(255),
 	IN in_dx_desc VARCHAR(255),
 	IN in_pres_id VARCHAR(255),
+    IN in_acupuncture_code VARCHAR(255),
+    IN in_acupuncture_desc VARCHAR(255),
 	IN in_dr_rmk VARCHAR(450)
 )
 BEGIN
@@ -50,6 +52,8 @@ BEGIN
 				dx_code = in_dx_code,
 				dx_desc = in_dx_desc,
 				pres_id = in_pres_id,
+                acupuncture_code = in_acupuncture_code,
+				acupuncture_desc = in_acupuncture_desc,
 				dr_rmk = in_dr_rmk,
 				last_update_dtm = sysdate()
 			WHERE cons_id = in_cons_id

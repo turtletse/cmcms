@@ -10,12 +10,12 @@ BEGIN
     DECLARE cur1 CURSOR FOR SELECT pres_id FROM presIds;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-	/*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
 	
     SET AUTOCOMMIT = 0;
     START TRANSACTION;
@@ -60,6 +60,8 @@ BEGIN
 			a.dx_code = b.dx_code,
 			a.dx_desc = b.dx_desc,
             a.pres_id = (SELECT group_concat(pres_id SEPARATOR '||') FROM newPres),
+            a.acupuncture_code = b.acupuncture_code,
+            a.acupuncture_desc = b.acupuncture_desc,
 			a.dr_rmk = b.dr_rmk,
             a.last_update_dtm = sysdate()
 		WHERE b.cons_id = in_sel_cons_id AND a.cons_id = in_curr_cons_id;

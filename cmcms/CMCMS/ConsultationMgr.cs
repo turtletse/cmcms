@@ -256,7 +256,7 @@ namespace CMCMS
         //prescriptionForm
         public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String presId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") + (isG6pd ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") +", "+ (isG6pd ? "1" : "0") + ")");
             presId = data.Rows[0]["pres_id"].ToString();
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
@@ -380,8 +380,8 @@ namespace CMCMS
             return cons;
         }
 
-        public int saveConsultation(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String drRmk, ref String statusMsg){
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_save_consultation (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + drRmk + "')");
+        public int saveConsultation(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String acupunctureCode, String acupunctureDesc, String drRmk, ref String statusMsg){
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_save_consultation (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + acupunctureCode + "', '" + acupunctureDesc + "', '" + drRmk + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
@@ -393,9 +393,9 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
-        public bool consLater(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String drRmk, ref String statusMsg)
+        public bool consLater(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String acupunctureCode, String acupunctureDesc, String drRmk, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_cons_later (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + drRmk + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_cons_later (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + acupunctureCode + "', '" + acupunctureDesc + "', '" + drRmk + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -420,7 +420,7 @@ namespace CMCMS
             {
                 foreach (DataRow dr in data.Rows)
                 {
-                    string[] row = { dr["cons_id"].ToString(), dr["cons_dtm"].ToString(), dr["dx_desc"].ToString(), dr["ex_desc"].ToString(), dr["diff_desc"].ToString(), dr["pres_data_str"].ToString() };
+                    string[] row = { dr["cons_id"].ToString(), dr["cons_dtm"].ToString(), dr["dx_desc"].ToString(), dr["ex_desc"].ToString(), dr["diff_desc"].ToString(), dr["pres_data_str"].ToString(), dr["acupuncture_desc"].ToString() };
                     System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(row);
                     lv.Items.Add(item);
                 }

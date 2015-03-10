@@ -5,7 +5,7 @@ DELIMITER $$
 CREATE FUNCTION prescription_safety_check(in_pres_id INT, in_is_pregnant INT, in_is_g6pd INT) RETURNS int(1)
 BEGIN
 	DECLARE safety_violation_log VARCHAR(20);
-    DECLARE safety_violation_cnt INT;
+    DECLARE safety_violation_cnt INT DEFAULT 0;
     DECLARE curr_drug_id INT;
     DECLARE done INT DEFAULT FALSE;
     DECLARE cur2 CURSOR FOR SELECT drug_id FROM prescription_dt WHERE pres_id = in_pres_id;
@@ -59,7 +59,7 @@ BEGIN
     FROM pres_ignore_safety_chk
     WHERE pres_id = in_pres_id;
     
-    IF safety_violation_cnt = 0 THEN
+    IF safety_violation_cnt = NULL OR safety_violation_cnt = 0 THEN
 		return 0;
 	ELSE
 		return 1;
@@ -69,4 +69,5 @@ END $$
 
 DELIMITER ;
 
--- SELECT prescription_safety_check(14, 0, 0)
+-- SELECT prescription_safety_check(33, 0, 1)
+-- SELECT incompatible_drug+g6pd_not_recommended+g6pd_forbidden+pregnant_not_recommended+pregnant_forbidden FROM pres_ignore_safety_chk WHERE pres_id = 33

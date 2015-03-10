@@ -10,7 +10,7 @@ BEGIN
     
     DROP TEMPORARY TABLE IF EXISTS consData;    
     CREATE TEMPORARY TABLE consData
-	select cons_id, last_update_dtm, dx_desc, ex_desc, diff_desc, pres_id pres_data_str
+	select cons_id, last_update_dtm, dx_desc, ex_desc, diff_desc, pres_id pres_data_str, acupuncture_desc
 	from consultation_record JOIN patient_record ON consultation_record.patient_id = patient_record.patient_id
     WHERE (clinic_id = in_clinic_id OR dr_id = in_dr_id OR patient_record.isRecordShared = 1) AND isFinished = 2 AND consultation_record.patient_id = in_pat_id;
 	
@@ -22,7 +22,7 @@ BEGIN
     
 				DROP TEMPORARY TABLE IF EXISTS presIds;
 				CREATE TEMPORARY TABLE presIds
-				SELECT CONVERT(split_value, UNSIGNED) pres_id FROM splitResult;
+				SELECT CONVERT(split_value, UNSIGNED) pres_id FROM splitResult WHERE split_value IS NOT NULL AND length(split_value)>0;
 				
 				DROP TEMPORARY TABLE IF EXISTS presDt;
 				CREATE TEMPORARY TABLE presDt
@@ -36,7 +36,7 @@ BEGIN
 		UNTIL done END REPEAT;
 	CLOSE cur1;
     
-    SELECT cons_id, DATE_FORMAT(last_update_dtm, '%d/%m/%Y %T') cons_dtm, dx_desc, ex_desc, diff_desc, pres_data_str
+    SELECT cons_id, DATE_FORMAT(last_update_dtm, '%d/%m/%Y %T') cons_dtm, dx_desc, ex_desc, diff_desc, pres_data_str, acupuncture_desc
     FROM consData
     ORDER BY last_update_dtm desc;
         

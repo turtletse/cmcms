@@ -133,7 +133,7 @@ namespace CMCMS
             String prescription = "";
             foreach (DataGridViewRow row in DGV_selected.Rows)
             {
-                prescription += "##" + row.Cells[1].Value + "^^" + row.Cells[2].Value + "^^" + row.Cells[3].Value + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()] + "^^" + methods[((DataGridViewComboBoxCell)row.Cells[5]).EditedFormattedValue.ToString()];
+                prescription += "##" + row.Cells[1].Value + "^^" + row.Cells[2].Value + "^^" + (row.Cells[3].Value==null?0:row.Cells[3].Value) + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()] + "^^" + methods[((DataGridViewComboBoxCell)row.Cells[5]).EditedFormattedValue.ToString()];
             }
             return prescription.Substring(2);
         }

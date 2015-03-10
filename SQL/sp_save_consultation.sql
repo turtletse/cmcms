@@ -13,6 +13,8 @@ CREATE PROCEDURE sp_save_consultation (
 	IN in_dx_code VARCHAR(255),
 	IN in_dx_desc VARCHAR(255),
 	IN in_pres_id VARCHAR(255),
+    IN in_acupuncture_code VARCHAR(255),
+    IN in_acupuncture_desc VARCHAR(255),
 	IN in_dr_rmk VARCHAR(450)
 )
 BEGIN
@@ -42,6 +44,8 @@ BEGIN
 			dx_code = in_dx_code,
 			dx_desc = in_dx_desc,
 			pres_id = in_pres_id,
+            acupuncture_code = in_acupuncture_code,
+            acupuncture_desc = in_acupuncture_desc,
 			dr_rmk = in_dr_rmk,
 			last_update_dtm = sysdate()
         WHERE cons_id = in_cons_id
@@ -94,7 +98,8 @@ END $$
 
 DELIMITER ;
 
--- CALL sp_save_consultation (9, 'CSM', 'CSM', 2, '2.2.16||2.2.19||2.3.113', '噴嚏; 喘鳴; 鼻塞; ', '2.6.2', '外風證; ', '3.1.7', '感冒; ', '14', '宜醫囑一')
+-- CALL sp_save_consultation (9, 'CSM', 'CSM', 2, '2.2.16||2.2.19||2.3.113', '噴嚏; 喘鳴; 鼻塞; ', '2.6.2', '外風證; ', '3.1.7', '感冒; ', '33', '', '', '宜醫囑一')
 -- SELECT * from consultation_record
 -- CALL sp_pres_dt_get (1)
 -- SELECT * FROM DEBUG_LOG ORDER BY log_dtm desc
+-- SELECT prescription_safety_check(33, 0, 1)
