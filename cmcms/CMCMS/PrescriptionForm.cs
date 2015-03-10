@@ -84,13 +84,25 @@ namespace CMCMS
             }
             else
             {
-                if (consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), isG6pd, isPreg, ref statusMsg))
+                int status_id = consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), isG6pd, isPreg, ref statusMsg);
+                if (status_id > 0 && status_id != 18)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    this.Hide();
+                    presId.Value = tmp;
+                    presId.Name = tmp;
+                    if (status_id == 18)
+                    {
+                        DialogResult result = MessageBox.Show(statusMsg + "\n\n需要修改?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (result == System.Windows.Forms.DialogResult.No)
+                        {
+                            this.Hide();
+                        }
+                    }
+                    else
+                        this.Hide();
                 }
             }
         }

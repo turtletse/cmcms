@@ -262,11 +262,11 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"];
         }
 
-        public bool updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String statusMsg)
+        public int updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") + (isG6pd ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") + ", " + (isG6pd ? "1" : "0") + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
-            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+            return (int)data.Rows[0]["status_id"];
         }
 
         public List<List<String>> getPrescriptionDtById(int presId)

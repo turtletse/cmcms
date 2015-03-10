@@ -46,7 +46,7 @@ CREATE TABLE prescription_dt(
     drug_id int,
     sub_drug_id int,
     drug_name VARCHAR(255),
-    dosage int,
+    dosage DECIMAL(8,4),
     unit int,
     preparation_method int,
     display_order int

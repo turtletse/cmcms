@@ -23,17 +23,19 @@ BEGIN
     DECLARE cnt INT;
     DECLARE curr_drug_id INT;
     DECLARE curr_drug_name VARCHAR(255);
+    DECLARE curr_dosage DECIMAL(8,4);
+    DECLARE curr_unit INT;
     DECLARE return_msg VARCHAR(1000);
     DECLARE cur1 CURSOR FOR SELECT drug_data FROM drug_data_str;
-    DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = pres_id;
+    DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name, prescription_dt.dosage, prescription_dt.unit FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = in_presId;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;
+	END;*/
 	SET AUTOCOMMIT =0;
 	START TRANSACTION;
     
@@ -83,7 +85,7 @@ BEGIN
                     preparation_method,
 					display_order
 				)VALUES(
-					in_pres_id,
+					in_presId,
 					CAST(tmp_drug_code AS UNSIGNED),
 					CAST(tmp_sub_drug_code AS UNSIGNED),
                     tmp_drug_name,
@@ -108,12 +110,12 @@ BEGIN
 		CREATE TEMPORARY TABLE tmp_incompatible_drug
 		SELECT drug_id, incompatible_with
 		FROM incompatible_drug
-		WHERE drug_id IN (SELECT drug_id FROM prescription_dt WHERE prescription_dt.pres_id = pres_id);
+		WHERE drug_id IN (SELECT drug_id FROM prescription_dt WHERE prescription_dt.pres_id = in_presId);
 		
 		SET done = FALSE;
 		OPEN cur2;
 			REPEAT
-				FETCH cur2 INTO curr_drug_id, curr_drug_name;
+				FETCH cur2 INTO curr_drug_id, curr_drug_name, curr_dosage, curr_unit;
 				IF NOT done THEN
 					INSERT INTO chk_result (chk_id, result_desc)
 					SELECT 1, CONCAT_WS(' - ', curr_drug_name, master_drug_list.drug_name)
@@ -124,6 +126,15 @@ BEGIN
 					
 					UPDATE tmp_incompatible_drug
 					SET incompatible_with = REPLACE(incompatible_with, CONCAT('||', curr_drug_id), '');
+					
+					CASE drug_dosage_chk(curr_drug_id, curr_dosage, curr_unit)
+						WHEN -2 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (6, curr_drug_name);
+						WHEN -1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (7, curr_drug_name);
+						WHEN 1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (8, curr_drug_name);
+                        ELSE
+							BEGIN
+							END;
+					END CASE;
 				END IF;
 			UNTIL done END REPEAT;
 		CLOSE cur2;
@@ -132,31 +143,31 @@ BEGIN
 			INSERT INTO chk_result (chk_id, result_desc)
 			SELECT 2, master_drug_list.drug_name
 			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-			WHERE prescription_dt.pres_id = pres_id AND g6pd = 1;
+			WHERE prescription_dt.pres_id = in_presId AND g6pd = 1;
 			
 			INSERT INTO chk_result (chk_id, result_desc)
 			SELECT 3, master_drug_list.drug_name
 			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-			WHERE prescription_dt.pres_id = pres_id AND g6pd = 2;
+			WHERE prescription_dt.pres_id = in_presId AND g6pd = 2;
 		END IF;
 		
 		IF in_isPreg > 0 THEN
 			INSERT INTO chk_result (chk_id, result_desc)
 			SELECT 4, master_drug_list.drug_name
 			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-			WHERE prescription_dt.pres_id = pres_id AND pregnancy = 1;
+			WHERE prescription_dt.pres_id = in_presId AND pregnancy = 1;
 			
 			INSERT INTO chk_result (chk_id, result_desc)
 			SELECT 5, master_drug_list.drug_name
 			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-			WHERE prescription_dt.pres_id = pres_id AND pregnancy = 2;
+			WHERE prescription_dt.pres_id = in_presId AND pregnancy = 2;
 		END IF;
         
     COMMIT;
     SET AUTOCOMMIT=1;
     
     CALL debug_logger((SELECT GROUP_CONCAT(DISTINCT chk_id SEPARATOR '||' )FROM chk_result));
-    CALL sp_pres_ignore_safety_chk_logger(pres_id, (SELECT GROUP_CONCAT(DISTINCT chk_id SEPARATOR '||' )FROM chk_result));
+    CALL sp_pres_ignore_safety_chk_logger(in_presId, (SELECT GROUP_CONCAT(DISTINCT chk_id SEPARATOR '||' )FROM chk_result));
     
     IF (SELECT count(*) FROM chk_result)>0 THEN
 		SET curr_status_id = 18;
@@ -171,15 +182,18 @@ BEGIN
 					WHEN 3 THEN 'G6PD 禁用:'
 					WHEN 4 THEN '孕婦慎用:'
 					WHEN 5 THEN '孕婦禁用:'
+					WHEN 6 THEN '沒有輸入劑量/0劑量:'
+                    WHEN 7 THEN '劑量低於系統建議下限:'
+                    WHEN 8 THEN '劑量超出系統建議上限:'
 					ELSE ''
 				END,
 				GROUP_CONCAT(result_desc SEPARATOR '\n')) msg
 			FROM chk_result
 			GROUP BY chk_id
 		) a;
-        SELECT status_id, return_msg status_desc, pres_id FROM insert_record_status where status_id = curr_status_id;
+        SELECT status_id, return_msg status_desc FROM insert_record_status where status_id = curr_status_id;
 	ELSE
-		SELECT status_id, status_desc, pres_id FROM insert_record_status where status_id = curr_status_id;
+		SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
 	END IF;
     
 END $$
@@ -187,7 +201,7 @@ END $$
 DELIMITER ;
 
 
--- CALL sp_new_pres('ABC', 1, 'DEF', '101001||1^^一^^1^^10^^20##101002^^二^^3^^20^^10');
+-- CALL sp_update_pres (33, '', 1, '', '101001^^麻黃^^0.0000^^10^^20', 0, 0)
 -- SELECT * FROM system_parm;
 -- SELECT * FROM prescription;
 -- SELECT * FROM prescription_dt;

@@ -23,17 +23,19 @@ BEGIN
     DECLARE cnt INT;
     DECLARE curr_drug_id INT;
     DECLARE curr_drug_name VARCHAR(255);
+    DECLARE curr_dosage DECIMAL(8,4);
+    DECLARE curr_unit INT;
     DECLARE return_msg VARCHAR(1000);
     DECLARE cur1 CURSOR FOR SELECT drug_data FROM drug_data_str;
-    DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = pres_id;
+    DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name, prescription_dt.dosage, prescription_dt.unit FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = pres_id;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;
+	END;*/
 	SET AUTOCOMMIT =0;
 	START TRANSACTION;
     
@@ -105,7 +107,7 @@ BEGIN
     SET done = FALSE;
     OPEN cur2;
 		REPEAT
-			FETCH cur2 INTO curr_drug_id, curr_drug_name;
+			FETCH cur2 INTO curr_drug_id, curr_drug_name, curr_dosage, curr_unit;
 			IF NOT done THEN
 				INSERT INTO chk_result (chk_id, result_desc)
                 SELECT 1, CONCAT_WS(' - ', curr_drug_name, master_drug_list.drug_name)
@@ -116,6 +118,15 @@ BEGIN
                 
                 UPDATE tmp_incompatible_drug
                 SET incompatible_with = REPLACE(incompatible_with, CONCAT('||', curr_drug_id), '');
+                
+                CASE drug_dosage_chk(curr_drug_id, curr_dosage, curr_unit)
+					WHEN -2 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (6, curr_drug_name);
+					WHEN -1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (7, curr_drug_name);
+					WHEN 1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (8, curr_drug_name);
+                    ELSE
+						BEGIN
+                        END;
+                END CASE;
 			END IF;
 		UNTIL done END REPEAT;
 	CLOSE cur2;
@@ -163,6 +174,9 @@ BEGIN
 					WHEN 3 THEN 'G6PD 禁用:'
 					WHEN 4 THEN '孕婦慎用:'
 					WHEN 5 THEN '孕婦禁用:'
+                    WHEN 6 THEN '沒有輸入劑量/0劑量:'
+                    WHEN 7 THEN '劑量低於系統建議下限:'
+                    WHEN 8 THEN '劑量超出系統建議上限:'
 					ELSE ''
 				END,
 				GROUP_CONCAT(result_desc SEPARATOR '\n')) msg
@@ -181,7 +195,7 @@ END $$
 DELIMITER ;
 
 -- CALL sp_new_pres('ABC', 1, 'DEF', '101001||1^^一^^1^^10^^20##101002^^二^^3^^20^^10');
--- CALL sp_new_pres ('一', 1, '下乳', '101001^^麻黃^^1^^10^^20##101002^^桂枝^^5^^10^^20')
+-- CALL sp_new_pres ('', 1, '', '101001^^麻黃^^5^^10^^20', 0, 0)
 -- SELECT * FROM system_parm;
 -- SELECT * FROM prescription;
 -- SELECT * FROM prescription_dt;

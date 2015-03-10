@@ -24,6 +24,15 @@ BEGIN
         IF in_violation_id REGEXP '(^|[0-9]\\|{2})5(\\|{2}[0-9]|$)' THEN
 			UPDATE pres_ignore_safety_chk SET pregnant_forbidden = 1, record_dtm = SYSDATE(3) WHERE pres_id = in_pres_id;
 		END IF;
+        IF in_violation_id REGEXP '(^|[0-9]\\|{2})6(\\|{2}[0-9]|$)' THEN
+			UPDATE pres_ignore_safety_chk SET drug_wo_dosage = 1, record_dtm = SYSDATE(3) WHERE pres_id = in_pres_id;
+		END IF;
+        IF in_violation_id REGEXP '(^|[0-9]\\|{2})7(\\|{2}[0-9]|$)' THEN
+			UPDATE pres_ignore_safety_chk SET drug_below_min_dosage = 1, record_dtm = SYSDATE(3) WHERE pres_id = in_pres_id;
+		END IF;
+        IF in_violation_id REGEXP '(^|[0-9]\\|{2})8(\\|{2}[0-9]|$)' THEN
+			UPDATE pres_ignore_safety_chk SET drug_exceed_max_dosage = 1, record_dtm = SYSDATE(3) WHERE pres_id = in_pres_id;
+		END IF;
     END IF;
 END $$
 delimiter ;
