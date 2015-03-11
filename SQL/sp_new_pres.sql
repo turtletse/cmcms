@@ -6,11 +6,13 @@ CREATE PROCEDURE sp_new_pres (
     IN in_no_of_dose INT,
     IN in_method_of_treatment VARCHAR(255),
     IN in_drug_data_str VARCHAR(10000),
-    IN in_isPreg INT,
-    IN in_isG6PD INT
+    IN in_pat_id INT
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
+    DECLARE pat_isPreg INT;
+    DECLARE pat_isG6PD INT;
+    DECLARE pat_drug_allergy VARCHAR(1000);
     DECLARE pres_id INT;
     DECLARE done INT DEFAULT FALSE;
     DECLARE tmp_drug_str VARCHAR(40);
@@ -30,12 +32,12 @@ BEGIN
     DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name, prescription_dt.dosage, prescription_dt.unit FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = pres_id;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
 	SET AUTOCOMMIT =0;
 	START TRANSACTION;
     
@@ -131,7 +133,9 @@ BEGIN
 		UNTIL done END REPEAT;
 	CLOSE cur2;
     
-    IF in_isG6PD > 0 THEN
+    SELECT isG6PD, isPregnant, allergic_drug_ids INTO pat_isG6PD, pat_isPreg, pat_drug_allergy FROM patient_record WHERE patient_id = in_pat_id;
+    
+    IF pat_isG6PD > 0 THEN
 		INSERT INTO chk_result (chk_id, result_desc)
 		SELECT 2, master_drug_list.drug_name
 		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
@@ -143,7 +147,7 @@ BEGIN
 		WHERE prescription_dt.pres_id = pres_id AND g6pd = 2;
     END IF;
     
-    IF in_isPreg > 0 THEN
+    IF pat_isPreg > 0 THEN
 		INSERT INTO chk_result (chk_id, result_desc)
 		SELECT 4, master_drug_list.drug_name
 		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
@@ -155,6 +159,39 @@ BEGIN
 		WHERE prescription_dt.pres_id = pres_id AND pregnancy = 2;
     END IF;
     
+    
+    CALL split(pat_drug_allergy, '||');
+    
+    DROP TEMPORARY TABLE IF EXISTS drug_allergy_list;
+    
+    CREATE TEMPORARY TABLE drug_allergy_list
+    SELECT CAST(split_value AS UNSIGNED) drug_id FROM splitResult WHERE split_value IS NOT NULL AND length(split_value)>0;
+    
+	DROP TEMPORARY TABLE IF EXISTS matched_allergy_item;
+    
+    CREATE TEMPORARY TABLE matched_allergy_item(
+		drug_id INT,
+        sub_drug_id INT,
+        drug_name VARCHAR(255)
+    );
+    
+    INSERT INTO matched_allergy_item (drug_id, sub_drug_id)
+    SELECT drug_id, sub_drug_id
+    FROM prescription_dt
+    WHERE prescription_dt.pres_id = pres_id AND drug_id IN (SELECT drug_id FROM drug_allergy_list);
+    
+    UPDATE matched_allergy_item m, master_drug_list d
+    SET m.drug_name = d.drug_name
+    WHERE m.sub_drug_id = 0 AND m.drug_id = d.drug_id;
+    
+    UPDATE matched_allergy_item m, master_sub_drug_list s
+    SET m.drug_name = s.sub_drug_name
+    WHERE m.sub_drug_id > 0 AND m.drug_id = s.drug_id AND m.sub_drug_id = s.sub_drug_id;
+    
+    INSERT INTO chk_result (chk_id, result_desc)
+    SELECT 9, drug_name FROM matched_allergy_item;
+    
+    
     COMMIT;
     SET AUTOCOMMIT=1;
     
@@ -164,7 +201,7 @@ BEGIN
     IF (SELECT count(*) FROM chk_result)>0 THEN
 		SET curr_status_id = 18;
         SET return_msg = '系統發現處方有以下問題:\n\n';
-        SELECT CONCAT(return_msg, GROUP_CONCAT(a.msg ORDER BY a.chk_id SEPARATOR '\n')) INTO return_msg FROM (
+        SELECT CONCAT(return_msg, GROUP_CONCAT(a.msg ORDER BY a.chk_id SEPARATOR '\n\n')) INTO return_msg FROM (
 			SELECT 
 				chk_id,
 				CONCAT_WS('\n', 
@@ -177,6 +214,7 @@ BEGIN
                     WHEN 6 THEN '沒有輸入劑量/0劑量:'
                     WHEN 7 THEN '劑量低於系統建議下限:'
                     WHEN 8 THEN '劑量超出系統建議上限:'
+                    WHEN 9 THEN '病人藥物敏感史:'
 					ELSE ''
 				END,
 				GROUP_CONCAT(result_desc SEPARATOR '\n')) msg

@@ -2,7 +2,7 @@ DROP procedure if EXISTS sp_pres_ignore_safety_chk_logger;
 delimiter $$
 CREATE PROCEDURE sp_pres_ignore_safety_chk_logger (
 	IN in_pres_id INT,
-    IN in_violation_id VARCHAR(20)
+    IN in_violation_id VARCHAR(30)
 )
 BEGIN
 	DELETE FROM pres_ignore_safety_chk WHERE pres_id = in_pres_id;
@@ -33,8 +33,11 @@ BEGIN
         IF in_violation_id REGEXP '(^|[0-9]\\|{2})8(\\|{2}[0-9]|$)' THEN
 			UPDATE pres_ignore_safety_chk SET drug_exceed_max_dosage = 1, record_dtm = SYSDATE(3) WHERE pres_id = in_pres_id;
 		END IF;
+        IF in_violation_id REGEXP '(^|[0-9]\\|{2})9(\\|{2}[0-9]|$)' THEN
+			UPDATE pres_ignore_safety_chk SET patient_allergy = 1, record_dtm = SYSDATE(3) WHERE pres_id = in_pres_id;
+		END IF;
     END IF;
 END $$
 delimiter ;
 
--- CALL sp_pres_ignore_safety_chk_logger(1,'1||2||3||4||5');
+-- CALL sp_pres_ignore_safety_chk_logger(33,'1||2||3||4||5');

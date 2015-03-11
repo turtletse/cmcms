@@ -19,8 +19,6 @@ CREATE PROCEDURE sp_save_consultation (
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
-    DECLARE isPreg INT;
-    DECLARE isG6PD INT;
     DECLARE curr_pres_id INT;
     DECLARE done INT DEFAULT FALSE;
     DECLARE cur2 CURSOR FOR SELECT pres_id FROM tmp_pres_id_list;
@@ -59,8 +57,6 @@ BEGIN
 		SET curr_status_id = 1;
     END IF;
     
-    SELECT patient_record.isPregnant, patient_record.isG6PD INTO isPreg, isG6PD FROM patient_record WHERE patient_id = in_patient_id;
-    
     DROP TEMPORARY TABLE IF EXISTS pres_with_contraindication;
     CREATE TEMPORARY TABLE pres_with_contraindication (pres_id INT);
     CALL split(in_pres_id, '||');
@@ -78,7 +74,7 @@ BEGIN
 		REPEAT
 			FETCH cur2 INTO curr_pres_id;
 			IF NOT done THEN
-				IF (prescription_safety_check(curr_pres_id, isPreg, isG6PD)) = 1 THEN
+				IF (prescription_safety_check(curr_pres_id, in_patient_id)) = 1 THEN
 					INSERT INTO pres_with_contraindication (pres_id) VALUES (curr_pres_id);
                 END IF;
 			END IF;

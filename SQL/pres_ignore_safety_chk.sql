@@ -9,6 +9,7 @@ CREATE TABLE pres_ignore_safety_chk(
     drug_wo_dosage INT(1) DEFAULT 0, -- 6
     drug_below_min_dosage INT(1) DEFAULT 0, -- 7
     drug_exceed_max_dosage INT(1) DEFAULT 0, -- 8
+    patient_allergy INT(1) DEFAULT 0, -- 9
     record_dtm DATETIME(3)
 );
 
@@ -22,5 +23,6 @@ CREATE INDEX pres_ignore_safety_chk_x7 ON pres_ignore_safety_chk(pregnant_forbid
 CREATE INDEX pres_ignore_safety_chk_x8 ON pres_ignore_safety_chk(drug_wo_dosage);
 CREATE INDEX pres_ignore_safety_chk_x9 ON pres_ignore_safety_chk(drug_below_min_dosage);
 CREATE INDEX pres_ignore_safety_chk_x10 ON pres_ignore_safety_chk(drug_exceed_max_dosage);
+CREATE INDEX pres_ignore_safety_chk_x11 ON pres_ignore_safety_chk(patient_allergy);
 
 -- SELECT * FROM pres_ignore_safety_chk;

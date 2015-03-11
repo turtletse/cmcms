@@ -254,17 +254,17 @@ namespace CMCMS
 
 
         //prescriptionForm
-        public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String presId, ref String statusMsg)
+        public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String presId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") +", "+ (isG6pd ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + patId + ")");
             presId = data.Rows[0]["pres_id"].ToString();
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
 
-        public int updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, bool isG6pd, bool isPreg, ref String statusMsg)
+        public int updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + (isPreg ? "1" : "0") + ", " + (isG6pd ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + patId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }

@@ -12,8 +12,10 @@ namespace CMCMS
     public partial class PrescriptionForm : Form
     {
         PermissibleValueObj presId;
-        bool isPreg = false;
-        bool isG6pd = false;
+        // bool isPreg = false;
+        // bool isG6pd = false;
+        int patId = 0;
+
 
         ConsultationMgr consMgr = new ConsultationMgr();
 
@@ -35,7 +37,7 @@ namespace CMCMS
             }
         }
 
-        public void setIsPreg(bool isPreg)
+        /*public void setIsPreg(bool isPreg)
         {
             this.isPreg = isPreg;
         }
@@ -43,6 +45,11 @@ namespace CMCMS
         public void setIsG6pd(bool isG6pd)
         {
             this.isG6pd = isPreg;
+        }*/
+
+        public void setPatId(int patId)
+        {
+            this.patId = patId;
         }
 
         private void button_selectInstruction_Click(object sender, EventArgs e)
@@ -61,7 +68,7 @@ namespace CMCMS
             String tmp = presId.Value;
             if (presId.Value == "")
             {
-                int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), isG6pd, isPreg, ref tmp, ref statusMsg);
+                int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, ref tmp, ref statusMsg);
                 if (status_id > 0 && status_id != 18)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -84,7 +91,7 @@ namespace CMCMS
             }
             else
             {
-                int status_id = consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), isG6pd, isPreg, ref statusMsg);
+                int status_id = consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, ref statusMsg);
                 if (status_id > 0 && status_id != 18)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);

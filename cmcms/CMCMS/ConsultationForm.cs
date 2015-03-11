@@ -239,8 +239,7 @@ namespace CMCMS
             PrescriptionForm pf = new PrescriptionForm();
             PermissibleValueObj presId = new PermissibleValueObj("","");
             pf.setPresId(ref presId);
-            pf.setIsG6pd(checkBox_pat_isG6PD.Checked);
-            pf.setIsPreg(checkBox_pat_isPregnant.Checked);
+            pf.setPatId(int.Parse(textBox_patId.Text));
             pf.ShowDialog();
             comboBox_presId.Items.Add(presId);
             if (comboBox_presId.Items.Count > 0)
@@ -263,8 +262,7 @@ namespace CMCMS
             PrescriptionForm pf = new PrescriptionForm();
             PermissibleValueObj presId = new PermissibleValueObj(comboBox_presId.SelectedItem.ToString(),comboBox_presId.SelectedItem.ToString());
             pf.setPresId(ref presId);
-            pf.setIsG6pd(checkBox_pat_isG6PD.Checked);
-            pf.setIsPreg(checkBox_pat_isPregnant.Checked);
+            pf.setPatId(int.Parse(textBox_patId.Text));
             pf.ShowDialog();
         }
 
