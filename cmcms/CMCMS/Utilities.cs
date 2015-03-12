@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CMCMS
 {
@@ -23,6 +24,11 @@ namespace CMCMS
                     break;
                 }
             }
+        }
+
+        public static bool isInteger(String s)
+        {
+            return Regex.IsMatch(s, "^[0-9]+$", RegexOptions.Compiled);
         }
     }
 }

@@ -71,4 +71,4 @@ BEGIN
 END $$
 DELIMITER ;
 
-SELECT drug_dosage_chk(101001, 6,50);
+-- SELECT drug_dosage_chk(101001, 4.58,40);
