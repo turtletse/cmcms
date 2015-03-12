@@ -23,6 +23,7 @@ BEGIN
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	ELSE
 		-- SET pid = get_new_patient_id();
+        SET AUTOCOMMIT = 0;
 		START TRANSACTION;
             INSERT INTO clinic (
 				clinic_id,
@@ -30,17 +31,21 @@ BEGIN
 				clinic_eng_name,
 				clinic_addr,
 				clinic_phone_no,
-				isSuspended)
+				isSuspended,
+                last_update_dtm)
 			VALUES (
 				UPPER(in_clinic_id),
 				in_clinic_chin_name,
 				UPPER(in_clinic_eng_name),
 				in_clinic_addr,
 				in_clinic_phone_no,
-				in_isSuspended
+				in_isSuspended,
+                sysdate(3)
             );
-		COMMIT;
-        
+			
+            CALL cmcis.clinic_pharm_mapping_update_by_cmcms(UPPER(in_clinic_id), in_clinic_chin_name, UPPER(in_clinic_eng_name), in_clinic_addr, in_clinic_phone_no);
+        COMMIT;
+        SET AUTOCOMMIT = 1;
         SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
         
     END IF;

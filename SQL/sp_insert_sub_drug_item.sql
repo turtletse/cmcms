@@ -29,10 +29,11 @@ BEGIN
 				)
 			VALUES (
 				in_drug_id,
-				(SELECT IFNULL(max(x.sub_drug_id)+1, 1) from master_sub_drug_list x where drug_id = in_drug_id),
+				last_insert_id((SELECT IFNULL(max(x.sub_drug_id)+1, 1) from master_sub_drug_list x where drug_id = in_drug_id)),
                 in_sub_drug_name
             );
 		COMMIT;
+        CALL cmcis.common_prescribe_drug_list_update_by_cmcms(in_drug_id, last_insert_id(), in_sub_drug_name);
         SELECT * FROM insert_record_status where status_id = curr_status_id;
     END IF;
 END $$

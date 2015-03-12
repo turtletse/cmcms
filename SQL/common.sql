@@ -104,23 +104,23 @@ CREATE TABLE common_user(
 	hashed_password CHAR(64),
 	chin_name VARCHAR(21),
 	eng_name VARCHAR(70),
-    update_dtm DATETIME(3)
+    last_update_dtm DATETIME(3)
 );
 CREATE INDEX common_user_x1 ON common_user(user_id);
 
-DROP PROCEDURE IF EXISTS common_user_get;
+/*DROP PROCEDURE IF EXISTS common_user_get;
 DELIMITER $$
 CREATE PROCEDURE common_user_get(IN in_user_id VARCHAR(10))
 BEGIN
 		DROP TEMPORARY TABLE IF EXISTS tmp_common_user_get_result;
 		CREATE TEMPORARY TABLE tmp_common_user_get_result
-		SELECT user_id, hashed_password, chin_name, eng_name, update_dtm
+		SELECT user_id, hashed_password, chin_name, eng_name, last_update_dtm
 		FROM common_user
 		WHERE user_id = in_user_id;
 END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE cmcis.common_user_get TO 'cmcms'@'%';
-GRANT EXECUTE ON PROCEDURE cmcis.common_user_get TO 'cmpms'@'%';
+GRANT EXECUTE ON PROCEDURE cmcis.common_user_get TO 'cmpms'@'%';*/
 
 DROP PROCEDURE IF EXISTS common_user_update;
 DELIMITER $$
@@ -138,22 +138,24 @@ BEGIN
 		SET @update_status = 0;
 	END;
 	
-	SET AUTOCOMMIT = 0;
-	START TRANSACTION;
-		SELECT COUNT(*) INTO cnt FROM common_user WHERE user_id = in_user_id;
-		IF cnt = 0 THEN
-			INSERT INTO common_user (user_id, hashed_password, chin_name, eng_name, update_dtm)
-			VALUES (in_user_id, in_hashed_password, in_chin_name, in_eng_name, sysdate(3));
-		ELSE
-			UPDATE common_user
-			SET hashed_password = in_hashed_password,
-				chin_name = in_chin_name,
-				eng_name = in_eng_name,
-                update_dtm = sysdate(3)
-			WHERE user_id = in_user_id;
-		END IF;
-	COMMIT;
-	SET AUTOCOMMIT = 1;
+    IF (in_user_id <> 'SYSADM') THEN
+		SET AUTOCOMMIT = 0;
+		START TRANSACTION;
+			SELECT COUNT(*) INTO cnt FROM common_user WHERE user_id = in_user_id;
+			IF cnt = 0 THEN
+				INSERT INTO common_user (user_id, hashed_password, chin_name, eng_name, last_update_dtm)
+				VALUES (in_user_id, in_hashed_password, in_chin_name, in_eng_name, sysdate(3));
+			ELSE
+				UPDATE common_user
+				SET hashed_password = in_hashed_password,
+					chin_name = in_chin_name,
+					eng_name = in_eng_name,
+					last_update_dtm = sysdate(3)
+				WHERE user_id = in_user_id;
+			END IF;
+		COMMIT;
+		SET AUTOCOMMIT = 1;
+	END IF;
 	SET @update_status = 1;
 END $$
 DELIMITER ;

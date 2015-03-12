@@ -21,7 +21,7 @@ namespace CMCMS
             }
             else
             {
-                ErrMsg = "登入名稱/診所/用戶不正確";
+                ErrMsg = "登入名稱/診所/用戶不正確\n或\n用戶沒有任何診所之存取權限";
                 return null;
             }
         }

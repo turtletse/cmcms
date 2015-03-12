@@ -28,7 +28,7 @@ BEGIN
                 isDeleted = in_isDeleted
 			WHERE drug_id = in_drug_id AND sub_drug_id = in_sub_drug_id;
 		COMMIT;
-        
+        CALL cmcis.common_prescribe_drug_list_update_by_cmcms(in_drug_id, in_sub_drug_id, in_sub_drug_name);
         SELECT * FROM insert_record_status where status_id = curr_status_id;
         
     END IF;

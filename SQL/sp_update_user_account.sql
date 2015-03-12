@@ -11,6 +11,7 @@ CREATE PROCEDURE sp_update_user_account (
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
+    DECLARE update_dtm DATETIME(3);
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
@@ -24,6 +25,9 @@ BEGIN
         SET curr_status_id = 10;
         SELECT * FROM insert_record_status where status_id = curr_status_id;    
 	ELSE
+		CALL cmcis.common_user_update(in_user_id, in_hashed_password, in_chin_name, UPPER(in_eng_name));
+        SELECT last_update_dtm INTO update_dtm FROM cmcis.common_user WHERE user_id = in_user_id;
+		SET AUTOCOMMIT = 0;
 		START TRANSACTION;
             UPDATE user_account 
             SET
@@ -32,14 +36,17 @@ BEGIN
                     ELSE in_hashed_password
                     END,
 				chin_name = in_chin_name,
-				eng_name = in_eng_name,
+				eng_name = UPPER(in_eng_name),
 				reg_no = CASE
 					WHEN LENGTH(in_reg_no) = 0 THEN NULL
                     ELSE in_reg_no
                     END,
-				isSuspended = in_isSuspended
+				isSuspended = in_isSuspended,
+                last_update_dtm = sysdate(3)
 			WHERE user_id = in_user_id;
-		COMMIT;
+        COMMIT;
+        SET AUTOCOMMIT = 1;
+		
         
         SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
         

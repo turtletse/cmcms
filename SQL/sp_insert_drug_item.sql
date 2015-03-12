@@ -95,6 +95,9 @@ BEGIN
             END IF;
             -- CALL debug_logger('sp_insert_drug_item pt3');
 		COMMIT;
+        
+        CALL cmcis.common_prescribe_drug_list_update_by_cmcms((SELECT drug_id FROM master_drug_list WHERE drug_name = in_drug_name), 0, in_drug_name);
+        
         -- CALL debug_logger('sp_insert_drug_item pt4');
         SELECT * FROM insert_record_status where status_id = curr_status_id;
         -- CALL debug_logger('sp_insert_drug_item pt5');

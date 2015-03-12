@@ -11,7 +11,8 @@ CREATE TABLE user_account(
     reg_no varchar(20) DEFAULT NULL,
     last_logout_dtm DATETIME DEFAULT NULL,
     last_logout_clinic_id varchar(10) DEFAULT NULL,
-    isSuspended int(1) DEFAULT 0
+    isSuspended int(1) DEFAULT 0,
+    last_update_dtm DATETIME(3)
 );
 CREATE INDEX user_account_x1 on user_account(user_id, isSuspended);
 insert into user_account values ('SYSADM', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '系統管理員', 'SYSTEM ADMIN', null, null, null,0);
@@ -48,7 +49,8 @@ CREATE TABLE clinic(
     clinic_eng_name varchar(255),
     clinic_addr varchar(1000),
     clinic_phone_no varchar(30),
-    isSuspended int(1) default 0
+    isSuspended int(1) default 0,
+    last_update_dtm DATETIME(3)
 );
 CREATE INDEX clinic_x1 on clinic(clinic_id, isSuspended);
 insert into clinic values ('ALL', '系統管理', 'SYSTEM ADMIN', '-', '-', 0);
