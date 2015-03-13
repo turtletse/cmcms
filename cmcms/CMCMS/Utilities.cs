@@ -28,7 +28,28 @@ namespace CMCMS
 
         public static bool isInteger(String s)
         {
-            return Regex.IsMatch(s, "^[0-9]+$", RegexOptions.Compiled);
+            return Regex.IsMatch(s, @"^[0-9]+$", RegexOptions.Compiled);
+        }
+
+        public static bool isDecimal(String s)
+        {
+            return Regex.IsMatch(s, @"^[0-9]{0,4}([.][0-9]{0,4})?$", RegexOptions.Compiled);
+        }
+
+        public static bool isCJKCharacters(String s)
+        {
+            Regex cjkCharRegex = new Regex(@"\p{IsCJKUnifiedIdeographs}");
+            return s.All(c=>cjkCharRegex.IsMatch(c.ToString()));
+        }
+
+        public static bool isAlphaSpace(String s)
+        {
+            return Regex.IsMatch(s, @"^[a-zA-Z\s]*$", RegexOptions.Compiled);
+        }
+
+        public static bool isAlphaNumericSpaceComma(String s)
+        {
+            return Regex.IsMatch(s, @"^[a-zA-Z0-9\s,]*$", RegexOptions.Compiled);
         }
     }
 }
