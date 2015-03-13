@@ -61,6 +61,7 @@ GRANT EXECUTE ON PROCEDURE cmcis.clinic_pharm_mapping_update_by_cmcms TO 'cmcms'
 DROP PROCEDURE IF EXISTS clinic_pharm_mapping_update_by_cmpms;
 DELIMITER $$
 CREATE PROCEDURE clinic_pharm_mapping_update_by_cmpms(
+	IN in_clinic_id VARCHAR(10),
 	IN in_pharm_id VARCHAR(10), 
 	IN in_pharm_chin_name VARCHAR(60),
 	IN in_pharm_eng_name VARCHAR(255),
@@ -77,16 +78,17 @@ BEGIN
 	
 	SET AUTOCOMMIT = 0;
 	START TRANSACTION;
-		SELECT COUNT(*) INTO cnt FROM clinic_pharm_mapping WHERE pharm_id = in_pharm_id;
+		SELECT COUNT(*) INTO cnt FROM clinic_pharm_mapping WHERE clinic_id = in_clinic_id;
 		IF cnt = 0 THEN
 			SET @update_status = -1;
 		ELSE
 			UPDATE clinic_pharm_mapping
-			SET pharm_chin_name = in_pharm_chin_name,
+			SET pharm_id = in_pharm_id,
+				pharm_chin_name = in_pharm_chin_name,
 				pharm_eng_name = in_pharm_eng_name,
 				pharm_addr = in_pharm_addr,
 				pharm_phone_no = in_pharm_phone_no
-			WHERE pharm_id = in_pharm_id;
+			WHERE clinic_id = in_clinic_id;
 		END IF;
 	COMMIT;
 	SET AUTOCOMMIT = 1;
@@ -95,8 +97,31 @@ END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE cmcis.clinic_pharm_mapping_update_by_cmpms TO 'cmpms'@'%';
 
+DROP PROCEDURE IF EXISTS related_pharm_get;
+DELIMITER $$
+CREATE PROCEDURE related_pharm_get (IN in_clinic_id VARCHAR(10))
+BEGIN
+	DROP TEMPORARY TABLE IF EXISTS related_pharm;
+	CREATE TEMPORARY TABLE related_pharm
+	SELECT clinic_addr = pharm_addr isSame_Location, pharm_id, pharm_chin_name, pharm_addr, pharm_phone_no
+	FROM clinic_pharm_mapping
+	WHERE clinic_id = in_clinic_id;
+END $$
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE cmcis.related_pharm_get TO 'cmcms'@'%';
 
-
+DROP PROCEDURE IF EXISTS related_clinics_get;
+DELIMITER $$
+CREATE PROCEDURE related_clinics_get (IN in_pharm_id VARCHAR(10))
+BEGIN
+	DROP TEMPORARY TABLE IF EXISTS related_clinics;
+	CREATE TEMPORARY TABLE related_clinics
+	SELECT clinic_addr = pharm_addr isSame_Location, clinic_id, clinic_chin_name, clinic_addr, clinic_phone_no
+	FROM clinic_pharm_mapping
+	WHERE pharm_id = in_pharm_id;
+END $$
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE cmcis.related_clinics_get TO 'cmpms'@'%';
 
 DROP TABLE IF EXISTS common_user;
 CREATE TABLE common_user(
