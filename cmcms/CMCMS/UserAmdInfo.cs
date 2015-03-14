@@ -29,7 +29,7 @@ namespace CMCMS
             UserClinicMgr ucMgr = new UserClinicMgr();
             userRegistration1.Enabled = false;
 
-            if (!userRegistration1.isDataValid())
+            if (!input_validation())
                 return;
 
             String statusMsg = "";
@@ -53,6 +53,16 @@ namespace CMCMS
             }
 
             userRegistration1.Enabled = true;
+        }
+
+        private bool input_validation()
+        {
+            if (userRegistration1.input_validation())
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void UserAmdInfo_Shown(object sender, EventArgs e)

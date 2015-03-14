@@ -55,7 +55,6 @@ namespace CMCMS
             if (!prescriptionPanel1.input_validation())
             {
                 MessageBox.Show("方劑資料有誤", "方劑資料錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_presName.Focus();
                 return false;
             }
 

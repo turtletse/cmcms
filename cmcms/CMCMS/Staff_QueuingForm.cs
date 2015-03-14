@@ -78,20 +78,62 @@ namespace CMCMS
 
         private void button_piorityCons_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            patMgr.staffAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref statusMsg);
-            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            nextPatReset();
-            waitingList1.refresh();
+            if (input_validation_piorityCons())
+            {
+                String statusMsg = "";
+                patMgr.staffAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ((UserObj)(comboBox_NextPat_MOIC.SelectedItem)).Value, ref statusMsg);
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                nextPatReset();
+                waitingList1.refresh();
+            }
+        }
+
+        private bool input_validation_piorityCons()
+        {
+            if (textBox_piorityCons_patId.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入病人編號", "病人編號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_piorityCons_patId.Focus();
+                return false;
+            }
+            if (!Utilities.isInteger(textBox_piorityCons_patId.Text))
+            {
+                MessageBox.Show("病人編號只限半形數字\n請重新輸入", "病人編號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_piorityCons_patId.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void button_changeMOIC_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            patMgr.changeMOIC(int.Parse(textBox_changeMOIC_patId.Text), ((UserObj)(comboBox_changeMOIC_MOIC.SelectedItem)).Value, ref statusMsg);
-            MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            changeMOICReset();
-            waitingList1.refresh();
+            if (input_validation_changeMOIC())
+            {
+                String statusMsg = "";
+                patMgr.changeMOIC(int.Parse(textBox_changeMOIC_patId.Text), ((UserObj)(comboBox_changeMOIC_MOIC.SelectedItem)).Value, ref statusMsg);
+                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                changeMOICReset();
+                waitingList1.refresh();
+            }
+        }
+
+        private bool input_validation_changeMOIC()
+        {
+            if (textBox_changeMOIC_patId.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入病人編號", "病人編號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_changeMOIC_patId.Focus();
+                return false;
+            }
+            if (!Utilities.isInteger(textBox_changeMOIC_patId.Text))
+            {
+                MessageBox.Show("病人編號只限半形數字\n請重新輸入", "病人編號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_changeMOIC_patId.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void button_callNext_Click(object sender, EventArgs e)

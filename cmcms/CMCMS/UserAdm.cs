@@ -26,7 +26,7 @@ namespace CMCMS
         {
             //input validation
             userRegistration_newUser.Enabled = false;
-            if (!userRegistration_newUser.isDataValid())
+            if (!input_validation_newUser())
                 return;
 
             String statusMsg = "";
@@ -42,6 +42,15 @@ namespace CMCMS
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             userRegistration_newUser.Enabled = true;
+        }
+
+        private bool input_validation_newUser()
+        {
+            if (userRegistration_newUser.input_validation())
+            {
+                return false;
+            }
+            return true;
         }
 
         private void tabPage_newUser_Enter(object sender, EventArgs e)
@@ -68,7 +77,7 @@ namespace CMCMS
         {
             userRegistration_amdUser.Enabled = false;
 
-            if (!userRegistration_amdUser.isDataValid())
+            if (!input_validation_amdUser())
                 return;
 
             String statusMsg = "";
@@ -85,6 +94,15 @@ namespace CMCMS
             }
 
             userRegistration_amdUser.Enabled = true;
+        }
+
+        private bool input_validation_amdUser()
+        {
+            if (userRegistration_amdUser.input_validation())
+            {
+                return false;
+            }
+            return true;
         }
 
         private void tabPage_amdRole_Enter(object sender, EventArgs e)
@@ -117,6 +135,34 @@ namespace CMCMS
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             tabControl1.Enabled = true;
+        }
+
+        private bool input_validation_addRole()
+        {
+            if (textBox_amdRole_userId.Text.Length == 0)
+            {
+                MessageBox.Show("請選擇用戶", "用戶錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (((PermissibleValueObj)(comboBox_amdRole_role.SelectedItem)).Value == "40")
+            {
+                if (((PermissibleValueObj)(comboBox_amdRole_clinic.SelectedItem)).Value != "ALL")
+                {
+                    MessageBox.Show("系統管理員只限選用專用診所代號\"ALL\"", "診所代號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            if (((PermissibleValueObj)(comboBox_amdRole_clinic.SelectedItem)).Value == "ALL")
+            {
+                if (((PermissibleValueObj)(comboBox_amdRole_role.SelectedItem)).Value != "40")
+                {
+                    MessageBox.Show("系統管理員專用診所代號\"ALL\"只限系統管理員專用", "身份錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void button_amdRole_reset_Click(object sender, EventArgs e)

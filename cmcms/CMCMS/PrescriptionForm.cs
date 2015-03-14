@@ -114,6 +114,29 @@ namespace CMCMS
             }
         }
 
+        private bool input_validation()
+        {
+            if (textBox_nDose.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入劑數", "劑數錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_nDose.Focus();
+                return false;
+            }
+            if (!Utilities.isInteger(textBox_nDose.Text))
+            {
+                MessageBox.Show("劑數只限半形數字\n請重新輸入", "劑數錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_nDose.Focus();
+                return false;
+            }
+
+            if (prescriptionPanel1.input_validation())
+            {
+                MessageBox.Show("方劑資料有誤", "方劑資料錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void button_reset_Click(object sender, EventArgs e)
         {
             if (presId.Value != "")

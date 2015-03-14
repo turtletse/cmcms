@@ -23,18 +23,21 @@ namespace CMCMS
 
         private void button_newClinic_Click(object sender, EventArgs e)
         {
-            UserClinicMgr ucMgr = new UserClinicMgr();
-            String statusMsg = "";
-            bool isSuccess;
-            isSuccess = ucMgr.insertClinic(clinicRegistration1.getClinicId(), clinicRegistration1.getChineseName(), clinicRegistration1.getEnglishName(), clinicRegistration1.getAddr(), clinicRegistration1.getPhoneNo(), clinicRegistration1.getIsSuspended(), ref statusMsg);
-            if (isSuccess)
+            if (clinicRegistration1.input_validation())
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                button_reset_Click(sender, e);
-            }
-            else
-            {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UserClinicMgr ucMgr = new UserClinicMgr();
+                String statusMsg = "";
+                bool isSuccess;
+                isSuccess = ucMgr.insertClinic(clinicRegistration1.getClinicId(), clinicRegistration1.getChineseName(), clinicRegistration1.getEnglishName(), clinicRegistration1.getAddr(), clinicRegistration1.getPhoneNo(), clinicRegistration1.getIsSuspended(), ref statusMsg);
+                if (isSuccess)
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    button_reset_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

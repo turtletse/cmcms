@@ -76,7 +76,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DrugIncompatibleSelection";
-            this.Text = "DrugIncompatibleSelection";
+            this.Text = "選擇藥項";
             this.Shown += new System.EventHandler(this.DrugIncompatibleSelection_Shown);
             this.ResumeLayout(false);
 

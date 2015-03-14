@@ -44,7 +44,7 @@ namespace CMCMS
             comboBox_predefPresName.SelectedIndex = 0;
         }
 
-        private void button_addPredefPres_reset_Click(object sender, EventArgs e)
+        private void button_updatePredefPres_reset_Click(object sender, EventArgs e)
         {
             reset();
         }
@@ -54,20 +54,41 @@ namespace CMCMS
             textBox_rename.ReadOnly = !(checkBox_rename.Checked);
         }
 
-        private void button_addPredefPres_Click(object sender, EventArgs e)
+        private void button_updatePredefPres_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            bool isSuccess;
-            isSuccess = drugMgr.UpdatePredefinedPrescription(int.Parse(((PermissibleValueObj)(comboBox_predefPresName.SelectedItem)).getValue()), textBox_rename.Text.Trim(), prescriptionPanel1.getPrescriptionDataString(), checkBox_isDelete.Checked, ref statusMsg);
-            if (isSuccess)
+            if (input_validation())
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reset();
+                String statusMsg = "";
+                bool isSuccess;
+                isSuccess = drugMgr.UpdatePredefinedPrescription(int.Parse(((PermissibleValueObj)(comboBox_predefPresName.SelectedItem)).getValue()), textBox_rename.Text.Trim(), prescriptionPanel1.getPrescriptionDataString(), checkBox_isDelete.Checked, ref statusMsg);
+                if (isSuccess)
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reset();
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+        }
+
+        private bool input_validation()
+        {
+            if (textBox_rename.Text.Length == 0)
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("請輸入方劑名稱", "方劑名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_rename.Focus();
+                return false;
             }
+
+            if (!prescriptionPanel1.input_validation())
+            {
+                MessageBox.Show("方劑資料有誤", "方劑資料錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
     }
 }

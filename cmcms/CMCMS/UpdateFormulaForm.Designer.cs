@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button_addPredefPres_reset = new System.Windows.Forms.Button();
+            this.button_updatePredefPres_reset = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_addPredefPres = new System.Windows.Forms.Button();
+            this.button_updatePredefPres = new System.Windows.Forms.Button();
             this.prescriptionPanel1 = new CMCMS.PrescriptionPanel();
             this.checkBox_isInclDeleted = new System.Windows.Forms.CheckBox();
             this.comboBox_predefPresName = new System.Windows.Forms.ComboBox();
@@ -40,16 +40,16 @@
             this.checkBox_isDelete = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // button_addPredefPres_reset
+            // button_updatePredefPres_reset
             // 
-            this.button_addPredefPres_reset.Location = new System.Drawing.Point(1151, 627);
-            this.button_addPredefPres_reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button_addPredefPres_reset.Name = "button_addPredefPres_reset";
-            this.button_addPredefPres_reset.Size = new System.Drawing.Size(120, 50);
-            this.button_addPredefPres_reset.TabIndex = 11;
-            this.button_addPredefPres_reset.Text = "重置";
-            this.button_addPredefPres_reset.UseVisualStyleBackColor = true;
-            this.button_addPredefPres_reset.Click += new System.EventHandler(this.button_addPredefPres_reset_Click);
+            this.button_updatePredefPres_reset.Location = new System.Drawing.Point(1151, 627);
+            this.button_updatePredefPres_reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button_updatePredefPres_reset.Name = "button_updatePredefPres_reset";
+            this.button_updatePredefPres_reset.Size = new System.Drawing.Size(120, 50);
+            this.button_updatePredefPres_reset.TabIndex = 11;
+            this.button_updatePredefPres_reset.Text = "重置";
+            this.button_updatePredefPres_reset.UseVisualStyleBackColor = true;
+            this.button_updatePredefPres_reset.Click += new System.EventHandler(this.button_updatePredefPres_reset_Click);
             // 
             // label2
             // 
@@ -70,16 +70,16 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "更改方劑";
             // 
-            // button_addPredefPres
+            // button_updatePredefPres
             // 
-            this.button_addPredefPres.Location = new System.Drawing.Point(1275, 627);
-            this.button_addPredefPres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button_addPredefPres.Name = "button_addPredefPres";
-            this.button_addPredefPres.Size = new System.Drawing.Size(120, 50);
-            this.button_addPredefPres.TabIndex = 7;
-            this.button_addPredefPres.Text = "更改方劑";
-            this.button_addPredefPres.UseVisualStyleBackColor = true;
-            this.button_addPredefPres.Click += new System.EventHandler(this.button_addPredefPres_Click);
+            this.button_updatePredefPres.Location = new System.Drawing.Point(1275, 627);
+            this.button_updatePredefPres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button_updatePredefPres.Name = "button_updatePredefPres";
+            this.button_updatePredefPres.Size = new System.Drawing.Size(120, 50);
+            this.button_updatePredefPres.TabIndex = 7;
+            this.button_updatePredefPres.Text = "更改方劑";
+            this.button_updatePredefPres.UseVisualStyleBackColor = true;
+            this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 
             // prescriptionPanel1
             // 
@@ -149,10 +149,10 @@
             this.Controls.Add(this.checkBox_rename);
             this.Controls.Add(this.comboBox_predefPresName);
             this.Controls.Add(this.checkBox_isInclDeleted);
-            this.Controls.Add(this.button_addPredefPres_reset);
+            this.Controls.Add(this.button_updatePredefPres_reset);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button_addPredefPres);
+            this.Controls.Add(this.button_updatePredefPres);
             this.Controls.Add(this.prescriptionPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -168,10 +168,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button_addPredefPres_reset;
+        private System.Windows.Forms.Button button_updatePredefPres_reset;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button_addPredefPres;
+        private System.Windows.Forms.Button button_updatePredefPres;
         private PrescriptionPanel prescriptionPanel1;
         private System.Windows.Forms.CheckBox checkBox_isInclDeleted;
         private System.Windows.Forms.ComboBox comboBox_predefPresName;

@@ -300,7 +300,7 @@
             this.MaximizeBox = false;
             this.Name = "Staff_QueuingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Staff_QueuingForm";
+            this.Text = "候診病人管理";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
