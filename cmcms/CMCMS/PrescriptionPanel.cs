@@ -116,15 +116,37 @@ namespace CMCMS
             DGV_selected.Rows.Clear();
         }
 
+        public bool input_validation()
+        {
+            foreach (DataGridViewRow row in DGV_selected.Rows)
+            {
+                String dosage = row.Cells[3].Value == null?"":row.Cells[3].Value.ToString();
+                if (!Utilities.isDecimal(dosage))
+                {
+                    row.Cells[3].ErrorText = "只限數值\n有效範圍[0.0000 - 9999.9999]";
+                    return false;
+                }
+                else
+                {
+                    row.Cells[3].ErrorText = String.Empty;
+                }
+            }
+            return true;
+        }
+        
         public String getPrescriptionDataString()
         {
             //FORMAT: drugId||subDrugId^^dosage^^unit^^method##
             String prescription = "";
             foreach (DataGridViewRow row in DGV_selected.Rows)
             {
-                prescription += "##" + row.Cells[1].Value + "^^" + row.Cells[3].Value + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()] + "^^" + methods[((DataGridViewComboBoxCell)row.Cells[5]).EditedFormattedValue.ToString()];
+                prescription += "##" + row.Cells[1].Value + "^^" + (row.Cells[3].Value == null ? 0 : row.Cells[3].Value) + "^^" + units[((DataGridViewComboBoxCell)row.Cells[4]).EditedFormattedValue.ToString()] + "^^" + methods[((DataGridViewComboBoxCell)row.Cells[5]).EditedFormattedValue.ToString()];
             }
-            return prescription.Substring(2);
+            if (prescription.Length > 0)
+            {
+                prescription = prescription.Substring(2);
+            }
+            return prescription;
         }
 
         public String getConsultationPrescriptionDataString()

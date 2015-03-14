@@ -65,6 +65,89 @@ namespace CMCMS
             label_deceasedRptDate.Text = "";
         }
 
+        public bool input_validation()
+        {
+            if (textBox_patReg_chiName.Text.Length > 7)
+            {
+                MessageBox.Show("中文姓名只限最多7個中文字符\n請重新輸入", "中文姓名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_engName.Focus();
+                return false;
+            }
+            if (!Utilities.isCJKCharacters(textBox_patReg_chiName.Text))
+            {
+                MessageBox.Show("中文姓名只限中文字符\n請重新輸入", "中文姓名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_chiName.Focus();
+                return false;
+            }
+
+            if (textBox_patReg_engName.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入英文姓名", "英文姓名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_engName.Focus();
+                return false;
+            }
+            if (textBox_patReg_chiName.Text.Length > 70)
+            {
+                MessageBox.Show("英文姓名只限最多70個半形英文字母及空格\n請重新輸入", "英文姓名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_engName.Focus();
+                return false;
+            }
+            if (!Utilities.isAlphaSpace(textBox_patReg_engName.Text))
+            {
+                MessageBox.Show("英文姓名只限半形英文字母及空格\n請重新輸入", "英文姓名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_engName.Focus();
+                return false;
+            }
+
+            if (radioButton_IDNo.Checked)
+            {
+                if (!Utilities.isValidHKID(textBox_patReg_HKID.Text))
+                {
+                    MessageBox.Show("身份證號碼錯誤\n請重新輸入", "身份證號碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_patReg_HKID.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                if (textBox_patReg_HKID.Text.Length == 0)
+                {
+                    MessageBox.Show("請輸入護照號碼", "護照號碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_patReg_HKID.Focus();
+                    return false;
+                }
+                if (!Utilities.isAlphaNumericParentheses(textBox_patReg_HKID.Text))
+                {
+                    MessageBox.Show("護照號碼只限半形英文字母,數字及小括號\"()\"\n請重新輸入", "護照號碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_patReg_HKID.Focus();
+                    return false;
+                }
+            }
+
+            if (!Utilities.isphoneNo(textBox_patReg_phoneNo.Text))
+            {
+                MessageBox.Show("電話號碼只限8位半形數字\n請重新輸入", "電話號碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_phoneNo.Focus();
+                return false;
+            }
+
+            if (textBox_patReg_addr.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入地址", "地址錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_addr.Focus();
+                return false;
+            }
+
+            if (!isPasswordMatch())
+            {
+                MessageBox.Show("確認密碼錯誤", "確認密碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_patReg_confirmPassword.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
         private void button_selectAllergicDrug_Click(object sender, EventArgs e)
         {
             DrugObj selectedDrug = DSP_allergic.getSelectedDrug();
@@ -190,18 +273,6 @@ namespace CMCMS
             listBox_selectedAllergicDrug.Enabled = false;
             drugMgr.setDrugListBoxItemsByDrugIds(listBox_selectedAllergicDrug, drugIds);
             listBox_selectedAllergicDrug.Enabled = true;
-        }
-
-        public bool isDataValid()
-        {
-            bool isValid = true;
-            if (isPasswordMatch() == false)
-            {
-                MessageBox.Show("確認密碼不正確!", "資料錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                isValid = false;
-            }
-
-            return isValid;
         }
 
         public void setPatientData(PatientObj pat)

@@ -54,7 +54,7 @@ BEGIN
     END IF;
     SET in_dosage = in_dosage*factor;
     
-    IF(in_unit <> min_unit OR min_unit <> max_unit OR max_unit <> in_unit) THEN
+    IF(in_unit <> min_unit OR min_unit <> max_unit OR max_unit <> in_unit OR min_dosage>max_dosage) THEN
 		RETURN 0;
 	ELSEIF (in_dosage = 0) THEN
 		RETURN -2;

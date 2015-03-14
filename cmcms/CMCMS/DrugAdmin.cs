@@ -117,18 +117,32 @@ namespace CMCMS
 
         private void button_addDrug_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            bool isSuccess;
-            isSuccess = drugMgr.insertDrugRecord(textBox_addDrug_drugName.Text.Trim(), decimal.Parse(textBox_addDrug_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_minDoseUnit.SelectedItem)).getValue()), decimal.Parse(textBox_addDrug_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_sec_type.SelectedItem)).getValue()), checkBox_addDrug_q1.Checked, checkBox_addDrug_q2.Checked, checkBox_addDrug_q3.Checked, checkBox_addDrug_q4.Checked, checkBox_addDrug_w1.Checked, checkBox_addDrug_w2.Checked, checkBox_addDrug_w3.Checked, checkBox_addDrug_w4.Checked, checkBox_addDrug_w5.Checked, checkBox_addDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_addDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
-            if (isSuccess)
+            if (input_validation_add_drug())
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tabPage1_Enter(sender, e);
+                String statusMsg = "";
+                bool isSuccess;
+                isSuccess = drugMgr.insertDrugRecord(textBox_addDrug_drugName.Text.Trim(), decimal.Parse(textBox_addDrug_minDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_minDoseUnit.SelectedItem)).getValue()), decimal.Parse(textBox_addDrug_maxDose.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_sec_type.SelectedItem)).getValue()), checkBox_addDrug_q1.Checked, checkBox_addDrug_q2.Checked, checkBox_addDrug_q3.Checked, checkBox_addDrug_q4.Checked, checkBox_addDrug_w1.Checked, checkBox_addDrug_w2.Checked, checkBox_addDrug_w3.Checked, checkBox_addDrug_w4.Checked, checkBox_addDrug_w5.Checked, checkBox_addDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_addDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_addDrug_g6pd_contra.SelectedItem)).getValue()), ref statusMsg);
+                if (isSuccess)
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tabPage1_Enter(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+        }
+
+        private bool input_validation_add_drug()
+        {
+            if (textBox_addDrug_drugName.Text.Length == 0)
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("請輸入藥名", "藥名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_addDrug_drugName.Focus();
+                return false;
             }
+            return true;
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
@@ -200,19 +214,40 @@ namespace CMCMS
 
         private void button_addSubDrug_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            bool isSuccess;
-            isSuccess = drugMgr.insertSubDrugRecord(int.Parse(selectedDrug.getValue()),textBox_addDrug_subDrugName.Text.Trim(), ref statusMsg);
-            if (isSuccess)
+            if (input_validation_add_sub_drug())
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DSP_addSubDrug.refresh();
-                textBox_addDrug_subDrugName.Clear();
+                String statusMsg = "";
+                bool isSuccess;
+                isSuccess = drugMgr.insertSubDrugRecord(int.Parse(selectedDrug.getValue()), textBox_addDrug_subDrugName.Text.Trim(), ref statusMsg);
+                if (isSuccess)
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DSP_addSubDrug.refresh();
+                    textBox_addDrug_subDrugName.Clear();
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+        }
+
+        private bool input_validation_add_sub_drug()
+        {
+            if (selectedDrug == null)
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("請選擇藥項", "藥項錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+
+            if (textBox_addDrug_subDrugName.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入子藥項名稱", "子藥項名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_addDrug_subDrugName.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void button_cancelAmdDrug_Click(object sender, EventArgs e)
@@ -222,34 +257,56 @@ namespace CMCMS
 
         private void button_amdDrug_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            bool isSuccess;
-            if (selectedSubDrug == null || selectedSubDrug.getValue().Split(new String[] {"||"}, System.StringSplitOptions.None)[1].Equals("0"))
+            if (input_validation_amdDrug())
             {
-                isSuccess = drugMgr.updateDrugRecord(selectedDrug.getValue(), textBox_amdDrug_drugName.Text.Trim(), decimal.Parse(textBox_amdDrug_minDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_minDoseUnit.SelectedItem)).getValue()), decimal.Parse(textBox_amdDrug_maxDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_sec_type.SelectedItem)).getValue()), checkBox_amdDrug_q1.Checked, checkBox_amdDrug_q2.Checked, checkBox_amdDrug_q3.Checked, checkBox_amdDrug_q4.Checked, checkBox_amdDrug_w1.Checked, checkBox_amdDrug_w2.Checked, checkBox_amdDrug_w3.Checked, checkBox_amdDrug_w4.Checked, checkBox_amdDrug_w5.Checked, checkBox_amdDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_amdDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_g6pd_contra.SelectedItem)).getValue()), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
-                if (isSuccess)
+                String statusMsg = "";
+                bool isSuccess;
+                if (selectedSubDrug == null || selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0"))
                 {
-                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tabPage2_Enter(sender, e);
+                    isSuccess = drugMgr.updateDrugRecord(selectedDrug.getValue(), textBox_amdDrug_drugName.Text.Trim(), decimal.Parse(textBox_amdDrug_minDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_minDoseUnit.SelectedItem)).getValue()), decimal.Parse(textBox_amdDrug_maxDoseVal.Text.Trim()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_maxDoseUnit.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_pri_type.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_sec_type.SelectedItem)).getValue()), checkBox_amdDrug_q1.Checked, checkBox_amdDrug_q2.Checked, checkBox_amdDrug_q3.Checked, checkBox_amdDrug_q4.Checked, checkBox_amdDrug_w1.Checked, checkBox_amdDrug_w2.Checked, checkBox_amdDrug_w3.Checked, checkBox_amdDrug_w4.Checked, checkBox_amdDrug_w5.Checked, checkBox_amdDrug_w6.Checked, int.Parse(((PermissibleValueObj)(comboBox_amdDrug_preg_contra.SelectedItem)).getValue()), int.Parse(((PermissibleValueObj)(comboBox_amdDrug_g6pd_contra.SelectedItem)).getValue()), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
+                    if (isSuccess)
+                    {
+                        MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tabPage2_Enter(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                else if (selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0") == false)
                 {
-                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    isSuccess = drugMgr.updateSubDrugRecord(selectedSubDrug.getValue(), textBox_amdDrug_subDrugName.Text.Trim(), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
+                    if (isSuccess)
+                    {
+                        MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tabPage2_Enter(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            else if (selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0") == false)
+        }
+
+        private bool input_validation_amdDrug()
+        {
+            if (textBox_amdDrug_drugName.Text.Length == 0)
             {
-                isSuccess = drugMgr.updateSubDrugRecord(selectedSubDrug.getValue(), textBox_amdDrug_subDrugName.Text.Trim(), checkBox_amdDrug_deleteItem.Checked, ref statusMsg);
-                if (isSuccess)
-                {
-                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tabPage2_Enter(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("請輸入藥名", "藥名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_amdDrug_drugName.Focus();
+                return false;
             }
+
+            if (selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0") == false && textBox_amdDrug_subDrugName.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入子藥項名稱", "子藥項名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_amdDrug_subDrugName.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void comboBox_amdDrug_pri_type_SelectedIndexChanged(object sender, EventArgs e)

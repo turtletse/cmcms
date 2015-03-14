@@ -121,7 +121,7 @@
             this.MaximizeBox = false;
             this.Name = "AmdClinicDataForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AmdClinicDataForm";
+            this.Text = "更改診所資料";
             this.ResumeLayout(false);
             this.PerformLayout();
 

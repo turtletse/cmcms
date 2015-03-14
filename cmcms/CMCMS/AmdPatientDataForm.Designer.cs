@@ -122,7 +122,7 @@
             this.MinimizeBox = false;
             this.Name = "AmdPatientDataForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "更改個人資料";
+            this.Text = "更改病人資料";
             this.ResumeLayout(false);
             this.PerformLayout();
 

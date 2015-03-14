@@ -38,102 +38,131 @@ namespace CMCMS
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            String ErrMsg ="";
-            this.Enabled = false;
-            clinic = (ClinicObj)(comboBox_clinicId.SelectedItem);
-            user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
-            if (user != null)
+            if (input_validation())
             {
-                if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
+                String ErrMsg = "";
+                this.Enabled = false;
+                clinic = (ClinicObj)(comboBox_clinicId.SelectedItem);
+                user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
+                if (user != null)
                 {
-                    if (!user.IsSuspended)
+                    if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
                     {
-                        if (user.CurrentLoginRole != 0)
+                        if (!user.IsSuspended)
                         {
-                            if (user.CurrentLoginRole == 40)
+                            if (user.CurrentLoginRole != 0)
                             {
-                                //SYSADM
-                                SystemAdmin_MainMenu sysAdmMainMenu = new SystemAdmin_MainMenu();
-                                this.Hide();
-                                sysAdmMainMenu.ShowDialog();
-                                this.Show();
+                                if (user.CurrentLoginRole == 40)
+                                {
+                                    //SYSADM
+                                    SystemAdmin_MainMenu sysAdmMainMenu = new SystemAdmin_MainMenu();
+                                    this.Hide();
+                                    sysAdmMainMenu.ShowDialog();
+                                    this.Show();
+                                }
+                                else if (user.CurrentLoginRole == 10)
+                                {
+                                    //STAFF
+                                    Staff_MainMenu staffMainMenu = new Staff_MainMenu();
+                                    this.Hide();
+                                    staffMainMenu.ShowDialog();
+                                    this.Show();
+                                }
+                                else if (user.CurrentLoginRole == 20)
+                                {
+                                    //DOCTOR
+                                    Doctor_MainMenu drMainMenu = new Doctor_MainMenu();
+                                    this.Hide();
+                                    drMainMenu.ShowDialog();
+                                    this.Show();
+                                }
+                                else if (user.CurrentLoginRole == 30)
+                                {
+                                    //CLINIC ADM
+                                    ClinicAdm_mainMenu cAdmMainMenu = new ClinicAdm_mainMenu();
+                                    this.Hide();
+                                    cAdmMainMenu.ShowDialog();
+                                    this.Show();
+                                }
                             }
-                            else if (user.CurrentLoginRole == 10)
+                            else
                             {
-                                //STAFF
-                                Staff_MainMenu staffMainMenu = new Staff_MainMenu();
-                                this.Hide();
-                                staffMainMenu.ShowDialog();
-                                this.Show();
-                            }
-                            else if (user.CurrentLoginRole == 20)
-                            {
-                                //DOCTOR
-                                Doctor_MainMenu drMainMenu = new Doctor_MainMenu();
-                                this.Hide();
-                                drMainMenu.ShowDialog();
-                                this.Show();
-                            }
-                            else if (user.CurrentLoginRole == 30)
-                            {
-                                //CLINIC ADM
-                                ClinicAdm_mainMenu cAdmMainMenu = new ClinicAdm_mainMenu();
-                                this.Hide();
-                                cAdmMainMenu.ShowDialog();
-                                this.Show();
+                                MessageBox.Show("此用戶沒有權限存取此診所資料", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("此用戶沒有權限存取此診所資料", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show("此用戶已被停用", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("此用戶已被停用", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageBox.Show("密碼錯誤", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("密碼錯誤", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                this.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show(ErrMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.Enabled = true;
         }
 
         private void button_patSys_Click(object sender, EventArgs e)
         {
-            String ErrMsg = "";
-            this.Enabled = false;
-            clinic = (ClinicObj)(comboBox_clinicId.SelectedItem);
-            user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
-            if (user != null)
+            if (input_validation())
             {
-                if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
+                String ErrMsg = "";
+                this.Enabled = false;
+                clinic = (ClinicObj)(comboBox_clinicId.SelectedItem);
+                user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
+                if (user != null)
                 {
-                    Patient_mainMenu patMainMenu = new Patient_mainMenu();
-                    user = null; 
-                    this.Hide();
-                    patMainMenu.ShowDialog();
-                    this.Show();
+                    if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
+                    {
+                        Patient_mainMenu patMainMenu = new Patient_mainMenu();
+                        user = null;
+                        this.Hide();
+                        patMainMenu.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        textBox_userName.Text = PasswordHash.getHashedPw(textBox_password.Text);
+                        MessageBox.Show("密碼錯誤", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    textBox_userName.Text = PasswordHash.getHashedPw(textBox_password.Text);
-                    MessageBox.Show("密碼錯誤", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                this.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show(ErrMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.Enabled = true;
         }
 
+        private bool input_validation()
+        {
+            if (textBox_userName.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入登入名稱", "登入名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_userName.Focus();
+                return false;
+            }
+            if (!Utilities.isAlphaOnly(textBox_userName.Text))
+            {
+                MessageBox.Show("登入名稱只限半形英文字母\n請重新輸入", "登入名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_userName.Focus();
+                return false;
+            }
+
+            if (textBox_password.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入密碼", "密碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_password.Focus();
+                return false;
+            }
+            return true;
+        }
 
     }
 }

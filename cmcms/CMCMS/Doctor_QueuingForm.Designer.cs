@@ -212,7 +212,7 @@
             this.MaximizeBox = false;
             this.Name = "Doctor_QueuingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Doctor_QueuingForm";
+            this.Text = "診症";
             this.Shown += new System.EventHandler(this.Doctor_QueuingForm_Shown);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

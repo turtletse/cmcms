@@ -62,6 +62,7 @@
             this.columnHeader_exam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_diff = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_pres = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_acupuncture = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button_changeAcupunture = new System.Windows.Forms.Button();
             this.textBox_acupuncture = new System.Windows.Forms.TextBox();
@@ -100,7 +101,6 @@
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
             this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
-            this.columnHeader_acupuncture = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -421,6 +421,11 @@
             // 
             this.columnHeader_pres.Text = "處方簡要";
             this.columnHeader_pres.Width = 230;
+            // 
+            // columnHeader_acupuncture
+            // 
+            this.columnHeader_acupuncture.Text = "針灸";
+            this.columnHeader_acupuncture.Width = 211;
             // 
             // groupBox3
             // 
@@ -814,11 +819,6 @@
             this.checkBox_preg_edc.Text = "預產日期: ";
             this.checkBox_preg_edc.UseVisualStyleBackColor = true;
             // 
-            // columnHeader_acupuncture
-            // 
-            this.columnHeader_acupuncture.Text = "針灸";
-            this.columnHeader_acupuncture.Width = 211;
-            // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -837,7 +837,7 @@
             this.MaximizeBox = false;
             this.Name = "ConsultationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "診症";
+            this.Text = "病歷";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultationForm_FormClosing);
             this.Shown += new System.EventHandler(this.ConsultationForm_Shown);
             this.groupBox1.ResumeLayout(false);

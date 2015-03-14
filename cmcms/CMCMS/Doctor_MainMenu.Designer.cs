@@ -126,7 +126,7 @@
             this.MaximizeBox = false;
             this.Name = "Doctor_MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Doctor_MainMenu";
+            this.Text = "診症目錄";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Doctor_MainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

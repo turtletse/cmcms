@@ -266,7 +266,7 @@
             this.MaximizeBox = false;
             this.Name = "AcupunctureSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AcupunctureSelectionForm";
+            this.Text = "針灸穴位選擇";
             this.Shown += new System.EventHandler(this.AcupunctureSelectionForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

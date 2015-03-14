@@ -49,7 +49,7 @@ namespace CMCMS
         private void button_patDataUpdate_Click(object sender, EventArgs e)
         {
             //input validation
-            if (!patientRegistration1.isDataValid())
+            if (!patientRegistration1.input_validation())
                 return;
 
             String statusMsg = "";
