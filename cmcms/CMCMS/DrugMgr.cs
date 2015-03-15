@@ -29,10 +29,6 @@ namespace CMCMS
             {
                 cb.Items.Add(new PermissibleValueObj(dr["type_desc"].ToString(), dr["sec_type"].ToString()));
             }
-            /*if (data.Rows.Count == 0)
-            {
-                cb.Items.Add(new permissibleValueObj("-", "0"));
-            }*/
         }
 
         public void setDosageUnitCombo(System.Windows.Forms.ComboBox cb)
@@ -56,7 +52,7 @@ namespace CMCMS
         public bool insertDrugRecord(String drugName, decimal minDoseVal, int minDoseUnit, decimal maxDoseVal, int maxDoseUnit, int priTypeId, int secTypeId, bool q1, bool q2, bool q3, bool q4, bool w1, bool w2, bool w3, bool w4, bool w5, bool w6, int pregContraLvId, int g6pdContraLvId, ref String statusMsg)
         {
 
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_drug_item ('" + drugName + "'," + minDoseVal + "," + minDoseUnit + "," + maxDoseVal + "," + maxDoseUnit + "," + priTypeId + "," + secTypeId + "," + (q1 ? "1" : "0") + "," + (q2 ? "1" : "0") + "," + (q3 ? "1" : "0") + "," + (q4 ? "1" : "0") + "," + (w1 ? "1" : "0") + "," + (w2 ? "1" : "0") + "," + (w3 ? "1" : "0") + "," + (w4 ? "1" : "0") + "," + (w5 ? "1" : "0") + "," + (w6 ? "1" : "0") + "," + pregContraLvId + "," + g6pdContraLvId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_drug_item ('" + Utilities.stringDataParse4SQL(drugName) + "'," + minDoseVal + "," + minDoseUnit + "," + maxDoseVal + "," + maxDoseUnit + "," + priTypeId + "," + secTypeId + "," + (q1 ? "1" : "0") + "," + (q2 ? "1" : "0") + "," + (q3 ? "1" : "0") + "," + (q4 ? "1" : "0") + "," + (w1 ? "1" : "0") + "," + (w2 ? "1" : "0") + "," + (w3 ? "1" : "0") + "," + (w4 ? "1" : "0") + "," + (w5 ? "1" : "0") + "," + (w6 ? "1" : "0") + "," + pregContraLvId + "," + g6pdContraLvId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"]>0?false:true;
         }
@@ -64,7 +60,7 @@ namespace CMCMS
         public bool insertSubDrugRecord(int drugId, String subDrugName, ref String statusMsg)
         {
 
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_sub_drug_item (" + drugId + ", '" + subDrugName + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_sub_drug_item (" + drugId + ", '" + Utilities.stringDataParse4SQL(subDrugName) + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -73,7 +69,7 @@ namespace CMCMS
         public bool updateDrugRecord(String drugId, String drugName, decimal minDoseVal, int minDoseUnit, decimal maxDoseVal, int maxDoseUnit, int priTypeId, int secTypeId, bool q1, bool q2, bool q3, bool q4, bool w1, bool w2, bool w3, bool w4, bool w5, bool w6, int pregContraLvId, int g6pdContraLvId, bool isDeleted, ref String statusMsg)
         {
 
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_drug_item (" + drugId + ", '" + drugName + "'," + minDoseVal + "," + minDoseUnit + "," + maxDoseVal + "," + maxDoseUnit + "," + priTypeId + "," + secTypeId + "," + (q1 ? "1" : "0") + "," + (q2 ? "1" : "0") + "," + (q3 ? "1" : "0") + "," + (q4 ? "1" : "0") + "," + (w1 ? "1" : "0") + "," + (w2 ? "1" : "0") + "," + (w3 ? "1" : "0") + "," + (w4 ? "1" : "0") + "," + (w5 ? "1" : "0") + "," + (w6 ? "1" : "0") + "," + pregContraLvId + "," + g6pdContraLvId + ", " + (isDeleted ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_drug_item (" + drugId + ", '" + Utilities.stringDataParse4SQL(drugName) + "'," + minDoseVal + "," + minDoseUnit + "," + maxDoseVal + "," + maxDoseUnit + "," + priTypeId + "," + secTypeId + "," + (q1 ? "1" : "0") + "," + (q2 ? "1" : "0") + "," + (q3 ? "1" : "0") + "," + (q4 ? "1" : "0") + "," + (w1 ? "1" : "0") + "," + (w2 ? "1" : "0") + "," + (w3 ? "1" : "0") + "," + (w4 ? "1" : "0") + "," + (w5 ? "1" : "0") + "," + (w6 ? "1" : "0") + "," + pregContraLvId + "," + g6pdContraLvId + ", " + (isDeleted ? "1" : "0") + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
 
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
@@ -82,7 +78,7 @@ namespace CMCMS
         public bool updateSubDrugRecord(String subDrugCode, String drugName, bool isDeleted, ref String statusMsg)
         {
             String[] ids = subDrugCode.Split(new String[] { "||" }, System.StringSplitOptions.None);
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_sub_drug_item (" + ids[0] + ", " + ids[1] + ", '" + drugName + "'," + (isDeleted ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_sub_drug_item (" + ids[0] + ", " + ids[1] + ", '" + Utilities.stringDataParse4SQL(drugName) + "'," + (isDeleted ? "1" : "0") + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
 
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
@@ -101,7 +97,7 @@ namespace CMCMS
 
         public bool updateIncompatibleDrug(int drugId, String incompatibleWith, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_incompatible_drug_update (" + drugId + ", '"+ incompatibleWith + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_incompatible_drug_update (" + drugId + ", '"+ Utilities.stringDataParse4SQL(incompatibleWith) + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
 
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
@@ -163,11 +159,10 @@ namespace CMCMS
         public void setDSPDrugListBox(System.Windows.Forms.ListBox Listbox, int priTypeId, int secTypeId, int nStrokes, int nameLen, String selected4q5w, int inclDeleted)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_drug_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", '" + selected4q5w + "', " + inclDeleted + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_DSP_drug_listbox_item_get (" + priTypeId + ", " + secTypeId + ", " + nStrokes + ", " + nameLen + ", '" + Utilities.stringDataParse4SQL(selected4q5w) + "', " + inclDeleted + ")");
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new DrugObj(dr["drug_name"].ToString(), dr["drug_id"].ToString(), decimal.Parse(dr["drug_min_dosage_val"].ToString()), (int)dr["drug_min_dosage_unit"], decimal.Parse(dr["drug_max_dosage_val"].ToString()), (int)dr["drug_max_dosage_unit"], (int)dr["drug_pri_type"], (int)dr["drug_sec_type"], Convert.ToBoolean(dr["isDeleted"]), Convert.ToBoolean(dr["drug_q1"]), Convert.ToBoolean(dr["drug_q2"]), Convert.ToBoolean(dr["drug_q3"]), Convert.ToBoolean(dr["drug_q4"]), Convert.ToBoolean(dr["drug_w1"]), Convert.ToBoolean(dr["drug_w2"]), Convert.ToBoolean(dr["drug_w3"]), Convert.ToBoolean(dr["drug_w4"]), Convert.ToBoolean(dr["drug_w5"]), Convert.ToBoolean(dr["drug_w6"]), dr["pregnancy"].ToString(), dr["g6pd"].ToString()));
-                //Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
             }
         }
 
@@ -178,7 +173,6 @@ namespace CMCMS
             foreach (DataRow dr in data.Rows)
             {
                 Listbox.Items.Add(new PermissibleValueObjWithDelFlag(dr["item_name"].ToString(), dr["item_id"].ToString(), Convert.ToBoolean(dr["isDeleted"])));
-                //Listbox.Items.Add(new PermissibleValueObj(dr["item_name"].ToString(), dr["item_id"].ToString()));
             }
         }
 
@@ -186,13 +180,12 @@ namespace CMCMS
         public void setDrugListBoxItemsByDrugIds(System.Windows.Forms.ListBox Listbox, String drugIds)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_drug_item_get_by_id (" + (drugIds.Length==0?"NULL":"'"+drugIds+"'") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_drug_item_get_by_id (" + (drugIds.Length==0?"NULL":"'"+Utilities.stringDataParse4SQL(drugIds)+"'") + ")");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
                 {
                     Listbox.Items.Add(new DrugObj(dr["drug_name"].ToString(), dr["drug_id"].ToString(), decimal.Parse(dr["drug_min_dosage_val"].ToString()), (int)dr["drug_min_dosage_unit"], decimal.Parse(dr["drug_max_dosage_val"].ToString()), (int)dr["drug_max_dosage_unit"], (int)dr["drug_pri_type"], (int)dr["drug_sec_type"], Convert.ToBoolean(dr["isDeleted"]), Convert.ToBoolean(dr["drug_q1"]), Convert.ToBoolean(dr["drug_q2"]), Convert.ToBoolean(dr["drug_q3"]), Convert.ToBoolean(dr["drug_q4"]), Convert.ToBoolean(dr["drug_w1"]), Convert.ToBoolean(dr["drug_w2"]), Convert.ToBoolean(dr["drug_w3"]), Convert.ToBoolean(dr["drug_w4"]), Convert.ToBoolean(dr["drug_w5"]), Convert.ToBoolean(dr["drug_w6"]), dr["pregnancy"].ToString(), dr["g6pd"].ToString()));
-                    //Listbox.Items.Add(new PermissibleValueObj(dr["drug_name"].ToString(), dr["drug_id"].ToString()));
                 }
             }
         }
@@ -227,7 +220,7 @@ namespace CMCMS
         {
             List<PermissibleValueObj> drugs = new List<PermissibleValueObj>();
             notFoundDrugs = "";
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_PP_search_drug_by_drug_name_get ('" + drugNames + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_PP_search_drug_by_drug_name_get ('" + Utilities.stringDataParse4SQL(drugNames) + "')");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -257,7 +250,7 @@ namespace CMCMS
         public bool insertPredefinedPrescription(String presName, String drugDataString, ref String statusMsg)
         {
 
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_predef_pres ('" + presName + "', '" + drugDataString + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_predef_pres ('" + Utilities.stringDataParse4SQL(presName) + "', '" + Utilities.stringDataParse4SQL(drugDataString) + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -292,7 +285,7 @@ namespace CMCMS
         //UpdatePredefPres
         public bool UpdatePredefinedPrescription(int predefPresId, String presName, String drugDataString, bool isDeleted, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_predef_pres (" + predefPresId + ", '" + presName + "', '" + drugDataString + "', " + (isDeleted ? "1" : "0") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_predef_pres (" + predefPresId + ", '" + Utilities.stringDataParse4SQL(presName) + "', '" + Utilities.stringDataParse4SQL(drugDataString) + "', " + (isDeleted ? "1" : "0") + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }

@@ -44,6 +44,14 @@ namespace CMCMS
             PatientObj pat = searchPatientInputPanel1.getSelectedPatient();
             if (pat == null)
                 return;
+
+            PermissibleValueObj pwChkStatus = new PermissibleValueObj("", "0");
+            PatientPwChk patPwChk = new PatientPwChk();
+            patPwChk.setPatIdSuccessFlag(pat.PatientId, ref pwChkStatus);
+            patPwChk.ShowDialog();
+            if (pwChkStatus.Value == "0")
+                return;
+
             //isSuccess = patMgr.leaveQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
             patMgr.leaveQueue(int.Parse(pat.getValue()), Login.clinic.ClinicId, ref statusMsg);
             MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);

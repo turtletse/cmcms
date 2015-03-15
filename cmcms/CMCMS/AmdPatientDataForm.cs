@@ -52,6 +52,13 @@ namespace CMCMS
             if (!patientRegistration1.input_validation())
                 return;
 
+            PermissibleValueObj pwChkStatus = new PermissibleValueObj("", "0");
+            PatientPwChk patPwChk = new PatientPwChk();
+            patPwChk.setPatIdSuccessFlag(pat.PatientId, ref pwChkStatus);
+            patPwChk.ShowDialog();
+            if (pwChkStatus.Value == "0")
+                return;
+
             String statusMsg = "";
             PatientMgr patMgr = new PatientMgr();
 

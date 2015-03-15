@@ -162,6 +162,12 @@
     <Compile Include="DrugIncompatibleSelection.Designer.cs">
       <DependentUpon>DrugIncompatibleSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatientPwChk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientPwChk.Designer.cs">
+      <DependentUpon>PatientPwChk.cs</DependentUpon>
+    </Compile>
     <Compile Include="PregCert.cs">
       <DependentUpon>PregCert.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -442,6 +448,9 @@
       <LastGenOutput>Prescription.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="PatientPwChk.resx">
+      <DependentUpon>PatientPwChk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionForm.resx">
       <DependentUpon>PrescriptionForm.cs</DependentUpon>
     </EmbeddedResource>

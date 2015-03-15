@@ -66,7 +66,7 @@ namespace CMCMS
         public void setExamLv4BySearch(System.Windows.Forms.ListBox Listbox, String keywords)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_examination_result_search_get ('" + keywords + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_examination_result_search_get ('" + Utilities.stringDataParse4SQL(keywords) + "')");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -119,7 +119,7 @@ namespace CMCMS
         public void setAPLv3ByKeywordsSearch(System.Windows.Forms.ListBox Listbox, String keywords)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_keywords_search_get ('" + keywords + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_keywords_search_get ('" + Utilities.stringDataParse4SQL(keywords) + "')");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -132,7 +132,7 @@ namespace CMCMS
         public void setAPLv3ByCodeSearch(System.Windows.Forms.ListBox Listbox, String codes)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_code_search_get ('" + codes + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_acupuncture_code_search_get ('" + Utilities.stringDataParse4SQL(codes) + "')");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -186,7 +186,7 @@ namespace CMCMS
         public void setDiffLv3BySearch(System.Windows.Forms.ListBox Listbox, String keywords)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_differentiation_result_search_get ('" + keywords + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_differentiation_result_search_get ('" + Utilities.stringDataParse4SQL(keywords) + "')");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -227,7 +227,7 @@ namespace CMCMS
         public void setDxLv2BySearch(System.Windows.Forms.ListBox Listbox, String keywords)
         {
             Listbox.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dx_result_search_get ('" + keywords + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_dx_result_search_get ('" + Utilities.stringDataParse4SQL(keywords) + "')");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -256,7 +256,7 @@ namespace CMCMS
         //prescriptionForm
         public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String presId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + patId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + Utilities.stringDataParse4SQL(instruction) + "', " + nDose + ", '" + Utilities.stringDataParse4SQL(methodOftreatment) + "', '" + Utilities.stringDataParse4SQL(presDataString) + "', " + patId + ")");
             presId = data.Rows[0]["pres_id"].ToString();
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
@@ -264,7 +264,7 @@ namespace CMCMS
 
         public int updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + instruction + "', " + nDose + ", '" + methodOftreatment + "', '" + presDataString + "', " + patId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + Utilities.stringDataParse4SQL(instruction) + "', " + nDose + ", '" + Utilities.stringDataParse4SQL(methodOftreatment) + "', '" + Utilities.stringDataParse4SQL(presDataString) + "', " + patId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
@@ -330,7 +330,7 @@ namespace CMCMS
         public Dictionary<String, String> startConsultation(int patId)
         {
             Dictionary<String, String> cons = new Dictionary<String, String>();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_start_consultation ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_start_consultation ('" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', '" + (Login.user == null ? "" : Utilities.stringDataParse4SQL(Login.user.Value)) + "', " + patId + ")");
             foreach (DataRow dr in data.Rows)
             {
                 cons.Add("cons_id", dr["cons_id"].ToString());
@@ -355,7 +355,7 @@ namespace CMCMS
         public Dictionary<String, String> getConsultation(int consId)
         {
             Dictionary<String, String> cons = new Dictionary<String, String>();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_get ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + consId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_get ('" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', '" + (Login.user == null ? "" : Utilities.stringDataParse4SQL(Login.user.Value)) + "', " + consId + ")");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -381,7 +381,7 @@ namespace CMCMS
         }
 
         public int saveConsultation(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String acupunctureCode, String acupunctureDesc, String drRmk, ref String statusMsg){
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_save_consultation (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + acupunctureCode + "', '" + acupunctureDesc + "', '" + drRmk + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_save_consultation (" + consId + ", '" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', '" + (Login.user == null ? "" : Utilities.stringDataParse4SQL(Login.user.Value)) + "', " + patId + ", '" + Utilities.stringDataParse4SQL(examCode) + "', '" + Utilities.stringDataParse4SQL(examDesc) + "', '" + Utilities.stringDataParse4SQL(diffCode) + "', '" + Utilities.stringDataParse4SQL(diffDesc) + "', '" + Utilities.stringDataParse4SQL(dxCode) + "', '" + Utilities.stringDataParse4SQL(dxDesc) + "', '" + Utilities.stringDataParse4SQL(presIds) + "', '" + Utilities.stringDataParse4SQL(acupunctureCode) + "', '" + Utilities.stringDataParse4SQL(acupunctureDesc) + "', '" + Utilities.stringDataParse4SQL(drRmk) + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
@@ -395,7 +395,7 @@ namespace CMCMS
 
         public bool consLater(String consId, String patId, String examCode, String examDesc, String diffCode, String diffDesc, String dxCode, String dxDesc, String presIds, String acupunctureCode, String acupunctureDesc, String drRmk, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_cons_later (" + consId + ", '" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ", '" + examCode + "', '" + examDesc + "', '" + diffCode + "', '" + diffDesc + "', '" + dxCode + "', '" + dxDesc + "', '" + presIds + "', '" + acupunctureCode + "', '" + acupunctureDesc + "', '" + drRmk + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_cons_later (" + consId + ", '" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', '" + (Login.user == null ? "" : Utilities.stringDataParse4SQL(Login.user.Value)) + "', " + patId + ", '" + Utilities.stringDataParse4SQL(examCode) + "', '" + Utilities.stringDataParse4SQL(examDesc) + "', '" + Utilities.stringDataParse4SQL(diffCode) + "', '" + Utilities.stringDataParse4SQL(diffDesc) + "', '" + Utilities.stringDataParse4SQL(dxCode) + "', '" + Utilities.stringDataParse4SQL(dxDesc) + "', '" + Utilities.stringDataParse4SQL(presIds) + "', '" + Utilities.stringDataParse4SQL(acupunctureCode) + "', '" + Utilities.stringDataParse4SQL(acupunctureDesc) + "', '" + Utilities.stringDataParse4SQL(drRmk) + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -415,7 +415,7 @@ namespace CMCMS
         public void refreshHistoryLV(System.Windows.Forms.ListView lv, int patId)
         {
             lv.Items.Clear();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_history_get ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + patId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_consultation_history_get ('" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', '" + (Login.user == null ? "" : Utilities.stringDataParse4SQL(Login.user.Value)) + "', " + patId + ")");
             if (data != null)
             {
                 foreach (DataRow dr in data.Rows)
@@ -430,7 +430,7 @@ namespace CMCMS
         public bool usePreviousConsultationAsTemplate(int currConsId, int prevConsId, ref String statusMsg)
         {
             Dictionary<String, String> cons = new Dictionary<String, String>();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_use_selected_cons_as_template ('" + (Login.clinic == null ? "" : Login.clinic.Value) + "', '" + (Login.user == null ? "" : Login.user.Value) + "', " + currConsId + ", " + prevConsId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_use_selected_cons_as_template ('" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', '" + (Login.user == null ? "" : Utilities.stringDataParse4SQL(Login.user.Value)) + "', " + currConsId + ", " + prevConsId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
@@ -438,14 +438,14 @@ namespace CMCMS
         public int issue_sick_leave_cert(int consId, String startDate, String endDate, int nDays)
         {
             Dictionary<String, String> cons = new Dictionary<String, String>();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_sick_leave_cert (" + consId + ", '" + startDate + "', '" + endDate + "', " + nDays + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_sick_leave_cert (" + consId + ", '" + Utilities.stringDataParse4SQL(startDate) + "', '" + Utilities.stringDataParse4SQL(endDate) + "', " + nDays + ")");
             return int.Parse(data.Rows[0]["cert_id"].ToString());
         }
 
         public int issue_preg_cert(int consId, bool isPreg, String edc)
         {
             Dictionary<String, String> cons = new Dictionary<String, String>();
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_preg_cert (" + consId + ", " + (isPreg ? "1" : "0") + ", " + (isPreg ? ("'" + edc + "'") : "NULL") + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_preg_cert (" + consId + ", " + (isPreg ? "1" : "0") + ", " + (isPreg ? ("'" + Utilities.stringDataParse4SQL(edc) + "'") : "NULL") + ")");
             return int.Parse(data.Rows[0]["cert_id"].ToString());
         }
     }
