@@ -457,6 +457,16 @@ namespace CMCMS
 
         }
 
+        private void button_viewDetail_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+
+            ReportViewer hxViewer = new ReportViewer();
+            hxViewer.prepareConsultationHistory(int.Parse(textBox_patId.Text), int.Parse((listView1.SelectedItems[0].Text).ToString()));
+            hxViewer.Show();
+        }
+
         private void dateTimePicker_sickLeaveEnd_ValueChanged(object sender, EventArgs e)
         {
             textBox_sickLeaveNDays.Text = ((dateTimePicker_sickLeaveEnd.Value - dateTimePicker_sickLeaveStart.Value).Days+1).ToString();
@@ -487,6 +497,8 @@ namespace CMCMS
             rptViewer.preparePregCert(consMgr.issue_preg_cert(int.Parse(consId), checkBox_pat_isPregnant.Checked, dateTimePicker_edc.Value.ToString("dd/MM/yyyy")));
             rptViewer.ShowDialog();
         }
+
+        
 
    
     }

@@ -146,6 +146,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConsultationHistory.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ConsultationMgr.cs" />
     <Compile Include="ClinicHeader.cs">
@@ -410,10 +411,11 @@
       <LastGenOutput>PregCert.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="ConsultationHistory.rpt">
+    <Content Include="ConsultationHistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConsultationHistory.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="DifferentiationResultSelectionForm.resx">
       <DependentUpon>DifferentiationResultSelectionForm.cs</DependentUpon>
     </EmbeddedResource>

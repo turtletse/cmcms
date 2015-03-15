@@ -101,6 +101,7 @@
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
             this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
+            this.button_viewDetail = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -353,6 +354,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_viewDetail);
             this.groupBox2.Controls.Add(this.button_use_previous);
             this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Location = new System.Drawing.Point(555, 12);
@@ -819,6 +821,16 @@
             this.checkBox_preg_edc.Text = "預產日期: ";
             this.checkBox_preg_edc.UseVisualStyleBackColor = true;
             // 
+            // button_viewDetail
+            // 
+            this.button_viewDetail.Location = new System.Drawing.Point(606, 191);
+            this.button_viewDetail.Name = "button_viewDetail";
+            this.button_viewDetail.Size = new System.Drawing.Size(245, 29);
+            this.button_viewDetail.TabIndex = 2;
+            this.button_viewDetail.Text = "檢視詳細紀錄";
+            this.button_viewDetail.UseVisualStyleBackColor = true;
+            this.button_viewDetail.Click += new System.EventHandler(this.button_viewDetail_Click);
+            // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -928,5 +940,6 @@
         private System.Windows.Forms.TextBox textBox_acupuncture;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ColumnHeader columnHeader_acupuncture;
+        private System.Windows.Forms.Button button_viewDetail;
     }
 }

@@ -91,6 +91,15 @@ namespace CMCMS
             crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
         }
 
+        public void prepareConsultationHistory(int patId, int consId)
+        {
+            setRptName("ConsultationHistory.rpt");
+            crRpt.Load(rptName);
+
+            crRpt.SetParameterValue("in_pat_id", patId);
+            crRpt.SetParameterValue("in_cons_id", consId);
+        }
+
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
             ConnectionInfo crConnectionInfo = new ConnectionInfo();
