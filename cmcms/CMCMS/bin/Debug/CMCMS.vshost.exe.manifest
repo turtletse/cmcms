@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="300032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="272384">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zLW3uqBflWXTmid9f+blStBJ3bI=</dsig:DigestValue>
+        <dsig:DigestValue>i+biCDp5PB2wP2BV63qKZisfsq4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -338,7 +338,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>uJdStkY/9XrOxsx09fZMHuZZGZA=</dsig:DigestValue>
+      <dsig:DigestValue>naekNgvYml3EHOi3v3e7cZFx39Y=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="FullMedicalRecord.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>z6j/kSaa7VT7zXxOkNbcHkbMqJM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="PregCert.rpt" size="32768">
@@ -356,7 +365,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4lwAtjf6cIEcy7q6Zh3/5j1a6GU=</dsig:DigestValue>
+      <dsig:DigestValue>O6Ju8SLlPkTuZbbjj5oGFYzBdIc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SickLeaveCert.rpt" size="32768">

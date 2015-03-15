@@ -26,9 +26,9 @@ CREATE PROCEDURE sp_update_drug_item (
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
-    DECLARE min_dosage DECIMAL(8,4);
+    DECLARE min_dosage DECIMAL(12,4);
     DECLARE min_unit INT;
-    DECLARE max_dosage DECIMAL(8,4);
+    DECLARE max_dosage DECIMAL(12,4);
     DECLARE max_unit INT;
     DECLARE factor DECIMAL(8,4) DEFAULT 1;
     DECLARE smaller_unit INT DEFAULT 0;

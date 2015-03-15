@@ -100,6 +100,16 @@ namespace CMCMS
             crRpt.SetParameterValue("in_cons_id", consId);
         }
 
+        public void prepareMedicalReport(String clinicId, int patId, int consId)
+        {
+            setRptName("FullMedicalRecord.rpt");
+            crRpt.Load(rptName);
+
+            crRpt.SetParameterValue("in_clinic_id", clinicId);
+            crRpt.SetParameterValue("in_pat_id", patId);
+            crRpt.SetParameterValue("in_cons_id", consId);
+        }
+
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
             ConnectionInfo crConnectionInfo = new ConnectionInfo();

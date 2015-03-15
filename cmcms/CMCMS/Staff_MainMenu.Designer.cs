@@ -33,6 +33,7 @@
             this.button_NewPatient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button_userAmdInfo = new System.Windows.Forms.Button();
+            this.button_reporting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_queuingMgt
@@ -86,11 +87,22 @@
             this.button_userAmdInfo.UseVisualStyleBackColor = true;
             this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
             // 
+            // button_reporting
+            // 
+            this.button_reporting.Location = new System.Drawing.Point(21, 283);
+            this.button_reporting.Name = "button_reporting";
+            this.button_reporting.Size = new System.Drawing.Size(221, 51);
+            this.button_reporting.TabIndex = 25;
+            this.button_reporting.Text = "列印報告/紀錄";
+            this.button_reporting.UseVisualStyleBackColor = true;
+            this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);
+            // 
             // Staff_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 298);
+            this.ClientSize = new System.Drawing.Size(269, 355);
+            this.Controls.Add(this.button_reporting);
             this.Controls.Add(this.button_userAmdInfo);
             this.Controls.Add(this.button_queuingMgt);
             this.Controls.Add(this.button_amdPatData);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Button button_NewPatient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_userAmdInfo;
+        private System.Windows.Forms.Button button_reporting;
     }
 }

@@ -57,5 +57,11 @@ namespace CMCMS
             uai.ShowDialog();
         }
 
+        private void button_reporting_Click(object sender, EventArgs e)
+        {
+            Staff_reporting sr = new Staff_reporting();
+            sr.ShowDialog();
+        }
+
     }
 }

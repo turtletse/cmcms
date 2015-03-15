@@ -54,6 +54,7 @@
             this.button_finalSave = new System.Windows.Forms.Button();
             this.button_tmpSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_viewDetail = new System.Windows.Forms.Button();
             this.button_use_previous = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader_consId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -101,7 +102,7 @@
             this.groupBox_pregCert = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_edc = new System.Windows.Forms.DateTimePicker();
             this.checkBox_preg_edc = new System.Windows.Forms.CheckBox();
-            this.button_viewDetail = new System.Windows.Forms.Button();
+            this.button_medRec = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -364,6 +365,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "病歷";
             // 
+            // button_viewDetail
+            // 
+            this.button_viewDetail.Location = new System.Drawing.Point(606, 191);
+            this.button_viewDetail.Name = "button_viewDetail";
+            this.button_viewDetail.Size = new System.Drawing.Size(245, 29);
+            this.button_viewDetail.TabIndex = 2;
+            this.button_viewDetail.Text = "檢視詳細紀錄";
+            this.button_viewDetail.UseVisualStyleBackColor = true;
+            this.button_viewDetail.Click += new System.EventHandler(this.button_viewDetail_Click);
+            // 
             // button_use_previous
             // 
             this.button_use_previous.Location = new System.Drawing.Point(6, 191);
@@ -387,6 +398,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(6, 25);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -772,7 +784,7 @@
             // 
             // button_consCert
             // 
-            this.button_consCert.Location = new System.Drawing.Point(1076, 638);
+            this.button_consCert.Location = new System.Drawing.Point(1076, 625);
             this.button_consCert.Name = "button_consCert";
             this.button_consCert.Size = new System.Drawing.Size(330, 49);
             this.button_consCert.TabIndex = 9;
@@ -821,21 +833,22 @@
             this.checkBox_preg_edc.Text = "預產日期: ";
             this.checkBox_preg_edc.UseVisualStyleBackColor = true;
             // 
-            // button_viewDetail
+            // button_medRec
             // 
-            this.button_viewDetail.Location = new System.Drawing.Point(606, 191);
-            this.button_viewDetail.Name = "button_viewDetail";
-            this.button_viewDetail.Size = new System.Drawing.Size(245, 29);
-            this.button_viewDetail.TabIndex = 2;
-            this.button_viewDetail.Text = "檢視詳細紀錄";
-            this.button_viewDetail.UseVisualStyleBackColor = true;
-            this.button_viewDetail.Click += new System.EventHandler(this.button_viewDetail_Click);
+            this.button_medRec.Location = new System.Drawing.Point(1076, 680);
+            this.button_medRec.Name = "button_medRec";
+            this.button_medRec.Size = new System.Drawing.Size(330, 49);
+            this.button_medRec.TabIndex = 13;
+            this.button_medRec.Text = "是次醫療紀錄";
+            this.button_medRec.UseVisualStyleBackColor = true;
+            this.button_medRec.Click += new System.EventHandler(this.button_medRec_Click);
             // 
             // ConsultationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 802);
+            this.Controls.Add(this.button_medRec);
             this.Controls.Add(this.groupBox_pregCert);
             this.Controls.Add(this.button_consCert);
             this.Controls.Add(this.groupBox_sickLeaveCert);
@@ -941,5 +954,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ColumnHeader columnHeader_acupuncture;
         private System.Windows.Forms.Button button_viewDetail;
+        private System.Windows.Forms.Button button_medRec;
     }
 }

@@ -59,3 +59,7 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.AcupunctureSel
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.PatientPwChk.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\ConsultationHistory.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\ConsultationHistory.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\FullMedicalRecord.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\FullMedicalRecord.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\obj\x86\Debug\CMCMS.PrintMedicalReportForm.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\obj\x86\Debug\CMCMS.Staff_reporting.resources

@@ -180,6 +180,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FullMedicalRecord.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="PatientPwChk.cs">
       <SubType>Form</SubType>
@@ -289,6 +290,12 @@
     <Compile Include="PrescriptionPanel.Designer.cs">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintMedicalReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintMedicalReportForm.Designer.cs">
+      <DependentUpon>PrintMedicalReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +320,12 @@
     </Compile>
     <Compile Include="Staff_QueuingForm.Designer.cs">
       <DependentUpon>Staff_QueuingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_reporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_reporting.Designer.cs">
+      <DependentUpon>Staff_reporting.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateFormulaForm.cs">
       <SubType>Form</SubType>
@@ -462,10 +475,11 @@
     <EmbeddedResource Include="ExaminationResultSelectionForm.resx">
       <DependentUpon>ExaminationResultSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FullMedicalRecord.rpt">
+    <Content Include="FullMedicalRecord.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FullMedicalRecord.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,6 +503,9 @@
     <EmbeddedResource Include="PrescriptionPanel.resx">
       <DependentUpon>PrescriptionPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintMedicalReportForm.resx">
+      <DependentUpon>PrintMedicalReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -502,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff_QueuingForm.resx">
       <DependentUpon>Staff_QueuingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff_reporting.resx">
+      <DependentUpon>Staff_reporting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateFormulaForm.resx">
       <DependentUpon>UpdateFormulaForm.cs</DependentUpon>

@@ -157,6 +157,7 @@ namespace CMCMS
                 groupBox_sickLeaveCert.Enabled = false;
                 button_consCert.Enabled = false;
                 groupBox_pregCert.Enabled = false;
+                button_medRec.Enabled = false;
                 button_change_exam.Enabled = true;
                 button_change_diff.Enabled = true;
                 button_change_dx.Enabled = true;
@@ -178,6 +179,7 @@ namespace CMCMS
                 groupBox_pregCert.Enabled = true;
                 checkBox_preg_edc.Enabled = checkBox_pat_isPregnant.Checked;
                 dateTimePicker_edc.Enabled = checkBox_pat_isPregnant.Checked;
+                button_medRec.Enabled = true;
                 button_change_exam.Enabled = true;
                 button_change_diff.Enabled = true;
                 button_change_dx.Enabled = true;
@@ -495,6 +497,13 @@ namespace CMCMS
         {
             ReportViewer rptViewer = new ReportViewer();
             rptViewer.preparePregCert(consMgr.issue_preg_cert(int.Parse(consId), checkBox_pat_isPregnant.Checked, dateTimePicker_edc.Value.ToString("dd/MM/yyyy")));
+            rptViewer.ShowDialog();
+        }
+
+        private void button_medRec_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareMedicalReport(Login.user.CurrentLoginClinicId, int.Parse(textBox_patId.Text), int.Parse(consId));
             rptViewer.ShowDialog();
         }
 

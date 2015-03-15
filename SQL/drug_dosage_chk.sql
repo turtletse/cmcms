@@ -2,9 +2,9 @@ DROP FUNCTION IF EXISTS drug_dosage_chk;
 DELIMITER $$
 CREATE FUNCTION drug_dosage_chk(in_drug_id INT, in_dosage DECIMAL(8,4), in_unit INT) RETURNS INT
 BEGIN
-	DECLARE max_dosage INT;
+	DECLARE max_dosage DECIMAL(16,4);
     DECLARE max_unit INT;
-    DECLARE min_dosage INT;
+    DECLARE min_dosage DECIMAL(16,4);
     DECLARE min_unit INT;
     DECLARE factor DECIMAL(8,4) DEFAULT 1;
     DECLARE smaller_unit INT DEFAULT 0;

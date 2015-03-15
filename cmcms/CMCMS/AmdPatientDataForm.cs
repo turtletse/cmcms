@@ -31,6 +31,8 @@ namespace CMCMS
         private void button_selectPatient_Click(object sender, EventArgs e)
         {
             pat = searchPatientInputPanel1.getSelectedPatient();
+            if (pat == null)
+                return;
             patientRegistration1.Enabled = false;
             patientRegistration1.setPatientData(pat);
             patientRegistration1.Enabled = true;

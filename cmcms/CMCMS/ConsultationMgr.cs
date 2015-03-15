@@ -448,5 +448,21 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_issue_preg_cert (" + consId + ", " + (isPreg ? "1" : "0") + ", " + (isPreg ? ("'" + Utilities.stringDataParse4SQL(edc) + "'") : "NULL") + ")");
             return int.Parse(data.Rows[0]["cert_id"].ToString());
         }
+
+        //printMedicalReport
+        public void refreshMedicalRecordLV(System.Windows.Forms.ListView lv, int patId)
+        {
+            lv.Items.Clear();
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_medical_history_get ('" + (Login.clinic == null ? "" : Utilities.stringDataParse4SQL(Login.clinic.Value)) + "', " + patId + ")");
+            if (data != null)
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    string[] row = { dr["cons_id"].ToString(), dr["cons_dtm"].ToString(), dr["dx_desc"].ToString(), dr["ex_desc"].ToString(), dr["diff_desc"].ToString(), dr["pres_data_str"].ToString(), dr["acupuncture_desc"].ToString() };
+                    System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(row);
+                    lv.Items.Add(item);
+                }
+            }
+        }
     }
 }

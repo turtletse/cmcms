@@ -36,9 +36,9 @@ namespace CMCMS
                 textBox_clinicId.Focus();
                 return false;
             }
-            if (!Utilities.isAlphaOnly(textBox_clinicId.Text))
+            if (!Utilities.isAlphaNumericOnly(textBox_clinicId.Text))
             {
-                MessageBox.Show("診所代號只限英文字母\n請重新輸入", "診所代號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("診所代號只限英文字母及數字\n請重新輸入", "診所代號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_clinicId.Focus();
                 return false;
             }

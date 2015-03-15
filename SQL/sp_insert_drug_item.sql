@@ -24,9 +24,9 @@ CREATE PROCEDURE sp_insert_drug_item (
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
-    DECLARE min_dosage DECIMAL(8,4);
+    DECLARE min_dosage DECIMAL(12,4);
     DECLARE min_unit INT;
-    DECLARE max_dosage DECIMAL(8,4);
+    DECLARE max_dosage DECIMAL(12,4);
     DECLARE max_unit INT;
     DECLARE factor DECIMAL(8,4) DEFAULT 1;
     DECLARE smaller_unit INT DEFAULT 0;
@@ -153,7 +153,7 @@ END $$
 
 DELIMITER ;
 
--- CALL sp_insert_drug_item ('一',1,10,2,20,10,10,1,1,1,1,1,1,1,1,1,1,0,0);
+-- CALL sp_insert_drug_item ('象皮',0,10,9999.9999,40,190,0,0,1,0,0,0,0,1,0,0,0,0,0)
 
 -- select * from debug_log order by log_dtm desc
 

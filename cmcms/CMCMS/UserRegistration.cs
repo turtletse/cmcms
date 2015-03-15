@@ -44,9 +44,9 @@ namespace CMCMS
                 textBox_userId.Focus();
                 return false;
             }
-            if (!Utilities.isAlphaOnly(textBox_userId.Text))
+            if (!Utilities.isAlphaNumericOnly(textBox_userId.Text))
             {
-                MessageBox.Show("用戶名稱只限半形英文字母\n請重新輸入", "用戶名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("用戶名稱只限半形英文字母及數字\n請重新輸入", "用戶名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_userId.Focus();
                 return false;
             }
