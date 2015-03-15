@@ -142,6 +142,34 @@ namespace CMCMS
                 textBox_addDrug_drugName.Focus();
                 return false;
             }
+
+            if (textBox_addDrug_minDose.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入劑量下限", "劑量下限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_addDrug_minDose.Focus();
+                return false;
+            }
+            if (!Utilities.isDecimal(textBox_addDrug_minDose.Text))
+            {
+                MessageBox.Show("劑量下限只限數值\n有效範圍[0.0000 - 9999.9999]", "劑量下限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_addDrug_minDose.Focus();
+                return false;
+            }
+
+            if (textBox_addDrug_maxDose.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入劑量上限", "劑量上限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_addDrug_maxDose.Focus();
+                return false;
+            }
+            if (!Utilities.isDecimal(textBox_addDrug_maxDose.Text))
+            {
+                MessageBox.Show("劑量上限只限數值\n有效範圍[0.0000 - 9999.9999]", "劑量上限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_addDrug_maxDose.Focus();
+                return false;
+            }
+            
+
             return true;
         }
 
@@ -159,20 +187,27 @@ namespace CMCMS
             if (selectedTabIdx == 0)
             {
                 textBox_addDrug_selectedDrugName.Text = drug.getName();
+                textBox_addDrug_selectedDrugName.ReadOnly = true;
             }
             else if (selectedTabIdx == 1)
             {
+                textBox_amdDrug_drugName.ReadOnly = false;
+                textBox_amdDrug_subDrugName.ReadOnly = true;
+                textBox_amdDrug_minDoseVal.ReadOnly = false;
+                comboBox_amdDrug_minDoseUnit.Enabled = true;
+                textBox_amdDrug_maxDoseVal.ReadOnly = false;
+                comboBox_amdDrug_maxDoseUnit.Enabled = true;
+                comboBox_amdDrug_pri_type.Enabled = true;
+                comboBox_amdDrug_sec_type.Enabled = true;
+                groupBox_amdDrug4q5w.Enabled = true;
+                groupBox_amdDrug_contraindication.Enabled = true;
                 textBox_amdDrug_drugName.Text = drug.getName();
                 textBox_amdDrug_subDrugName.Clear();
                 textBox_amdDrug_minDoseVal.Text = drug.MinDoseVal.ToString();
-                //comboBox_amdDrug_minDoseUnit.SelectedValue = drug.MinDoseUnit.ToString();
                 Utilities.SelectItemByValue(comboBox_amdDrug_minDoseUnit, drug.MinDoseUnit.ToString());
                 textBox_amdDrug_maxDoseVal.Text = drug.MaxDoseVal.ToString();
-                //comboBox_amdDrug_maxDoseUnit.SelectedValue = drug.MaxDoseUnit.ToString();
                 Utilities.SelectItemByValue(comboBox_amdDrug_maxDoseUnit, drug.MaxDoseUnit.ToString());
-                //comboBox_amdDrug_pri_type.SelectedValue = drug.PriType;
                 Utilities.SelectItemByValue(comboBox_amdDrug_pri_type, drug.PriType.ToString());
-                //comboBox_amdDrug_sec_type.SelectedValue = drug.SecType;
                 Utilities.SelectItemByValue(comboBox_amdDrug_sec_type, drug.SecType.ToString());
                 checkBox_amdDrug_q1.Checked = drug.Q1;
                 checkBox_amdDrug_q2.Checked = drug.Q2;
@@ -184,9 +219,7 @@ namespace CMCMS
                 checkBox_amdDrug_w4.Checked = drug.W4;
                 checkBox_amdDrug_w5.Checked = drug.W5;
                 checkBox_amdDrug_w6.Checked = drug.W6;
-                //comboBox_amdDrug_preg_contra.SelectedValue = drug.PregContra;
                 Utilities.SelectItemByValue(comboBox_amdDrug_preg_contra, drug.PregContra.ToString());
-                //comboBox_amdDrug_g6pd_contra.SelectedValue = drug.G6pdContra;
                 Utilities.SelectItemByValue(comboBox_amdDrug_g6pd_contra, drug.G6pdContra.ToString());
                 checkBox_amdDrug_deleteItem.Checked = drug.Deleted;
 
@@ -205,6 +238,33 @@ namespace CMCMS
             if (selectedTabIdx == 1)
             {
                 textBox_amdDrug_subDrugName.Text = subDrug.getName();
+                if (textBox_amdDrug_subDrugName.Text.Length > 0 && textBox_amdDrug_subDrugName.Text != "-")
+                {
+                    textBox_amdDrug_drugName.ReadOnly = true;
+                    textBox_amdDrug_subDrugName.ReadOnly = false;
+                    textBox_amdDrug_minDoseVal.ReadOnly = true;
+                    comboBox_amdDrug_minDoseUnit.Enabled = false;
+                    textBox_amdDrug_maxDoseVal.ReadOnly = true;
+                    comboBox_amdDrug_maxDoseUnit.Enabled = false;
+                    comboBox_amdDrug_pri_type.Enabled = false;
+                    comboBox_amdDrug_sec_type.Enabled = false;
+                    groupBox_amdDrug4q5w.Enabled = false;
+                    groupBox_amdDrug_contraindication.Enabled = false;
+
+                }
+                else
+                {
+                    textBox_amdDrug_drugName.ReadOnly = false;
+                    textBox_amdDrug_subDrugName.ReadOnly = true;
+                    textBox_amdDrug_minDoseVal.ReadOnly = false;
+                    comboBox_amdDrug_minDoseUnit.Enabled = true;
+                    textBox_amdDrug_maxDoseVal.ReadOnly = false;
+                    comboBox_amdDrug_maxDoseUnit.Enabled = true;
+                    comboBox_amdDrug_pri_type.Enabled = true;
+                    comboBox_amdDrug_sec_type.Enabled = true;
+                    groupBox_amdDrug4q5w.Enabled = true;
+                    groupBox_amdDrug_contraindication.Enabled = true;
+                }
                 if (selectedSubDrug!=null && selectedSubDrug.getValue().Split(new String[] { "||" }, System.StringSplitOptions.None)[1].Equals("0"))
                     checkBox_amdDrug_deleteItem.Checked = selectedDrug.Deleted;
                 else
@@ -244,6 +304,32 @@ namespace CMCMS
             {
                 MessageBox.Show("請輸入子藥項名稱", "子藥項名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_addDrug_subDrugName.Focus();
+                return false;
+            }
+
+            if (textBox_amdDrug_minDoseVal.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入劑量下限", "劑量下限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_amdDrug_minDoseVal.Focus();
+                return false;
+            }
+            if (!Utilities.isDecimal(textBox_amdDrug_minDoseVal.Text))
+            {
+                MessageBox.Show("劑量下限只限數值\n有效範圍[0.0000 - 9999.9999]", "劑量下限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_amdDrug_minDoseVal.Focus();
+                return false;
+            }
+
+            if (textBox_amdDrug_maxDoseVal.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入劑量上限", "劑量上限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_amdDrug_maxDoseVal.Focus();
+                return false;
+            }
+            if (!Utilities.isDecimal(textBox_amdDrug_maxDoseVal.Text))
+            {
+                MessageBox.Show("劑量上限只限數值\n有效範圍[0.0000 - 9999.9999]", "劑量上限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_amdDrug_maxDoseVal.Focus();
                 return false;
             }
 

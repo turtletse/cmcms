@@ -78,13 +78,13 @@
             this.comboBox_amdDrug_pri_type = new System.Windows.Forms.ComboBox();
             this.button_amdDrug = new System.Windows.Forms.Button();
             this.textBox_amdDrug_drugName = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox_amdDrug_contraindication = new System.Windows.Forms.GroupBox();
             this.comboBox_amdDrug_g6pd_contra = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox_amdDrug_preg_contra = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox_amdDrug4q5w = new System.Windows.Forms.GroupBox();
             this.checkBox_amdDrug_w6 = new System.Windows.Forms.CheckBox();
             this.checkBox_amdDrug_w5 = new System.Windows.Forms.CheckBox();
             this.checkBox_amdDrug_w4 = new System.Windows.Forms.CheckBox();
@@ -123,8 +123,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.groupBox_amdDrug_contraindication.SuspendLayout();
+            this.groupBox_amdDrug4q5w.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -554,9 +554,9 @@
             this.tabPage2.Controls.Add(this.comboBox_amdDrug_pri_type);
             this.tabPage2.Controls.Add(this.button_amdDrug);
             this.tabPage2.Controls.Add(this.textBox_amdDrug_drugName);
-            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.groupBox_amdDrug_contraindication);
             this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.groupBox6);
+            this.tabPage2.Controls.Add(this.groupBox_amdDrug4q5w);
             this.tabPage2.Controls.Add(this.textBox_amdDrug_minDoseVal);
             this.tabPage2.Controls.Add(this.comboBox_amdDrug_sec_type);
             this.tabPage2.Controls.Add(this.comboBox_amdDrug_minDoseUnit);
@@ -647,18 +647,18 @@
             this.textBox_amdDrug_drugName.Size = new System.Drawing.Size(182, 26);
             this.textBox_amdDrug_drugName.TabIndex = 22;
             // 
-            // groupBox5
+            // groupBox_amdDrug_contraindication
             // 
-            this.groupBox5.Controls.Add(this.comboBox_amdDrug_g6pd_contra);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.comboBox_amdDrug_preg_contra);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Location = new System.Drawing.Point(303, 516);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(296, 123);
-            this.groupBox5.TabIndex = 35;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "禁忌";
+            this.groupBox_amdDrug_contraindication.Controls.Add(this.comboBox_amdDrug_g6pd_contra);
+            this.groupBox_amdDrug_contraindication.Controls.Add(this.label11);
+            this.groupBox_amdDrug_contraindication.Controls.Add(this.comboBox_amdDrug_preg_contra);
+            this.groupBox_amdDrug_contraindication.Controls.Add(this.label12);
+            this.groupBox_amdDrug_contraindication.Location = new System.Drawing.Point(303, 516);
+            this.groupBox_amdDrug_contraindication.Name = "groupBox_amdDrug_contraindication";
+            this.groupBox_amdDrug_contraindication.Size = new System.Drawing.Size(296, 123);
+            this.groupBox_amdDrug_contraindication.TabIndex = 35;
+            this.groupBox_amdDrug_contraindication.TabStop = false;
+            this.groupBox_amdDrug_contraindication.Text = "禁忌";
             // 
             // comboBox_amdDrug_g6pd_contra
             // 
@@ -705,24 +705,24 @@
             this.label13.TabIndex = 25;
             this.label13.Text = "劑量下限: ";
             // 
-            // groupBox6
+            // groupBox_amdDrug4q5w
             // 
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_w6);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_w5);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_w4);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_w3);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_w2);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_w1);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_q4);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_q3);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_q2);
-            this.groupBox6.Controls.Add(this.checkBox_amdDrug_q1);
-            this.groupBox6.Location = new System.Drawing.Point(303, 387);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(296, 123);
-            this.groupBox6.TabIndex = 34;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "性味";
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_w6);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_w5);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_w4);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_w3);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_w2);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_w1);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_q4);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_q3);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_q2);
+            this.groupBox_amdDrug4q5w.Controls.Add(this.checkBox_amdDrug_q1);
+            this.groupBox_amdDrug4q5w.Location = new System.Drawing.Point(303, 387);
+            this.groupBox_amdDrug4q5w.Name = "groupBox_amdDrug4q5w";
+            this.groupBox_amdDrug4q5w.Size = new System.Drawing.Size(296, 123);
+            this.groupBox_amdDrug4q5w.TabIndex = 34;
+            this.groupBox_amdDrug4q5w.TabStop = false;
+            this.groupBox_amdDrug4q5w.Text = "性味";
             // 
             // checkBox_amdDrug_w6
             // 
@@ -1052,10 +1052,10 @@
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.groupBox_amdDrug_contraindication.ResumeLayout(false);
+            this.groupBox_amdDrug_contraindication.PerformLayout();
+            this.groupBox_amdDrug4q5w.ResumeLayout(false);
+            this.groupBox_amdDrug4q5w.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -1114,13 +1114,13 @@
         private System.Windows.Forms.ComboBox comboBox_amdDrug_pri_type;
         private System.Windows.Forms.Button button_amdDrug;
         private System.Windows.Forms.TextBox textBox_amdDrug_drugName;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox_amdDrug_contraindication;
         private System.Windows.Forms.ComboBox comboBox_amdDrug_g6pd_contra;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox_amdDrug_preg_contra;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox_amdDrug4q5w;
         private System.Windows.Forms.CheckBox checkBox_amdDrug_w6;
         private System.Windows.Forms.CheckBox checkBox_amdDrug_w5;
         private System.Windows.Forms.CheckBox checkBox_amdDrug_w4;

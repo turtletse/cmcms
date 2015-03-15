@@ -115,6 +115,11 @@ namespace CMCMS
                 String ErrMsg = "";
                 this.Enabled = false;
                 clinic = (ClinicObj)(comboBox_clinicId.SelectedItem);
+                if (clinic.ClinicId == "ALL")
+                {
+                    MessageBox.Show("系統管理員專用診所不能使用病人系統", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
                 if (user != null)
                 {
