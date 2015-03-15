@@ -53,7 +53,7 @@ namespace CMCMS
         //patientPwChk
         public String patPwChk(int patId, String pw)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL patient_pw_check (" + patId + ", '" + Utilities.stringDataParse4SQL(pw) + "')");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_patient_pw_check (" + patId + ", '" + Utilities.stringDataParse4SQL(pw) + "')");
             return data.Rows[0]["isMatch"].ToString();
         }
 

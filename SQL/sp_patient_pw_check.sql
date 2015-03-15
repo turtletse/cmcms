@@ -1,6 +1,6 @@
-DROP PROCEDURE IF EXISTS patient_pw_check;
+DROP PROCEDURE IF EXISTS sp_patient_pw_check;
 DELIMITER $$
-CREATE PROCEDURE patient_pw_check (IN in_pat_id INT, IN in_hashed_pw CHAR(64))
+CREATE PROCEDURE sp_patient_pw_check (IN in_pat_id INT, IN in_hashed_pw CHAR(64))
 BEGIN
 	SELECT hashed_password = in_hashed_pw isMatch
     FROM patient_record

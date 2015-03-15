@@ -54,7 +54,8 @@ BEGIN
 		UPDATE prescription 
         SET	instruction = in_instruction,
 			no_of_dose = in_no_of_dose,
-            method_of_treatment = in_method_of_treatment
+            method_of_treatment = in_method_of_treatment,
+            last_update_dtm = sysdate(3)
         WHERE pres_id = in_presId;
 		
         SET cnt = 0;

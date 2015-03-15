@@ -47,8 +47,8 @@ BEGIN
 		SELECT split_value drug_data FROM splitResult;
 		DROP TEMPORARY TABLE splitResult;
 		
-		INSERT INTO prescription (pres_id, instruction, no_of_dose, method_of_treatment)
-        VALUES (LAST_INSERT_ID(get_pres_id()), in_instruction, in_no_of_dose, in_method_of_treatment);
+		INSERT INTO prescription (pres_id, instruction, no_of_dose, method_of_treatment, last_update_dtm)
+        VALUES (LAST_INSERT_ID(get_pres_id()), in_instruction, in_no_of_dose, in_method_of_treatment, sysdate(3));
         SET pres_id = LAST_INSERT_ID();
 		
         SET cnt = 0;
