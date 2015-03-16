@@ -63,3 +63,7 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\FullMedicalRecord.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\FullMedicalRecord.cs
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\obj\x86\Debug\CMCMS.PrintMedicalReportForm.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\obj\x86\Debug\CMCMS.Staff_reporting.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicConsCntByDay.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicHeaderA4.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicConsCntByDay.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicHeaderA4.cs

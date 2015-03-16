@@ -68,5 +68,11 @@ namespace CMCMS
             UserAmdInfo uai = new UserAmdInfo();
             uai.ShowDialog();
         }
+
+        private void button_recordCert_Click(object sender, EventArgs e)
+        {
+            PrintMedicalReportForm pmrf = new PrintMedicalReportForm();
+            pmrf.ShowDialog();
+        }
     }
 }

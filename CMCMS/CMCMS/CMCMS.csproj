@@ -128,11 +128,19 @@
     <Compile Include="ClinicAdm_mainMenu.Designer.cs">
       <DependentUpon>ClinicAdm_mainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClinicConsCntByDay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicConsCntByDay.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ClinicHeaderA4.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicHeaderA4.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ClinicObj.cs" />
     <Compile Include="ClinicRegistration.cs">
@@ -415,10 +423,16 @@
     <EmbeddedResource Include="ClinicAdm_mainMenu.resx">
       <DependentUpon>ClinicAdm_mainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClinicHeaderA4.rpt">
+    <Content Include="ClinicConsCntByDay.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClinicConsCntByDay.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ClinicHeaderA4.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ClinicHeaderA4.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="ClinicRegistration.resx">
       <DependentUpon>ClinicRegistration.cs</DependentUpon>
     </EmbeddedResource>

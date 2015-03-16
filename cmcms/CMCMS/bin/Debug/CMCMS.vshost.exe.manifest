@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="272384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="259584">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>i+biCDp5PB2wP2BV63qKZisfsq4=</dsig:DigestValue>
+        <dsig:DigestValue>dxyoyzx3mWztTCCUlNrAhm+6bWI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -305,6 +305,15 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="ClinicConsCntByDay.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>9N9z68E+9PmZwkz487eKAZEuyqU=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="ClinicHeader.rpt" size="16384">
     <hash>
       <dsig:Transforms>
@@ -312,6 +321,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>bIS77SlmJSrEnf4/8nyOT+ufKms=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ClinicHeaderA4.rpt" size="16384">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>9svwj0kB4OM9IBiJefGFuGuU+oc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="CMCMS.exe.config" size="338">

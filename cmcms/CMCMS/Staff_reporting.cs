@@ -16,10 +16,17 @@ namespace CMCMS
             InitializeComponent();
         }
 
-        private void button_reporting_Click(object sender, EventArgs e)
+        private void button_recordCert_Click(object sender, EventArgs e)
         {
             PrintMedicalReportForm pmrf = new PrintMedicalReportForm();
             pmrf.ShowDialog();
+        }
+
+        private void button_clinicConsStatByDay30_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareClinicConsStatByDay30(Login.user.CurrentLoginClinicId);
+            rptViewer.ShowDialog();
         }
     }
 }

@@ -60,7 +60,9 @@ namespace CMCMS
         private void button_reporting_Click(object sender, EventArgs e)
         {
             Staff_reporting sr = new Staff_reporting();
+            this.Hide();
             sr.ShowDialog();
+            this.Show();
         }
 
     }

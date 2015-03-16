@@ -9,7 +9,7 @@ BEGIN
             CASE WHEN patient_record.id_doc_type = 'HKID' THEN '香港身份證' WHEN patient_record.id_doc_type = 'PASSPORT' THEN '護照' ELSE '' END id_doc_type,
             id_doc_no,
             consultation_id,
-            DATE_FORMAT(last_update_dtm,'%d/%m/%Y') cons_date,
+            DATE_FORMAT(consultation_record.last_update_dtm,'%d/%m/%Y') cons_date,
             dx_desc,
             DATE_FORMAT(start_date, '%d/%m/%Y') start_date,
             DATE_FORMAT(end_date, '%d/%m/%Y') end_date,

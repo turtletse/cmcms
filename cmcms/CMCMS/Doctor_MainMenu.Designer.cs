@@ -35,6 +35,7 @@
             this.button_newPredefPres = new System.Windows.Forms.Button();
             this.button_consultation = new System.Windows.Forms.Button();
             this.button_userAmdInfo = new System.Windows.Forms.Button();
+            this.button_recordCert = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_amdPatData
@@ -108,11 +109,22 @@
             this.button_userAmdInfo.UseVisualStyleBackColor = true;
             this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
             // 
+            // button_recordCert
+            // 
+            this.button_recordCert.Location = new System.Drawing.Point(21, 397);
+            this.button_recordCert.Name = "button_recordCert";
+            this.button_recordCert.Size = new System.Drawing.Size(221, 51);
+            this.button_recordCert.TabIndex = 30;
+            this.button_recordCert.Text = "列印紀錄 / 證明";
+            this.button_recordCert.UseVisualStyleBackColor = true;
+            this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
+            // 
             // Doctor_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 414);
+            this.ClientSize = new System.Drawing.Size(269, 471);
+            this.Controls.Add(this.button_recordCert);
             this.Controls.Add(this.button_userAmdInfo);
             this.Controls.Add(this.button_consultation);
             this.Controls.Add(this.button_updatePredefPres);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.Button button_newPredefPres;
         private System.Windows.Forms.Button button_consultation;
         private System.Windows.Forms.Button button_userAmdInfo;
+        private System.Windows.Forms.Button button_recordCert;
     }
 }

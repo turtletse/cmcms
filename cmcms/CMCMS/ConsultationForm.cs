@@ -476,9 +476,21 @@ namespace CMCMS
 
         private void button_issueSickLeaveCert_Click(object sender, EventArgs e)
         {
-            ReportViewer rptViewer = new ReportViewer();
-            rptViewer.prepareSickLeaveCert(consMgr.issue_sick_leave_cert(int.Parse(consId), dateTimePicker_sickLeaveStart.Value.ToString("dd/MM/yyyy"), dateTimePicker_sickLeaveEnd.Value.ToString("dd/MM/yyyy"), int.Parse(textBox_sickLeaveNDays.Text)));
-            rptViewer.ShowDialog();
+            int certId = consMgr.issue_sick_leave_cert(int.Parse(consId), dateTimePicker_sickLeaveStart.Value.ToString("dd/MM/yyyy"), dateTimePicker_sickLeaveEnd.Value.ToString("dd/MM/yyyy"), int.Parse(textBox_sickLeaveNDays.Text));
+            if (certId > 0)
+            {
+                ReportViewer rptViewer = new ReportViewer();
+                rptViewer.prepareSickLeaveCert(certId);
+                rptViewer.ShowDialog();
+            }
+            else if (certId == -1)
+            {
+                MessageBox.Show("現時距離診症完成時間已超24小時, 不能補發病假證明書", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (certId == -2)
+            {
+                MessageBox.Show("病假開始日期不能早於診症日期", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dateTimePicker_sickLeaveStart_ValueChanged(object sender, EventArgs e)

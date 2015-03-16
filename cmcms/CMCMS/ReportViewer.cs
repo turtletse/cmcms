@@ -110,6 +110,14 @@ namespace CMCMS
             crRpt.SetParameterValue("in_cons_id", consId);
         }
 
+        public void prepareClinicConsStatByDay30(String clinicId)
+        {
+            setRptName("ClinicConsCntByDay.rpt");
+            crRpt.Load(rptName);
+
+            crRpt.SetParameterValue("in_clinic_id", clinicId);
+        }
+
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
             ConnectionInfo crConnectionInfo = new ConnectionInfo();

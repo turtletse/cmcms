@@ -40,23 +40,29 @@
             this.columnHeader_acupuncture = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button_prnSelected = new System.Windows.Forms.Button();
             this.searchPatientInputPanel1 = new CMCMS.SearchPatientInputPanel();
+            this.button_consCert = new System.Windows.Forms.Button();
+            this.button_issueSickLeaveCert = new System.Windows.Forms.Button();
+            this.dateTimePicker_sickLeaveEnd = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dateTimePicker_sickLeaveStart = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_prnWholeRec
             // 
-            this.button_prnWholeRec.Location = new System.Drawing.Point(20, 402);
+            this.button_prnWholeRec.Location = new System.Drawing.Point(206, 402);
             this.button_prnWholeRec.Name = "button_prnWholeRec";
-            this.button_prnWholeRec.Size = new System.Drawing.Size(133, 39);
+            this.button_prnWholeRec.Size = new System.Drawing.Size(165, 39);
             this.button_prnWholeRec.TabIndex = 1;
-            this.button_prnWholeRec.Text = "列印完整紀錄";
+            this.button_prnWholeRec.Text = "列印完整醫療紀錄";
             this.button_prnWholeRec.UseVisualStyleBackColor = true;
             this.button_prnWholeRec.Click += new System.EventHandler(this.button_prnWholeRec_Click);
             // 
             // button_search
             // 
-            this.button_search.Location = new System.Drawing.Point(159, 402);
+            this.button_search.Location = new System.Drawing.Point(22, 402);
             this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(133, 39);
+            this.button_search.Size = new System.Drawing.Size(178, 39);
             this.button_search.TabIndex = 2;
             this.button_search.Text = "檢索紀錄";
             this.button_search.UseVisualStyleBackColor = true;
@@ -120,11 +126,11 @@
             // 
             // button_prnSelected
             // 
-            this.button_prnSelected.Location = new System.Drawing.Point(1021, 402);
+            this.button_prnSelected.Location = new System.Drawing.Point(377, 402);
             this.button_prnSelected.Name = "button_prnSelected";
-            this.button_prnSelected.Size = new System.Drawing.Size(133, 39);
+            this.button_prnSelected.Size = new System.Drawing.Size(151, 39);
             this.button_prnSelected.TabIndex = 4;
-            this.button_prnSelected.Text = "列印已選紀錄";
+            this.button_prnSelected.Text = "列印已選醫療紀錄";
             this.button_prnSelected.UseVisualStyleBackColor = true;
             this.button_prnSelected.Click += new System.EventHandler(this.button_prnSelected_Click);
             // 
@@ -137,13 +143,75 @@
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
             this.searchPatientInputPanel1.TabIndex = 0;
             // 
+            // button_consCert
+            // 
+            this.button_consCert.Location = new System.Drawing.Point(534, 402);
+            this.button_consCert.Name = "button_consCert";
+            this.button_consCert.Size = new System.Drawing.Size(133, 39);
+            this.button_consCert.TabIndex = 10;
+            this.button_consCert.Text = "到診證明書";
+            this.button_consCert.UseVisualStyleBackColor = true;
+            this.button_consCert.Click += new System.EventHandler(this.button_consCert_Click);
+            // 
+            // button_issueSickLeaveCert
+            // 
+            this.button_issueSickLeaveCert.Location = new System.Drawing.Point(1021, 402);
+            this.button_issueSickLeaveCert.Name = "button_issueSickLeaveCert";
+            this.button_issueSickLeaveCert.Size = new System.Drawing.Size(133, 39);
+            this.button_issueSickLeaveCert.TabIndex = 8;
+            this.button_issueSickLeaveCert.Text = "補發病假證明書";
+            this.button_issueSickLeaveCert.UseVisualStyleBackColor = true;
+            this.button_issueSickLeaveCert.Click += new System.EventHandler(this.button_issueSickLeaveCert_Click);
+            // 
+            // dateTimePicker_sickLeaveEnd
+            // 
+            this.dateTimePicker_sickLeaveEnd.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_sickLeaveEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_sickLeaveEnd.Location = new System.Drawing.Point(896, 411);
+            this.dateTimePicker_sickLeaveEnd.Name = "dateTimePicker_sickLeaveEnd";
+            this.dateTimePicker_sickLeaveEnd.Size = new System.Drawing.Size(119, 26);
+            this.dateTimePicker_sickLeaveEnd.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(865, 411);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 20);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "至";
+            // 
+            // dateTimePicker_sickLeaveStart
+            // 
+            this.dateTimePicker_sickLeaveStart.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_sickLeaveStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(740, 411);
+            this.dateTimePicker_sickLeaveStart.Name = "dateTimePicker_sickLeaveStart";
+            this.dateTimePicker_sickLeaveStart.Size = new System.Drawing.Size(119, 26);
+            this.dateTimePicker_sickLeaveStart.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(673, 411);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 20);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "病假由:";
+            // 
             // PrintMedicalReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 463);
+            this.Controls.Add(this.button_issueSickLeaveCert);
+            this.Controls.Add(this.button_consCert);
+            this.Controls.Add(this.dateTimePicker_sickLeaveEnd);
             this.Controls.Add(this.button_prnSelected);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dateTimePicker_sickLeaveStart);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.button_prnWholeRec);
             this.Controls.Add(this.searchPatientInputPanel1);
@@ -153,8 +221,9 @@
             this.MaximizeBox = false;
             this.Name = "PrintMedicalReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "醫療紀錄";
+            this.Text = "紀錄 / 證明";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -172,5 +241,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader_pres;
         private System.Windows.Forms.ColumnHeader columnHeader_acupuncture;
         private System.Windows.Forms.Button button_prnSelected;
+        private System.Windows.Forms.Button button_consCert;
+        private System.Windows.Forms.Button button_issueSickLeaveCert;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_sickLeaveEnd;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_sickLeaveStart;
+        private System.Windows.Forms.Label label16;
     }
 }

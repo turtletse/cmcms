@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button_reporting = new System.Windows.Forms.Button();
+            this.button_recordCert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_clinicConsStatByDay30 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button_reporting
+            // button_recordCert
             // 
-            this.button_reporting.Location = new System.Drawing.Point(12, 59);
-            this.button_reporting.Name = "button_reporting";
-            this.button_reporting.Size = new System.Drawing.Size(255, 51);
-            this.button_reporting.TabIndex = 26;
-            this.button_reporting.Text = "醫療紀錄";
-            this.button_reporting.UseVisualStyleBackColor = true;
-            this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);
+            this.button_recordCert.Location = new System.Drawing.Point(12, 59);
+            this.button_recordCert.Name = "button_recordCert";
+            this.button_recordCert.Size = new System.Drawing.Size(255, 51);
+            this.button_recordCert.TabIndex = 26;
+            this.button_recordCert.Text = "紀錄 / 證明";
+            this.button_recordCert.UseVisualStyleBackColor = true;
+            this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
             // 
             // label1
             // 
@@ -53,13 +54,24 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "列印報告/紀錄目錄";
             // 
+            // button_clinicConsStatByDay30
+            // 
+            this.button_clinicConsStatByDay30.Location = new System.Drawing.Point(12, 116);
+            this.button_clinicConsStatByDay30.Name = "button_clinicConsStatByDay30";
+            this.button_clinicConsStatByDay30.Size = new System.Drawing.Size(255, 51);
+            this.button_clinicConsStatByDay30.TabIndex = 28;
+            this.button_clinicConsStatByDay30.Text = "過去30日按日診症數";
+            this.button_clinicConsStatByDay30.UseVisualStyleBackColor = true;
+            this.button_clinicConsStatByDay30.Click += new System.EventHandler(this.button_clinicConsStatByDay30_Click);
+            // 
             // Staff_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 403);
+            this.ClientSize = new System.Drawing.Size(279, 183);
+            this.Controls.Add(this.button_clinicConsStatByDay30);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button_reporting);
+            this.Controls.Add(this.button_recordCert);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -74,7 +86,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button_reporting;
+        private System.Windows.Forms.Button button_recordCert;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_clinicConsStatByDay30;
     }
 }
