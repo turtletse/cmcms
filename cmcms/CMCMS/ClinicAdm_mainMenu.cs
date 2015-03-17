@@ -80,5 +80,13 @@ namespace CMCMS
             Staff_QueuingForm sqf = new Staff_QueuingForm();
             sqf.Show();
         }
+
+        private void button_reporting_Click(object sender, EventArgs e)
+        {
+            ClinicAdm_reporting car = new ClinicAdm_reporting();
+            this.Hide();
+            car.ShowDialog();
+            this.Show();
+        }
     }
 }

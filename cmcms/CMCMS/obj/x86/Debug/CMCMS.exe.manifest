@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="259584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="262144">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dxyoyzx3mWztTCCUlNrAhm+6bWI=</dsig:DigestValue>
+        <dsig:DigestValue>zIcXrNTAWZtkdvz66OW0N2a7CW0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -366,6 +366,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>z6j/kSaa7VT7zXxOkNbcHkbMqJM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Last30DaysDxStat.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>jADQuxP7XOwlobJFisnqxQ1xj5c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="PregCert.rpt" size="32768">

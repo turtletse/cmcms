@@ -37,6 +37,7 @@
             this.button_newPredefPres = new System.Windows.Forms.Button();
             this.button_updatePredefPres = new System.Windows.Forms.Button();
             this.button_queuingMgt = new System.Windows.Forms.Button();
+            this.button_reporting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -130,11 +131,22 @@
             this.button_queuingMgt.UseVisualStyleBackColor = true;
             this.button_queuingMgt.Click += new System.EventHandler(this.button_queuingMgt_Click);
             // 
+            // button_reporting
+            // 
+            this.button_reporting.Location = new System.Drawing.Point(26, 516);
+            this.button_reporting.Name = "button_reporting";
+            this.button_reporting.Size = new System.Drawing.Size(221, 51);
+            this.button_reporting.TabIndex = 26;
+            this.button_reporting.Text = "列印報告/紀錄";
+            this.button_reporting.UseVisualStyleBackColor = true;
+            this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);
+            // 
             // ClinicAdm_mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 541);
+            this.ClientSize = new System.Drawing.Size(276, 591);
+            this.Controls.Add(this.button_reporting);
             this.Controls.Add(this.button_queuingMgt);
             this.Controls.Add(this.button_updatePredefPres);
             this.Controls.Add(this.button_newPredefPres);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Button button_newPredefPres;
         private System.Windows.Forms.Button button_updatePredefPres;
         private System.Windows.Forms.Button button_queuingMgt;
+        private System.Windows.Forms.Button button_reporting;
     }
 }

@@ -128,6 +128,12 @@
     <Compile Include="ClinicAdm_mainMenu.Designer.cs">
       <DependentUpon>ClinicAdm_mainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClinicAdm_reporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinicAdm_reporting.Designer.cs">
+      <DependentUpon>ClinicAdm_reporting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClinicConsCntByDay.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +195,13 @@
       <DependentUpon>FullMedicalRecord.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Last30DaysDxStat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Last30DaysDxStat.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PatientPwChk.cs">
       <SubType>Form</SubType>
@@ -433,6 +446,9 @@
       <LastGenOutput>ClinicHeaderA4.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="ClinicAdm_reporting.resx">
+      <DependentUpon>ClinicAdm_reporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClinicRegistration.resx">
       <DependentUpon>ClinicRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -492,6 +508,11 @@
     <Content Include="FullMedicalRecord.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FullMedicalRecord.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Last30DaysDxStat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Last30DaysDxStat.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Login.resx">

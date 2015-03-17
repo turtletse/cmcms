@@ -18,13 +18,13 @@ BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
     SET end_date = CURDATE();
-    SET start_date = end_date - INTERVAL 45 DAY;
+    SET start_date = end_date - INTERVAL 30 DAY;
     
     DROP TEMPORARY TABLE IF EXISTS tmp_dx_list;
-    CREATE TEMPORARY TABLE tmp_dx_list (dx_code VARCHAR(15), dx_desc VARCHAR(255), sys_pat_cnt INT DEFAULT 0, sys_new_cnt INT DEFAULT 0, pat_cnt INT DEFAULT 0, new_cnt INT DEFAULT 0);
-    INSERT INTO tmp_dx_list (dx_code, dx_desc)
-    SELECT result_code, GROUP_CONCAT(result_desc SEPARATOR ', ') FROM dx_results_list GROUP BY result_code;
-    INSERT INTO tmp_dx_list (dx_code, dx_desc) VALUES ('FreeText', '自定義診斷');
+    CREATE TEMPORARY TABLE tmp_dx_list (lv1 INT, lv2 INT, dx_code VARCHAR(15), dx_desc VARCHAR(255), sys_pat_cnt INT DEFAULT 0, sys_new_cnt INT DEFAULT 0, clinic_pat_cnt INT DEFAULT 0, clinic_new_cnt INT DEFAULT 0, incl_in_sys_new INT DEFAULT 0);
+    INSERT INTO tmp_dx_list (lv1, lv2, dx_code, dx_desc)
+    SELECT lv1, lv2, result_code, GROUP_CONCAT(result_desc SEPARATOR ', ') FROM dx_results_list GROUP BY result_code;
+    INSERT INTO tmp_dx_list (lv1, lv2, dx_code, dx_desc) VALUES (999, 999, 'FreeText', '自定義診斷');
     
     DROP TEMPORARY TABLE IF EXISTS tmp_cons_rec;
     CREATE TEMPORARY TABLE tmp_cons_rec
@@ -68,8 +68,9 @@ BEGIN
                                 UPDATE tmp_dx_list
                                 SET sys_pat_cnt = sys_pat_cnt + 1,
 									sys_new_cnt = sys_new_cnt + is_sys_new_case,
-									pat_cnt = CASE WHEN curr_clinic_id = in_clinic_id THEN pat_cnt + 1 ELSE pat_cnt END,
-                                    new_cnt = new_cnt + is_clinic_new_case
+									clinic_pat_cnt = CASE WHEN curr_clinic_id = in_clinic_id THEN clinic_pat_cnt + 1 ELSE clinic_pat_cnt END,
+                                    clinic_new_cnt = clinic_new_cnt + is_clinic_new_case,
+                                    incl_in_sys_new = CASE WHEN is_sys_new_case AND is_clinic_new_case THEN incl_in_sys_new + 1 ELSE incl_in_sys_new END
 								WHERE dx_code = curr_dx_code;
 								
                                 UPDATE tmp_cons_rec SET dx_code = REPLACE(dx_code, curr_dx_code, '') WHERE patient_id = curr_patient_id;
@@ -84,8 +85,9 @@ BEGIN
 		UNTIL done END REPEAT;
 	CLOSE cur1;
     
-    SELECT dx_code, dx_desc, sys_pat_cnt, sys_new_cnt, pat_cnt, new_cnt
-    FROM tmp_dx_list WHERE sys_pat_cnt > 0;
+    SELECT dx_code, dx_desc, sys_pat_cnt, sys_new_cnt, clinic_pat_cnt, clinic_new_cnt, incl_in_sys_new
+    FROM tmp_dx_list WHERE sys_pat_cnt > 0
+    ORDER BY lv1, lv2;
     
 END $$
 DELIMITER ;

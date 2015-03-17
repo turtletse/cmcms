@@ -67,3 +67,6 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicConsCntByDay.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicHeaderA4.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicConsCntByDay.cs
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicHeaderA4.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\Last30DaysDxStat.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\Last30DaysDxStat.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.ClinicAdm_reporting.resources
