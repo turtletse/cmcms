@@ -148,6 +148,12 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="ClinicHeaderA4L.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicHeaderA4L.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ClinicObj.cs" />
     <Compile Include="ClinicRegistration.cs">
       <SubType>UserControl</SubType>
@@ -348,6 +354,12 @@
     <Compile Include="Staff_reporting.Designer.cs">
       <DependentUpon>Staff_reporting.cs</DependentUpon>
     </Compile>
+    <Compile Include="SuspeciousPresListing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuspeciousPresListing.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="UpdateFormulaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -449,6 +461,11 @@
     <EmbeddedResource Include="ClinicAdm_reporting.resx">
       <DependentUpon>ClinicAdm_reporting.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="ClinicHeaderA4L.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClinicHeaderA4L.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="ClinicRegistration.resx">
       <DependentUpon>ClinicRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -558,6 +575,11 @@
     <EmbeddedResource Include="Staff_reporting.resx">
       <DependentUpon>Staff_reporting.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="SuspeciousPresListing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SuspeciousPresListing.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="UpdateFormulaForm.resx">
       <DependentUpon>UpdateFormulaForm.cs</DependentUpon>
     </EmbeddedResource>

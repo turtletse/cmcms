@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="262144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="264192">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zIcXrNTAWZtkdvz66OW0N2a7CW0=</dsig:DigestValue>
+        <dsig:DigestValue>K/QKj3oixH/vDepJDTEBVWkfJ0k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -311,7 +311,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9N9z68E+9PmZwkz487eKAZEuyqU=</dsig:DigestValue>
+      <dsig:DigestValue>f2R3QXjZoRsX1GXLIfL//uRaNQ4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ClinicHeader.rpt" size="16384">
@@ -329,7 +329,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9svwj0kB4OM9IBiJefGFuGuU+oc=</dsig:DigestValue>
+      <dsig:DigestValue>6KtPIMDn4Lmr6KfC8kNpwR+PKP8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ClinicHeaderA4L.rpt" size="16384">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>WHPx88fHK5DIF14qMxOLtz7O3Hk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="CMCMS.exe.config" size="338">
@@ -402,6 +411,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>LVMULgRfXOodcJzgHrntS7rNsOA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SuspeciousPresListing.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>1G6PkeQvB2VbLlTpi2NRjYo3t9c=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
