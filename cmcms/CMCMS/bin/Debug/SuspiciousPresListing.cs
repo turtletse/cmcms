@@ -16,14 +16,14 @@ namespace CMCMS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class SuspeciousPresListing : ReportClass {
+    public class SuspiciousPresListing : ReportClass {
         
-        public SuspeciousPresListing() {
+        public SuspiciousPresListing() {
         }
         
         public override string ResourceName {
             get {
-                return "SuspeciousPresListing.rpt";
+                return "SuspiciousPresListing.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CMCMS {
         
         public override string FullResourceName {
             get {
-                return "CMCMS.SuspeciousPresListing.rpt";
+                return "CMCMS.SuspiciousPresListing.rpt";
             }
             set {
                 // Do nothing
@@ -82,9 +82,17 @@ namespace CMCMS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[5];
             }
         }
         
@@ -95,20 +103,12 @@ namespace CMCMS {
                 return this.DataDefinition.ParameterFields[0];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ClinicHeaderA4Lrpt_in_clinc_id {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedSuspeciousPresListing : Component, ICachedReport {
+    public class CachedSuspiciousPresListing : Component, ICachedReport {
         
-        public CachedSuspeciousPresListing() {
+        public CachedSuspiciousPresListing() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace CMCMS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            SuspeciousPresListing rpt = new SuspeciousPresListing();
+            SuspiciousPresListing rpt = new SuspiciousPresListing();
             rpt.Site = this.Site;
             return rpt;
         }

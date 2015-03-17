@@ -31,7 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_clinicConsStatByDay30 = new System.Windows.Forms.Button();
             this.button_recordCert = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_dxStat = new System.Windows.Forms.Button();
+            this.button_suspiciousPresList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,22 +66,33 @@
             this.button_recordCert.UseVisualStyleBackColor = true;
             this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
             // 
-            // button1
+            // button_dxStat
             // 
-            this.button1.Location = new System.Drawing.Point(12, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 51);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "過去30日之診斷統計";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_dxStat.Location = new System.Drawing.Point(12, 167);
+            this.button_dxStat.Name = "button_dxStat";
+            this.button_dxStat.Size = new System.Drawing.Size(255, 51);
+            this.button_dxStat.TabIndex = 31;
+            this.button_dxStat.Text = "過去30日之診斷統計";
+            this.button_dxStat.UseVisualStyleBackColor = true;
+            this.button_dxStat.Click += new System.EventHandler(this.button_dxStat_Click);
+            // 
+            // button_suspiciousPresList
+            // 
+            this.button_suspiciousPresList.Location = new System.Drawing.Point(12, 224);
+            this.button_suspiciousPresList.Name = "button_suspiciousPresList";
+            this.button_suspiciousPresList.Size = new System.Drawing.Size(255, 51);
+            this.button_suspiciousPresList.TabIndex = 32;
+            this.button_suspiciousPresList.Text = "懷疑問題處方列表";
+            this.button_suspiciousPresList.UseVisualStyleBackColor = true;
+            this.button_suspiciousPresList.Click += new System.EventHandler(this.button_suspiciousPresList_Click);
             // 
             // ClinicAdm_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(279, 403);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_suspiciousPresList);
+            this.Controls.Add(this.button_dxStat);
             this.Controls.Add(this.button_clinicConsStatByDay30);
             this.Controls.Add(this.button_recordCert);
             this.Controls.Add(this.label1);
@@ -101,6 +113,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_clinicConsStatByDay30;
         private System.Windows.Forms.Button button_recordCert;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_dxStat;
+        private System.Windows.Forms.Button button_suspiciousPresList;
     }
 }

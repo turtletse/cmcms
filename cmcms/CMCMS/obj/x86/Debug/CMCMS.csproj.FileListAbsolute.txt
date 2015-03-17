@@ -72,5 +72,5 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\Last30DaysDxStat.cs
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.ClinicAdm_reporting.resources
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\ClinicHeaderA4L.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\ClinicHeaderA4L.cs
-C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\SuspeciousPresListing.rpt
-C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\SuspeciousPresListing.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\SuspiciousPresListing.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\SuspiciousPresListing.cs

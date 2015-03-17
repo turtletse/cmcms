@@ -29,10 +29,17 @@ namespace CMCMS
             rptViewer.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_dxStat_Click(object sender, EventArgs e)
         {
             ReportViewer rptViewer = new ReportViewer();
             rptViewer.prepareLast30DaysDxStat(Login.user.CurrentLoginClinicId);
+            rptViewer.ShowDialog();
+        }
+
+        private void button_suspiciousPresList_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareSuspiciousPresList(Login.user.CurrentLoginClinicId);
             rptViewer.ShowDialog();
         }
     }

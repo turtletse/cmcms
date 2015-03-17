@@ -1,6 +1,6 @@
-DROP PROCEDURE IF EXISTS sp_crrpt_suspecious_pres_listing;
+DROP PROCEDURE IF EXISTS sp_crrpt_suspicious_pres_listing;
 DELIMITER $$
-CREATE PROCEDURE sp_crrpt_suspecious_pres_listing(IN in_clinic_id VARCHAR(10))
+CREATE PROCEDURE sp_crrpt_suspicious_pres_listing(IN in_clinic_id VARCHAR(10))
 BEGIN
     SELECT pres_ignore_safety_chk.pres_id, 
 		dr_id, 
@@ -25,3 +25,5 @@ BEGIN
     ORDER BY pres_ignore_safety_chk.record_dtm DESC;
 END $$
 DELIMITER ;
+
+-- CALL sp_crrpt_suspicious_pres_listing('CITYC')

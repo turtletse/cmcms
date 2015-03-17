@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="264192">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="264704">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>K/QKj3oixH/vDepJDTEBVWkfJ0k=</dsig:DigestValue>
+        <dsig:DigestValue>5boUIwvQ2CPoBKKYDlRwu9MYtOo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -413,13 +413,13 @@
       <dsig:DigestValue>LVMULgRfXOodcJzgHrntS7rNsOA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SuspeciousPresListing.rpt" size="32768">
+  <file name="SuspiciousPresListing.rpt" size="32768">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1G6PkeQvB2VbLlTpi2NRjYo3t9c=</dsig:DigestValue>
+      <dsig:DigestValue>qjV39wVOoQEcOFAcc2DZAdyJsuc=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

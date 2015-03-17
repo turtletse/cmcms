@@ -153,6 +153,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicHeaderA4L.rpt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ClinicObj.cs" />
     <Compile Include="ClinicRegistration.cs">
@@ -354,11 +355,12 @@
     <Compile Include="Staff_reporting.Designer.cs">
       <DependentUpon>Staff_reporting.cs</DependentUpon>
     </Compile>
-    <Compile Include="SuspeciousPresListing.cs">
+    <Compile Include="SuspiciousPresListing.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SuspeciousPresListing.rpt</DependentUpon>
+      <DependentUpon>SuspiciousPresListing.rpt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UpdateFormulaForm.cs">
       <SubType>Form</SubType>
@@ -575,9 +577,9 @@
     <EmbeddedResource Include="Staff_reporting.resx">
       <DependentUpon>Staff_reporting.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="SuspeciousPresListing.rpt">
+    <Content Include="SuspiciousPresListing.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SuspeciousPresListing.cs</LastGenOutput>
+      <LastGenOutput>SuspiciousPresListing.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="UpdateFormulaForm.resx">
