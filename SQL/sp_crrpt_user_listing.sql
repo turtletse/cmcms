@@ -7,6 +7,7 @@ BEGIN
         IFNULL(eng_name, '') eng_name, 
         IFNULL(reg_no, '') reg_no,
         DATE_FORMAT(last_logout_dtm, '%d/%m/%Y %T') last_logout_dtm,
+        CASE WHEN isSuspended = 1 THEN '是' ELSE '否' END isSuspended,
         CASE WHEN in_clinic_id = 'ALL' THEN last_logout_clinic_id 
 			WHEN last_logout_clinic_id <> in_clinic_id THEN '***'
 			WHEN last_logout_clinic_id IS NULL THEN '' 

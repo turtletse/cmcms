@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="267776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="269312">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Iq2HFH6GlnXh1bEB/33pi29p9tA=</dsig:DigestValue>
+        <dsig:DigestValue>Z6ZCYDcBS5hjvEIErGglkMIJRm0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -341,6 +341,15 @@
       <dsig:DigestValue>WHPx88fHK5DIF14qMxOLtz7O3Hk=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="ClinicListing.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ldSwArq1zIOAWHtPBqayXZEVmdY=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="CMCMS.exe.config" size="338">
     <hash>
       <dsig:Transforms>
@@ -428,7 +437,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>PLrPWnRZCl9fdyIkvb5+HbSFoDc=</dsig:DigestValue>
+      <dsig:DigestValue>fsiVpQLkHxjdWUcky4b6c5r6K+A=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

@@ -84,7 +84,9 @@ namespace CMCMS
         private void button_reporting_Click(object sender, EventArgs e)
         {
             SysAdm_reporting sar = new SysAdm_reporting();
+            this.Hide();
             sar.ShowDialog();
+            this.Show();
         }
 
     }

@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button_userListing = new System.Windows.Forms.Button();
+            this.button_clinicListing = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,11 +54,22 @@
             this.button_userListing.UseVisualStyleBackColor = true;
             this.button_userListing.Click += new System.EventHandler(this.button_userListing_Click);
             // 
+            // button_clinicListing
+            // 
+            this.button_clinicListing.Location = new System.Drawing.Point(12, 109);
+            this.button_clinicListing.Name = "button_clinicListing";
+            this.button_clinicListing.Size = new System.Drawing.Size(191, 51);
+            this.button_clinicListing.TabIndex = 35;
+            this.button_clinicListing.Text = "診所列表";
+            this.button_clinicListing.UseVisualStyleBackColor = true;
+            this.button_clinicListing.Click += new System.EventHandler(this.button_clinicListing_Click);
+            // 
             // SysAdm_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 403);
+            this.ClientSize = new System.Drawing.Size(215, 175);
+            this.Controls.Add(this.button_clinicListing);
             this.Controls.Add(this.button_userListing);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,5 +88,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_userListing;
+        private System.Windows.Forms.Button button_clinicListing;
     }
 }
