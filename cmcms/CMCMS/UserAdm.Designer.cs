@@ -353,9 +353,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(6, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 29);
+            this.label5.Size = new System.Drawing.Size(221, 29);
             this.label5.TabIndex = 4;
-            this.label5.Text = "更改用戶資料";
+            this.label5.Text = "修改/增加用戶身份";
             // 
             // UserAdm
             // 

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="269312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="269824">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Z6ZCYDcBS5hjvEIErGglkMIJRm0=</dsig:DigestValue>
+        <dsig:DigestValue>ZmPdL/rlgOzt6kMIMtGIFmw+m8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -437,7 +437,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>fsiVpQLkHxjdWUcky4b6c5r6K+A=</dsig:DigestValue>
+      <dsig:DigestValue>mtgLyTBQ4CHEFjey+kkP4lqt/M4=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

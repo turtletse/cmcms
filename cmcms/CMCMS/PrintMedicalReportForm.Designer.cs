@@ -46,13 +46,14 @@
             this.label17 = new System.Windows.Forms.Label();
             this.dateTimePicker_sickLeaveStart = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
+            this.button_pres = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_prnWholeRec
             // 
-            this.button_prnWholeRec.Location = new System.Drawing.Point(206, 402);
+            this.button_prnWholeRec.Location = new System.Drawing.Point(132, 402);
             this.button_prnWholeRec.Name = "button_prnWholeRec";
-            this.button_prnWholeRec.Size = new System.Drawing.Size(165, 39);
+            this.button_prnWholeRec.Size = new System.Drawing.Size(149, 39);
             this.button_prnWholeRec.TabIndex = 1;
             this.button_prnWholeRec.Text = "列印完整醫療紀錄";
             this.button_prnWholeRec.UseVisualStyleBackColor = true;
@@ -62,7 +63,7 @@
             // 
             this.button_search.Location = new System.Drawing.Point(22, 402);
             this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(178, 39);
+            this.button_search.Size = new System.Drawing.Size(104, 39);
             this.button_search.TabIndex = 2;
             this.button_search.Text = "檢索紀錄";
             this.button_search.UseVisualStyleBackColor = true;
@@ -126,7 +127,7 @@
             // 
             // button_prnSelected
             // 
-            this.button_prnSelected.Location = new System.Drawing.Point(377, 402);
+            this.button_prnSelected.Location = new System.Drawing.Point(410, 402);
             this.button_prnSelected.Name = "button_prnSelected";
             this.button_prnSelected.Size = new System.Drawing.Size(151, 39);
             this.button_prnSelected.TabIndex = 4;
@@ -145,9 +146,9 @@
             // 
             // button_consCert
             // 
-            this.button_consCert.Location = new System.Drawing.Point(534, 402);
+            this.button_consCert.Location = new System.Drawing.Point(567, 402);
             this.button_consCert.Name = "button_consCert";
-            this.button_consCert.Size = new System.Drawing.Size(133, 39);
+            this.button_consCert.Size = new System.Drawing.Size(100, 39);
             this.button_consCert.TabIndex = 10;
             this.button_consCert.Text = "到診證明書";
             this.button_consCert.UseVisualStyleBackColor = true;
@@ -199,11 +200,22 @@
             this.label16.TabIndex = 3;
             this.label16.Text = "病假由:";
             // 
+            // button_pres
+            // 
+            this.button_pres.Location = new System.Drawing.Point(287, 402);
+            this.button_pres.Name = "button_pres";
+            this.button_pres.Size = new System.Drawing.Size(117, 39);
+            this.button_pres.TabIndex = 11;
+            this.button_pres.Text = "列印已選處方";
+            this.button_pres.UseVisualStyleBackColor = true;
+            this.button_pres.Click += new System.EventHandler(this.button_pres_Click);
+            // 
             // PrintMedicalReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 463);
+            this.Controls.Add(this.button_pres);
             this.Controls.Add(this.button_issueSickLeaveCert);
             this.Controls.Add(this.button_consCert);
             this.Controls.Add(this.dateTimePicker_sickLeaveEnd);
@@ -247,5 +259,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker dateTimePicker_sickLeaveStart;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button_pres;
     }
 }
