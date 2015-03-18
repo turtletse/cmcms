@@ -42,5 +42,12 @@ namespace CMCMS
             rptViewer.prepareSuspiciousPresList(Login.user.CurrentLoginClinicId);
             rptViewer.ShowDialog();
         }
+
+        private void button_userListing_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareUserListing(Login.user.CurrentLoginClinicId);
+            rptViewer.ShowDialog();
+        }
     }
 }

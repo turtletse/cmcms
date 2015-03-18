@@ -37,6 +37,7 @@
             this.button_userAdm = new System.Windows.Forms.Button();
             this.button_newPredefPres = new System.Windows.Forms.Button();
             this.button_updatePredefPres = new System.Windows.Forms.Button();
+            this.button_reporting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -130,11 +131,22 @@
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 
+            // button_reporting
+            // 
+            this.button_reporting.Location = new System.Drawing.Point(19, 520);
+            this.button_reporting.Name = "button_reporting";
+            this.button_reporting.Size = new System.Drawing.Size(221, 51);
+            this.button_reporting.TabIndex = 26;
+            this.button_reporting.Text = "列印報告";
+            this.button_reporting.UseVisualStyleBackColor = true;
+            this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);
+            // 
             // SystemAdmin_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 548);
+            this.ClientSize = new System.Drawing.Size(262, 586);
+            this.Controls.Add(this.button_reporting);
             this.Controls.Add(this.button_updatePredefPres);
             this.Controls.Add(this.button_newPredefPres);
             this.Controls.Add(this.button_userAdm);
@@ -168,6 +180,7 @@
         private System.Windows.Forms.Button button_userAdm;
         private System.Windows.Forms.Button button_newPredefPres;
         private System.Windows.Forms.Button button_updatePredefPres;
+        private System.Windows.Forms.Button button_reporting;
 
     }
 }

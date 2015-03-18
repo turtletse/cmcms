@@ -74,3 +74,6 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\ClinicHeaderA4L.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\ClinicHeaderA4L.cs
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\SuspiciousPresListing.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\cmcms\CMCMS\bin\Debug\SuspiciousPresListing.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\UserListing.rpt
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\UserListing.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.SysAdm_reporting.resources

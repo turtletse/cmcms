@@ -33,6 +33,7 @@
             this.button_recordCert = new System.Windows.Forms.Button();
             this.button_dxStat = new System.Windows.Forms.Button();
             this.button_suspiciousPresList = new System.Windows.Forms.Button();
+            this.button_userListing = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -86,11 +87,22 @@
             this.button_suspiciousPresList.UseVisualStyleBackColor = true;
             this.button_suspiciousPresList.Click += new System.EventHandler(this.button_suspiciousPresList_Click);
             // 
+            // button_userListing
+            // 
+            this.button_userListing.Location = new System.Drawing.Point(12, 281);
+            this.button_userListing.Name = "button_userListing";
+            this.button_userListing.Size = new System.Drawing.Size(255, 51);
+            this.button_userListing.TabIndex = 33;
+            this.button_userListing.Text = "用戶名單";
+            this.button_userListing.UseVisualStyleBackColor = true;
+            this.button_userListing.Click += new System.EventHandler(this.button_userListing_Click);
+            // 
             // ClinicAdm_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(279, 403);
+            this.Controls.Add(this.button_userListing);
             this.Controls.Add(this.button_suspiciousPresList);
             this.Controls.Add(this.button_dxStat);
             this.Controls.Add(this.button_clinicConsStatByDay30);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.Button button_recordCert;
         private System.Windows.Forms.Button button_dxStat;
         private System.Windows.Forms.Button button_suspiciousPresList;
+        private System.Windows.Forms.Button button_userListing;
     }
 }

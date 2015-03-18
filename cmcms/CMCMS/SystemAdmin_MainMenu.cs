@@ -81,5 +81,11 @@ namespace CMCMS
             updatePredefPresForm.ShowDialog();
         }
 
+        private void button_reporting_Click(object sender, EventArgs e)
+        {
+            SysAdm_reporting sar = new SysAdm_reporting();
+            sar.ShowDialog();
+        }
+
     }
 }

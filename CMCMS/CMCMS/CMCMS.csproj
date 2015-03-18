@@ -362,6 +362,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SysAdm_reporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdm_reporting.Designer.cs">
+      <DependentUpon>SysAdm_reporting.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateFormulaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +430,13 @@
       <DependentUpon>UserAmdInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserClinicMgr.cs" />
+    <Compile Include="UserListing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserListing.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserObj.cs" />
     <Compile Include="UserRegistration.cs">
       <SubType>UserControl</SubType>
@@ -582,6 +595,9 @@
       <LastGenOutput>SuspiciousPresListing.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="SysAdm_reporting.resx">
+      <DependentUpon>SysAdm_reporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateFormulaForm.resx">
       <DependentUpon>UpdateFormulaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -619,6 +635,11 @@
     <EmbeddedResource Include="UserAmdInfo.resx">
       <DependentUpon>UserAmdInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="UserListing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UserListing.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </EmbeddedResource>
