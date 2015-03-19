@@ -4,7 +4,7 @@ CREATE PROCEDURE sp_DSP_secondary_drug_type_listbox_item_get (IN in_pri_type int
 BEGIN
 	CREATE TEMPORARY TABLE result
 		select distinct pri_type, sec_type, type_desc 
-        from master_drug_type a LEFT JOIN master_drug_list b
+        from master_drug_type a JOIN master_drug_list b
         ON a.pri_type=b.drug_pri_type AND a.sec_type=b.drug_sec_type
         where pri_type = in_pri_type and sec_type <> 0;
     INSERT INTO result VALUES (0, 0, '全部');
@@ -13,4 +13,4 @@ BEGIN
 END $$
 delimiter ;
 
--- CALL sp_DSP_secondary_drug_type_listbox_item_get (0, 0);
+-- CALL sp_DSP_secondary_drug_type_listbox_item_get_test (10, 0);

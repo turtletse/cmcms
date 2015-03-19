@@ -53,7 +53,7 @@ BEGIN
 			END IF;
 		UNTIL smaller_unit = 0 END REPEAT;
 		IF max_unit=50 THEN
-			SET factor = factor/0.375;
+			SET factor = factor/0.3779936375;
 			SET max_unit = 10;
 		END IF;
 		SET max_dosage = max_dosage*factor;
@@ -67,7 +67,7 @@ BEGIN
 			END IF;
 		UNTIL smaller_unit = 0 END REPEAT;
 		IF min_unit=50 THEN
-			SET factor = factor/0.375;
+			SET factor = factor/0.3779936375;
 			SET min_unit = 10;
 		END IF;
 		SET min_dosage = min_dosage*factor;

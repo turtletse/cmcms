@@ -287,7 +287,7 @@ BEGIN
 						END IF;
 					UNTIL smaller_unit = 0 END REPEAT;
 					IF (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id) = 50 THEN
-						SET factor = factor/0.375;
+						SET factor = factor/0.3779936375;
 						UPDATE result_prescription
 						SET unit_id = 10
 						WHERE drug_id = curr_drug_id
@@ -309,6 +309,88 @@ END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE cmcis.sp_get_prescription_by_id TO 'cmcms'@'%';
 GRANT EXECUTE ON PROCEDURE cmcis.sp_get_prescription_by_id TO 'cmpms'@'%';
+
+
+
+
+DROP PROCEDURE IF EXISTS sp_get_prescription_by_id_for_check_stock;
+DELIMITER $$
+CREATE PROCEDURE sp_get_prescription_by_id_for_check_stock(IN in_pres_id INT)
+BEGIN
+	DECLARE isIssuedPres INT DEFAULT 0;
+    DECLARE factor DECIMAL(8,4) DEFAULT 1;
+    DECLARE smaller_unit INT DEFAULT 0;
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE curr_drug_id INT;
+    DECLARE curr_sub_drug_id INT;
+    DECLARE cur1 CURSOR FOR SELECT drug_id, sub_drug_id FROM result_prescription;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+    DROP TEMPORARY TABLE IF EXISTS result_prescription;
+    CREATE TEMPORARY TABLE result_prescription(
+		drug_id INT,
+        sub_drug_id INT,
+        drug_name VARCHAR(255),
+        dosage DECIMAL(12,4),
+        unit_id INT,
+        unit_desc VARCHAR(255),
+        dose INT,
+        total_amt DECIMAL(24,4),
+        unit VARCHAR(255)
+	);
+    
+    SELECT 1 INTO isIssuedPres
+    FROM cmcms.consultation_record
+    WHERE pres_id REGEXP CONCAT('(^|[0-9]\\|{2})', in_pres_id, '(\\|{2}[0-9]|$)')
+		AND isFinished = 2;
+    
+    IF isIssuedPres = 1 THEN
+		INSERT INTO result_prescription (drug_id, sub_drug_id, drug_name, dosage, unit_id, dose)
+		SELECT drug_id, sub_drug_id, drug_name, dosage, unit, no_of_dose
+		FROM cmcms.prescription_dt JOIN cmcms.prescription ON prescription_dt.pres_id = prescription.pres_id
+		WHERE prescription_dt.pres_id = in_pres_id;
+        
+        OPEN cur1;
+            REPEAT
+				FETCH cur1 INTO curr_drug_id, curr_sub_drug_id;
+				IF NOT done THEN
+					SET factor = 1;
+                    SET smaller_unit = 0;
+					REPEAT
+						SELECT decrease_to_id INTO smaller_unit FROM cmcms.dosage_unit WHERE unit_id = (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id);
+						IF smaller_unit <> 0 THEN
+							SELECT promote_val*factor INTO factor FROM cmcms.dosage_unit WHERE unit_id = smaller_unit;
+                            UPDATE result_prescription, cmcms.dosage_unit
+                            SET result_prescription.unit_id = dosage_unit.unit_id
+                            WHERE dosage_unit.unit_id = smaller_unit
+								AND result_prescription.drug_id = curr_drug_id
+								AND result_prescription.sub_drug_id = curr_sub_drug_id;
+						END IF;
+					UNTIL smaller_unit = 0 END REPEAT;
+					IF (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id) = 50 THEN
+						SET factor = factor/0.3779936375;
+						UPDATE result_prescription
+						SET unit_id = 10
+						WHERE drug_id = curr_drug_id
+							AND sub_drug_id = curr_sub_drug_id;
+					END IF;
+                    UPDATE result_prescription
+					SET dosage = dosage * factor
+					WHERE drug_id = curr_drug_id
+						AND sub_drug_id = curr_sub_drug_id;
+				END IF;
+			UNTIL done END REPEAT;
+		CLOSE cur1;
+        
+        UPDATE result_prescription r, cmcms.dosage_unit d
+        SET r.unit_desc = d.unit_desc, total_amt = dosage * dose, r.unit = d.unit_desc
+        WHERE r.unit_id = d.unit_id;
+	END IF;
+END $$
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE cmcis.sp_get_prescription_by_id_for_check_stock TO 'cmcms'@'%';
+GRANT EXECUTE ON PROCEDURE cmcis.sp_get_prescription_by_id_for_check_stock TO 'cmpms'@'%';
+
 
 
 
@@ -353,7 +435,7 @@ GRANT EXECUTE ON PROCEDURE cmcis.sp_get_prescription_by_pres_barcode TO 'cmpms'@
 
 DROP PROCEDURE IF EXISTS sp_get_procedures_done_in_cons_by_pres_barcode;
 DELIMITER $$
-CREATE PROCEDURE sp_get_procedures_done_in_cons_by_pres_barcode(IN in_barcode VARCHAR(255))
+CREATE PROCEDURE sp_get_procedures_done_in_cons_by_pres_barcode(IN in_pharm_id VARCHAR(10), IN in_barcode VARCHAR(255))
 BEGIN
 	DECLARE b_clinic_id VARCHAR(10);
     DECLARE b_dr_id VARCHAR(10);
@@ -369,9 +451,16 @@ BEGIN
     SET b_cons_id = CAST(cmcms.stringSplit(in_barcode, '/', 4) AS UNSIGNED);
     SET b_last_update_dtm = cmcms.stringSplit(in_barcode, '/', 6);
     
+    DROP TEMPORARY TABLE IF EXISTS clinic_ids;
+    CREATE TEMPORARY TABLE clinic_ids
+    SELECT clinic_id
+    FROM clinic_pharm_mapping
+    WHERE pharm_id = in_pharm_id;
+    
 	SELECT 1, CASE WHEN acupuncture_code IS NULL OR LENGTH(TRIM(acupuncture_code))=0 THEN 0 ELSE 1 END INTO cons, acupt
 	FROM cmcms.consultation_record 
 	WHERE clinic_id = b_clinic_id 
+		AND clinic_id IN (SELECT clinic_id FROM clinic_ids)
 		AND dr_id = b_dr_id 
 		AND patient_id = b_pat_id
 		AND cons_id = b_cons_id

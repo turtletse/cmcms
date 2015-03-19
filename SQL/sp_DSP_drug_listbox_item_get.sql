@@ -66,7 +66,7 @@ BEGIN
             or	(w5 <> 0 and drug_w5 = 1)
             or	(w6 <> 0 and drug_w6 = 1)
         );
-    SELECT drug_name, drug_id, drug_min_dosage_val, drug_min_dosage_unit, drug_max_dosage_val, drug_max_dosage_unit, drug_pri_type, drug_sec_type, isDeleted, drug_q1, drug_q2, drug_q3, drug_q4, drug_w1, drug_w2, drug_w3, drug_w4, drug_w5, drug_w6, IFNULL(pregnancy, 0) pregnancy, IFNULL(g6pd, 0) g6pd FROM result ORDER BY drug_id;
+    SELECT distinct drug_name, drug_id, drug_min_dosage_val, drug_min_dosage_unit, drug_max_dosage_val, drug_max_dosage_unit, drug_pri_type, drug_sec_type, isDeleted, drug_q1, drug_q2, drug_q3, drug_q4, drug_w1, drug_w2, drug_w3, drug_w4, drug_w5, drug_w6, IFNULL(pregnancy, 0) pregnancy, IFNULL(g6pd, 0) g6pd FROM result ORDER BY drug_id;
     DROP TEMPORARY TABLE result;
 END $$
 delimiter ;

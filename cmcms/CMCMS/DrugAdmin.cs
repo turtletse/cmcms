@@ -307,32 +307,6 @@ namespace CMCMS
                 return false;
             }
 
-            if (textBox_amdDrug_minDoseVal.Text.Length == 0)
-            {
-                MessageBox.Show("請輸入劑量下限", "劑量下限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_amdDrug_minDoseVal.Focus();
-                return false;
-            }
-            if (!Utilities.isDecimal(textBox_amdDrug_minDoseVal.Text))
-            {
-                MessageBox.Show("劑量下限只限數值\n有效範圍[0.0000 - 9999.9999]", "劑量下限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_amdDrug_minDoseVal.Focus();
-                return false;
-            }
-
-            if (textBox_amdDrug_maxDoseVal.Text.Length == 0)
-            {
-                MessageBox.Show("請輸入劑量上限", "劑量上限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_amdDrug_maxDoseVal.Focus();
-                return false;
-            }
-            if (!Utilities.isDecimal(textBox_amdDrug_maxDoseVal.Text))
-            {
-                MessageBox.Show("劑量上限只限數值\n有效範圍[0.0000 - 9999.9999]", "劑量上限錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_amdDrug_maxDoseVal.Focus();
-                return false;
-            }
-
             return true;
         }
 

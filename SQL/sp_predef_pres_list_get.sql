@@ -8,6 +8,7 @@ BEGIN
 	SELECT predef_pres_id, predef_pres_name, isDeleted
     FROM predefined_prescription
     WHERE isDeleted<=in_incl_deleted
+		AND isSystemSuspended = 0
     ORDER BY predef_pres_id;
     
 END $$

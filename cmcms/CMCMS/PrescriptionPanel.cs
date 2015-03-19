@@ -89,7 +89,14 @@ namespace CMCMS
                 ((DataGridViewComboBoxCell)row.Cells[4]).Items.Add(o.getName());
             if (((DataGridViewComboBoxCell)row.Cells[4]) != null)
             {
-                ((DataGridViewComboBoxCell)row.Cells[4]).Value = ((DataGridViewComboBoxCell)row.Cells[4]).Items[0];
+                if (((String)((DataGridViewComboBoxCell)row.Cells[4]).Items[0]) == "分")
+                {
+                    ((DataGridViewComboBoxCell)row.Cells[4]).Value = ((DataGridViewComboBoxCell)row.Cells[4]).Items[1];
+                }
+                else
+                {
+                    ((DataGridViewComboBoxCell)row.Cells[4]).Value = ((DataGridViewComboBoxCell)row.Cells[4]).Items[0];
+                }
             }
 
             List<String> methodDesc = methods.Keys.ToList();

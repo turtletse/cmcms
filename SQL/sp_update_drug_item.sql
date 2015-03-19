@@ -33,12 +33,12 @@ BEGIN
     DECLARE factor DECIMAL(8,4) DEFAULT 1;
     DECLARE smaller_unit INT DEFAULT 0;
     
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;
+	END;*/
 	if (select count(*) from master_drug_list where drug_name = in_drug_name and drug_id <> in_drug_id) > 0 THEN
         SET curr_status_id = 4;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
@@ -57,7 +57,7 @@ BEGIN
 			END IF;
 		UNTIL smaller_unit = 0 END REPEAT;
 		IF max_unit=50 THEN
-			SET factor = factor/0.375;
+			SET factor = factor/0.3779936375;
 			SET max_unit = 10;
 		END IF;
 		SET max_dosage = max_dosage*factor;
@@ -71,7 +71,7 @@ BEGIN
 			END IF;
 		UNTIL smaller_unit = 0 END REPEAT;
 		IF min_unit=50 THEN
-			SET factor = factor/0.375;
+			SET factor = factor/0.3779936375;
 			SET min_unit = 10;
 		END IF;
 		SET min_dosage = min_dosage*factor;
@@ -124,6 +124,39 @@ BEGIN
 						in_g6pd_contraindication_id
 					);                
 				END IF;
+                
+                DROP TEMPORARY TABLE IF EXISTS predef_pres_ids;
+                CREATE TEMPORARY TABLE predef_pres_ids (predef_pres_id INT, deleted_cnt INT DEFAULT 0);
+                INSERT INTO predef_pres_ids(predef_pres_id)
+                SELECT DISTINCT predef_pres_id 
+                FROM predefined_prescription_dt
+                WHERE drug_id = in_drug_id;
+                
+                DROP TEMPORARY TABLE IF EXISTS del_cnt_list;
+                CREATE TEMPORARY TABLE del_cnt_list
+                SELECT predef_pres_id, SUM(isDeleted) deleted_cnt
+                FROM predefined_prescription_dt JOIN master_drug_list ON predefined_prescription_dt.drug_id = master_drug_list.drug_id
+                WHERE predefined_prescription_dt.predef_pres_id IN (SELECT predef_pres_id FROM predef_pres_ids)
+                GROUP BY predef_pres_id;
+                
+                UPDATE predef_pres_ids, del_cnt_list
+                SET predef_pres_ids.deleted_cnt = predef_pres_ids.deleted_cnt + del_cnt_list.deleted_cnt
+                WHERE predef_pres_ids.predef_pres_id = del_cnt_list.predef_pres_id;
+                
+                DROP TEMPORARY TABLE IF EXISTS del_cnt_list;
+                CREATE TEMPORARY TABLE del_cnt_list
+                SELECT predef_pres_id, SUM(isDeleted) deleted_cnt
+                FROM predefined_prescription_dt JOIN master_sub_drug_list ON predefined_prescription_dt.drug_id = master_sub_drug_list.drug_id AND predefined_prescription_dt.sub_drug_id = master_sub_drug_list.sub_drug_id
+                WHERE predefined_prescription_dt.predef_pres_id IN (SELECT predef_pres_id FROM predef_pres_ids)
+                GROUP BY predef_pres_id;
+                
+                UPDATE predef_pres_ids, del_cnt_list
+                SET predef_pres_ids.deleted_cnt = predef_pres_ids.deleted_cnt + del_cnt_list.deleted_cnt
+                WHERE predef_pres_ids.predef_pres_id = del_cnt_list.predef_pres_id;
+                
+                UPDATE predefined_prescription, predef_pres_ids
+                SET isSystemSuspended = CASE WHEN predef_pres_ids.deleted_cnt>0 THEN 1 ELSE 0 END
+                WHERE predefined_prescription.predef_pres_id = predef_pres_ids.predef_pres_id;
 				
 			COMMIT;
 			SET AUTOCOMMIT = 1;
@@ -138,7 +171,7 @@ END $$
 
 DELIMITER ;
 
--- CALL sp_insert_drug_item ('一',1,10,2,20,10,10,1,1,1,1,1,1,1,1,1,1,0,0);
+-- CALL sp_update_drug_item (101001, '麻黃',5.0000,10,3.0000,20,10,10,0,0,1,0,1,0,0,1,0,0,0,1, 1)
 
 -- select * from debug_log order by log_dtm desc
 

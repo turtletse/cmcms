@@ -10,7 +10,7 @@ BEGIN
 			ELSE drug_id
 			END drug_code,
 	drug_name,
-    dosage,
+    TRIM(TRAILING '.' FROM TRIM(TRAILING '0' FROM dosage)) dosage,
     unit_desc,
     method_desc
     FROM prescription_dt JOIN preparation_method ON preparation_method=method_id JOIN dosage_unit ON unit = unit_id

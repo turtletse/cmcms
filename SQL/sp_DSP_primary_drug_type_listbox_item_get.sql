@@ -2,6 +2,7 @@ DROP procedure if EXISTS sp_DSP_primary_drug_type_listbox_item_get;
 delimiter $$
 CREATE PROCEDURE sp_DSP_primary_drug_type_listbox_item_get (IN in_incl_deleted int)
 BEGIN
+	DROP TEMPORARY TABLE IF EXISTS result;
 	CREATE TEMPORARY TABLE result
 		select distinct pri_type, type_desc 
         from master_drug_type a LEFT JOIN master_drug_list b
