@@ -141,5 +141,13 @@ namespace CMCMS
             reset();
             this.Show();
         }
+
+        private void textBox_piorityCons_patId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_piorityCons_Click(sender, e);
+            }
+        }
     }
 }

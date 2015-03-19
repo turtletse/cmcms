@@ -30,6 +30,14 @@ namespace CMCMS
             rptViewer.ShowDialog();
         }
 
+        private void button_drugListing_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.prepareDrugListing(Login.user.CurrentLoginClinicId);
+            rptViewer.ShowDialog();
+        }
+
+
 
     }
 }

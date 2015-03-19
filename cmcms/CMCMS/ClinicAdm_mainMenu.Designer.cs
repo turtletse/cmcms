@@ -67,7 +67,7 @@
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
             this.button_amdClinic.TabIndex = 15;
-            this.button_amdClinic.Text = "更改診所資料";
+            this.button_amdClinic.Text = "查詢 / 更改診所資料";
             this.button_amdClinic.UseVisualStyleBackColor = true;
             this.button_amdClinic.Click += new System.EventHandler(this.button_amdClinic_Click);
             // 
@@ -87,7 +87,7 @@
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
             this.button_amdPatData.TabIndex = 13;
-            this.button_amdPatData.Text = "更改病人資料";
+            this.button_amdPatData.Text = "查詢 / 更改病人資料";
             this.button_amdPatData.UseVisualStyleBackColor = true;
             this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
             // 
@@ -117,7 +117,7 @@
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_updatePredefPres.TabIndex = 18;
-            this.button_updatePredefPres.Text = "更改方劑";
+            this.button_updatePredefPres.Text = "查詢 / 更改方劑";
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 

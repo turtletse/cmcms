@@ -1,7 +1,8 @@
-DROP PROCEDURE IF EXISTS sp_crrpt_suspecious_pres_listing;
+DROP PROCEDURE IF EXISTS sp_crrpt_suspicious_pres_listing;
 DELIMITER $$
-CREATE PROCEDURE sp_crrpt_suspecious_pres_listing(IN in_clinic_id VARCHAR(10))
+CREATE PROCEDURE sp_crrpt_suspicious_pres_listing(IN in_clinic_id VARCHAR(10))
 BEGIN
+	CALL sp_prescription_clean_up();
     SELECT pres_ignore_safety_chk.pres_id, 
 		dr_id, 
         chin_name, 

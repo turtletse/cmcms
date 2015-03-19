@@ -167,7 +167,7 @@ namespace CMCMS
             return prescription.Substring(2);
         }
 
-        private void button_addFromFreeText_Click(object sender, EventArgs e)
+        private void button_addFromFreeTextSearch_Click(object sender, EventArgs e)
         {
             String notFoundDrugs = "";
             List<PermissibleValueObj> drugs = drugMgr.getDrugIdByNames(textBox_drugInput.Text.Trim().Replace(" ", "").Replace("，", ",").Replace("　",""), ref notFoundDrugs);
@@ -273,6 +273,14 @@ namespace CMCMS
             DGV_selected.Rows.Clear();
             List<List<String>> pres = consMgr.getPrescriptionDtById(predefPresId);
             setPres(pres);
+        }
+
+        private void textBox_drugInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_addFromFreeTextSearch_Click(sender, e);
+            }
         }
     }
 }

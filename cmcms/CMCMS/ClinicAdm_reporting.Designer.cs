@@ -34,6 +34,8 @@
             this.button_dxStat = new System.Windows.Forms.Button();
             this.button_suspiciousPresList = new System.Windows.Forms.Button();
             this.button_userListing = new System.Windows.Forms.Button();
+            this.button_clinicListing = new System.Windows.Forms.Button();
+            this.button_drugListing = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -97,11 +99,33 @@
             this.button_userListing.UseVisualStyleBackColor = true;
             this.button_userListing.Click += new System.EventHandler(this.button_userListing_Click);
             // 
+            // button_clinicListing
+            // 
+            this.button_clinicListing.Location = new System.Drawing.Point(12, 338);
+            this.button_clinicListing.Name = "button_clinicListing";
+            this.button_clinicListing.Size = new System.Drawing.Size(255, 51);
+            this.button_clinicListing.TabIndex = 36;
+            this.button_clinicListing.Text = "診所列表";
+            this.button_clinicListing.UseVisualStyleBackColor = true;
+            this.button_clinicListing.Click += new System.EventHandler(this.button_clinicListing_Click);
+            // 
+            // button_drugListing
+            // 
+            this.button_drugListing.Location = new System.Drawing.Point(12, 395);
+            this.button_drugListing.Name = "button_drugListing";
+            this.button_drugListing.Size = new System.Drawing.Size(255, 51);
+            this.button_drugListing.TabIndex = 37;
+            this.button_drugListing.Text = "可選用藥物列表";
+            this.button_drugListing.UseVisualStyleBackColor = true;
+            this.button_drugListing.Click += new System.EventHandler(this.button_drugListing_Click);
+            // 
             // ClinicAdm_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 403);
+            this.ClientSize = new System.Drawing.Size(279, 462);
+            this.Controls.Add(this.button_drugListing);
+            this.Controls.Add(this.button_clinicListing);
             this.Controls.Add(this.button_userListing);
             this.Controls.Add(this.button_suspiciousPresList);
             this.Controls.Add(this.button_dxStat);
@@ -128,5 +152,7 @@
         private System.Windows.Forms.Button button_dxStat;
         private System.Windows.Forms.Button button_suspiciousPresList;
         private System.Windows.Forms.Button button_userListing;
+        private System.Windows.Forms.Button button_clinicListing;
+        private System.Windows.Forms.Button button_drugListing;
     }
 }

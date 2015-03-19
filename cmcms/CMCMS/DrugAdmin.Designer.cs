@@ -193,6 +193,7 @@
             this.textBox_addDrug_subDrugName.Name = "textBox_addDrug_subDrugName";
             this.textBox_addDrug_subDrugName.Size = new System.Drawing.Size(137, 26);
             this.textBox_addDrug_subDrugName.TabIndex = 4;
+            this.textBox_addDrug_subDrugName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_addDrug_subDrugName_KeyPress);
             // 
             // label9
             // 
@@ -571,7 +572,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1392, 745);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "修改藥物資料";
+            this.tabPage2.Text = "查詢 / 修改藥物資料";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 

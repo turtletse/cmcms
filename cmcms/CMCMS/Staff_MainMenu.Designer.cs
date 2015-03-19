@@ -52,7 +52,7 @@
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
             this.button_amdPatData.TabIndex = 22;
-            this.button_amdPatData.Text = "更改病人資料";
+            this.button_amdPatData.Text = "查詢 / 更改病人資料";
             this.button_amdPatData.UseVisualStyleBackColor = true;
             this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
             // 
@@ -83,7 +83,7 @@
             this.button_userAmdInfo.Name = "button_userAmdInfo";
             this.button_userAmdInfo.Size = new System.Drawing.Size(221, 51);
             this.button_userAmdInfo.TabIndex = 24;
-            this.button_userAmdInfo.Text = "更改用戶資料";
+            this.button_userAmdInfo.Text = "查詢 / 更改用戶資料";
             this.button_userAmdInfo.UseVisualStyleBackColor = true;
             this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
             // 

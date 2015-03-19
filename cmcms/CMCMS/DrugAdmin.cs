@@ -446,5 +446,13 @@ namespace CMCMS
             }
         }
 
+        private void textBox_addDrug_subDrugName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_addSubDrug_Click(sender, e);
+            }
+        }
+
     }
 }

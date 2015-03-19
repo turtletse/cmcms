@@ -66,9 +66,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 29);
+            this.label1.Size = new System.Drawing.Size(185, 29);
             this.label1.TabIndex = 8;
-            this.label1.Text = "更改方劑";
+            this.label1.Text = "查詢 / 更改方劑";
             // 
             // button_updatePredefPres
             // 
@@ -160,7 +160,7 @@
             this.MaximizeBox = false;
             this.Name = "UpdateFormulaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "更改方劑";
+            this.Text = "查詢 / 更改方劑";
             this.ResumeLayout(false);
             this.PerformLayout();
 

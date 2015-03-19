@@ -67,7 +67,7 @@
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
             this.button_amdPatData.TabIndex = 5;
-            this.button_amdPatData.Text = "更改病人資料";
+            this.button_amdPatData.Text = "查詢 / 更改病人資料";
             this.button_amdPatData.UseVisualStyleBackColor = true;
             this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
             // 
@@ -83,7 +83,7 @@
             // 
             // button_newClinic
             // 
-            this.button_newClinic.Location = new System.Drawing.Point(19, 349);
+            this.button_newClinic.Location = new System.Drawing.Point(246, 178);
             this.button_newClinic.Name = "button_newClinic";
             this.button_newClinic.Size = new System.Drawing.Size(221, 51);
             this.button_newClinic.TabIndex = 7;
@@ -93,17 +93,17 @@
             // 
             // button_amdClinic
             // 
-            this.button_amdClinic.Location = new System.Drawing.Point(19, 406);
+            this.button_amdClinic.Location = new System.Drawing.Point(473, 64);
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
             this.button_amdClinic.TabIndex = 8;
-            this.button_amdClinic.Text = "更改診所資料";
+            this.button_amdClinic.Text = "查詢 / 更改診所資料";
             this.button_amdClinic.UseVisualStyleBackColor = true;
             this.button_amdClinic.Click += new System.EventHandler(this.button_amdClinic_Click);
             // 
             // button_userAdm
             // 
-            this.button_userAdm.Location = new System.Drawing.Point(19, 463);
+            this.button_userAdm.Location = new System.Drawing.Point(473, 121);
             this.button_userAdm.Name = "button_userAdm";
             this.button_userAdm.Size = new System.Drawing.Size(221, 51);
             this.button_userAdm.TabIndex = 9;
@@ -113,7 +113,7 @@
             // 
             // button_newPredefPres
             // 
-            this.button_newPredefPres.Location = new System.Drawing.Point(19, 235);
+            this.button_newPredefPres.Location = new System.Drawing.Point(246, 64);
             this.button_newPredefPres.Name = "button_newPredefPres";
             this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_newPredefPres.TabIndex = 10;
@@ -123,17 +123,17 @@
             // 
             // button_updatePredefPres
             // 
-            this.button_updatePredefPres.Location = new System.Drawing.Point(19, 292);
+            this.button_updatePredefPres.Location = new System.Drawing.Point(246, 121);
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_updatePredefPres.TabIndex = 11;
-            this.button_updatePredefPres.Text = "更改方劑";
+            this.button_updatePredefPres.Text = "查詢 / 更改方劑";
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 
             // button_reporting
             // 
-            this.button_reporting.Location = new System.Drawing.Point(19, 520);
+            this.button_reporting.Location = new System.Drawing.Point(473, 178);
             this.button_reporting.Name = "button_reporting";
             this.button_reporting.Size = new System.Drawing.Size(221, 51);
             this.button_reporting.TabIndex = 26;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 586);
+            this.ClientSize = new System.Drawing.Size(723, 256);
             this.Controls.Add(this.button_reporting);
             this.Controls.Add(this.button_updatePredefPres);
             this.Controls.Add(this.button_newPredefPres);

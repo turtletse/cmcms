@@ -133,6 +133,7 @@
             this.textBox_freeText.Name = "textBox_freeText";
             this.textBox_freeText.Size = new System.Drawing.Size(494, 26);
             this.textBox_freeText.TabIndex = 31;
+            this.textBox_freeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_freeText_KeyPress);
             // 
             // label5
             // 
@@ -159,6 +160,7 @@
             this.textBox_search_keywords.Name = "textBox_search_keywords";
             this.textBox_search_keywords.Size = new System.Drawing.Size(226, 26);
             this.textBox_search_keywords.TabIndex = 28;
+            this.textBox_search_keywords.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_keywords_KeyPress);
             // 
             // label4
             // 

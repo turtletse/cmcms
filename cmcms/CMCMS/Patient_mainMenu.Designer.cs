@@ -70,7 +70,7 @@
             this.button_amdPatientData.Name = "button_amdPatientData";
             this.button_amdPatientData.Size = new System.Drawing.Size(236, 58);
             this.button_amdPatientData.TabIndex = 3;
-            this.button_amdPatientData.Text = "更改資料";
+            this.button_amdPatientData.Text = "查詢 / 更改資料";
             this.button_amdPatientData.UseVisualStyleBackColor = true;
             this.button_amdPatientData.Click += new System.EventHandler(this.button_amdPatientData_Click);
             // 

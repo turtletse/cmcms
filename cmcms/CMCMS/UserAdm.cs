@@ -202,6 +202,14 @@ namespace CMCMS
             textBox_amdRole_userId.Text = ((UserObj)(comboBox_amdRole_user.SelectedItem)).UserId;
             ucMgr.setGrantedClinicRoleListbox(listBox_amdRole_grantedClinicRole, textBox_amdRole_userId.Text);
         }
+
+        private void comboBox_amdRole_role_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_amdRole_add_Click(sender, e);
+            }
+        }
         
 
     }

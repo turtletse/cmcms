@@ -104,5 +104,29 @@ namespace CMCMS
 
             return true;
         }
+
+        private void textBox_search_patientID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_search_Click(sender, e);
+            }
+        }
+
+        private void textBox_search_IDNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_search_Click(sender, e);
+            }
+        }
+
+        private void textBox_search_phoneNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_search_Click(sender, e);
+            }
+        }
     }
 }

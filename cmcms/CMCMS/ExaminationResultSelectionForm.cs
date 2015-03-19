@@ -145,5 +145,21 @@ namespace CMCMS
                     listBox_selectedExamResult.Items.Add(objToBeAdded);
             }
         }
+
+        private void textBox_search_keywords_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_search_Click(sender, e);
+            }
+        }
+
+        private void textBox_freeText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_addFromFreeText_Click(sender, e);
+            }
+        }
     }
 }

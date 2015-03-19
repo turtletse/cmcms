@@ -36,6 +36,7 @@
             this.button_consultation = new System.Windows.Forms.Button();
             this.button_userAmdInfo = new System.Windows.Forms.Button();
             this.button_recordCert = new System.Windows.Forms.Button();
+            this.button_drugListing = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_amdPatData
@@ -44,7 +45,7 @@
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
             this.button_amdPatData.TabIndex = 25;
-            this.button_amdPatData.Text = "更改病人資料";
+            this.button_amdPatData.Text = "查詢 / 更改病人資料";
             this.button_amdPatData.UseVisualStyleBackColor = true;
             this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
             // 
@@ -75,7 +76,7 @@
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_updatePredefPres.TabIndex = 27;
-            this.button_updatePredefPres.Text = "更改方劑";
+            this.button_updatePredefPres.Text = "查詢 / 更改方劑";
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 
@@ -105,7 +106,7 @@
             this.button_userAmdInfo.Name = "button_userAmdInfo";
             this.button_userAmdInfo.Size = new System.Drawing.Size(221, 51);
             this.button_userAmdInfo.TabIndex = 29;
-            this.button_userAmdInfo.Text = "更改用戶資料";
+            this.button_userAmdInfo.Text = "查詢 / 更改用戶資料";
             this.button_userAmdInfo.UseVisualStyleBackColor = true;
             this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
             // 
@@ -119,11 +120,22 @@
             this.button_recordCert.UseVisualStyleBackColor = true;
             this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
             // 
+            // button_drugListing
+            // 
+            this.button_drugListing.Location = new System.Drawing.Point(21, 454);
+            this.button_drugListing.Name = "button_drugListing";
+            this.button_drugListing.Size = new System.Drawing.Size(221, 51);
+            this.button_drugListing.TabIndex = 31;
+            this.button_drugListing.Text = "可選用藥物列表";
+            this.button_drugListing.UseVisualStyleBackColor = true;
+            this.button_drugListing.Click += new System.EventHandler(this.button_drugListing_Click);
+            // 
             // Doctor_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 469);
+            this.ClientSize = new System.Drawing.Size(269, 524);
+            this.Controls.Add(this.button_drugListing);
             this.Controls.Add(this.button_recordCert);
             this.Controls.Add(this.button_userAmdInfo);
             this.Controls.Add(this.button_consultation);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.Button button_consultation;
         private System.Windows.Forms.Button button_userAmdInfo;
         private System.Windows.Forms.Button button_recordCert;
+        private System.Windows.Forms.Button button_drugListing;
     }
 }

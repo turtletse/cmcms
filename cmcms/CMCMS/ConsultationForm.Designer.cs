@@ -589,11 +589,11 @@
             // 
             // button_change_pres
             // 
-            this.button_change_pres.Location = new System.Drawing.Point(821, 29);
+            this.button_change_pres.Location = new System.Drawing.Point(800, 29);
             this.button_change_pres.Name = "button_change_pres";
-            this.button_change_pres.Size = new System.Drawing.Size(71, 28);
+            this.button_change_pres.Size = new System.Drawing.Size(92, 28);
             this.button_change_pres.TabIndex = 16;
-            this.button_change_pres.Text = "修改";
+            this.button_change_pres.Text = "檢視/修改";
             this.button_change_pres.UseVisualStyleBackColor = true;
             this.button_change_pres.Click += new System.EventHandler(this.button_change_pres_Click);
             // 
@@ -603,7 +603,7 @@
             this.comboBox_presId.FormattingEnabled = true;
             this.comboBox_presId.Location = new System.Drawing.Point(600, 30);
             this.comboBox_presId.Name = "comboBox_presId";
-            this.comboBox_presId.Size = new System.Drawing.Size(215, 28);
+            this.comboBox_presId.Size = new System.Drawing.Size(194, 28);
             this.comboBox_presId.TabIndex = 15;
             // 
             // label12

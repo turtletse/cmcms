@@ -177,6 +177,7 @@
             this.comboBox_changeMOIC_MOIC.Name = "comboBox_changeMOIC_MOIC";
             this.comboBox_changeMOIC_MOIC.Size = new System.Drawing.Size(231, 28);
             this.comboBox_changeMOIC_MOIC.TabIndex = 22;
+            this.comboBox_changeMOIC_MOIC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_changeMOIC_MOIC_KeyPress);
             // 
             // textBox_changeMOIC_patId
             // 
@@ -184,6 +185,7 @@
             this.textBox_changeMOIC_patId.Name = "textBox_changeMOIC_patId";
             this.textBox_changeMOIC_patId.Size = new System.Drawing.Size(199, 26);
             this.textBox_changeMOIC_patId.TabIndex = 21;
+            this.textBox_changeMOIC_patId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_changeMOIC_patId_KeyPress);
             // 
             // textBox_piorityCons_patId
             // 
@@ -191,6 +193,7 @@
             this.textBox_piorityCons_patId.Name = "textBox_piorityCons_patId";
             this.textBox_piorityCons_patId.Size = new System.Drawing.Size(199, 26);
             this.textBox_piorityCons_patId.TabIndex = 20;
+            this.textBox_piorityCons_patId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_piorityCons_patId_KeyPress);
             // 
             // label7
             // 
@@ -256,6 +259,7 @@
             this.comboBox_NextPat_MOIC.Name = "comboBox_NextPat_MOIC";
             this.comboBox_NextPat_MOIC.Size = new System.Drawing.Size(231, 28);
             this.comboBox_NextPat_MOIC.TabIndex = 11;
+            this.comboBox_NextPat_MOIC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_NextPat_MOIC_KeyPress);
             // 
             // button_callNext
             // 

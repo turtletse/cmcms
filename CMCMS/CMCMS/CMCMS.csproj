@@ -204,6 +204,13 @@
     <Compile Include="DrugIncompatibleSelection.Designer.cs">
       <DependentUpon>DrugIncompatibleSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="DrugListing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrugListing.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="FullMedicalRecord.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -538,6 +545,11 @@
     <EmbeddedResource Include="DrugIncompatibleSelection.resx">
       <DependentUpon>DrugIncompatibleSelection.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="DrugListing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DrugListing.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="DrugSelectionPanel.resx">
       <DependentUpon>DrugSelectionPanel.cs</DependentUpon>
     </EmbeddedResource>

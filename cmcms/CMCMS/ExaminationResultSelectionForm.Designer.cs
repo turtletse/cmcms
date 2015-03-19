@@ -131,6 +131,7 @@
             this.textBox_search_keywords.Name = "textBox_search_keywords";
             this.textBox_search_keywords.Size = new System.Drawing.Size(268, 26);
             this.textBox_search_keywords.TabIndex = 8;
+            this.textBox_search_keywords.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_keywords_KeyPress);
             // 
             // button_search
             // 
@@ -157,6 +158,7 @@
             this.textBox_freeText.Name = "textBox_freeText";
             this.textBox_freeText.Size = new System.Drawing.Size(494, 26);
             this.textBox_freeText.TabIndex = 11;
+            this.textBox_freeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_freeText_KeyPress);
             // 
             // listBox_selectedExamResult
             // 

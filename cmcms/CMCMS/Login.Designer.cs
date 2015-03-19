@@ -92,6 +92,7 @@
             this.textBox_password.Size = new System.Drawing.Size(248, 26);
             this.textBox_password.TabIndex = 4;
             this.textBox_password.UseSystemPasswordChar = true;
+            this.textBox_password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_password_KeyPress);
             // 
             // button_reset
             // 

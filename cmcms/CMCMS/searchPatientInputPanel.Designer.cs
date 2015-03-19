@@ -66,6 +66,7 @@
             this.textBox_search_patientID.Name = "textBox_search_patientID";
             this.textBox_search_patientID.Size = new System.Drawing.Size(187, 26);
             this.textBox_search_patientID.TabIndex = 12;
+            this.textBox_search_patientID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_patientID_KeyPress);
             // 
             // label3
             // 
@@ -82,6 +83,7 @@
             this.textBox_search_IDNo.Name = "textBox_search_IDNo";
             this.textBox_search_IDNo.Size = new System.Drawing.Size(135, 26);
             this.textBox_search_IDNo.TabIndex = 14;
+            this.textBox_search_IDNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_IDNo_KeyPress);
             // 
             // label4
             // 
@@ -98,6 +100,7 @@
             this.textBox_search_phoneNo.Name = "textBox_search_phoneNo";
             this.textBox_search_phoneNo.Size = new System.Drawing.Size(187, 26);
             this.textBox_search_phoneNo.TabIndex = 16;
+            this.textBox_search_phoneNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_phoneNo_KeyPress);
             // 
             // button_search
             // 

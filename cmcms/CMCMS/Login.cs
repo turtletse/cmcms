@@ -118,28 +118,30 @@ namespace CMCMS
                 if (clinic.ClinicId == "ALL")
                 {
                     MessageBox.Show("系統管理員專用診所不能使用病人系統", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
-                if (user != null)
-                {
-                    if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
-                    {
-                        Patient_mainMenu patMainMenu = new Patient_mainMenu();
-                        user = null;
-                        this.Hide();
-                        patMainMenu.ShowDialog();
-                        this.Show();
-                    }
-                    else
-                    {
-                        textBox_userName.Text = PasswordHash.getHashedPw(textBox_password.Text);
-                        MessageBox.Show("密碼錯誤", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
                 else
                 {
-                    MessageBox.Show(ErrMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    user = ucMgr.getUserByUserClinicRoleId(textBox_userName.Text, clinic.ClinicId, int.Parse(((PermissibleValueObj)(comboBox_role.SelectedItem)).getValue()), ref ErrMsg);
+                    if (user != null)
+                    {
+                        if (PasswordHash.getHashedPw(textBox_password.Text) == user.HashedPw)
+                        {
+                            Patient_mainMenu patMainMenu = new Patient_mainMenu();
+                            user = null;
+                            this.Hide();
+                            patMainMenu.ShowDialog();
+                            this.Show();
+                        }
+                        else
+                        {
+                            textBox_userName.Text = PasswordHash.getHashedPw(textBox_password.Text);
+                            MessageBox.Show("密碼錯誤", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(ErrMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 this.Enabled = true;
             }
@@ -168,6 +170,15 @@ namespace CMCMS
             }
             return true;
         }
+
+        private void textBox_password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_login_Click(sender, e);
+            }
+        }
+
 
     }
 }

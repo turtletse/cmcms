@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="269312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="272384">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Fv+ccB53xJX66sQ9rPgCHAFUXdw=</dsig:DigestValue>
+        <dsig:DigestValue>alKhbm7lgf9ENTiFBuJTVl9rrxE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -347,7 +347,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ldSwArq1zIOAWHtPBqayXZEVmdY=</dsig:DigestValue>
+      <dsig:DigestValue>6rSj1afVr7UGg0ArNzDKB+w01cY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="CMCMS.exe.config" size="338">
@@ -375,6 +375,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>naekNgvYml3EHOi3v3e7cZFx39Y=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="DrugListing.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ujIyDm/ESfaj/aXDnsnns99jDQQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="FullMedicalRecord.rpt" size="32768">
@@ -428,7 +437,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>5TC+m1Fm+INAnmHgHgtYVYD7DqA=</dsig:DigestValue>
+      <dsig:DigestValue>j0orwoYI02l6xpLfz+TE+p9xulQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="UserListing.rpt" size="32768">
@@ -437,7 +446,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>mtgLyTBQ4CHEFjey+kkP4lqt/M4=</dsig:DigestValue>
+      <dsig:DigestValue>c7xcxsWeO1ZeazVb1mA3IuI4S80=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

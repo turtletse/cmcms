@@ -73,6 +73,7 @@
             this.textBox_piorityCons_patId.Name = "textBox_piorityCons_patId";
             this.textBox_piorityCons_patId.Size = new System.Drawing.Size(199, 26);
             this.textBox_piorityCons_patId.TabIndex = 20;
+            this.textBox_piorityCons_patId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_piorityCons_patId_KeyPress);
             // 
             // groupBox2
             // 

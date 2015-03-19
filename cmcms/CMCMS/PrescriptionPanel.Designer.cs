@@ -38,7 +38,7 @@
             this.button_addFromDSP = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_drugInput = new System.Windows.Forms.TextBox();
-            this.button_addFromFreeText = new System.Windows.Forms.Button();
+            this.button_addFromFreeTextSearch = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
             this.DSP = new CMCMS.DrugSelectionPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -138,16 +138,17 @@
             this.textBox_drugInput.Name = "textBox_drugInput";
             this.textBox_drugInput.Size = new System.Drawing.Size(753, 26);
             this.textBox_drugInput.TabIndex = 4;
+            this.textBox_drugInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_drugInput_KeyPress);
             // 
-            // button_addFromFreeText
+            // button_addFromFreeTextSearch
             // 
-            this.button_addFromFreeText.Location = new System.Drawing.Point(936, 402);
-            this.button_addFromFreeText.Name = "button_addFromFreeText";
-            this.button_addFromFreeText.Size = new System.Drawing.Size(75, 29);
-            this.button_addFromFreeText.TabIndex = 5;
-            this.button_addFromFreeText.Text = ">>";
-            this.button_addFromFreeText.UseVisualStyleBackColor = true;
-            this.button_addFromFreeText.Click += new System.EventHandler(this.button_addFromFreeText_Click);
+            this.button_addFromFreeTextSearch.Location = new System.Drawing.Point(936, 402);
+            this.button_addFromFreeTextSearch.Name = "button_addFromFreeTextSearch";
+            this.button_addFromFreeTextSearch.Size = new System.Drawing.Size(75, 29);
+            this.button_addFromFreeTextSearch.TabIndex = 5;
+            this.button_addFromFreeTextSearch.Text = ">>";
+            this.button_addFromFreeTextSearch.UseVisualStyleBackColor = true;
+            this.button_addFromFreeTextSearch.Click += new System.EventHandler(this.button_addFromFreeTextSearch_Click);
             // 
             // button_clear
             // 
@@ -204,7 +205,7 @@
             this.Controls.Add(this.comboBox_existingPredefPres);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button_clear);
-            this.Controls.Add(this.button_addFromFreeText);
+            this.Controls.Add(this.button_addFromFreeTextSearch);
             this.Controls.Add(this.textBox_drugInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_addFromDSP);
@@ -227,7 +228,7 @@
         private System.Windows.Forms.Button button_addFromDSP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_drugInput;
-        private System.Windows.Forms.Button button_addFromFreeText;
+        private System.Windows.Forms.Button button_addFromFreeTextSearch;
         private System.Windows.Forms.Button button_clear;
         private System.Windows.Forms.DataGridViewButtonColumn Column_Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_drugId;

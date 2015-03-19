@@ -167,5 +167,37 @@ namespace CMCMS
                 waitingList1.refresh();
         }
 
+        private void textBox_piorityCons_patId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_piorityCons_Click(sender, e);
+            }
+        }
+
+        private void textBox_changeMOIC_patId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_changeMOIC_Click(sender, e);
+            }
+        }
+
+        private void comboBox_changeMOIC_MOIC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_changeMOIC_Click(sender, e);
+            }
+        }
+
+        private void comboBox_NextPat_MOIC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_callNext_Click(sender, e);
+            }
+        }
+
     }
 }

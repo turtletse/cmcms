@@ -33,6 +33,18 @@ namespace CMCMS
             pat = searchPatientInputPanel1.getSelectedPatient();
             if (pat == null)
                 return;
+            if (Login.user == null)
+            {
+                PermissibleValueObj pwChkStatus = new PermissibleValueObj("", "0");
+                PatientPwChk patPwChk = new PatientPwChk();
+                patPwChk.setPatIdSuccessFlag(pat.PatientId, ref pwChkStatus);
+                patPwChk.ShowDialog();
+                if (pwChkStatus.Value == "0")
+                {
+                    pat = null;
+                    return;
+                }
+            }
             patientRegistration1.Enabled = false;
             patientRegistration1.setPatientData(pat);
             patientRegistration1.Enabled = true;
@@ -54,12 +66,15 @@ namespace CMCMS
             if (!patientRegistration1.input_validation())
                 return;
 
-            PermissibleValueObj pwChkStatus = new PermissibleValueObj("", "0");
-            PatientPwChk patPwChk = new PatientPwChk();
-            patPwChk.setPatIdSuccessFlag(pat.PatientId, ref pwChkStatus);
-            patPwChk.ShowDialog();
-            if (pwChkStatus.Value == "0")
-                return;
+            if (Login.user == null)
+            {
+                PermissibleValueObj pwChkStatus = new PermissibleValueObj("", "0");
+                PatientPwChk patPwChk = new PatientPwChk();
+                patPwChk.setPatIdSuccessFlag(pat.PatientId, ref pwChkStatus);
+                patPwChk.ShowDialog();
+                if (pwChkStatus.Value == "0")
+                    return;
+            }
 
             String statusMsg = "";
             PatientMgr patMgr = new PatientMgr();

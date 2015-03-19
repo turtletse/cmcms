@@ -133,5 +133,21 @@ namespace CMCMS
                 listBox_selectedAcupuncturePoint.Items.Add(listBox_lv3.SelectedItem);
             }
         }
+
+        private void textBox_search_keywords_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_keyword_search_Click(sender, e);
+            }
+        }
+
+        private void textBox_search_code_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_code_search_Click(sender, e);
+            }
+        }
     }
 }

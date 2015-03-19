@@ -71,9 +71,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(165, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "更改資料";
+            this.label1.Text = "查詢 / 更改資料";
             // 
             // label2
             // 
@@ -122,7 +122,7 @@
             this.MinimizeBox = false;
             this.Name = "AmdPatientDataForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "更改病人資料";
+            this.Text = "查詢 / 更改病人資料";
             this.ResumeLayout(false);
             this.PerformLayout();
 

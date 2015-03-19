@@ -40,9 +40,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 29);
+            this.label2.Size = new System.Drawing.Size(235, 29);
             this.label2.TabIndex = 1;
-            this.label2.Text = "更改用戶資料";
+            this.label2.Text = "查詢 / 更改用戶資料";
             // 
             // button_amdUser
             // 
@@ -88,7 +88,7 @@
             this.MaximizeBox = false;
             this.Name = "UserAmdInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "更改用戶資料";
+            this.Text = "查詢 / 更改用戶資料";
             this.Shown += new System.EventHandler(this.UserAmdInfo_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
