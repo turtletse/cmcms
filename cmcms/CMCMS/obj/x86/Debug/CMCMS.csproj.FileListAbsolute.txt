@@ -81,3 +81,5 @@ C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicListing.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\ClinicListing.cs
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\DrugListing.rpt
 C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\DrugListing.cs
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.AddDrRmkForm.resources
+C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.AddPredefInstructionForm.resources

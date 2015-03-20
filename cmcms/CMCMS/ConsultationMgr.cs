@@ -253,6 +253,38 @@ namespace CMCMS
         }
 
 
+        //DrRmk
+        public bool newDrRmk(String drRmk, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_dr_rmk_predefined ('" + Utilities.stringDataParse4SQL(drRmk) + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool delDrRmk(int drRmkId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_delete_dr_rmk_predefined (" + drRmkId + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        //Instruction
+        public bool newInstruction(String inst, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_insert_instruction_predefined ('" + Utilities.stringDataParse4SQL(inst) + "')");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool delInstruction(int instId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_delete_predefined_instruction (" + instId + ")");
+            statusMsg = data.Rows[0]["status_desc"].ToString();
+            return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+
+
         //prescriptionForm
         public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String presId, ref String statusMsg)
         {

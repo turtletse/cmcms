@@ -45,7 +45,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "預設字詞: ";
+            this.label1.Text = "預設醫囑: ";
             // 
             // comboBox_predefPhrase
             // 

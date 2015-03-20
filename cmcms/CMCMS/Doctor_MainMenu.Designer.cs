@@ -37,11 +37,13 @@
             this.button_userAmdInfo = new System.Windows.Forms.Button();
             this.button_recordCert = new System.Windows.Forms.Button();
             this.button_drugListing = new System.Windows.Forms.Button();
+            this.button_newDrRmk = new System.Windows.Forms.Button();
+            this.button_newPresInstruction = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_amdPatData
             // 
-            this.button_amdPatData.Location = new System.Drawing.Point(21, 112);
+            this.button_amdPatData.Location = new System.Drawing.Point(248, 55);
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
             this.button_amdPatData.TabIndex = 2;
@@ -72,27 +74,27 @@
             // 
             // button_updatePredefPres
             // 
-            this.button_updatePredefPres.Location = new System.Drawing.Point(21, 283);
+            this.button_updatePredefPres.Location = new System.Drawing.Point(248, 169);
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
-            this.button_updatePredefPres.TabIndex = 5;
+            this.button_updatePredefPres.TabIndex = 6;
             this.button_updatePredefPres.Text = "查詢 / 更改方劑";
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
             // 
             // button_newPredefPres
             // 
-            this.button_newPredefPres.Location = new System.Drawing.Point(21, 226);
+            this.button_newPredefPres.Location = new System.Drawing.Point(21, 169);
             this.button_newPredefPres.Name = "button_newPredefPres";
             this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
-            this.button_newPredefPres.TabIndex = 4;
+            this.button_newPredefPres.TabIndex = 5;
             this.button_newPredefPres.Text = "新增方劑";
             this.button_newPredefPres.UseVisualStyleBackColor = true;
             this.button_newPredefPres.Click += new System.EventHandler(this.button_newPredefPres_Click);
             // 
             // button_consultation
             // 
-            this.button_consultation.Location = new System.Drawing.Point(21, 169);
+            this.button_consultation.Location = new System.Drawing.Point(21, 112);
             this.button_consultation.Name = "button_consultation";
             this.button_consultation.Size = new System.Drawing.Size(221, 51);
             this.button_consultation.TabIndex = 3;
@@ -102,27 +104,27 @@
             // 
             // button_userAmdInfo
             // 
-            this.button_userAmdInfo.Location = new System.Drawing.Point(21, 340);
+            this.button_userAmdInfo.Location = new System.Drawing.Point(21, 226);
             this.button_userAmdInfo.Name = "button_userAmdInfo";
             this.button_userAmdInfo.Size = new System.Drawing.Size(221, 51);
-            this.button_userAmdInfo.TabIndex = 6;
+            this.button_userAmdInfo.TabIndex = 7;
             this.button_userAmdInfo.Text = "查詢 / 更改用戶資料";
             this.button_userAmdInfo.UseVisualStyleBackColor = true;
             this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
             // 
             // button_recordCert
             // 
-            this.button_recordCert.Location = new System.Drawing.Point(21, 397);
+            this.button_recordCert.Location = new System.Drawing.Point(248, 112);
             this.button_recordCert.Name = "button_recordCert";
             this.button_recordCert.Size = new System.Drawing.Size(221, 51);
-            this.button_recordCert.TabIndex = 7;
+            this.button_recordCert.TabIndex = 4;
             this.button_recordCert.Text = "列印紀錄 / 證明";
             this.button_recordCert.UseVisualStyleBackColor = true;
             this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
             // 
             // button_drugListing
             // 
-            this.button_drugListing.Location = new System.Drawing.Point(21, 454);
+            this.button_drugListing.Location = new System.Drawing.Point(248, 226);
             this.button_drugListing.Name = "button_drugListing";
             this.button_drugListing.Size = new System.Drawing.Size(221, 51);
             this.button_drugListing.TabIndex = 8;
@@ -130,11 +132,33 @@
             this.button_drugListing.UseVisualStyleBackColor = true;
             this.button_drugListing.Click += new System.EventHandler(this.button_drugListing_Click);
             // 
+            // button_newDrRmk
+            // 
+            this.button_newDrRmk.Location = new System.Drawing.Point(21, 283);
+            this.button_newDrRmk.Name = "button_newDrRmk";
+            this.button_newDrRmk.Size = new System.Drawing.Size(221, 51);
+            this.button_newDrRmk.TabIndex = 9;
+            this.button_newDrRmk.Text = "新增預設醫囑";
+            this.button_newDrRmk.UseVisualStyleBackColor = true;
+            this.button_newDrRmk.Click += new System.EventHandler(this.button_newDrRmk_Click);
+            // 
+            // button_newPresInstruction
+            // 
+            this.button_newPresInstruction.Location = new System.Drawing.Point(248, 283);
+            this.button_newPresInstruction.Name = "button_newPresInstruction";
+            this.button_newPresInstruction.Size = new System.Drawing.Size(221, 51);
+            this.button_newPresInstruction.TabIndex = 10;
+            this.button_newPresInstruction.Text = "新增預設處方服用方法";
+            this.button_newPresInstruction.UseVisualStyleBackColor = true;
+            this.button_newPresInstruction.Click += new System.EventHandler(this.button_newPresInstruction_Click);
+            // 
             // Doctor_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 524);
+            this.ClientSize = new System.Drawing.Size(499, 363);
+            this.Controls.Add(this.button_newPresInstruction);
+            this.Controls.Add(this.button_newDrRmk);
             this.Controls.Add(this.button_drugListing);
             this.Controls.Add(this.button_recordCert);
             this.Controls.Add(this.button_userAmdInfo);
@@ -168,5 +192,7 @@
         private System.Windows.Forms.Button button_userAmdInfo;
         private System.Windows.Forms.Button button_recordCert;
         private System.Windows.Forms.Button button_drugListing;
+        private System.Windows.Forms.Button button_newDrRmk;
+        private System.Windows.Forms.Button button_newPresInstruction;
     }
 }

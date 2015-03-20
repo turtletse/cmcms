@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS sp_insert_dr_rmk_predefined;
+DROP PROCEDURE IF EXISTS sp_insert_instruction_predefined;
 
 DELIMITER $$
-CREATE PROCEDURE sp_insert_dr_rmk_predefined (
-	IN in_rmk VARCHAR(255)
+CREATE PROCEDURE sp_insert_instruction_predefined (
+	IN in_instruction VARCHAR(255)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -12,18 +12,18 @@ BEGIN
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	END;
-	if (select count(*) from dr_rmk_perdefined_list where rmk_desc = TRIM(in_rmk)) > 0 THEN
+	if (select count(*) from predef_instruction_list where instruction_desc = TRIM(in_instruction)) > 0 THEN
         SET curr_status_id = 1;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	ELSE
 		SET AUTOCOMMIT = 0;
 		START TRANSACTION;
-            INSERT INTO dr_rmk_perdefined_list (
-				rmk_id,
-                rmk_desc
+            INSERT INTO predef_instruction_list (
+				instruction_id,
+                instruction_desc
 			) VALUES (
-				get_dr_rmk_id(),
-				TRIM(in_rmk)
+				get_predef_instruction_id(),
+				TRIM(in_instruction)
             );
 		COMMIT;
         SET AUTOCOMMIT = 1;

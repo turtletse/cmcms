@@ -82,5 +82,17 @@ namespace CMCMS
             rptViewer.ShowDialog();
         }
 
+        private void button_newDrRmk_Click(object sender, EventArgs e)
+        {
+            AddDrRmkForm adrf = new AddDrRmkForm();
+            adrf.ShowDialog();
+        }
+
+        private void button_newPresInstruction_Click(object sender, EventArgs e)
+        {
+            AddPredefInstructionForm apif = new AddPredefInstructionForm();
+            apif.ShowDialog();
+        }
+
     }
 }
