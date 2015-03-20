@@ -10,7 +10,7 @@ BEGIN
         where sec_type=0 and isDeleted<=in_incl_deleted;
     INSERT INTO result VALUES (0, '全部');
     SELECT * FROM result ORDER BY pri_type;
-    DROP TEMPORARY TABLE result;
+    DROP TEMPORARY TABLE IF EXISTS result;
 END $$
 delimiter ;
 

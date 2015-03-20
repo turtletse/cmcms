@@ -32,6 +32,7 @@
             this.button_userListing = new System.Windows.Forms.Button();
             this.button_clinicListing = new System.Windows.Forms.Button();
             this.button_drugListing = new System.Windows.Forms.Button();
+            this.button_patListing = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,11 +76,22 @@
             this.button_drugListing.UseVisualStyleBackColor = true;
             this.button_drugListing.Click += new System.EventHandler(this.button_drugListing_Click);
             // 
+            // button_patListing
+            // 
+            this.button_patListing.Location = new System.Drawing.Point(12, 223);
+            this.button_patListing.Name = "button_patListing";
+            this.button_patListing.Size = new System.Drawing.Size(191, 51);
+            this.button_patListing.TabIndex = 29;
+            this.button_patListing.Text = "病人列表";
+            this.button_patListing.UseVisualStyleBackColor = true;
+            this.button_patListing.Click += new System.EventHandler(this.button_patListing_Click);
+            // 
             // SysAdm_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 230);
+            this.ClientSize = new System.Drawing.Size(215, 290);
+            this.Controls.Add(this.button_patListing);
             this.Controls.Add(this.button_drugListing);
             this.Controls.Add(this.button_clinicListing);
             this.Controls.Add(this.button_userListing);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.Button button_userListing;
         private System.Windows.Forms.Button button_clinicListing;
         private System.Windows.Forms.Button button_drugListing;
+        private System.Windows.Forms.Button button_patListing;
     }
 }

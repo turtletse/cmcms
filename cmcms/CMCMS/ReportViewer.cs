@@ -158,6 +158,15 @@ namespace CMCMS
             crRpt.SetParameterValue("in_clinic_id", clinicId);
         }
 
+        public void preparePatientListing(String clinicId, String userId)
+        {
+            setRptName("patientListing.rpt");
+            crRpt.Load(rptName);
+
+            crRpt.SetParameterValue("in_clinic_id", clinicId);
+            crRpt.SetParameterValue("in_user_id", userId);
+        }
+
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
             ConnectionInfo crConnectionInfo = new ConnectionInfo();

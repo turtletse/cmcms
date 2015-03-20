@@ -28,5 +28,12 @@ namespace CMCMS
             rptViewer.prepareClinicConsStatByDay30(Login.user.CurrentLoginClinicId);
             rptViewer.ShowDialog();
         }
+
+        private void button_patListing_Click(object sender, EventArgs e)
+        {
+            ReportViewer rptViewer = new ReportViewer();
+            rptViewer.preparePatientListing(Login.user.CurrentLoginClinicId, Login.user.UserId);
+            rptViewer.ShowDialog();
+        }
     }
 }

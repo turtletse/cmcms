@@ -2,6 +2,7 @@ DROP procedure if EXISTS sp_DSP_secondary_drug_type_listbox_item_get;
 delimiter $$
 CREATE PROCEDURE sp_DSP_secondary_drug_type_listbox_item_get (IN in_pri_type int, IN in_incl_deleted int)
 BEGIN
+	DROP TEMPORARY TABLE IF EXISTS result;
 	CREATE TEMPORARY TABLE result
 		select distinct pri_type, sec_type, type_desc 
         from master_drug_type a JOIN master_drug_list b
@@ -9,7 +10,7 @@ BEGIN
         where pri_type = in_pri_type and sec_type <> 0;
     INSERT INTO result VALUES (0, 0, '全部');
     SELECT sec_type, type_desc FROM result ORDER BY pri_type, sec_type;
-    DROP TEMPORARY TABLE result;
+    DROP TEMPORARY TABLE IF EXISTS result;
 END $$
 delimiter ;
 

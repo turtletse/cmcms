@@ -40,10 +40,10 @@
             this.textBox_drugInput = new System.Windows.Forms.TextBox();
             this.button_addFromFreeTextSearch = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
-            this.DSP = new CMCMS.DrugSelectionPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_existingPredefPres = new System.Windows.Forms.ComboBox();
             this.button_addFromExistingPres = new System.Windows.Forms.Button();
+            this.DSP = new CMCMS.DrugSelectionPanel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_selected)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,15 +160,6 @@
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
-            // DSP
-            // 
-            this.DSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DSP.Location = new System.Drawing.Point(6, 14);
-            this.DSP.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.DSP.Name = "DSP";
-            this.DSP.Size = new System.Drawing.Size(963, 377);
-            this.DSP.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -196,6 +187,15 @@
             this.button_addFromExistingPres.Text = ">>";
             this.button_addFromExistingPres.UseVisualStyleBackColor = true;
             this.button_addFromExistingPres.Click += new System.EventHandler(this.button_addFromExistingPres_Click);
+            // 
+            // DSP
+            // 
+            this.DSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DSP.Location = new System.Drawing.Point(6, 14);
+            this.DSP.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.DSP.Name = "DSP";
+            this.DSP.Size = new System.Drawing.Size(963, 377);
+            this.DSP.TabIndex = 1;
             // 
             // PrescriptionPanel
             // 

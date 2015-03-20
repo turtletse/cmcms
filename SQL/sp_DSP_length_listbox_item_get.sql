@@ -2,6 +2,7 @@ DROP procedure if EXISTS sp_DSP_length_listbox_item_get;
 delimiter $$
 CREATE PROCEDURE sp_DSP_length_listbox_item_get (IN in_pri_type int, IN in_sec_type int, IN in_nStrokes int, IN in_incl_deleted int)
 BEGIN
+	DROP TEMPORARY TABLE IF EXISTS result;
 	CREATE TEMPORARY TABLE result
 		select distinct drug_name_length nameLength, CAST(drug_name_length AS CHAR) nameLength_desc
         from master_drug_list 
@@ -11,7 +12,7 @@ BEGIN
         and isDeleted<=in_incl_deleted;
     INSERT INTO result VALUES (0, '全部');
     SELECT nameLength, nameLength_desc FROM result ORDER BY nameLength;
-    DROP TEMPORARY TABLE result;
+    DROP TEMPORARY TABLE IF EXISTS result;
 END $$
 delimiter ;
 

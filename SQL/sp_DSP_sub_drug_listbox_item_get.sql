@@ -13,7 +13,7 @@ BEGIN
         FROM master_sub_drug_list
         WHERE drug_id = in_drug_id AND isDeleted<=in_incl_deleted;
 	SELECT item_id, item_name, isDeleted FROM result ORDER BY sub_drug_id;
-    DROP TEMPORARY TABLE result;
+    DROP TEMPORARY TABLE IF EXISTS result;
 END $$
 delimiter ;
 -- CALL sp_DSP_sub_drug_listbox_item_get (101001, 1, 0);

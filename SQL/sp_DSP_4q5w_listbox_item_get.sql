@@ -4,6 +4,7 @@ CREATE PROCEDURE sp_DSP_4q5w_listbox_item_get (IN in_pri_type int, IN in_sec_typ
 BEGIN
 	
     DECLARE q1_sum, q2_sum, q3_sum, q4_sum, w1_sum, w2_sum, w3_sum, w4_sum, w5_sum, w6_sum int;
+    DROP TEMPORARY TABLE IF EXISTS result;
 	CREATE TEMPORARY TABLE result (
 		display_name VARCHAR(10),
         option_value VARCHAR(5),
@@ -51,7 +52,7 @@ BEGIN
     END IF;
     
     SELECT display_name, option_value FROM result ORDER BY sort_field;
-    DROP TEMPORARY TABLE result;
+    DROP TEMPORARY TABLE IF EXISTS result;
     
 END $$
 delimiter ;

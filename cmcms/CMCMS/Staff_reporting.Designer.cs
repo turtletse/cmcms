@@ -31,6 +31,7 @@
             this.button_recordCert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button_clinicConsStatByDay30 = new System.Windows.Forms.Button();
+            this.button_patListing = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_recordCert
@@ -64,11 +65,22 @@
             this.button_clinicConsStatByDay30.UseVisualStyleBackColor = true;
             this.button_clinicConsStatByDay30.Click += new System.EventHandler(this.button_clinicConsStatByDay30_Click);
             // 
+            // button_patListing
+            // 
+            this.button_patListing.Location = new System.Drawing.Point(12, 173);
+            this.button_patListing.Name = "button_patListing";
+            this.button_patListing.Size = new System.Drawing.Size(255, 51);
+            this.button_patListing.TabIndex = 3;
+            this.button_patListing.Text = "病人列表";
+            this.button_patListing.UseVisualStyleBackColor = true;
+            this.button_patListing.Click += new System.EventHandler(this.button_patListing_Click);
+            // 
             // Staff_reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 183);
+            this.ClientSize = new System.Drawing.Size(279, 240);
+            this.Controls.Add(this.button_patListing);
             this.Controls.Add(this.button_clinicConsStatByDay30);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_recordCert);
@@ -89,5 +101,6 @@
         private System.Windows.Forms.Button button_recordCert;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_clinicConsStatByDay30;
+        private System.Windows.Forms.Button button_patListing;
     }
 }
