@@ -109,7 +109,7 @@
             this.button_login.Location = new System.Drawing.Point(268, 108);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(75, 33);
-            this.button_login.TabIndex = 7;
+            this.button_login.TabIndex = 6;
             this.button_login.Text = "登入";
             this.button_login.UseVisualStyleBackColor = true;
             this.button_login.Click += new System.EventHandler(this.button_login_Click);
@@ -119,7 +119,7 @@
             this.button_patSys.Location = new System.Drawing.Point(131, 108);
             this.button_patSys.Name = "button_patSys";
             this.button_patSys.Size = new System.Drawing.Size(94, 33);
-            this.button_patSys.TabIndex = 6;
+            this.button_patSys.TabIndex = 7;
             this.button_patSys.Text = "病人系統";
             this.button_patSys.UseVisualStyleBackColor = true;
             this.button_patSys.Click += new System.EventHandler(this.button_patSys_Click);

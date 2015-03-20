@@ -44,7 +44,7 @@
             this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(300, 385);
-            this.searchPatientInputPanel1.TabIndex = 0;
+            this.searchPatientInputPanel1.TabIndex = 1;
             // 
             // patientRegistration1
             // 
@@ -53,7 +53,7 @@
             this.patientRegistration1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.patientRegistration1.Name = "patientRegistration1";
             this.patientRegistration1.Size = new System.Drawing.Size(1081, 608);
-            this.patientRegistration1.TabIndex = 1;
+            this.patientRegistration1.TabIndex = 3;
             // 
             // button_selectPatient
             // 
@@ -99,7 +99,7 @@
             this.button_patDataUpdate.Location = new System.Drawing.Point(1255, 667);
             this.button_patDataUpdate.Name = "button_patDataUpdate";
             this.button_patDataUpdate.Size = new System.Drawing.Size(136, 37);
-            this.button_patDataUpdate.TabIndex = 6;
+            this.button_patDataUpdate.TabIndex = 4;
             this.button_patDataUpdate.Text = "確定";
             this.button_patDataUpdate.UseVisualStyleBackColor = true;
             this.button_patDataUpdate.Click += new System.EventHandler(this.button_patDataUpdate_Click);

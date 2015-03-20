@@ -50,6 +50,7 @@
             this.textBox_pw.Size = new System.Drawing.Size(346, 26);
             this.textBox_pw.TabIndex = 1;
             this.textBox_pw.UseSystemPasswordChar = true;
+            this.textBox_pw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_pw_KeyPress);
             // 
             // button_confirm
             // 

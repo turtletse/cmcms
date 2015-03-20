@@ -137,7 +137,7 @@
             this.textBox_drugInput.Location = new System.Drawing.Point(177, 405);
             this.textBox_drugInput.Name = "textBox_drugInput";
             this.textBox_drugInput.Size = new System.Drawing.Size(753, 26);
-            this.textBox_drugInput.TabIndex = 4;
+            this.textBox_drugInput.TabIndex = 3;
             this.textBox_drugInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_drugInput_KeyPress);
             // 
             // button_addFromFreeTextSearch
@@ -145,7 +145,7 @@
             this.button_addFromFreeTextSearch.Location = new System.Drawing.Point(936, 402);
             this.button_addFromFreeTextSearch.Name = "button_addFromFreeTextSearch";
             this.button_addFromFreeTextSearch.Size = new System.Drawing.Size(75, 29);
-            this.button_addFromFreeTextSearch.TabIndex = 5;
+            this.button_addFromFreeTextSearch.TabIndex = 4;
             this.button_addFromFreeTextSearch.Text = ">>";
             this.button_addFromFreeTextSearch.UseVisualStyleBackColor = true;
             this.button_addFromFreeTextSearch.Click += new System.EventHandler(this.button_addFromFreeTextSearch_Click);
@@ -155,7 +155,7 @@
             this.button_clear.Location = new System.Drawing.Point(1018, 533);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(120, 50);
-            this.button_clear.TabIndex = 6;
+            this.button_clear.TabIndex = 7;
             this.button_clear.Text = "清空";
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
@@ -167,7 +167,7 @@
             this.DSP.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.DSP.Name = "DSP";
             this.DSP.Size = new System.Drawing.Size(963, 377);
-            this.DSP.TabIndex = 0;
+            this.DSP.TabIndex = 1;
             // 
             // label2
             // 
@@ -185,14 +185,14 @@
             this.comboBox_existingPredefPres.Location = new System.Drawing.Point(177, 452);
             this.comboBox_existingPredefPres.Name = "comboBox_existingPredefPres";
             this.comboBox_existingPredefPres.Size = new System.Drawing.Size(753, 28);
-            this.comboBox_existingPredefPres.TabIndex = 8;
+            this.comboBox_existingPredefPres.TabIndex = 5;
             // 
             // button_addFromExistingPres
             // 
             this.button_addFromExistingPres.Location = new System.Drawing.Point(936, 451);
             this.button_addFromExistingPres.Name = "button_addFromExistingPres";
             this.button_addFromExistingPres.Size = new System.Drawing.Size(75, 29);
-            this.button_addFromExistingPres.TabIndex = 9;
+            this.button_addFromExistingPres.TabIndex = 6;
             this.button_addFromExistingPres.Text = ">>";
             this.button_addFromExistingPres.UseVisualStyleBackColor = true;
             this.button_addFromExistingPres.Click += new System.EventHandler(this.button_addFromExistingPres_Click);

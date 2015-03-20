@@ -43,5 +43,13 @@ namespace CMCMS
             isChkSuccess.Value = "0";
             this.Hide();
         }
+
+        private void textBox_pw_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                button_confirm_Click(sender, e);
+            }
+        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox_isRecordShared = new System.Windows.Forms.CheckBox();
             this.checkBox_isPregnant = new System.Windows.Forms.CheckBox();
             this.label_deceasedRptDate = new System.Windows.Forms.Label();
             this.checkBox_isDeceased = new System.Windows.Forms.CheckBox();
@@ -63,7 +64,6 @@
             this.button_removeSelectedDrug = new System.Windows.Forms.Button();
             this.button_selectAllergicDrug = new System.Windows.Forms.Button();
             this.DSP_allergic = new CMCMS.DrugSelectionPanel();
-            this.checkBox_isRecordShared = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -102,13 +102,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "個人資料";
             // 
+            // checkBox_isRecordShared
+            // 
+            this.checkBox_isRecordShared.AutoSize = true;
+            this.checkBox_isRecordShared.Location = new System.Drawing.Point(930, 113);
+            this.checkBox_isRecordShared.Name = "checkBox_isRecordShared";
+            this.checkBox_isRecordShared.Size = new System.Drawing.Size(124, 24);
+            this.checkBox_isRecordShared.TabIndex = 12;
+            this.checkBox_isRecordShared.Text = "聯網病歷互通";
+            this.checkBox_isRecordShared.UseVisualStyleBackColor = true;
+            // 
             // checkBox_isPregnant
             // 
             this.checkBox_isPregnant.AutoSize = true;
             this.checkBox_isPregnant.Location = new System.Drawing.Point(994, 145);
             this.checkBox_isPregnant.Name = "checkBox_isPregnant";
             this.checkBox_isPregnant.Size = new System.Drawing.Size(60, 24);
-            this.checkBox_isPregnant.TabIndex = 24;
+            this.checkBox_isPregnant.TabIndex = 16;
             this.checkBox_isPregnant.Text = "懷孕";
             this.checkBox_isPregnant.UseVisualStyleBackColor = true;
             // 
@@ -126,7 +136,7 @@
             this.checkBox_isDeceased.Location = new System.Drawing.Point(712, 147);
             this.checkBox_isDeceased.Name = "checkBox_isDeceased";
             this.checkBox_isDeceased.Size = new System.Drawing.Size(60, 24);
-            this.checkBox_isDeceased.TabIndex = 22;
+            this.checkBox_isDeceased.TabIndex = 15;
             this.checkBox_isDeceased.Text = "已故";
             this.checkBox_isDeceased.UseVisualStyleBackColor = true;
             // 
@@ -135,7 +145,7 @@
             this.textBox_patReg_confirmPassword.Location = new System.Drawing.Point(439, 145);
             this.textBox_patReg_confirmPassword.Name = "textBox_patReg_confirmPassword";
             this.textBox_patReg_confirmPassword.Size = new System.Drawing.Size(216, 26);
-            this.textBox_patReg_confirmPassword.TabIndex = 21;
+            this.textBox_patReg_confirmPassword.TabIndex = 14;
             this.textBox_patReg_confirmPassword.UseSystemPasswordChar = true;
             // 
             // label11
@@ -152,7 +162,7 @@
             this.textBox_patReg_password.Location = new System.Drawing.Point(62, 145);
             this.textBox_patReg_password.Name = "textBox_patReg_password";
             this.textBox_patReg_password.Size = new System.Drawing.Size(242, 26);
-            this.textBox_patReg_password.TabIndex = 19;
+            this.textBox_patReg_password.TabIndex = 13;
             this.textBox_patReg_password.UseSystemPasswordChar = true;
             // 
             // label10
@@ -169,7 +179,7 @@
             this.textBox_patReg_addr.Location = new System.Drawing.Point(62, 111);
             this.textBox_patReg_addr.Name = "textBox_patReg_addr";
             this.textBox_patReg_addr.Size = new System.Drawing.Size(840, 26);
-            this.textBox_patReg_addr.TabIndex = 17;
+            this.textBox_patReg_addr.TabIndex = 11;
             // 
             // dateTimePicker_DOB
             // 
@@ -178,14 +188,14 @@
             this.dateTimePicker_DOB.Location = new System.Drawing.Point(380, 70);
             this.dateTimePicker_DOB.Name = "dateTimePicker_DOB";
             this.dateTimePicker_DOB.Size = new System.Drawing.Size(123, 26);
-            this.dateTimePicker_DOB.TabIndex = 16;
+            this.dateTimePicker_DOB.TabIndex = 7;
             // 
             // textBox_patReg_phoneNo
             // 
             this.textBox_patReg_phoneNo.Location = new System.Drawing.Point(93, 70);
             this.textBox_patReg_phoneNo.Name = "textBox_patReg_phoneNo";
             this.textBox_patReg_phoneNo.Size = new System.Drawing.Size(124, 26);
-            this.textBox_patReg_phoneNo.TabIndex = 15;
+            this.textBox_patReg_phoneNo.TabIndex = 6;
             // 
             // checkBox_g6pd
             // 
@@ -193,7 +203,7 @@
             this.checkBox_g6pd.Location = new System.Drawing.Point(695, 72);
             this.checkBox_g6pd.Name = "checkBox_g6pd";
             this.checkBox_g6pd.Size = new System.Drawing.Size(359, 24);
-            this.checkBox_g6pd.TabIndex = 1;
+            this.checkBox_g6pd.TabIndex = 10;
             this.checkBox_g6pd.Text = "G6PD/蠶豆症/葡萄糖-6-磷酸脫氫酶缺乏症 患者";
             this.checkBox_g6pd.UseVisualStyleBackColor = true;
             // 
@@ -202,21 +212,21 @@
             this.textBox_patReg_HKID.Location = new System.Drawing.Point(846, 33);
             this.textBox_patReg_HKID.Name = "textBox_patReg_HKID";
             this.textBox_patReg_HKID.Size = new System.Drawing.Size(208, 26);
-            this.textBox_patReg_HKID.TabIndex = 14;
+            this.textBox_patReg_HKID.TabIndex = 5;
             // 
             // textBox_patReg_engName
             // 
             this.textBox_patReg_engName.Location = new System.Drawing.Point(310, 31);
             this.textBox_patReg_engName.Name = "textBox_patReg_engName";
             this.textBox_patReg_engName.Size = new System.Drawing.Size(269, 26);
-            this.textBox_patReg_engName.TabIndex = 13;
+            this.textBox_patReg_engName.TabIndex = 2;
             // 
             // textBox_patReg_chiName
             // 
             this.textBox_patReg_chiName.Location = new System.Drawing.Point(93, 31);
             this.textBox_patReg_chiName.Name = "textBox_patReg_chiName";
             this.textBox_patReg_chiName.Size = new System.Drawing.Size(124, 26);
-            this.textBox_patReg_chiName.TabIndex = 12;
+            this.textBox_patReg_chiName.TabIndex = 1;
             // 
             // panel2
             // 
@@ -233,7 +243,7 @@
             this.radioButton_female.Location = new System.Drawing.Point(61, -2);
             this.radioButton_female.Name = "radioButton_female";
             this.radioButton_female.Size = new System.Drawing.Size(43, 24);
-            this.radioButton_female.TabIndex = 1;
+            this.radioButton_female.TabIndex = 9;
             this.radioButton_female.TabStop = true;
             this.radioButton_female.Text = "女";
             this.radioButton_female.UseVisualStyleBackColor = true;
@@ -245,7 +255,7 @@
             this.radioButton_male.Location = new System.Drawing.Point(0, -2);
             this.radioButton_male.Name = "radioButton_male";
             this.radioButton_male.Size = new System.Drawing.Size(43, 24);
-            this.radioButton_male.TabIndex = 0;
+            this.radioButton_male.TabIndex = 8;
             this.radioButton_male.TabStop = true;
             this.radioButton_male.Text = "男";
             this.radioButton_male.UseVisualStyleBackColor = true;
@@ -277,7 +287,7 @@
             this.radioButton_IDNo.Location = new System.Drawing.Point(0, 0);
             this.radioButton_IDNo.Name = "radioButton_IDNo";
             this.radioButton_IDNo.Size = new System.Drawing.Size(75, 24);
-            this.radioButton_IDNo.TabIndex = 2;
+            this.radioButton_IDNo.TabIndex = 3;
             this.radioButton_IDNo.TabStop = true;
             this.radioButton_IDNo.Text = "身份證";
             this.radioButton_IDNo.UseVisualStyleBackColor = true;
@@ -386,14 +396,14 @@
             this.listBox_selectedAllergicDrug.Location = new System.Drawing.Point(924, 99);
             this.listBox_selectedAllergicDrug.Name = "listBox_selectedAllergicDrug";
             this.listBox_selectedAllergicDrug.Size = new System.Drawing.Size(130, 304);
-            this.listBox_selectedAllergicDrug.TabIndex = 4;
+            this.listBox_selectedAllergicDrug.TabIndex = 19;
             // 
             // button_removeSelectedDrug
             // 
             this.button_removeSelectedDrug.Location = new System.Drawing.Point(843, 264);
             this.button_removeSelectedDrug.Name = "button_removeSelectedDrug";
             this.button_removeSelectedDrug.Size = new System.Drawing.Size(75, 99);
-            this.button_removeSelectedDrug.TabIndex = 3;
+            this.button_removeSelectedDrug.TabIndex = 20;
             this.button_removeSelectedDrug.Text = "<<";
             this.button_removeSelectedDrug.UseVisualStyleBackColor = true;
             this.button_removeSelectedDrug.Click += new System.EventHandler(this.button_removeSelectedDrug_Click);
@@ -403,7 +413,7 @@
             this.button_selectAllergicDrug.Location = new System.Drawing.Point(843, 135);
             this.button_selectAllergicDrug.Name = "button_selectAllergicDrug";
             this.button_selectAllergicDrug.Size = new System.Drawing.Size(75, 99);
-            this.button_selectAllergicDrug.TabIndex = 2;
+            this.button_selectAllergicDrug.TabIndex = 18;
             this.button_selectAllergicDrug.Text = ">>";
             this.button_selectAllergicDrug.UseVisualStyleBackColor = true;
             this.button_selectAllergicDrug.Click += new System.EventHandler(this.button_selectAllergicDrug_Click);
@@ -415,17 +425,7 @@
             this.DSP_allergic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DSP_allergic.Name = "DSP_allergic";
             this.DSP_allergic.Size = new System.Drawing.Size(829, 371);
-            this.DSP_allergic.TabIndex = 0;
-            // 
-            // checkBox_isRecordShared
-            // 
-            this.checkBox_isRecordShared.AutoSize = true;
-            this.checkBox_isRecordShared.Location = new System.Drawing.Point(930, 113);
-            this.checkBox_isRecordShared.Name = "checkBox_isRecordShared";
-            this.checkBox_isRecordShared.Size = new System.Drawing.Size(124, 24);
-            this.checkBox_isRecordShared.TabIndex = 25;
-            this.checkBox_isRecordShared.Text = "聯網病歷互通";
-            this.checkBox_isRecordShared.UseVisualStyleBackColor = true;
+            this.DSP_allergic.TabIndex = 17;
             // 
             // PatientRegistration
             // 

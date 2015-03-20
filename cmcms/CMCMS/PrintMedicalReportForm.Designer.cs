@@ -54,7 +54,7 @@
             this.button_prnWholeRec.Location = new System.Drawing.Point(132, 402);
             this.button_prnWholeRec.Name = "button_prnWholeRec";
             this.button_prnWholeRec.Size = new System.Drawing.Size(149, 39);
-            this.button_prnWholeRec.TabIndex = 1;
+            this.button_prnWholeRec.TabIndex = 4;
             this.button_prnWholeRec.Text = "列印完整醫療紀錄";
             this.button_prnWholeRec.UseVisualStyleBackColor = true;
             this.button_prnWholeRec.Click += new System.EventHandler(this.button_prnWholeRec_Click);
@@ -130,7 +130,7 @@
             this.button_prnSelected.Location = new System.Drawing.Point(410, 402);
             this.button_prnSelected.Name = "button_prnSelected";
             this.button_prnSelected.Size = new System.Drawing.Size(151, 39);
-            this.button_prnSelected.TabIndex = 4;
+            this.button_prnSelected.TabIndex = 6;
             this.button_prnSelected.Text = "列印已選醫療紀錄";
             this.button_prnSelected.UseVisualStyleBackColor = true;
             this.button_prnSelected.Click += new System.EventHandler(this.button_prnSelected_Click);
@@ -142,14 +142,14 @@
             this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 0;
+            this.searchPatientInputPanel1.TabIndex = 1;
             // 
             // button_consCert
             // 
             this.button_consCert.Location = new System.Drawing.Point(567, 402);
             this.button_consCert.Name = "button_consCert";
             this.button_consCert.Size = new System.Drawing.Size(100, 39);
-            this.button_consCert.TabIndex = 10;
+            this.button_consCert.TabIndex = 7;
             this.button_consCert.Text = "到診證明書";
             this.button_consCert.UseVisualStyleBackColor = true;
             this.button_consCert.Click += new System.EventHandler(this.button_consCert_Click);
@@ -159,7 +159,7 @@
             this.button_issueSickLeaveCert.Location = new System.Drawing.Point(1021, 402);
             this.button_issueSickLeaveCert.Name = "button_issueSickLeaveCert";
             this.button_issueSickLeaveCert.Size = new System.Drawing.Size(133, 39);
-            this.button_issueSickLeaveCert.TabIndex = 8;
+            this.button_issueSickLeaveCert.TabIndex = 10;
             this.button_issueSickLeaveCert.Text = "補發病假證明書";
             this.button_issueSickLeaveCert.UseVisualStyleBackColor = true;
             this.button_issueSickLeaveCert.Click += new System.EventHandler(this.button_issueSickLeaveCert_Click);
@@ -171,7 +171,7 @@
             this.dateTimePicker_sickLeaveEnd.Location = new System.Drawing.Point(896, 411);
             this.dateTimePicker_sickLeaveEnd.Name = "dateTimePicker_sickLeaveEnd";
             this.dateTimePicker_sickLeaveEnd.Size = new System.Drawing.Size(119, 26);
-            this.dateTimePicker_sickLeaveEnd.TabIndex = 6;
+            this.dateTimePicker_sickLeaveEnd.TabIndex = 9;
             // 
             // label17
             // 
@@ -189,7 +189,7 @@
             this.dateTimePicker_sickLeaveStart.Location = new System.Drawing.Point(740, 411);
             this.dateTimePicker_sickLeaveStart.Name = "dateTimePicker_sickLeaveStart";
             this.dateTimePicker_sickLeaveStart.Size = new System.Drawing.Size(119, 26);
-            this.dateTimePicker_sickLeaveStart.TabIndex = 4;
+            this.dateTimePicker_sickLeaveStart.TabIndex = 8;
             // 
             // label16
             // 
@@ -205,7 +205,7 @@
             this.button_pres.Location = new System.Drawing.Point(287, 402);
             this.button_pres.Name = "button_pres";
             this.button_pres.Size = new System.Drawing.Size(117, 39);
-            this.button_pres.TabIndex = 11;
+            this.button_pres.TabIndex = 5;
             this.button_pres.Text = "列印已選處方";
             this.button_pres.UseVisualStyleBackColor = true;
             this.button_pres.Click += new System.EventHandler(this.button_pres_Click);

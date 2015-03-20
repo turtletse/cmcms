@@ -60,7 +60,7 @@
             this.button_seaechPanel_leaveQ.Location = new System.Drawing.Point(150, 435);
             this.button_seaechPanel_leaveQ.Name = "button_seaechPanel_leaveQ";
             this.button_seaechPanel_leaveQ.Size = new System.Drawing.Size(133, 36);
-            this.button_seaechPanel_leaveQ.TabIndex = 8;
+            this.button_seaechPanel_leaveQ.TabIndex = 3;
             this.button_seaechPanel_leaveQ.Text = "取消掛號";
             this.button_seaechPanel_leaveQ.UseVisualStyleBackColor = true;
             this.button_seaechPanel_leaveQ.Click += new System.EventHandler(this.button_seaechPanel_leaveQ_Click);
@@ -70,7 +70,7 @@
             this.button_enterQueue.Location = new System.Drawing.Point(11, 435);
             this.button_enterQueue.Name = "button_enterQueue";
             this.button_enterQueue.Size = new System.Drawing.Size(133, 36);
-            this.button_enterQueue.TabIndex = 6;
+            this.button_enterQueue.TabIndex = 2;
             this.button_enterQueue.Text = "掛號 / 查詢輪候";
             this.button_enterQueue.UseVisualStyleBackColor = true;
             this.button_enterQueue.Click += new System.EventHandler(this.button_enterQueue_Click);
@@ -104,7 +104,7 @@
             this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 7;
+            this.searchPatientInputPanel1.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -135,7 +135,7 @@
             this.button_changeMOIC_reset.Location = new System.Drawing.Point(155, 428);
             this.button_changeMOIC_reset.Name = "button_changeMOIC_reset";
             this.button_changeMOIC_reset.Size = new System.Drawing.Size(138, 43);
-            this.button_changeMOIC_reset.TabIndex = 27;
+            this.button_changeMOIC_reset.TabIndex = 12;
             this.button_changeMOIC_reset.Text = "重置";
             this.button_changeMOIC_reset.UseVisualStyleBackColor = true;
             this.button_changeMOIC_reset.Click += new System.EventHandler(this.button_changeMOIC_reset_Click);
@@ -145,7 +145,7 @@
             this.button_changeMOIC.Location = new System.Drawing.Point(11, 428);
             this.button_changeMOIC.Name = "button_changeMOIC";
             this.button_changeMOIC.Size = new System.Drawing.Size(138, 43);
-            this.button_changeMOIC.TabIndex = 26;
+            this.button_changeMOIC.TabIndex = 11;
             this.button_changeMOIC.Text = "確定";
             this.button_changeMOIC.UseVisualStyleBackColor = true;
             this.button_changeMOIC.Click += new System.EventHandler(this.button_changeMOIC_Click);
@@ -155,7 +155,7 @@
             this.button_NextPat_reset.Location = new System.Drawing.Point(155, 234);
             this.button_NextPat_reset.Name = "button_NextPat_reset";
             this.button_NextPat_reset.Size = new System.Drawing.Size(138, 43);
-            this.button_NextPat_reset.TabIndex = 25;
+            this.button_NextPat_reset.TabIndex = 8;
             this.button_NextPat_reset.Text = "重置";
             this.button_NextPat_reset.UseVisualStyleBackColor = true;
             this.button_NextPat_reset.Click += new System.EventHandler(this.button_NextPat_reset_Click);
@@ -176,7 +176,7 @@
             this.comboBox_changeMOIC_MOIC.Location = new System.Drawing.Point(62, 380);
             this.comboBox_changeMOIC_MOIC.Name = "comboBox_changeMOIC_MOIC";
             this.comboBox_changeMOIC_MOIC.Size = new System.Drawing.Size(231, 28);
-            this.comboBox_changeMOIC_MOIC.TabIndex = 22;
+            this.comboBox_changeMOIC_MOIC.TabIndex = 10;
             this.comboBox_changeMOIC_MOIC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_changeMOIC_MOIC_KeyPress);
             // 
             // textBox_changeMOIC_patId
@@ -184,7 +184,7 @@
             this.textBox_changeMOIC_patId.Location = new System.Drawing.Point(94, 339);
             this.textBox_changeMOIC_patId.Name = "textBox_changeMOIC_patId";
             this.textBox_changeMOIC_patId.Size = new System.Drawing.Size(199, 26);
-            this.textBox_changeMOIC_patId.TabIndex = 21;
+            this.textBox_changeMOIC_patId.TabIndex = 9;
             this.textBox_changeMOIC_patId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_changeMOIC_patId_KeyPress);
             // 
             // textBox_piorityCons_patId
@@ -192,7 +192,7 @@
             this.textBox_piorityCons_patId.Location = new System.Drawing.Point(94, 202);
             this.textBox_piorityCons_patId.Name = "textBox_piorityCons_patId";
             this.textBox_piorityCons_patId.Size = new System.Drawing.Size(199, 26);
-            this.textBox_piorityCons_patId.TabIndex = 20;
+            this.textBox_piorityCons_patId.TabIndex = 6;
             this.textBox_piorityCons_patId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_piorityCons_patId_KeyPress);
             // 
             // label7
@@ -219,7 +219,7 @@
             this.button_piorityCons.Location = new System.Drawing.Point(11, 234);
             this.button_piorityCons.Name = "button_piorityCons";
             this.button_piorityCons.Size = new System.Drawing.Size(138, 43);
-            this.button_piorityCons.TabIndex = 16;
+            this.button_piorityCons.TabIndex = 7;
             this.button_piorityCons.Text = "確定";
             this.button_piorityCons.UseVisualStyleBackColor = true;
             this.button_piorityCons.Click += new System.EventHandler(this.button_piorityCons_Click);
@@ -258,7 +258,7 @@
             this.comboBox_NextPat_MOIC.Location = new System.Drawing.Point(62, 47);
             this.comboBox_NextPat_MOIC.Name = "comboBox_NextPat_MOIC";
             this.comboBox_NextPat_MOIC.Size = new System.Drawing.Size(231, 28);
-            this.comboBox_NextPat_MOIC.TabIndex = 11;
+            this.comboBox_NextPat_MOIC.TabIndex = 4;
             this.comboBox_NextPat_MOIC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_NextPat_MOIC_KeyPress);
             // 
             // button_callNext
@@ -266,7 +266,7 @@
             this.button_callNext.Location = new System.Drawing.Point(11, 150);
             this.button_callNext.Name = "button_callNext";
             this.button_callNext.Size = new System.Drawing.Size(282, 43);
-            this.button_callNext.TabIndex = 10;
+            this.button_callNext.TabIndex = 5;
             this.button_callNext.Text = "下一位";
             this.button_callNext.UseVisualStyleBackColor = true;
             this.button_callNext.Click += new System.EventHandler(this.button_callNext_Click);
@@ -288,7 +288,7 @@
             this.waitingList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.waitingList1.Name = "waitingList1";
             this.waitingList1.Size = new System.Drawing.Size(605, 486);
-            this.waitingList1.TabIndex = 11;
+            this.waitingList1.TabIndex = 13;
             // 
             // Staff_QueuingForm
             // 

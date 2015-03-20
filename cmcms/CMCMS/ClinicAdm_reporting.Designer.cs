@@ -54,7 +54,7 @@
             this.button_clinicConsStatByDay30.Location = new System.Drawing.Point(12, 110);
             this.button_clinicConsStatByDay30.Name = "button_clinicConsStatByDay30";
             this.button_clinicConsStatByDay30.Size = new System.Drawing.Size(255, 51);
-            this.button_clinicConsStatByDay30.TabIndex = 30;
+            this.button_clinicConsStatByDay30.TabIndex = 2;
             this.button_clinicConsStatByDay30.Text = "過去30日按日診症數";
             this.button_clinicConsStatByDay30.UseVisualStyleBackColor = true;
             this.button_clinicConsStatByDay30.Click += new System.EventHandler(this.button_clinicConsStatByDay30_Click);
@@ -64,7 +64,7 @@
             this.button_recordCert.Location = new System.Drawing.Point(12, 53);
             this.button_recordCert.Name = "button_recordCert";
             this.button_recordCert.Size = new System.Drawing.Size(255, 51);
-            this.button_recordCert.TabIndex = 29;
+            this.button_recordCert.TabIndex = 1;
             this.button_recordCert.Text = "紀錄 / 證明";
             this.button_recordCert.UseVisualStyleBackColor = true;
             this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
@@ -74,7 +74,7 @@
             this.button_dxStat.Location = new System.Drawing.Point(12, 167);
             this.button_dxStat.Name = "button_dxStat";
             this.button_dxStat.Size = new System.Drawing.Size(255, 51);
-            this.button_dxStat.TabIndex = 31;
+            this.button_dxStat.TabIndex = 3;
             this.button_dxStat.Text = "過去30日之診斷統計";
             this.button_dxStat.UseVisualStyleBackColor = true;
             this.button_dxStat.Click += new System.EventHandler(this.button_dxStat_Click);
@@ -84,7 +84,7 @@
             this.button_suspiciousPresList.Location = new System.Drawing.Point(12, 224);
             this.button_suspiciousPresList.Name = "button_suspiciousPresList";
             this.button_suspiciousPresList.Size = new System.Drawing.Size(255, 51);
-            this.button_suspiciousPresList.TabIndex = 32;
+            this.button_suspiciousPresList.TabIndex = 4;
             this.button_suspiciousPresList.Text = "懷疑問題處方列表";
             this.button_suspiciousPresList.UseVisualStyleBackColor = true;
             this.button_suspiciousPresList.Click += new System.EventHandler(this.button_suspiciousPresList_Click);
@@ -94,7 +94,7 @@
             this.button_userListing.Location = new System.Drawing.Point(12, 281);
             this.button_userListing.Name = "button_userListing";
             this.button_userListing.Size = new System.Drawing.Size(255, 51);
-            this.button_userListing.TabIndex = 33;
+            this.button_userListing.TabIndex = 5;
             this.button_userListing.Text = "用戶名單";
             this.button_userListing.UseVisualStyleBackColor = true;
             this.button_userListing.Click += new System.EventHandler(this.button_userListing_Click);
@@ -104,7 +104,7 @@
             this.button_clinicListing.Location = new System.Drawing.Point(12, 338);
             this.button_clinicListing.Name = "button_clinicListing";
             this.button_clinicListing.Size = new System.Drawing.Size(255, 51);
-            this.button_clinicListing.TabIndex = 36;
+            this.button_clinicListing.TabIndex = 6;
             this.button_clinicListing.Text = "診所列表";
             this.button_clinicListing.UseVisualStyleBackColor = true;
             this.button_clinicListing.Click += new System.EventHandler(this.button_clinicListing_Click);
@@ -114,7 +114,7 @@
             this.button_drugListing.Location = new System.Drawing.Point(12, 395);
             this.button_drugListing.Name = "button_drugListing";
             this.button_drugListing.Size = new System.Drawing.Size(255, 51);
-            this.button_drugListing.TabIndex = 37;
+            this.button_drugListing.TabIndex = 7;
             this.button_drugListing.Text = "可選用藥物列表";
             this.button_drugListing.UseVisualStyleBackColor = true;
             this.button_drugListing.Click += new System.EventHandler(this.button_drugListing_Click);

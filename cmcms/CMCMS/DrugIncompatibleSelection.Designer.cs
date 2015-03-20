@@ -40,14 +40,14 @@
             this.drugSelectionPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.drugSelectionPanel1.Name = "drugSelectionPanel1";
             this.drugSelectionPanel1.Size = new System.Drawing.Size(827, 371);
-            this.drugSelectionPanel1.TabIndex = 0;
+            this.drugSelectionPanel1.TabIndex = 1;
             // 
             // button_cancel
             // 
             this.button_cancel.Location = new System.Drawing.Point(602, 393);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(116, 40);
-            this.button_cancel.TabIndex = 41;
+            this.button_cancel.TabIndex = 3;
             this.button_cancel.Text = "取消";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -57,7 +57,7 @@
             this.button_confirm.Location = new System.Drawing.Point(724, 393);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(116, 40);
-            this.button_confirm.TabIndex = 40;
+            this.button_confirm.TabIndex = 2;
             this.button_confirm.Text = "確定";
             this.button_confirm.UseVisualStyleBackColor = true;
             this.button_confirm.Click += new System.EventHandler(this.button_confirm_Click);

@@ -43,6 +43,7 @@
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowGroupTreeButton = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
+            this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.Size = new System.Drawing.Size(1276, 749);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;

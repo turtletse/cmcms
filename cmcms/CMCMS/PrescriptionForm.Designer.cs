@@ -48,7 +48,7 @@
             this.button_confirm.Location = new System.Drawing.Point(1271, 637);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(120, 51);
-            this.button_confirm.TabIndex = 7;
+            this.button_confirm.TabIndex = 9;
             this.button_confirm.Text = "確定";
             this.button_confirm.UseVisualStyleBackColor = true;
             this.button_confirm.Click += new System.EventHandler(this.button_confirm_Click);
@@ -60,14 +60,14 @@
             this.prescriptionPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.prescriptionPanel1.Name = "prescriptionPanel1";
             this.prescriptionPanel1.Size = new System.Drawing.Size(1390, 582);
-            this.prescriptionPanel1.TabIndex = 0;
+            this.prescriptionPanel1.TabIndex = 8;
             // 
             // button_reset
             // 
             this.button_reset.Location = new System.Drawing.Point(1147, 637);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(120, 51);
-            this.button_reset.TabIndex = 8;
+            this.button_reset.TabIndex = 10;
             this.button_reset.Text = "還原";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -86,14 +86,14 @@
             this.textBox_instruction.Location = new System.Drawing.Point(99, 6);
             this.textBox_instruction.Name = "textBox_instruction";
             this.textBox_instruction.Size = new System.Drawing.Size(660, 26);
-            this.textBox_instruction.TabIndex = 10;
+            this.textBox_instruction.TabIndex = 1;
             // 
             // textBox_nDose
             // 
             this.textBox_nDose.Location = new System.Drawing.Point(99, 38);
             this.textBox_nDose.Name = "textBox_nDose";
             this.textBox_nDose.Size = new System.Drawing.Size(48, 26);
-            this.textBox_nDose.TabIndex = 14;
+            this.textBox_nDose.TabIndex = 4;
             this.textBox_nDose.Text = "1";
             // 
             // label2
@@ -110,7 +110,7 @@
             this.textBox_methodOfTreatment.Location = new System.Drawing.Point(99, 70);
             this.textBox_methodOfTreatment.Name = "textBox_methodOfTreatment";
             this.textBox_methodOfTreatment.Size = new System.Drawing.Size(660, 26);
-            this.textBox_methodOfTreatment.TabIndex = 16;
+            this.textBox_methodOfTreatment.TabIndex = 5;
             // 
             // label3
             // 
@@ -126,7 +126,7 @@
             this.button_selectInstruction.Location = new System.Drawing.Point(765, 6);
             this.button_selectInstruction.Name = "button_selectInstruction";
             this.button_selectInstruction.Size = new System.Drawing.Size(66, 26);
-            this.button_selectInstruction.TabIndex = 11;
+            this.button_selectInstruction.TabIndex = 3;
             this.button_selectInstruction.Text = "<<";
             this.button_selectInstruction.UseVisualStyleBackColor = true;
             this.button_selectInstruction.Click += new System.EventHandler(this.button_selectInstruction_Click);
@@ -138,7 +138,7 @@
             this.comboBox_predefInstruction.Location = new System.Drawing.Point(837, 6);
             this.comboBox_predefInstruction.Name = "comboBox_predefInstruction";
             this.comboBox_predefInstruction.Size = new System.Drawing.Size(259, 28);
-            this.comboBox_predefInstruction.TabIndex = 12;
+            this.comboBox_predefInstruction.TabIndex = 2;
             // 
             // comboBox_predefMOT
             // 
@@ -147,14 +147,14 @@
             this.comboBox_predefMOT.Location = new System.Drawing.Point(837, 70);
             this.comboBox_predefMOT.Name = "comboBox_predefMOT";
             this.comboBox_predefMOT.Size = new System.Drawing.Size(259, 28);
-            this.comboBox_predefMOT.TabIndex = 18;
+            this.comboBox_predefMOT.TabIndex = 6;
             // 
             // button_selectMOT
             // 
             this.button_selectMOT.Location = new System.Drawing.Point(765, 70);
             this.button_selectMOT.Name = "button_selectMOT";
             this.button_selectMOT.Size = new System.Drawing.Size(66, 26);
-            this.button_selectMOT.TabIndex = 17;
+            this.button_selectMOT.TabIndex = 7;
             this.button_selectMOT.Text = "<<";
             this.button_selectMOT.UseVisualStyleBackColor = true;
             this.button_selectMOT.Click += new System.EventHandler(this.button_selectMOT_Click);

@@ -88,7 +88,7 @@
             this.button_confirm.Location = new System.Drawing.Point(442, 354);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(102, 37);
-            this.button_confirm.TabIndex = 5;
+            this.button_confirm.TabIndex = 4;
             this.button_confirm.Text = "確定";
             this.button_confirm.UseVisualStyleBackColor = true;
             this.button_confirm.Click += new System.EventHandler(this.button_confirm_Click);
@@ -98,7 +98,7 @@
             this.button_reset.Location = new System.Drawing.Point(442, 311);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(102, 37);
-            this.button_reset.TabIndex = 6;
+            this.button_reset.TabIndex = 5;
             this.button_reset.Text = "還原";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -108,7 +108,7 @@
             this.button_clear.Location = new System.Drawing.Point(442, 268);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(102, 37);
-            this.button_clear.TabIndex = 7;
+            this.button_clear.TabIndex = 6;
             this.button_clear.Text = "清空";
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);

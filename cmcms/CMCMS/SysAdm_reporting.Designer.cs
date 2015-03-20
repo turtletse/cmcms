@@ -50,7 +50,7 @@
             this.button_userListing.Location = new System.Drawing.Point(12, 52);
             this.button_userListing.Name = "button_userListing";
             this.button_userListing.Size = new System.Drawing.Size(191, 51);
-            this.button_userListing.TabIndex = 34;
+            this.button_userListing.TabIndex = 1;
             this.button_userListing.Text = "用戶名單";
             this.button_userListing.UseVisualStyleBackColor = true;
             this.button_userListing.Click += new System.EventHandler(this.button_userListing_Click);
@@ -60,7 +60,7 @@
             this.button_clinicListing.Location = new System.Drawing.Point(12, 109);
             this.button_clinicListing.Name = "button_clinicListing";
             this.button_clinicListing.Size = new System.Drawing.Size(191, 51);
-            this.button_clinicListing.TabIndex = 35;
+            this.button_clinicListing.TabIndex = 2;
             this.button_clinicListing.Text = "診所列表";
             this.button_clinicListing.UseVisualStyleBackColor = true;
             this.button_clinicListing.Click += new System.EventHandler(this.button_clinicListing_Click);
@@ -70,7 +70,7 @@
             this.button_drugListing.Location = new System.Drawing.Point(12, 166);
             this.button_drugListing.Name = "button_drugListing";
             this.button_drugListing.Size = new System.Drawing.Size(191, 51);
-            this.button_drugListing.TabIndex = 36;
+            this.button_drugListing.TabIndex = 3;
             this.button_drugListing.Text = "可選用藥物列表";
             this.button_drugListing.UseVisualStyleBackColor = true;
             this.button_drugListing.Click += new System.EventHandler(this.button_drugListing_Click);

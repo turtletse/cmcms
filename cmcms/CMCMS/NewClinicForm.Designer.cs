@@ -39,7 +39,7 @@
             this.button_reset.Location = new System.Drawing.Point(13, 255);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(107, 39);
-            this.button_reset.TabIndex = 1;
+            this.button_reset.TabIndex = 3;
             this.button_reset.Text = "重置";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -61,7 +61,7 @@
             this.clinicRegistration1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.clinicRegistration1.Name = "clinicRegistration1";
             this.clinicRegistration1.Size = new System.Drawing.Size(689, 204);
-            this.clinicRegistration1.TabIndex = 0;
+            this.clinicRegistration1.TabIndex = 1;
             // 
             // label1
             // 

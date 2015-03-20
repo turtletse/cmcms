@@ -65,7 +65,7 @@
             this.textBox_search_patientID.Location = new System.Drawing.Point(90, 37);
             this.textBox_search_patientID.Name = "textBox_search_patientID";
             this.textBox_search_patientID.Size = new System.Drawing.Size(187, 26);
-            this.textBox_search_patientID.TabIndex = 12;
+            this.textBox_search_patientID.TabIndex = 1;
             this.textBox_search_patientID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_patientID_KeyPress);
             // 
             // label3
@@ -82,7 +82,7 @@
             this.textBox_search_IDNo.Location = new System.Drawing.Point(142, 72);
             this.textBox_search_IDNo.Name = "textBox_search_IDNo";
             this.textBox_search_IDNo.Size = new System.Drawing.Size(135, 26);
-            this.textBox_search_IDNo.TabIndex = 14;
+            this.textBox_search_IDNo.TabIndex = 2;
             this.textBox_search_IDNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_IDNo_KeyPress);
             // 
             // label4
@@ -99,7 +99,7 @@
             this.textBox_search_phoneNo.Location = new System.Drawing.Point(90, 106);
             this.textBox_search_phoneNo.Name = "textBox_search_phoneNo";
             this.textBox_search_phoneNo.Size = new System.Drawing.Size(187, 26);
-            this.textBox_search_phoneNo.TabIndex = 16;
+            this.textBox_search_phoneNo.TabIndex = 3;
             this.textBox_search_phoneNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_phoneNo_KeyPress);
             // 
             // button_search
@@ -107,7 +107,7 @@
             this.button_search.Location = new System.Drawing.Point(7, 168);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(133, 35);
-            this.button_search.TabIndex = 17;
+            this.button_search.TabIndex = 5;
             this.button_search.Text = "搜尋";
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
@@ -117,7 +117,7 @@
             this.button_search_reset.Location = new System.Drawing.Point(144, 168);
             this.button_search_reset.Name = "button_search_reset";
             this.button_search_reset.Size = new System.Drawing.Size(135, 35);
-            this.button_search_reset.TabIndex = 18;
+            this.button_search_reset.TabIndex = 6;
             this.button_search_reset.Text = "重置";
             this.button_search_reset.UseVisualStyleBackColor = true;
             this.button_search_reset.Click += new System.EventHandler(this.button_search_reset_Click);
@@ -138,7 +138,7 @@
             this.listBox_search_result.Location = new System.Drawing.Point(9, 247);
             this.listBox_search_result.Name = "listBox_search_result";
             this.listBox_search_result.Size = new System.Drawing.Size(270, 124);
-            this.listBox_search_result.TabIndex = 20;
+            this.listBox_search_result.TabIndex = 7;
             // 
             // checkBox_search_inclDeceased
             // 
@@ -146,7 +146,7 @@
             this.checkBox_search_inclDeceased.Location = new System.Drawing.Point(7, 138);
             this.checkBox_search_inclDeceased.Name = "checkBox_search_inclDeceased";
             this.checkBox_search_inclDeceased.Size = new System.Drawing.Size(124, 24);
-            this.checkBox_search_inclDeceased.TabIndex = 21;
+            this.checkBox_search_inclDeceased.TabIndex = 4;
             this.checkBox_search_inclDeceased.Text = "包括已故病人";
             this.checkBox_search_inclDeceased.UseVisualStyleBackColor = true;
             this.checkBox_search_inclDeceased.CheckedChanged += new System.EventHandler(this.checkBox_search_inclDeceased_CheckedChanged);

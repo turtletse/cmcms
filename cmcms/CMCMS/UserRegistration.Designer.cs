@@ -81,7 +81,7 @@
             this.checkBox_isSuspended.Location = new System.Drawing.Point(445, 97);
             this.checkBox_isSuspended.Name = "checkBox_isSuspended";
             this.checkBox_isSuspended.Size = new System.Drawing.Size(60, 24);
-            this.checkBox_isSuspended.TabIndex = 16;
+            this.checkBox_isSuspended.TabIndex = 9;
             this.checkBox_isSuspended.Text = "停用";
             this.checkBox_isSuspended.UseVisualStyleBackColor = true;
             // 
@@ -92,7 +92,7 @@
             this.comboBox_role.Location = new System.Drawing.Point(286, 95);
             this.comboBox_role.Name = "comboBox_role";
             this.comboBox_role.Size = new System.Drawing.Size(149, 28);
-            this.comboBox_role.TabIndex = 15;
+            this.comboBox_role.TabIndex = 8;
             // 
             // label_role
             // 
@@ -110,7 +110,7 @@
             this.comboBox_clinic.Location = new System.Drawing.Point(93, 95);
             this.comboBox_clinic.Name = "comboBox_clinic";
             this.comboBox_clinic.Size = new System.Drawing.Size(132, 28);
-            this.comboBox_clinic.TabIndex = 13;
+            this.comboBox_clinic.TabIndex = 7;
             // 
             // label_clinic
             // 
@@ -126,7 +126,7 @@
             this.textBox_cmfPassword.Location = new System.Drawing.Point(528, 60);
             this.textBox_cmfPassword.Name = "textBox_cmfPassword";
             this.textBox_cmfPassword.Size = new System.Drawing.Size(149, 26);
-            this.textBox_cmfPassword.TabIndex = 11;
+            this.textBox_cmfPassword.TabIndex = 6;
             this.textBox_cmfPassword.UseSystemPasswordChar = true;
             // 
             // label6
@@ -143,7 +143,7 @@
             this.textBox_password.Location = new System.Drawing.Point(286, 60);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(149, 26);
-            this.textBox_password.TabIndex = 9;
+            this.textBox_password.TabIndex = 5;
             this.textBox_password.UseSystemPasswordChar = true;
             // 
             // label5
@@ -160,7 +160,7 @@
             this.textBox_regNo.Location = new System.Drawing.Point(125, 60);
             this.textBox_regNo.Name = "textBox_regNo";
             this.textBox_regNo.Size = new System.Drawing.Size(100, 26);
-            this.textBox_regNo.TabIndex = 7;
+            this.textBox_regNo.TabIndex = 4;
             // 
             // label4
             // 
@@ -176,7 +176,7 @@
             this.textBox_engName.Location = new System.Drawing.Point(479, 29);
             this.textBox_engName.Name = "textBox_engName";
             this.textBox_engName.Size = new System.Drawing.Size(198, 26);
-            this.textBox_engName.TabIndex = 5;
+            this.textBox_engName.TabIndex = 3;
             // 
             // label3
             // 
@@ -192,7 +192,7 @@
             this.textBox_chiName.Location = new System.Drawing.Point(286, 29);
             this.textBox_chiName.Name = "textBox_chiName";
             this.textBox_chiName.Size = new System.Drawing.Size(100, 26);
-            this.textBox_chiName.TabIndex = 3;
+            this.textBox_chiName.TabIndex = 2;
             // 
             // label2
             // 

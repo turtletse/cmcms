@@ -62,14 +62,14 @@
             this.comboBox_clinic.Location = new System.Drawing.Point(100, 55);
             this.comboBox_clinic.Name = "comboBox_clinic";
             this.comboBox_clinic.Size = new System.Drawing.Size(121, 28);
-            this.comboBox_clinic.TabIndex = 6;
+            this.comboBox_clinic.TabIndex = 1;
             // 
             // button_select
             // 
             this.button_select.Location = new System.Drawing.Point(227, 55);
             this.button_select.Name = "button_select";
             this.button_select.Size = new System.Drawing.Size(75, 28);
-            this.button_select.TabIndex = 7;
+            this.button_select.TabIndex = 2;
             this.button_select.Text = "選擇";
             this.button_select.UseVisualStyleBackColor = true;
             this.button_select.Click += new System.EventHandler(this.button_select_Click);
@@ -81,14 +81,14 @@
             this.clinicRegistration1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.clinicRegistration1.Name = "clinicRegistration1";
             this.clinicRegistration1.Size = new System.Drawing.Size(689, 204);
-            this.clinicRegistration1.TabIndex = 8;
+            this.clinicRegistration1.TabIndex = 3;
             // 
             // button_reset
             // 
             this.button_reset.Location = new System.Drawing.Point(17, 303);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(107, 39);
-            this.button_reset.TabIndex = 9;
+            this.button_reset.TabIndex = 4;
             this.button_reset.Text = "重置";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -98,7 +98,7 @@
             this.button_updateClinic.Location = new System.Drawing.Point(595, 303);
             this.button_updateClinic.Name = "button_updateClinic";
             this.button_updateClinic.Size = new System.Drawing.Size(107, 39);
-            this.button_updateClinic.TabIndex = 10;
+            this.button_updateClinic.TabIndex = 5;
             this.button_updateClinic.Text = "確定";
             this.button_updateClinic.UseVisualStyleBackColor = true;
             this.button_updateClinic.Click += new System.EventHandler(this.button_updateClinic_Click);

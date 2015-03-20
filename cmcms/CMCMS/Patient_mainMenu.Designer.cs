@@ -40,7 +40,7 @@
             this.button_newPatient.Location = new System.Drawing.Point(18, 102);
             this.button_newPatient.Name = "button_newPatient";
             this.button_newPatient.Size = new System.Drawing.Size(236, 58);
-            this.button_newPatient.TabIndex = 0;
+            this.button_newPatient.TabIndex = 1;
             this.button_newPatient.Text = "新登記";
             this.button_newPatient.UseVisualStyleBackColor = true;
             this.button_newPatient.Click += new System.EventHandler(this.button_newPatient_Click);
@@ -69,7 +69,7 @@
             this.button_amdPatientData.Location = new System.Drawing.Point(18, 166);
             this.button_amdPatientData.Name = "button_amdPatientData";
             this.button_amdPatientData.Size = new System.Drawing.Size(236, 58);
-            this.button_amdPatientData.TabIndex = 3;
+            this.button_amdPatientData.TabIndex = 2;
             this.button_amdPatientData.Text = "查詢 / 更改資料";
             this.button_amdPatientData.UseVisualStyleBackColor = true;
             this.button_amdPatientData.Click += new System.EventHandler(this.button_amdPatientData_Click);
@@ -79,7 +79,7 @@
             this.button_reg.Location = new System.Drawing.Point(18, 230);
             this.button_reg.Name = "button_reg";
             this.button_reg.Size = new System.Drawing.Size(236, 58);
-            this.button_reg.TabIndex = 4;
+            this.button_reg.TabIndex = 3;
             this.button_reg.Text = "掛號 / 查詢輪候狀況";
             this.button_reg.UseVisualStyleBackColor = true;
             this.button_reg.Click += new System.EventHandler(this.button_reg_Click);

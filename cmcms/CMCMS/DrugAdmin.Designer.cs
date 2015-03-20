@@ -173,7 +173,7 @@
             this.button_cancelAddSubDrug.Location = new System.Drawing.Point(148, 492);
             this.button_cancelAddSubDrug.Name = "button_cancelAddSubDrug";
             this.button_cancelAddSubDrug.Size = new System.Drawing.Size(116, 40);
-            this.button_cancelAddSubDrug.TabIndex = 22;
+            this.button_cancelAddSubDrug.TabIndex = 26;
             this.button_cancelAddSubDrug.Text = "取消";
             this.button_cancelAddSubDrug.UseVisualStyleBackColor = true;
             // 
@@ -182,7 +182,7 @@
             this.button_addSubDrug.Location = new System.Drawing.Point(10, 492);
             this.button_addSubDrug.Name = "button_addSubDrug";
             this.button_addSubDrug.Size = new System.Drawing.Size(116, 40);
-            this.button_addSubDrug.TabIndex = 21;
+            this.button_addSubDrug.TabIndex = 25;
             this.button_addSubDrug.Text = "加入子項目";
             this.button_addSubDrug.UseVisualStyleBackColor = true;
             this.button_addSubDrug.Click += new System.EventHandler(this.button_addSubDrug_Click);
@@ -192,7 +192,7 @@
             this.textBox_addDrug_subDrugName.Location = new System.Drawing.Point(109, 459);
             this.textBox_addDrug_subDrugName.Name = "textBox_addDrug_subDrugName";
             this.textBox_addDrug_subDrugName.Size = new System.Drawing.Size(137, 26);
-            this.textBox_addDrug_subDrugName.TabIndex = 4;
+            this.textBox_addDrug_subDrugName.TabIndex = 24;
             this.textBox_addDrug_subDrugName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_addDrug_subDrugName_KeyPress);
             // 
             // label9
@@ -209,7 +209,7 @@
             this.textBox_addDrug_selectedDrugName.Location = new System.Drawing.Point(109, 423);
             this.textBox_addDrug_selectedDrugName.Name = "textBox_addDrug_selectedDrugName";
             this.textBox_addDrug_selectedDrugName.Size = new System.Drawing.Size(137, 26);
-            this.textBox_addDrug_selectedDrugName.TabIndex = 2;
+            this.textBox_addDrug_selectedDrugName.TabIndex = 23;
             // 
             // label8
             // 
@@ -227,7 +227,7 @@
             this.DSP_addSubDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DSP_addSubDrug.Name = "DSP_addSubDrug";
             this.DSP_addSubDrug.Size = new System.Drawing.Size(1006, 375);
-            this.DSP_addSubDrug.TabIndex = 0;
+            this.DSP_addSubDrug.TabIndex = 22;
             // 
             // groupBox3
             // 
@@ -582,7 +582,7 @@
             this.checkBox_amdDrug_deleteItem.Location = new System.Drawing.Point(19, 628);
             this.checkBox_amdDrug_deleteItem.Name = "checkBox_amdDrug_deleteItem";
             this.checkBox_amdDrug_deleteItem.Size = new System.Drawing.Size(108, 24);
-            this.checkBox_amdDrug_deleteItem.TabIndex = 40;
+            this.checkBox_amdDrug_deleteItem.TabIndex = 36;
             this.checkBox_amdDrug_deleteItem.Text = "刪除此項目";
             this.checkBox_amdDrug_deleteItem.UseVisualStyleBackColor = true;
             // 
@@ -600,7 +600,7 @@
             this.textBox_amdDrug_subDrugName.Location = new System.Drawing.Point(86, 430);
             this.textBox_amdDrug_subDrugName.Name = "textBox_amdDrug_subDrugName";
             this.textBox_amdDrug_subDrugName.Size = new System.Drawing.Size(182, 26);
-            this.textBox_amdDrug_subDrugName.TabIndex = 38;
+            this.textBox_amdDrug_subDrugName.TabIndex = 29;
             // 
             // label10
             // 
@@ -616,7 +616,7 @@
             this.button_cancelAmdDrug.Location = new System.Drawing.Point(483, 669);
             this.button_cancelAmdDrug.Name = "button_cancelAmdDrug";
             this.button_cancelAmdDrug.Size = new System.Drawing.Size(116, 40);
-            this.button_cancelAmdDrug.TabIndex = 37;
+            this.button_cancelAmdDrug.TabIndex = 50;
             this.button_cancelAmdDrug.Text = "取消";
             this.button_cancelAmdDrug.UseVisualStyleBackColor = true;
             this.button_cancelAmdDrug.Click += new System.EventHandler(this.button_cancelAmdDrug_Click);
@@ -628,7 +628,7 @@
             this.comboBox_amdDrug_pri_type.Location = new System.Drawing.Point(70, 543);
             this.comboBox_amdDrug_pri_type.Name = "comboBox_amdDrug_pri_type";
             this.comboBox_amdDrug_pri_type.Size = new System.Drawing.Size(198, 28);
-            this.comboBox_amdDrug_pri_type.TabIndex = 29;
+            this.comboBox_amdDrug_pri_type.TabIndex = 34;
             this.comboBox_amdDrug_pri_type.SelectedIndexChanged += new System.EventHandler(this.comboBox_amdDrug_pri_type_SelectedIndexChanged);
             // 
             // button_amdDrug
@@ -636,7 +636,7 @@
             this.button_amdDrug.Location = new System.Drawing.Point(19, 669);
             this.button_amdDrug.Name = "button_amdDrug";
             this.button_amdDrug.Size = new System.Drawing.Size(116, 40);
-            this.button_amdDrug.TabIndex = 36;
+            this.button_amdDrug.TabIndex = 49;
             this.button_amdDrug.Text = "修改項目";
             this.button_amdDrug.UseVisualStyleBackColor = true;
             this.button_amdDrug.Click += new System.EventHandler(this.button_amdDrug_Click);
@@ -646,7 +646,7 @@
             this.textBox_amdDrug_drugName.Location = new System.Drawing.Point(86, 398);
             this.textBox_amdDrug_drugName.Name = "textBox_amdDrug_drugName";
             this.textBox_amdDrug_drugName.Size = new System.Drawing.Size(182, 26);
-            this.textBox_amdDrug_drugName.TabIndex = 22;
+            this.textBox_amdDrug_drugName.TabIndex = 28;
             // 
             // groupBox_amdDrug_contraindication
             // 
@@ -668,7 +668,7 @@
             this.comboBox_amdDrug_g6pd_contra.Location = new System.Drawing.Point(67, 73);
             this.comboBox_amdDrug_g6pd_contra.Name = "comboBox_amdDrug_g6pd_contra";
             this.comboBox_amdDrug_g6pd_contra.Size = new System.Drawing.Size(182, 28);
-            this.comboBox_amdDrug_g6pd_contra.TabIndex = 19;
+            this.comboBox_amdDrug_g6pd_contra.TabIndex = 48;
             // 
             // label11
             // 
@@ -686,7 +686,7 @@
             this.comboBox_amdDrug_preg_contra.Location = new System.Drawing.Point(58, 28);
             this.comboBox_amdDrug_preg_contra.Name = "comboBox_amdDrug_preg_contra";
             this.comboBox_amdDrug_preg_contra.Size = new System.Drawing.Size(191, 28);
-            this.comboBox_amdDrug_preg_contra.TabIndex = 18;
+            this.comboBox_amdDrug_preg_contra.TabIndex = 47;
             // 
             // label12
             // 
@@ -731,7 +731,7 @@
             this.checkBox_amdDrug_w6.Location = new System.Drawing.Point(255, 80);
             this.checkBox_amdDrug_w6.Name = "checkBox_amdDrug_w6";
             this.checkBox_amdDrug_w6.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_w6.TabIndex = 17;
+            this.checkBox_amdDrug_w6.TabIndex = 46;
             this.checkBox_amdDrug_w6.Text = "淡";
             this.checkBox_amdDrug_w6.UseVisualStyleBackColor = true;
             // 
@@ -741,7 +741,7 @@
             this.checkBox_amdDrug_w5.Location = new System.Drawing.Point(205, 80);
             this.checkBox_amdDrug_w5.Name = "checkBox_amdDrug_w5";
             this.checkBox_amdDrug_w5.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_w5.TabIndex = 16;
+            this.checkBox_amdDrug_w5.TabIndex = 45;
             this.checkBox_amdDrug_w5.Text = "鹹";
             this.checkBox_amdDrug_w5.UseVisualStyleBackColor = true;
             // 
@@ -751,7 +751,7 @@
             this.checkBox_amdDrug_w4.Location = new System.Drawing.Point(156, 80);
             this.checkBox_amdDrug_w4.Name = "checkBox_amdDrug_w4";
             this.checkBox_amdDrug_w4.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_w4.TabIndex = 15;
+            this.checkBox_amdDrug_w4.TabIndex = 44;
             this.checkBox_amdDrug_w4.Text = "苦";
             this.checkBox_amdDrug_w4.UseVisualStyleBackColor = true;
             // 
@@ -761,7 +761,7 @@
             this.checkBox_amdDrug_w3.Location = new System.Drawing.Point(106, 80);
             this.checkBox_amdDrug_w3.Name = "checkBox_amdDrug_w3";
             this.checkBox_amdDrug_w3.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_w3.TabIndex = 14;
+            this.checkBox_amdDrug_w3.TabIndex = 43;
             this.checkBox_amdDrug_w3.Text = "酸";
             this.checkBox_amdDrug_w3.UseVisualStyleBackColor = true;
             // 
@@ -771,7 +771,7 @@
             this.checkBox_amdDrug_w2.Location = new System.Drawing.Point(56, 80);
             this.checkBox_amdDrug_w2.Name = "checkBox_amdDrug_w2";
             this.checkBox_amdDrug_w2.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_w2.TabIndex = 13;
+            this.checkBox_amdDrug_w2.TabIndex = 42;
             this.checkBox_amdDrug_w2.Text = "甘";
             this.checkBox_amdDrug_w2.UseVisualStyleBackColor = true;
             // 
@@ -781,7 +781,7 @@
             this.checkBox_amdDrug_w1.Location = new System.Drawing.Point(6, 80);
             this.checkBox_amdDrug_w1.Name = "checkBox_amdDrug_w1";
             this.checkBox_amdDrug_w1.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_w1.TabIndex = 12;
+            this.checkBox_amdDrug_w1.TabIndex = 41;
             this.checkBox_amdDrug_w1.Text = "辛";
             this.checkBox_amdDrug_w1.UseVisualStyleBackColor = true;
             // 
@@ -791,7 +791,7 @@
             this.checkBox_amdDrug_q4.Location = new System.Drawing.Point(252, 25);
             this.checkBox_amdDrug_q4.Name = "checkBox_amdDrug_q4";
             this.checkBox_amdDrug_q4.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_q4.TabIndex = 11;
+            this.checkBox_amdDrug_q4.TabIndex = 40;
             this.checkBox_amdDrug_q4.Text = "涼";
             this.checkBox_amdDrug_q4.UseVisualStyleBackColor = true;
             // 
@@ -801,7 +801,7 @@
             this.checkBox_amdDrug_q3.Location = new System.Drawing.Point(168, 25);
             this.checkBox_amdDrug_q3.Name = "checkBox_amdDrug_q3";
             this.checkBox_amdDrug_q3.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_q3.TabIndex = 10;
+            this.checkBox_amdDrug_q3.TabIndex = 39;
             this.checkBox_amdDrug_q3.Text = "溫";
             this.checkBox_amdDrug_q3.UseVisualStyleBackColor = true;
             // 
@@ -811,7 +811,7 @@
             this.checkBox_amdDrug_q2.Location = new System.Drawing.Point(83, 25);
             this.checkBox_amdDrug_q2.Name = "checkBox_amdDrug_q2";
             this.checkBox_amdDrug_q2.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_q2.TabIndex = 9;
+            this.checkBox_amdDrug_q2.TabIndex = 38;
             this.checkBox_amdDrug_q2.Text = "熱";
             this.checkBox_amdDrug_q2.UseVisualStyleBackColor = true;
             // 
@@ -821,7 +821,7 @@
             this.checkBox_amdDrug_q1.Location = new System.Drawing.Point(6, 25);
             this.checkBox_amdDrug_q1.Name = "checkBox_amdDrug_q1";
             this.checkBox_amdDrug_q1.Size = new System.Drawing.Size(44, 24);
-            this.checkBox_amdDrug_q1.TabIndex = 8;
+            this.checkBox_amdDrug_q1.TabIndex = 37;
             this.checkBox_amdDrug_q1.Text = "寒";
             this.checkBox_amdDrug_q1.UseVisualStyleBackColor = true;
             // 
@@ -830,7 +830,7 @@
             this.textBox_amdDrug_minDoseVal.Location = new System.Drawing.Point(102, 462);
             this.textBox_amdDrug_minDoseVal.Name = "textBox_amdDrug_minDoseVal";
             this.textBox_amdDrug_minDoseVal.Size = new System.Drawing.Size(79, 26);
-            this.textBox_amdDrug_minDoseVal.TabIndex = 23;
+            this.textBox_amdDrug_minDoseVal.TabIndex = 30;
             // 
             // comboBox_amdDrug_sec_type
             // 
@@ -839,7 +839,7 @@
             this.comboBox_amdDrug_sec_type.Location = new System.Drawing.Point(86, 584);
             this.comboBox_amdDrug_sec_type.Name = "comboBox_amdDrug_sec_type";
             this.comboBox_amdDrug_sec_type.Size = new System.Drawing.Size(182, 28);
-            this.comboBox_amdDrug_sec_type.TabIndex = 31;
+            this.comboBox_amdDrug_sec_type.TabIndex = 35;
             // 
             // comboBox_amdDrug_minDoseUnit
             // 
@@ -848,7 +848,7 @@
             this.comboBox_amdDrug_minDoseUnit.Location = new System.Drawing.Point(187, 462);
             this.comboBox_amdDrug_minDoseUnit.Name = "comboBox_amdDrug_minDoseUnit";
             this.comboBox_amdDrug_minDoseUnit.Size = new System.Drawing.Size(81, 28);
-            this.comboBox_amdDrug_minDoseUnit.TabIndex = 26;
+            this.comboBox_amdDrug_minDoseUnit.TabIndex = 31;
             // 
             // label14
             // 
@@ -882,7 +882,7 @@
             this.textBox_amdDrug_maxDoseVal.Location = new System.Drawing.Point(102, 502);
             this.textBox_amdDrug_maxDoseVal.Name = "textBox_amdDrug_maxDoseVal";
             this.textBox_amdDrug_maxDoseVal.Size = new System.Drawing.Size(79, 26);
-            this.textBox_amdDrug_maxDoseVal.TabIndex = 27;
+            this.textBox_amdDrug_maxDoseVal.TabIndex = 32;
             // 
             // comboBox_amdDrug_maxDoseUnit
             // 
@@ -891,7 +891,7 @@
             this.comboBox_amdDrug_maxDoseUnit.Location = new System.Drawing.Point(187, 502);
             this.comboBox_amdDrug_maxDoseUnit.Name = "comboBox_amdDrug_maxDoseUnit";
             this.comboBox_amdDrug_maxDoseUnit.Size = new System.Drawing.Size(81, 28);
-            this.comboBox_amdDrug_maxDoseUnit.TabIndex = 28;
+            this.comboBox_amdDrug_maxDoseUnit.TabIndex = 33;
             // 
             // DSP_amdDrug
             // 
@@ -900,7 +900,7 @@
             this.DSP_amdDrug.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DSP_amdDrug.Name = "DSP_amdDrug";
             this.DSP_amdDrug.Size = new System.Drawing.Size(967, 371);
-            this.DSP_amdDrug.TabIndex = 0;
+            this.DSP_amdDrug.TabIndex = 27;
             // 
             // tabPage3
             // 
@@ -929,7 +929,7 @@
             this.button_cancelIncompatible.Location = new System.Drawing.Point(820, 474);
             this.button_cancelIncompatible.Name = "button_cancelIncompatible";
             this.button_cancelIncompatible.Size = new System.Drawing.Size(116, 40);
-            this.button_cancelIncompatible.TabIndex = 39;
+            this.button_cancelIncompatible.TabIndex = 58;
             this.button_cancelIncompatible.Text = "取消";
             this.button_cancelIncompatible.UseVisualStyleBackColor = true;
             this.button_cancelIncompatible.Click += new System.EventHandler(this.button_cancelIncompatible_Click);
@@ -939,7 +939,7 @@
             this.button_updateIncompatible.Location = new System.Drawing.Point(942, 474);
             this.button_updateIncompatible.Name = "button_updateIncompatible";
             this.button_updateIncompatible.Size = new System.Drawing.Size(116, 40);
-            this.button_updateIncompatible.TabIndex = 38;
+            this.button_updateIncompatible.TabIndex = 57;
             this.button_updateIncompatible.Text = "修改項目";
             this.button_updateIncompatible.UseVisualStyleBackColor = true;
             this.button_updateIncompatible.Click += new System.EventHandler(this.button_updateIncompatible_Click);
@@ -960,14 +960,14 @@
             this.listBox_selectedIncompatibleDrug.Location = new System.Drawing.Point(928, 157);
             this.listBox_selectedIncompatibleDrug.Name = "listBox_selectedIncompatibleDrug";
             this.listBox_selectedIncompatibleDrug.Size = new System.Drawing.Size(130, 304);
-            this.listBox_selectedIncompatibleDrug.TabIndex = 9;
+            this.listBox_selectedIncompatibleDrug.TabIndex = 55;
             // 
             // button_removeIncompatibleDrug
             // 
             this.button_removeIncompatibleDrug.Location = new System.Drawing.Point(843, 322);
             this.button_removeIncompatibleDrug.Name = "button_removeIncompatibleDrug";
             this.button_removeIncompatibleDrug.Size = new System.Drawing.Size(75, 99);
-            this.button_removeIncompatibleDrug.TabIndex = 8;
+            this.button_removeIncompatibleDrug.TabIndex = 56;
             this.button_removeIncompatibleDrug.Text = "<<";
             this.button_removeIncompatibleDrug.UseVisualStyleBackColor = true;
             this.button_removeIncompatibleDrug.Click += new System.EventHandler(this.button_removeIncompatibleDrug_Click);
@@ -977,7 +977,7 @@
             this.button_selectIncompatibleDrug.Location = new System.Drawing.Point(843, 193);
             this.button_selectIncompatibleDrug.Name = "button_selectIncompatibleDrug";
             this.button_selectIncompatibleDrug.Size = new System.Drawing.Size(75, 99);
-            this.button_selectIncompatibleDrug.TabIndex = 7;
+            this.button_selectIncompatibleDrug.TabIndex = 54;
             this.button_selectIncompatibleDrug.Text = ">>";
             this.button_selectIncompatibleDrug.UseVisualStyleBackColor = true;
             this.button_selectIncompatibleDrug.Click += new System.EventHandler(this.button_selectIncompatibleDrug_Click);
@@ -989,7 +989,7 @@
             this.DSP_incompatibleWith.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DSP_incompatibleWith.Name = "DSP_incompatibleWith";
             this.DSP_incompatibleWith.Size = new System.Drawing.Size(829, 371);
-            this.DSP_incompatibleWith.TabIndex = 6;
+            this.DSP_incompatibleWith.TabIndex = 53;
             // 
             // label19
             // 
@@ -1005,7 +1005,7 @@
             this.button_Incompatible_drug_select.Location = new System.Drawing.Point(271, 9);
             this.button_Incompatible_drug_select.Name = "button_Incompatible_drug_select";
             this.button_Incompatible_drug_select.Size = new System.Drawing.Size(89, 31);
-            this.button_Incompatible_drug_select.TabIndex = 2;
+            this.button_Incompatible_drug_select.TabIndex = 52;
             this.button_Incompatible_drug_select.Text = "選擇藥物";
             this.button_Incompatible_drug_select.UseVisualStyleBackColor = true;
             this.button_Incompatible_drug_select.Click += new System.EventHandler(this.button_Incompatible_drug_select_Click);
@@ -1016,7 +1016,7 @@
             this.textBox_incompatible_drugName.Name = "textBox_incompatible_drugName";
             this.textBox_incompatible_drugName.ReadOnly = true;
             this.textBox_incompatible_drugName.Size = new System.Drawing.Size(195, 26);
-            this.textBox_incompatible_drugName.TabIndex = 1;
+            this.textBox_incompatible_drugName.TabIndex = 51;
             // 
             // label18
             // 

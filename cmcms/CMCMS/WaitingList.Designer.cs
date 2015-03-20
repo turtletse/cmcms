@@ -80,7 +80,7 @@
             this.listView_waitingList.Name = "listView_waitingList";
             this.listView_waitingList.Size = new System.Drawing.Size(595, 395);
             this.listView_waitingList.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.listView_waitingList.TabIndex = 4;
+            this.listView_waitingList.TabIndex = 3;
             this.listView_waitingList.UseCompatibleStateImageBehavior = false;
             this.listView_waitingList.View = System.Windows.Forms.View.Details;
             // 
@@ -133,7 +133,7 @@
             this.button_waitingList_refresh.Location = new System.Drawing.Point(327, 51);
             this.button_waitingList_refresh.Name = "button_waitingList_refresh";
             this.button_waitingList_refresh.Size = new System.Drawing.Size(75, 28);
-            this.button_waitingList_refresh.TabIndex = 3;
+            this.button_waitingList_refresh.TabIndex = 2;
             this.button_waitingList_refresh.Text = "更新";
             this.button_waitingList_refresh.UseVisualStyleBackColor = true;
             this.button_waitingList_refresh.Click += new System.EventHandler(this.button_waitingList_refresh_Click);
@@ -144,7 +144,7 @@
             this.textBox_waitingList_refreshDtm.Name = "textBox_waitingList_refreshDtm";
             this.textBox_waitingList_refreshDtm.ReadOnly = true;
             this.textBox_waitingList_refreshDtm.Size = new System.Drawing.Size(191, 26);
-            this.textBox_waitingList_refreshDtm.TabIndex = 2;
+            this.textBox_waitingList_refreshDtm.TabIndex = 1;
             // 
             // label10
             // 

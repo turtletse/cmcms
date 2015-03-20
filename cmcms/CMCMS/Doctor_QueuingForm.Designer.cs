@@ -52,7 +52,7 @@
             this.button_NextPat_reset.Location = new System.Drawing.Point(155, 280);
             this.button_NextPat_reset.Name = "button_NextPat_reset";
             this.button_NextPat_reset.Size = new System.Drawing.Size(138, 43);
-            this.button_NextPat_reset.TabIndex = 25;
+            this.button_NextPat_reset.TabIndex = 8;
             this.button_NextPat_reset.Text = "重置";
             this.button_NextPat_reset.UseVisualStyleBackColor = true;
             this.button_NextPat_reset.Click += new System.EventHandler(this.button_NextPat_reset_Click);
@@ -62,7 +62,7 @@
             this.button_seaechPanel_leaveQ.Location = new System.Drawing.Point(150, 435);
             this.button_seaechPanel_leaveQ.Name = "button_seaechPanel_leaveQ";
             this.button_seaechPanel_leaveQ.Size = new System.Drawing.Size(133, 36);
-            this.button_seaechPanel_leaveQ.TabIndex = 8;
+            this.button_seaechPanel_leaveQ.TabIndex = 3;
             this.button_seaechPanel_leaveQ.Text = "取消掛號";
             this.button_seaechPanel_leaveQ.UseVisualStyleBackColor = true;
             this.button_seaechPanel_leaveQ.Click += new System.EventHandler(this.button_seaechPanel_leaveQ_Click);
@@ -72,7 +72,7 @@
             this.textBox_piorityCons_patId.Location = new System.Drawing.Point(94, 248);
             this.textBox_piorityCons_patId.Name = "textBox_piorityCons_patId";
             this.textBox_piorityCons_patId.Size = new System.Drawing.Size(199, 26);
-            this.textBox_piorityCons_patId.TabIndex = 20;
+            this.textBox_piorityCons_patId.TabIndex = 6;
             this.textBox_piorityCons_patId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_piorityCons_patId_KeyPress);
             // 
             // groupBox2
@@ -96,7 +96,7 @@
             this.button_calledPat.Location = new System.Drawing.Point(11, 73);
             this.button_calledPat.Name = "button_calledPat";
             this.button_calledPat.Size = new System.Drawing.Size(282, 43);
-            this.button_calledPat.TabIndex = 27;
+            this.button_calledPat.TabIndex = 4;
             this.button_calledPat.Text = "已叫名 / 診症中 病人";
             this.button_calledPat.UseVisualStyleBackColor = true;
             this.button_calledPat.Click += new System.EventHandler(this.button_calledPat_Click);
@@ -115,7 +115,7 @@
             this.button_piorityCons.Location = new System.Drawing.Point(11, 280);
             this.button_piorityCons.Name = "button_piorityCons";
             this.button_piorityCons.Size = new System.Drawing.Size(138, 43);
-            this.button_piorityCons.TabIndex = 16;
+            this.button_piorityCons.TabIndex = 7;
             this.button_piorityCons.Text = "確定";
             this.button_piorityCons.UseVisualStyleBackColor = true;
             this.button_piorityCons.Click += new System.EventHandler(this.button_piorityCons_Click);
@@ -134,7 +134,7 @@
             this.button_callNext.Location = new System.Drawing.Point(11, 147);
             this.button_callNext.Name = "button_callNext";
             this.button_callNext.Size = new System.Drawing.Size(282, 43);
-            this.button_callNext.TabIndex = 10;
+            this.button_callNext.TabIndex = 5;
             this.button_callNext.Text = "據登記順序叫名";
             this.button_callNext.UseVisualStyleBackColor = true;
             this.button_callNext.Click += new System.EventHandler(this.button_callNext_Click);
@@ -154,7 +154,7 @@
             this.button_enterQueue.Location = new System.Drawing.Point(11, 435);
             this.button_enterQueue.Name = "button_enterQueue";
             this.button_enterQueue.Size = new System.Drawing.Size(133, 36);
-            this.button_enterQueue.TabIndex = 6;
+            this.button_enterQueue.TabIndex = 2;
             this.button_enterQueue.Text = "掛號 / 查詢輪候";
             this.button_enterQueue.UseVisualStyleBackColor = true;
             this.button_enterQueue.Click += new System.EventHandler(this.button_enterQueue_Click);
@@ -188,7 +188,7 @@
             this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 7;
+            this.searchPatientInputPanel1.TabIndex = 1;
             // 
             // waitingList1
             // 
@@ -197,7 +197,7 @@
             this.waitingList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.waitingList1.Name = "waitingList1";
             this.waitingList1.Size = new System.Drawing.Size(605, 486);
-            this.waitingList1.TabIndex = 14;
+            this.waitingList1.TabIndex = 9;
             // 
             // Doctor_QueuingForm
             // 

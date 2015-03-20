@@ -41,7 +41,7 @@
             this.button_queuingMgt.Location = new System.Drawing.Point(21, 169);
             this.button_queuingMgt.Name = "button_queuingMgt";
             this.button_queuingMgt.Size = new System.Drawing.Size(221, 51);
-            this.button_queuingMgt.TabIndex = 23;
+            this.button_queuingMgt.TabIndex = 3;
             this.button_queuingMgt.Text = "掛號 / 候診病人";
             this.button_queuingMgt.UseVisualStyleBackColor = true;
             this.button_queuingMgt.Click += new System.EventHandler(this.button_queuingMgt_Click);
@@ -51,7 +51,7 @@
             this.button_amdPatData.Location = new System.Drawing.Point(21, 112);
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
-            this.button_amdPatData.TabIndex = 22;
+            this.button_amdPatData.TabIndex = 2;
             this.button_amdPatData.Text = "查詢 / 更改病人資料";
             this.button_amdPatData.UseVisualStyleBackColor = true;
             this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
@@ -61,7 +61,7 @@
             this.button_NewPatient.Location = new System.Drawing.Point(21, 55);
             this.button_NewPatient.Name = "button_NewPatient";
             this.button_NewPatient.Size = new System.Drawing.Size(221, 51);
-            this.button_NewPatient.TabIndex = 21;
+            this.button_NewPatient.TabIndex = 1;
             this.button_NewPatient.Text = "新增病人";
             this.button_NewPatient.UseVisualStyleBackColor = true;
             this.button_NewPatient.Click += new System.EventHandler(this.button_NewPatient_Click);
@@ -82,7 +82,7 @@
             this.button_userAmdInfo.Location = new System.Drawing.Point(21, 226);
             this.button_userAmdInfo.Name = "button_userAmdInfo";
             this.button_userAmdInfo.Size = new System.Drawing.Size(221, 51);
-            this.button_userAmdInfo.TabIndex = 24;
+            this.button_userAmdInfo.TabIndex = 4;
             this.button_userAmdInfo.Text = "查詢 / 更改用戶資料";
             this.button_userAmdInfo.UseVisualStyleBackColor = true;
             this.button_userAmdInfo.Click += new System.EventHandler(this.button_userAmdInfo_Click);
@@ -92,7 +92,7 @@
             this.button_reporting.Location = new System.Drawing.Point(21, 283);
             this.button_reporting.Name = "button_reporting";
             this.button_reporting.Size = new System.Drawing.Size(221, 51);
-            this.button_reporting.TabIndex = 25;
+            this.button_reporting.TabIndex = 5;
             this.button_reporting.Text = "列印報告/紀錄";
             this.button_reporting.UseVisualStyleBackColor = true;
             this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);

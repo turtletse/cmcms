@@ -38,7 +38,7 @@
             this.button_recordCert.Location = new System.Drawing.Point(12, 59);
             this.button_recordCert.Name = "button_recordCert";
             this.button_recordCert.Size = new System.Drawing.Size(255, 51);
-            this.button_recordCert.TabIndex = 26;
+            this.button_recordCert.TabIndex = 1;
             this.button_recordCert.Text = "紀錄 / 證明";
             this.button_recordCert.UseVisualStyleBackColor = true;
             this.button_recordCert.Click += new System.EventHandler(this.button_recordCert_Click);
@@ -59,7 +59,7 @@
             this.button_clinicConsStatByDay30.Location = new System.Drawing.Point(12, 116);
             this.button_clinicConsStatByDay30.Name = "button_clinicConsStatByDay30";
             this.button_clinicConsStatByDay30.Size = new System.Drawing.Size(255, 51);
-            this.button_clinicConsStatByDay30.TabIndex = 28;
+            this.button_clinicConsStatByDay30.TabIndex = 2;
             this.button_clinicConsStatByDay30.Text = "過去30日按日診症數";
             this.button_clinicConsStatByDay30.UseVisualStyleBackColor = true;
             this.button_clinicConsStatByDay30.Click += new System.EventHandler(this.button_clinicConsStatByDay30_Click);

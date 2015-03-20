@@ -59,7 +59,7 @@
             this.button_leaveQ.Location = new System.Drawing.Point(156, 431);
             this.button_leaveQ.Name = "button_leaveQ";
             this.button_leaveQ.Size = new System.Drawing.Size(133, 36);
-            this.button_leaveQ.TabIndex = 4;
+            this.button_leaveQ.TabIndex = 3;
             this.button_leaveQ.Text = "取消掛號";
             this.button_leaveQ.UseVisualStyleBackColor = true;
             this.button_leaveQ.Click += new System.EventHandler(this.button_leaveQ_Click);
@@ -71,7 +71,7 @@
             this.searchPatientInputPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchPatientInputPanel1.Name = "searchPatientInputPanel1";
             this.searchPatientInputPanel1.Size = new System.Drawing.Size(289, 380);
-            this.searchPatientInputPanel1.TabIndex = 3;
+            this.searchPatientInputPanel1.TabIndex = 1;
             // 
             // EnterQueue
             // 

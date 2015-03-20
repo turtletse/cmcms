@@ -50,7 +50,7 @@
             this.button_submit.Location = new System.Drawing.Point(942, 665);
             this.button_submit.Name = "button_submit";
             this.button_submit.Size = new System.Drawing.Size(129, 44);
-            this.button_submit.TabIndex = 3;
+            this.button_submit.TabIndex = 2;
             this.button_submit.Text = "登記";
             this.button_submit.UseVisualStyleBackColor = true;
             this.button_submit.Click += new System.EventHandler(this.button_submit_Click);
@@ -60,7 +60,7 @@
             this.button_reset.Location = new System.Drawing.Point(23, 665);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(129, 44);
-            this.button_reset.TabIndex = 4;
+            this.button_reset.TabIndex = 3;
             this.button_reset.Text = "重置";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -72,7 +72,7 @@
             this.patientRegistration1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.patientRegistration1.Name = "patientRegistration1";
             this.patientRegistration1.Size = new System.Drawing.Size(1073, 607);
-            this.patientRegistration1.TabIndex = 0;
+            this.patientRegistration1.TabIndex = 1;
             // 
             // NewPatient
             // 

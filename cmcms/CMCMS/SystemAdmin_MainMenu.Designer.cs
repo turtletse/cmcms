@@ -56,67 +56,67 @@
             this.button_NewPatient.Location = new System.Drawing.Point(19, 64);
             this.button_NewPatient.Name = "button_NewPatient";
             this.button_NewPatient.Size = new System.Drawing.Size(221, 51);
-            this.button_NewPatient.TabIndex = 4;
+            this.button_NewPatient.TabIndex = 1;
             this.button_NewPatient.Text = "新增病人";
             this.button_NewPatient.UseVisualStyleBackColor = true;
             this.button_NewPatient.Click += new System.EventHandler(this.button_NewPatient_Click);
             // 
             // button_amdPatData
             // 
-            this.button_amdPatData.Location = new System.Drawing.Point(19, 121);
+            this.button_amdPatData.Location = new System.Drawing.Point(246, 64);
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
-            this.button_amdPatData.TabIndex = 5;
+            this.button_amdPatData.TabIndex = 2;
             this.button_amdPatData.Text = "查詢 / 更改病人資料";
             this.button_amdPatData.UseVisualStyleBackColor = true;
             this.button_amdPatData.Click += new System.EventHandler(this.button_amdPatData_Click);
             // 
             // button_drugAdm
             // 
-            this.button_drugAdm.Location = new System.Drawing.Point(19, 178);
+            this.button_drugAdm.Location = new System.Drawing.Point(473, 64);
             this.button_drugAdm.Name = "button_drugAdm";
             this.button_drugAdm.Size = new System.Drawing.Size(221, 51);
-            this.button_drugAdm.TabIndex = 6;
+            this.button_drugAdm.TabIndex = 3;
             this.button_drugAdm.Text = "藥物管理";
             this.button_drugAdm.UseVisualStyleBackColor = true;
             this.button_drugAdm.Click += new System.EventHandler(this.button_drugAdm_Click);
             // 
             // button_newClinic
             // 
-            this.button_newClinic.Location = new System.Drawing.Point(246, 178);
+            this.button_newClinic.Location = new System.Drawing.Point(473, 121);
             this.button_newClinic.Name = "button_newClinic";
             this.button_newClinic.Size = new System.Drawing.Size(221, 51);
-            this.button_newClinic.TabIndex = 7;
+            this.button_newClinic.TabIndex = 6;
             this.button_newClinic.Text = "新増診所";
             this.button_newClinic.UseVisualStyleBackColor = true;
             this.button_newClinic.Click += new System.EventHandler(this.button_newClinic_Click);
             // 
             // button_amdClinic
             // 
-            this.button_amdClinic.Location = new System.Drawing.Point(473, 64);
+            this.button_amdClinic.Location = new System.Drawing.Point(19, 178);
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
-            this.button_amdClinic.TabIndex = 8;
+            this.button_amdClinic.TabIndex = 7;
             this.button_amdClinic.Text = "查詢 / 更改診所資料";
             this.button_amdClinic.UseVisualStyleBackColor = true;
             this.button_amdClinic.Click += new System.EventHandler(this.button_amdClinic_Click);
             // 
             // button_userAdm
             // 
-            this.button_userAdm.Location = new System.Drawing.Point(473, 121);
+            this.button_userAdm.Location = new System.Drawing.Point(246, 178);
             this.button_userAdm.Name = "button_userAdm";
             this.button_userAdm.Size = new System.Drawing.Size(221, 51);
-            this.button_userAdm.TabIndex = 9;
+            this.button_userAdm.TabIndex = 8;
             this.button_userAdm.Text = "用戶管理";
             this.button_userAdm.UseVisualStyleBackColor = true;
             this.button_userAdm.Click += new System.EventHandler(this.button_userAdm_Click);
             // 
             // button_newPredefPres
             // 
-            this.button_newPredefPres.Location = new System.Drawing.Point(246, 64);
+            this.button_newPredefPres.Location = new System.Drawing.Point(19, 121);
             this.button_newPredefPres.Name = "button_newPredefPres";
             this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
-            this.button_newPredefPres.TabIndex = 10;
+            this.button_newPredefPres.TabIndex = 4;
             this.button_newPredefPres.Text = "新增方劑";
             this.button_newPredefPres.UseVisualStyleBackColor = true;
             this.button_newPredefPres.Click += new System.EventHandler(this.button_newPredefPres_Click);
@@ -126,7 +126,7 @@
             this.button_updatePredefPres.Location = new System.Drawing.Point(246, 121);
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
-            this.button_updatePredefPres.TabIndex = 11;
+            this.button_updatePredefPres.TabIndex = 5;
             this.button_updatePredefPres.Text = "查詢 / 更改方劑";
             this.button_updatePredefPres.UseVisualStyleBackColor = true;
             this.button_updatePredefPres.Click += new System.EventHandler(this.button_updatePredefPres_Click);
@@ -136,7 +136,7 @@
             this.button_reporting.Location = new System.Drawing.Point(473, 178);
             this.button_reporting.Name = "button_reporting";
             this.button_reporting.Size = new System.Drawing.Size(221, 51);
-            this.button_reporting.TabIndex = 26;
+            this.button_reporting.TabIndex = 9;
             this.button_reporting.Text = "列印報告";
             this.button_reporting.UseVisualStyleBackColor = true;
             this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);

@@ -64,7 +64,7 @@
             this.button_removeSelected.Location = new System.Drawing.Point(655, 375);
             this.button_removeSelected.Name = "button_removeSelected";
             this.button_removeSelected.Size = new System.Drawing.Size(85, 40);
-            this.button_removeSelected.TabIndex = 57;
+            this.button_removeSelected.TabIndex = 12;
             this.button_removeSelected.Text = "刪除";
             this.button_removeSelected.UseVisualStyleBackColor = true;
             this.button_removeSelected.Click += new System.EventHandler(this.button_removeSelected_Click);
@@ -74,7 +74,7 @@
             this.button_confirm.Location = new System.Drawing.Point(746, 375);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(85, 40);
-            this.button_confirm.TabIndex = 56;
+            this.button_confirm.TabIndex = 13;
             this.button_confirm.Text = "確認";
             this.button_confirm.UseVisualStyleBackColor = true;
             this.button_confirm.Click += new System.EventHandler(this.button_confirm_Click);
@@ -84,7 +84,7 @@
             this.button_clearSelectedLV.Location = new System.Drawing.Point(564, 375);
             this.button_clearSelectedLV.Name = "button_clearSelectedLV";
             this.button_clearSelectedLV.Size = new System.Drawing.Size(85, 40);
-            this.button_clearSelectedLV.TabIndex = 55;
+            this.button_clearSelectedLV.TabIndex = 11;
             this.button_clearSelectedLV.Text = "清空";
             this.button_clearSelectedLV.UseVisualStyleBackColor = true;
             this.button_clearSelectedLV.Click += new System.EventHandler(this.button_clearSelectedLV_Click);
@@ -94,7 +94,7 @@
             this.button_reset.Location = new System.Drawing.Point(18, 375);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(85, 40);
-            this.button_reset.TabIndex = 54;
+            this.button_reset.TabIndex = 9;
             this.button_reset.Text = "重置";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -104,7 +104,7 @@
             this.button_addFromListBox.Location = new System.Drawing.Point(518, 172);
             this.button_addFromListBox.Name = "button_addFromListBox";
             this.button_addFromListBox.Size = new System.Drawing.Size(40, 77);
-            this.button_addFromListBox.TabIndex = 52;
+            this.button_addFromListBox.TabIndex = 8;
             this.button_addFromListBox.Text = ">>";
             this.button_addFromListBox.UseVisualStyleBackColor = true;
             this.button_addFromListBox.Click += new System.EventHandler(this.button_addFromListBox_Click);
@@ -116,14 +116,14 @@
             this.listBox_selectedAcupuncturePoint.Location = new System.Drawing.Point(564, 65);
             this.listBox_selectedAcupuncturePoint.Name = "listBox_selectedAcupuncturePoint";
             this.listBox_selectedAcupuncturePoint.Size = new System.Drawing.Size(267, 304);
-            this.listBox_selectedAcupuncturePoint.TabIndex = 51;
+            this.listBox_selectedAcupuncturePoint.TabIndex = 10;
             // 
             // button_keyword_search
             // 
             this.button_keyword_search.Location = new System.Drawing.Point(250, 271);
             this.button_keyword_search.Name = "button_keyword_search";
             this.button_keyword_search.Size = new System.Drawing.Size(94, 37);
-            this.button_keyword_search.TabIndex = 48;
+            this.button_keyword_search.TabIndex = 4;
             this.button_keyword_search.Text = "檢索";
             this.button_keyword_search.UseVisualStyleBackColor = true;
             this.button_keyword_search.Click += new System.EventHandler(this.button_keyword_search_Click);
@@ -133,7 +133,7 @@
             this.textBox_search_keywords.Location = new System.Drawing.Point(18, 276);
             this.textBox_search_keywords.Name = "textBox_search_keywords";
             this.textBox_search_keywords.Size = new System.Drawing.Size(226, 26);
-            this.textBox_search_keywords.TabIndex = 47;
+            this.textBox_search_keywords.TabIndex = 3;
             this.textBox_search_keywords.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_keywords_KeyPress);
             // 
             // label4
@@ -170,7 +170,7 @@
             this.listBox_lv3.Location = new System.Drawing.Point(350, 65);
             this.listBox_lv3.Name = "listBox_lv3";
             this.listBox_lv3.Size = new System.Drawing.Size(162, 304);
-            this.listBox_lv3.TabIndex = 43;
+            this.listBox_lv3.TabIndex = 7;
             // 
             // listBox_lv2
             // 
@@ -179,7 +179,7 @@
             this.listBox_lv2.Location = new System.Drawing.Point(182, 65);
             this.listBox_lv2.Name = "listBox_lv2";
             this.listBox_lv2.Size = new System.Drawing.Size(162, 184);
-            this.listBox_lv2.TabIndex = 42;
+            this.listBox_lv2.TabIndex = 2;
             this.listBox_lv2.SelectedIndexChanged += new System.EventHandler(this.listBox_lv2_SelectedIndexChanged);
             // 
             // listBox_lv1
@@ -189,7 +189,7 @@
             this.listBox_lv1.Location = new System.Drawing.Point(14, 65);
             this.listBox_lv1.Name = "listBox_lv1";
             this.listBox_lv1.Size = new System.Drawing.Size(162, 184);
-            this.listBox_lv1.TabIndex = 41;
+            this.listBox_lv1.TabIndex = 1;
             this.listBox_lv1.SelectedIndexChanged += new System.EventHandler(this.listBox_lv1_SelectedIndexChanged);
             // 
             // label1
@@ -206,7 +206,7 @@
             this.button_code_search.Location = new System.Drawing.Point(250, 332);
             this.button_code_search.Name = "button_code_search";
             this.button_code_search.Size = new System.Drawing.Size(94, 37);
-            this.button_code_search.TabIndex = 61;
+            this.button_code_search.TabIndex = 6;
             this.button_code_search.Text = "檢索";
             this.button_code_search.UseVisualStyleBackColor = true;
             this.button_code_search.Click += new System.EventHandler(this.button_code_search_Click);
@@ -216,7 +216,7 @@
             this.textBox_search_code.Location = new System.Drawing.Point(18, 337);
             this.textBox_search_code.Name = "textBox_search_code";
             this.textBox_search_code.Size = new System.Drawing.Size(226, 26);
-            this.textBox_search_code.TabIndex = 60;
+            this.textBox_search_code.TabIndex = 5;
             this.textBox_search_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_code_KeyPress);
             // 
             // label5

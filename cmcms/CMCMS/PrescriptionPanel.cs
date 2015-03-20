@@ -116,6 +116,15 @@ namespace CMCMS
             {
                 DGV_selected.Rows.RemoveAt(e.RowIndex);
             }
+            else if (e.ColumnIndex == DGV_selected.Columns[3].Index)
+            {
+                DGV_selected.BeginEdit(true);
+            }
+            else if (e.ColumnIndex == DGV_selected.Columns[4].Index || e.ColumnIndex == DGV_selected.Columns[5].Index)
+            {
+                DGV_selected.BeginEdit(true);
+                ((ComboBox)DGV_selected.EditingControl).DroppedDown = true;
+            }
         }
 
         private void button_clear_Click(object sender, EventArgs e)

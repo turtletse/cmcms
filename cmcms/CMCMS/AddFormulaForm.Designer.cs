@@ -42,7 +42,7 @@
             this.button_addPredefPres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_addPredefPres.Name = "button_addPredefPres";
             this.button_addPredefPres.Size = new System.Drawing.Size(120, 50);
-            this.button_addPredefPres.TabIndex = 1;
+            this.button_addPredefPres.TabIndex = 4;
             this.button_addPredefPres.Text = "新增方劑";
             this.button_addPredefPres.UseVisualStyleBackColor = true;
             this.button_addPredefPres.Click += new System.EventHandler(this.button_addPredefPres_Click);
@@ -71,7 +71,7 @@
             this.textBox_presName.Location = new System.Drawing.Point(100, 57);
             this.textBox_presName.Name = "textBox_presName";
             this.textBox_presName.Size = new System.Drawing.Size(256, 26);
-            this.textBox_presName.TabIndex = 4;
+            this.textBox_presName.TabIndex = 1;
             // 
             // prescriptionPanel1
             // 
@@ -80,7 +80,7 @@
             this.prescriptionPanel1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.prescriptionPanel1.Name = "prescriptionPanel1";
             this.prescriptionPanel1.Size = new System.Drawing.Size(1397, 596);
-            this.prescriptionPanel1.TabIndex = 0;
+            this.prescriptionPanel1.TabIndex = 2;
             // 
             // button_addPredefPres_reset
             // 
@@ -88,7 +88,7 @@
             this.button_addPredefPres_reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_addPredefPres_reset.Name = "button_addPredefPres_reset";
             this.button_addPredefPres_reset.Size = new System.Drawing.Size(120, 50);
-            this.button_addPredefPres_reset.TabIndex = 5;
+            this.button_addPredefPres_reset.TabIndex = 3;
             this.button_addPredefPres_reset.Text = "重置";
             this.button_addPredefPres_reset.UseVisualStyleBackColor = true;
             this.button_addPredefPres_reset.Click += new System.EventHandler(this.button_addPredefPres_reset_Click);

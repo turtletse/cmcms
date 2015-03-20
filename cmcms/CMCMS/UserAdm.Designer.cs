@@ -77,7 +77,7 @@
             this.button_newUser_reset.Location = new System.Drawing.Point(11, 189);
             this.button_newUser_reset.Name = "button_newUser_reset";
             this.button_newUser_reset.Size = new System.Drawing.Size(97, 42);
-            this.button_newUser_reset.TabIndex = 2;
+            this.button_newUser_reset.TabIndex = 3;
             this.button_newUser_reset.Text = "重置";
             this.button_newUser_reset.UseVisualStyleBackColor = true;
             this.button_newUser_reset.Click += new System.EventHandler(this.button_newUser_reset_Click);
@@ -87,7 +87,7 @@
             this.button_newUser.Location = new System.Drawing.Point(605, 189);
             this.button_newUser.Name = "button_newUser";
             this.button_newUser.Size = new System.Drawing.Size(97, 42);
-            this.button_newUser.TabIndex = 3;
+            this.button_newUser.TabIndex = 2;
             this.button_newUser.Text = "確定";
             this.button_newUser.UseVisualStyleBackColor = true;
             this.button_newUser.Click += new System.EventHandler(this.button_newUser_Click);
@@ -125,7 +125,7 @@
             this.userRegistration_newUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.userRegistration_newUser.Name = "userRegistration_newUser";
             this.userRegistration_newUser.Size = new System.Drawing.Size(701, 144);
-            this.userRegistration_newUser.TabIndex = 4;
+            this.userRegistration_newUser.TabIndex = 1;
             // 
             // tabPage_amdUserData
             // 
@@ -151,7 +151,7 @@
             this.userRegistration_amdUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.userRegistration_amdUser.Name = "userRegistration_amdUser";
             this.userRegistration_amdUser.Size = new System.Drawing.Size(701, 144);
-            this.userRegistration_amdUser.TabIndex = 7;
+            this.userRegistration_amdUser.TabIndex = 5;
             // 
             // button_amdUser
             // 
@@ -168,7 +168,7 @@
             this.button_amdUser_reset.Location = new System.Drawing.Point(14, 229);
             this.button_amdUser_reset.Name = "button_amdUser_reset";
             this.button_amdUser_reset.Size = new System.Drawing.Size(97, 42);
-            this.button_amdUser_reset.TabIndex = 5;
+            this.button_amdUser_reset.TabIndex = 7;
             this.button_amdUser_reset.Text = "重置";
             this.button_amdUser_reset.UseVisualStyleBackColor = true;
             this.button_amdUser_reset.Click += new System.EventHandler(this.button_amdUser_reset_Click);
@@ -180,7 +180,7 @@
             this.comboBox_amdUser_userId.Location = new System.Drawing.Point(90, 41);
             this.comboBox_amdUser_userId.Name = "comboBox_amdUser_userId";
             this.comboBox_amdUser_userId.Size = new System.Drawing.Size(396, 28);
-            this.comboBox_amdUser_userId.TabIndex = 2;
+            this.comboBox_amdUser_userId.TabIndex = 4;
             this.comboBox_amdUser_userId.SelectedIndexChanged += new System.EventHandler(this.comboBox_amdUser_userId_SelectedIndexChanged);
             // 
             // label3
@@ -232,7 +232,7 @@
             this.button_amdRole_reset.Location = new System.Drawing.Point(604, 229);
             this.button_amdRole_reset.Name = "button_amdRole_reset";
             this.button_amdRole_reset.Size = new System.Drawing.Size(85, 41);
-            this.button_amdRole_reset.TabIndex = 18;
+            this.button_amdRole_reset.TabIndex = 14;
             this.button_amdRole_reset.Text = "重置";
             this.button_amdRole_reset.UseVisualStyleBackColor = true;
             this.button_amdRole_reset.Click += new System.EventHandler(this.button_amdRole_reset_Click);
@@ -242,7 +242,7 @@
             this.button_amdRole_delete.Location = new System.Drawing.Point(270, 126);
             this.button_amdRole_delete.Name = "button_amdRole_delete";
             this.button_amdRole_delete.Size = new System.Drawing.Size(85, 41);
-            this.button_amdRole_delete.TabIndex = 17;
+            this.button_amdRole_delete.TabIndex = 13;
             this.button_amdRole_delete.Text = "移除";
             this.button_amdRole_delete.UseVisualStyleBackColor = true;
             this.button_amdRole_delete.Click += new System.EventHandler(this.button_amdRole_delete_Click);
@@ -252,7 +252,7 @@
             this.button_amdRole_add.Location = new System.Drawing.Point(503, 147);
             this.button_amdRole_add.Name = "button_amdRole_add";
             this.button_amdRole_add.Size = new System.Drawing.Size(85, 41);
-            this.button_amdRole_add.TabIndex = 16;
+            this.button_amdRole_add.TabIndex = 12;
             this.button_amdRole_add.Text = "增加";
             this.button_amdRole_add.UseVisualStyleBackColor = true;
             this.button_amdRole_add.Click += new System.EventHandler(this.button_amdRole_add_Click);
@@ -264,7 +264,7 @@
             this.comboBox_amdRole_role.Location = new System.Drawing.Point(503, 113);
             this.comboBox_amdRole_role.Name = "comboBox_amdRole_role";
             this.comboBox_amdRole_role.Size = new System.Drawing.Size(186, 28);
-            this.comboBox_amdRole_role.TabIndex = 15;
+            this.comboBox_amdRole_role.TabIndex = 11;
             this.comboBox_amdRole_role.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_amdRole_role_KeyPress);
             // 
             // label9
@@ -283,7 +283,7 @@
             this.comboBox_amdRole_clinic.Location = new System.Drawing.Point(503, 82);
             this.comboBox_amdRole_clinic.Name = "comboBox_amdRole_clinic";
             this.comboBox_amdRole_clinic.Size = new System.Drawing.Size(186, 28);
-            this.comboBox_amdRole_clinic.TabIndex = 13;
+            this.comboBox_amdRole_clinic.TabIndex = 10;
             // 
             // label8
             // 
@@ -336,7 +336,7 @@
             this.comboBox_amdRole_user.Location = new System.Drawing.Point(90, 41);
             this.comboBox_amdRole_user.Name = "comboBox_amdRole_user";
             this.comboBox_amdRole_user.Size = new System.Drawing.Size(396, 28);
-            this.comboBox_amdRole_user.TabIndex = 6;
+            this.comboBox_amdRole_user.TabIndex = 8;
             this.comboBox_amdRole_user.SelectedIndexChanged += new System.EventHandler(this.comboBox_amdRole_user_SelectedIndexChanged);
             // 
             // label4

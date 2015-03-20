@@ -96,7 +96,7 @@
             this.listBox_lv4.Location = new System.Drawing.Point(390, 63);
             this.listBox_lv4.Name = "listBox_lv4";
             this.listBox_lv4.Size = new System.Drawing.Size(120, 224);
-            this.listBox_lv4.TabIndex = 4;
+            this.listBox_lv4.TabIndex = 6;
             // 
             // label2
             // 
@@ -130,7 +130,7 @@
             this.textBox_search_keywords.Location = new System.Drawing.Point(16, 251);
             this.textBox_search_keywords.Name = "textBox_search_keywords";
             this.textBox_search_keywords.Size = new System.Drawing.Size(268, 26);
-            this.textBox_search_keywords.TabIndex = 8;
+            this.textBox_search_keywords.TabIndex = 4;
             this.textBox_search_keywords.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_search_keywords_KeyPress);
             // 
             // button_search
@@ -138,7 +138,7 @@
             this.button_search.Location = new System.Drawing.Point(290, 246);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(94, 37);
-            this.button_search.TabIndex = 9;
+            this.button_search.TabIndex = 5;
             this.button_search.Text = "檢索";
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
@@ -157,7 +157,7 @@
             this.textBox_freeText.Location = new System.Drawing.Point(16, 332);
             this.textBox_freeText.Name = "textBox_freeText";
             this.textBox_freeText.Size = new System.Drawing.Size(494, 26);
-            this.textBox_freeText.TabIndex = 11;
+            this.textBox_freeText.TabIndex = 8;
             this.textBox_freeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_freeText_KeyPress);
             // 
             // listBox_selectedExamResult
@@ -167,14 +167,14 @@
             this.listBox_selectedExamResult.Location = new System.Drawing.Point(562, 63);
             this.listBox_selectedExamResult.Name = "listBox_selectedExamResult";
             this.listBox_selectedExamResult.Size = new System.Drawing.Size(267, 304);
-            this.listBox_selectedExamResult.TabIndex = 12;
+            this.listBox_selectedExamResult.TabIndex = 10;
             // 
             // button_addFromListBox
             // 
             this.button_addFromListBox.Location = new System.Drawing.Point(516, 140);
             this.button_addFromListBox.Name = "button_addFromListBox";
             this.button_addFromListBox.Size = new System.Drawing.Size(40, 77);
-            this.button_addFromListBox.TabIndex = 13;
+            this.button_addFromListBox.TabIndex = 7;
             this.button_addFromListBox.Text = ">>";
             this.button_addFromListBox.UseVisualStyleBackColor = true;
             this.button_addFromListBox.Click += new System.EventHandler(this.button_addFromListBox_Click);
@@ -184,7 +184,7 @@
             this.button_addFromFreeText.Location = new System.Drawing.Point(516, 332);
             this.button_addFromFreeText.Name = "button_addFromFreeText";
             this.button_addFromFreeText.Size = new System.Drawing.Size(40, 26);
-            this.button_addFromFreeText.TabIndex = 14;
+            this.button_addFromFreeText.TabIndex = 9;
             this.button_addFromFreeText.Text = ">>";
             this.button_addFromFreeText.UseVisualStyleBackColor = true;
             this.button_addFromFreeText.Click += new System.EventHandler(this.button_addFromFreeText_Click);
@@ -194,7 +194,7 @@
             this.button_reset.Location = new System.Drawing.Point(16, 373);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(85, 40);
-            this.button_reset.TabIndex = 15;
+            this.button_reset.TabIndex = 14;
             this.button_reset.Text = "重置";
             this.button_reset.UseVisualStyleBackColor = true;
             this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
@@ -204,7 +204,7 @@
             this.button_confirm.Location = new System.Drawing.Point(744, 373);
             this.button_confirm.Name = "button_confirm";
             this.button_confirm.Size = new System.Drawing.Size(85, 40);
-            this.button_confirm.TabIndex = 17;
+            this.button_confirm.TabIndex = 11;
             this.button_confirm.Text = "確認";
             this.button_confirm.UseVisualStyleBackColor = true;
             this.button_confirm.Click += new System.EventHandler(this.button_confirm_Click);
@@ -214,7 +214,7 @@
             this.button_clearSelectedLV.Location = new System.Drawing.Point(562, 373);
             this.button_clearSelectedLV.Name = "button_clearSelectedLV";
             this.button_clearSelectedLV.Size = new System.Drawing.Size(85, 40);
-            this.button_clearSelectedLV.TabIndex = 16;
+            this.button_clearSelectedLV.TabIndex = 13;
             this.button_clearSelectedLV.Text = "清空";
             this.button_clearSelectedLV.UseVisualStyleBackColor = true;
             this.button_clearSelectedLV.Click += new System.EventHandler(this.button_clearSelectedLV_Click);
@@ -224,7 +224,7 @@
             this.button_removeSelected.Location = new System.Drawing.Point(653, 373);
             this.button_removeSelected.Name = "button_removeSelected";
             this.button_removeSelected.Size = new System.Drawing.Size(85, 40);
-            this.button_removeSelected.TabIndex = 18;
+            this.button_removeSelected.TabIndex = 12;
             this.button_removeSelected.Text = "刪除";
             this.button_removeSelected.UseVisualStyleBackColor = true;
             this.button_removeSelected.Click += new System.EventHandler(this.button_removeSelected_Click);

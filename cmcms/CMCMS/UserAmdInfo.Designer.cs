@@ -49,7 +49,7 @@
             this.button_amdUser.Location = new System.Drawing.Point(611, 195);
             this.button_amdUser.Name = "button_amdUser";
             this.button_amdUser.Size = new System.Drawing.Size(97, 42);
-            this.button_amdUser.TabIndex = 8;
+            this.button_amdUser.TabIndex = 2;
             this.button_amdUser.Text = "確定";
             this.button_amdUser.UseVisualStyleBackColor = true;
             this.button_amdUser.Click += new System.EventHandler(this.button_amdUser_Click);
@@ -59,7 +59,7 @@
             this.button_amdUser_reset.Location = new System.Drawing.Point(17, 195);
             this.button_amdUser_reset.Name = "button_amdUser_reset";
             this.button_amdUser_reset.Size = new System.Drawing.Size(97, 42);
-            this.button_amdUser_reset.TabIndex = 7;
+            this.button_amdUser_reset.TabIndex = 3;
             this.button_amdUser_reset.Text = "重置";
             this.button_amdUser_reset.UseVisualStyleBackColor = true;
             this.button_amdUser_reset.Click += new System.EventHandler(this.button_amdUser_reset_Click);
@@ -71,7 +71,7 @@
             this.userRegistration1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.userRegistration1.Name = "userRegistration1";
             this.userRegistration1.Size = new System.Drawing.Size(701, 144);
-            this.userRegistration1.TabIndex = 9;
+            this.userRegistration1.TabIndex = 1;
             // 
             // UserAmdInfo
             // 

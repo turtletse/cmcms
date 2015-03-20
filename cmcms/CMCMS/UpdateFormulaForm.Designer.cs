@@ -46,7 +46,7 @@
             this.button_updatePredefPres_reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_updatePredefPres_reset.Name = "button_updatePredefPres_reset";
             this.button_updatePredefPres_reset.Size = new System.Drawing.Size(120, 50);
-            this.button_updatePredefPres_reset.TabIndex = 11;
+            this.button_updatePredefPres_reset.TabIndex = 8;
             this.button_updatePredefPres_reset.Text = "重置";
             this.button_updatePredefPres_reset.UseVisualStyleBackColor = true;
             this.button_updatePredefPres_reset.Click += new System.EventHandler(this.button_updatePredefPres_reset_Click);
@@ -96,7 +96,7 @@
             this.checkBox_isInclDeleted.Location = new System.Drawing.Point(396, 59);
             this.checkBox_isInclDeleted.Name = "checkBox_isInclDeleted";
             this.checkBox_isInclDeleted.Size = new System.Drawing.Size(140, 24);
-            this.checkBox_isInclDeleted.TabIndex = 12;
+            this.checkBox_isInclDeleted.TabIndex = 2;
             this.checkBox_isInclDeleted.Text = "包括已刪除方劑";
             this.checkBox_isInclDeleted.UseVisualStyleBackColor = true;
             this.checkBox_isInclDeleted.CheckedChanged += new System.EventHandler(this.checkBox_isInclDeleted_CheckedChanged);
@@ -108,7 +108,7 @@
             this.comboBox_predefPresName.Location = new System.Drawing.Point(100, 57);
             this.comboBox_predefPresName.Name = "comboBox_predefPresName";
             this.comboBox_predefPresName.Size = new System.Drawing.Size(290, 28);
-            this.comboBox_predefPresName.TabIndex = 13;
+            this.comboBox_predefPresName.TabIndex = 1;
             this.comboBox_predefPresName.SelectedIndexChanged += new System.EventHandler(this.comboBox_predefPresName_SelectedIndexChanged);
             // 
             // checkBox_rename
@@ -117,7 +117,7 @@
             this.checkBox_rename.Location = new System.Drawing.Point(594, 59);
             this.checkBox_rename.Name = "checkBox_rename";
             this.checkBox_rename.Size = new System.Drawing.Size(92, 24);
-            this.checkBox_rename.TabIndex = 15;
+            this.checkBox_rename.TabIndex = 3;
             this.checkBox_rename.Text = "更改名稱";
             this.checkBox_rename.UseVisualStyleBackColor = true;
             this.checkBox_rename.CheckedChanged += new System.EventHandler(this.checkBox_rename_CheckedChanged);
@@ -127,7 +127,7 @@
             this.textBox_rename.Location = new System.Drawing.Point(692, 57);
             this.textBox_rename.Name = "textBox_rename";
             this.textBox_rename.Size = new System.Drawing.Size(317, 26);
-            this.textBox_rename.TabIndex = 16;
+            this.textBox_rename.TabIndex = 4;
             // 
             // checkBox_isDelete
             // 
@@ -135,7 +135,7 @@
             this.checkBox_isDelete.Location = new System.Drawing.Point(1151, 59);
             this.checkBox_isDelete.Name = "checkBox_isDelete";
             this.checkBox_isDelete.Size = new System.Drawing.Size(60, 24);
-            this.checkBox_isDelete.TabIndex = 17;
+            this.checkBox_isDelete.TabIndex = 5;
             this.checkBox_isDelete.Text = "刪除";
             this.checkBox_isDelete.UseVisualStyleBackColor = true;
             // 

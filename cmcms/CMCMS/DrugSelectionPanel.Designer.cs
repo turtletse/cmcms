@@ -75,7 +75,7 @@
             this.checkedListBox_4q5w.Location = new System.Drawing.Point(555, 62);
             this.checkedListBox_4q5w.Name = "checkedListBox_4q5w";
             this.checkedListBox_4q5w.Size = new System.Drawing.Size(130, 298);
-            this.checkedListBox_4q5w.TabIndex = 3;
+            this.checkedListBox_4q5w.TabIndex = 5;
             this.checkedListBox_4q5w.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_4q5w_SelectedValueChanged);
             // 
             // listBox_drugList
@@ -86,7 +86,7 @@
             this.listBox_drugList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox_drugList.Name = "listBox_drugList";
             this.listBox_drugList.Size = new System.Drawing.Size(130, 304);
-            this.listBox_drugList.TabIndex = 4;
+            this.listBox_drugList.TabIndex = 6;
             this.listBox_drugList.SelectedIndexChanged += new System.EventHandler(this.listBox_drugList_SelectedIndexChanged);
             // 
             // listBox_nStrokes
@@ -97,7 +97,7 @@
             this.listBox_nStrokes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox_nStrokes.Name = "listBox_nStrokes";
             this.listBox_nStrokes.Size = new System.Drawing.Size(130, 304);
-            this.listBox_nStrokes.TabIndex = 5;
+            this.listBox_nStrokes.TabIndex = 3;
             this.listBox_nStrokes.SelectedIndexChanged += new System.EventHandler(this.listBox_nStrokes_SelectedIndexChanged);
             // 
             // listBox_length
@@ -108,7 +108,7 @@
             this.listBox_length.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox_length.Name = "listBox_length";
             this.listBox_length.Size = new System.Drawing.Size(130, 304);
-            this.listBox_length.TabIndex = 6;
+            this.listBox_length.TabIndex = 4;
             this.listBox_length.SelectedIndexChanged += new System.EventHandler(this.listBox_length_SelectedIndexChanged);
             // 
             // listBox_subDrugList
@@ -200,7 +200,7 @@
             this.checkBox_showDeletedItem.Location = new System.Drawing.Point(692, 12);
             this.checkBox_showDeletedItem.Name = "checkBox_showDeletedItem";
             this.checkBox_showDeletedItem.Size = new System.Drawing.Size(140, 24);
-            this.checkBox_showDeletedItem.TabIndex = 16;
+            this.checkBox_showDeletedItem.TabIndex = 8;
             this.checkBox_showDeletedItem.Text = "包括已刪除藥項";
             this.checkBox_showDeletedItem.UseVisualStyleBackColor = true;
             this.checkBox_showDeletedItem.CheckedChanged += new System.EventHandler(this.checkBox_showDeletedItem_CheckedChanged);
@@ -229,7 +229,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DrugSelectionPanel";
             this.Size = new System.Drawing.Size(967, 371);
-            //this.VisibleChanged += new System.EventHandler(this.DrugSelectionPanel_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
