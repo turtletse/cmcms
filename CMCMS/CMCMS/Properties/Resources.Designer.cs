@@ -70,7 +70,7 @@ namespace CMCMS.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SERVER=TURTLE-PC;.
+        ///   Looks up a localized string similar to SERVER=PRJ69;.
         /// </summary>
         internal static string server {
             get {

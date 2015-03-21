@@ -431,6 +431,35 @@ namespace CMCMS
         {
             String statusMsg = "";
             bool isSuccess;
+            isSuccess = consMgr.chkPharmStock(Login.user.CurrentLoginClinicId, int.Parse(consId), ref statusMsg);
+            if (!isSuccess)
+            {
+                DialogResult needChange = MessageBox.Show(statusMsg+"\n\n需要修改處方?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (needChange == System.Windows.Forms.DialogResult.No)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (isSuccess)
+            {
+                DialogResult needReserv = MessageBox.Show("需要於藥房預留藥物?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (needReserv == System.Windows.Forms.DialogResult.Yes)
+                {
+                    isSuccess = consMgr.pharmStockReserv(Login.user.CurrentLoginClinicId, int.Parse(consId));
+                    if (isSuccess)
+                    {
+                        MessageBox.Show("已於藥房預留藥物", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("於藥房預留藥物失敗, 詳情情聯絡有關藥房", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
             isSuccess = consMgr.finishConsultation(consId, ref statusMsg);
             if (!isSuccess)
             {

@@ -7,7 +7,8 @@ CREATE PROCEDURE sp_update_pres (
     IN in_no_of_dose INT,
     IN in_method_of_treatment VARCHAR(255),
     IN in_drug_data_str VARCHAR(10000),
-    IN in_pat_id INT
+    IN in_pat_id INT,
+    IN in_clinic_id VARCHAR(10)
 )
 BEGIN
 	DECLARE curr_status_id INT DEFAULT 0;
@@ -198,6 +199,16 @@ BEGIN
 		INSERT INTO chk_result (chk_id, result_desc)
 		SELECT 9, drug_name FROM matched_allergy_item;
 	
+		IF isCmpmsExist() THEN
+			CALL cmcis.sp_stock_enquiry(in_clinic_id, pres_id);
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 10, drug_name FROM cmcis.tmp_prescription
+			WHERE stock_status = 1;
+			
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 11, drug_name FROM cmcis.tmp_prescription
+			WHERE stock_status = 0;
+		END IF;
     
     COMMIT;
     SET AUTOCOMMIT=1;
@@ -222,6 +233,8 @@ BEGIN
                     WHEN 7 THEN '劑量低於系統建議下限:'
                     WHEN 8 THEN '劑量超出系統建議上限:'
                     WHEN 9 THEN '病人藥物敏感史:'
+                    WHEN 10 THEN '以下藥物可能藥房存貨不足:'
+                    WHEN 11 THEN '以下藥物藥房沒有存貨:'
 					ELSE ''
 				END,
 				GROUP_CONCAT(result_desc SEPARATOR '\n')) msg

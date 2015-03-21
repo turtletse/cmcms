@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="298496">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMCMS.exe" size="284160">
       <assemblyIdentity name="CMCMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>vFnrLleEU3OyDrGx5vYfi13t2Kg=</dsig:DigestValue>
+        <dsig:DigestValue>6yBcYc7IGDNwW1t5V2UKyJsI8LU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -402,6 +402,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>q8dqJYRICNtoUNLd41Y1ewC7j6k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="patientListing.rpt" size="32768">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>NaHMR9iLg7wGr86cXDVp60QGr9A=</dsig:DigestValue>
     </hash>
   </file>
   <file name="PregCert.rpt" size="32768">

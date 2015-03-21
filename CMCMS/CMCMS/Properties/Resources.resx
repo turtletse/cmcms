@@ -121,6 +121,6 @@
     <value>uid=cmcms; pwd=abc3###2015A; database=cmcms;</value>
   </data>
   <data name="server" xml:space="preserve">
-    <value>SERVER=TURTLE-PC;</value>
+    <value>SERVER=PRJ69;</value>
   </data>
 </root>

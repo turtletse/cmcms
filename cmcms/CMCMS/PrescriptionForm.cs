@@ -68,7 +68,7 @@ namespace CMCMS
             String tmp = presId.Value;
             if (presId.Value == "")
             {
-                int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, ref tmp, ref statusMsg);
+                int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, Login.user.CurrentLoginClinicId, ref tmp, ref statusMsg);
                 if (status_id > 0 && status_id != 18)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,7 +91,7 @@ namespace CMCMS
             }
             else
             {
-                int status_id = consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, ref statusMsg);
+                int status_id = consMgr.updatePrescription(int.Parse(presId.Value), textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, Login.user.CurrentLoginClinicId, ref statusMsg);
                 if (status_id > 0 && status_id != 18)
                 {
                     MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);

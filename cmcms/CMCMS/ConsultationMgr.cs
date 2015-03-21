@@ -286,17 +286,17 @@ namespace CMCMS
 
 
         //prescriptionForm
-        public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String presId, ref String statusMsg)
+        public int newPrescription(String instruction, int nDose, String methodOftreatment, String presDataString, int patId, String clinicId, ref String presId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + Utilities.stringDataParse4SQL(instruction) + "', " + nDose + ", '" + Utilities.stringDataParse4SQL(methodOftreatment) + "', '" + Utilities.stringDataParse4SQL(presDataString) + "', " + patId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_new_pres ('" + Utilities.stringDataParse4SQL(instruction) + "', " + nDose + ", '" + Utilities.stringDataParse4SQL(methodOftreatment) + "', '" + Utilities.stringDataParse4SQL(presDataString) + "', " + patId + ", '" + clinicId + "')");
             presId = data.Rows[0]["pres_id"].ToString();
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
 
-        public int updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, int patId, ref String statusMsg)
+        public int updatePrescription(int presId, String instruction, int nDose, String methodOftreatment, String presDataString, int patId, String clinicId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + Utilities.stringDataParse4SQL(instruction) + "', " + nDose + ", '" + Utilities.stringDataParse4SQL(methodOftreatment) + "', '" + Utilities.stringDataParse4SQL(presDataString) + "', " + patId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_update_pres (" + presId + ", '" + Utilities.stringDataParse4SQL(instruction) + "', " + nDose + ", '" + Utilities.stringDataParse4SQL(methodOftreatment) + "', '" + Utilities.stringDataParse4SQL(presDataString) + "', " + patId + ", '" + clinicId + "')");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"];
         }
@@ -442,6 +442,28 @@ namespace CMCMS
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_finish_consultation (" + consId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
+        }
+
+        public bool chkPharmStock(String clinicId, int consId, ref String statusMsg)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_check_stocks ('" + clinicId + "', "+ consId + ")");
+            statusMsg = data.Rows[0]["status_msg"].ToString();
+            if ((int)data.Rows[0]["status_id"] == 0 || (int)data.Rows[0]["status_id"] == 3)
+            {
+                return true;
+            }
+            else if ((int)data.Rows[0]["status_id"] == -1)
+            {
+                statusMsg = "診所沒有聯繫藥房, 詳情請聯絡系統管理員";
+                return true;
+            }
+            return false;
+        }
+
+        public bool pharmStockReserv(String clinicId, int consId)
+        {
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_drug_reservation ('" + clinicId + "', " + consId + ")");
+            return (int)data.Rows[0]["status_id"] == 0 ? false : true;
         }
 
         public void refreshHistoryLV(System.Windows.Forms.ListView lv, int patId)
