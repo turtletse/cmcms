@@ -437,7 +437,7 @@ namespace CMCMS
                 DialogResult needChange = MessageBox.Show(statusMsg+"\n\n需要修改處方?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (needChange == System.Windows.Forms.DialogResult.No)
                 {
-                    isSuccess = true;
+                    isSuccess = false;
                 }
                 else
                 {

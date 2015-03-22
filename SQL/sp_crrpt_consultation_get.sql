@@ -26,7 +26,7 @@ BEGIN
     DROP TEMPORARY TABLE IF EXISTS result;
     CREATE TEMPORARY TABLE result
     SELECT clinic_id, cons_id, pat_name, patient_id, dr_name, reg_no, dx_desc, dr_rmk, DATE_FORMAT(last_update_dtm, '%d/%m/%Y %T') last_update_dtm, pres_id, instruction, no_of_dose, method_of_treatment, drug_name, dosage, preparation_method, case when method_desc = '-' then '正常煎煮' else method_desc end method_desc, display_order, CONCAT_WS('/', clinic_id, consData.dr_id, patient_id, cons_id, pres_id, DATE_FORMAT(last_update_dtm, '%Y%m%d%H%i%s')) pres_dataString_barcode, isSame_Location, pharm_id, pharm_chin_name, pharm_addr, pharm_phone_no
-    FROM consData JOIN presDt JOIN cmcis.related_pharm;
+    FROM (consData JOIN presDt) JOIN cmcis.related_pharm;
     
     IF (SELECT COUNT(*) FROM result) = 0 THEN
 		INSERT INTO result (clinic_id, cons_id, pat_name, patient_id, dr_name, reg_no, dx_desc, dr_rmk, last_update_dtm)
@@ -45,4 +45,9 @@ BEGIN
 END $$
 delimiter ;
 
--- CALL sp_crrpt_consultation_get(9)
+-- CALL sp_crrpt_consultation_get(9);
+-- select * from presDt
+-- SELECT * FROM consData
+-- SELECT * FROM (consData JOIN presDt) JOIN cmcis.related_pharm
+-- SELECT * FROM cmcis.related_pharm
+-- SELECT * FROM result

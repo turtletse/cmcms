@@ -170,7 +170,7 @@ namespace CMCMS
         private void ReportViewer_Shown(object sender, EventArgs e)
         {
             ConnectionInfo crConnectionInfo = new ConnectionInfo();
-            crConnectionInfo.ServerName = "DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS; " + CMCMS.Properties.Resources.server;
+            crConnectionInfo.ServerName = CMCMS.Properties.Resources.server + " DRIVER={MySQL ODBC 5.3 Unicode Driver}; DSN=CMCMS;";
             crConnectionInfo.DatabaseName = "cmcms";
             crConnectionInfo.UserID = "cmcms";
             crConnectionInfo.Password = "abc3###2015A";

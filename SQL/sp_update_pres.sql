@@ -33,12 +33,12 @@ BEGIN
     DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name, prescription_dt.dosage, prescription_dt.unit FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = in_presId;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;
+	END;*/
 	SET AUTOCOMMIT =0;
 	START TRANSACTION;
     
@@ -200,7 +200,7 @@ BEGIN
 		SELECT 9, drug_name FROM matched_allergy_item;
 	
 		IF isCmpmsExist() THEN
-			CALL cmcis.sp_stock_enquiry(in_clinic_id, pres_id);
+			CALL cmcis.sp_stock_enquiry(in_clinic_id, in_presId);
 			INSERT INTO chk_result (chk_id, result_desc)
 			SELECT 10, drug_name FROM cmcis.tmp_prescription
 			WHERE stock_status = 1;
@@ -251,7 +251,7 @@ END $$
 DELIMITER ;
 
 
--- CALL sp_update_pres (33, '', 1, '', '101001^^麻黃^^0.0000^^10^^20', 0, 0)
+-- CALL sp_update_pres (45, '每日一次，每次一服', 2, '和解表裏', '101001^^麻黃^^1.5^^20^^20##101002^^桂枝^^1^^20^^20##1603001^^苦杏仁^^2^^20^^20##1401011^^甘草^^1^^20^^20', 2, 'CSM')
 -- SELECT * FROM system_parm;
 -- SELECT * FROM prescription;
 -- SELECT * FROM prescription_dt;

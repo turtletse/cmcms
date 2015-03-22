@@ -448,11 +448,11 @@ namespace CMCMS
         {
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_check_stocks ('" + clinicId + "', "+ consId + ")");
             statusMsg = data.Rows[0]["status_msg"].ToString();
-            if ((int)data.Rows[0]["status_id"] == 0 || (int)data.Rows[0]["status_id"] == 3)
+            if ((int)data.Rows[0]["return_status"] == 2 || (int)data.Rows[0]["return_status"] == 3)
             {
                 return true;
             }
-            else if ((int)data.Rows[0]["status_id"] == -1)
+            else if ((int)data.Rows[0]["return_status"] == -1)
             {
                 statusMsg = "診所沒有聯繫藥房, 詳情請聯絡系統管理員";
                 return true;

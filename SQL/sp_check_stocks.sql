@@ -19,8 +19,8 @@ BEGIN
 	ELSE
 		SELECT pres_id INTO curr_pres_ids FROM consultation_record WHERE cons_id = in_cons_id AND clinic_id = in_clinic_id;
 		CALL cmcis.sp_stock_enquiry(in_clinic_id, curr_pres_ids);
-		INSERT INTO result (chk_status, pres_id, drug_name)
-		SELECT stock_status, pres_id, drug_name FROM cmcis.tmp_prescription;
+		INSERT INTO result (chk_status, pres_id, drug_id, sub_drug_id, drug_name)
+		SELECT stock_status, pres_id, drug_id, sub_drug_id, drug_name FROM cmcis.tmp_prescription;
     END IF;
     
     SELECT MAX(chk_status) INTO return_status FROM result;
@@ -37,10 +37,12 @@ BEGIN
 		FROM (
 			SELECT chk_status, pres_id, CONCAT('處方編號: ', pres_id, ' 藥物: ',GROUP_CONCAT(a.drug_name ORDER BY a.drug_id, a.sub_drug_id SEPARATOR ', ')) drug
 			FROM result a
-			WHERE chk_status > 0
+			WHERE chk_status < 2
 			GROUP BY a.chk_status, a.pres_id) b
 		GROUP BY b.chk_status) c;
 END $$
 DELIMITER ;
 
--- CALL sp_check_stocks('CSM', 9)
+-- CALL sp_check_stocks('CSM', 10)
+
+-- SELECT * FROM result

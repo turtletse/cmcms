@@ -1,4 +1,4 @@
--- CREATE SCHEMA `cmcis` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA `cmcis` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 GRANT SELECT ON cmcis.* TO 'cmcms'@'%';
 GRANT SELECT ON cmcis.* TO 'cmpms'@'%';
 GRANT CREATE TEMPORARY TABLES ON cmcis.* TO 'cmcms'@'%';
@@ -106,6 +106,9 @@ BEGIN
 	SELECT clinic_addr = pharm_addr isSame_Location, pharm_id, pharm_chin_name, pharm_addr, pharm_phone_no
 	FROM clinic_pharm_mapping
 	WHERE clinic_id = in_clinic_id;
+	IF (SELECT COUNT(*) FROM related_pharm)=0 THEN
+		INSERT INTO related_pharm (isSame_Location) VALUES (1);
+    END IF;
 END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE cmcis.related_pharm_get TO 'cmcms'@'%';
@@ -341,8 +344,7 @@ BEGIN
     
     SELECT 1 INTO isIssuedPres
     FROM cmcms.consultation_record
-    WHERE pres_id REGEXP CONCAT('(^|[0-9]\\|{2})', in_pres_id, '(\\|{2}[0-9]|$)')
-		AND isFinished = 2;
+    WHERE pres_id REGEXP CONCAT('(^|[0-9]\\|{2})', in_pres_id, '(\\|{2}[0-9]|$)');
     
     IF isIssuedPres = 1 THEN
 		INSERT INTO result_prescription (drug_id, sub_drug_id, drug_name, dosage, unit_id, dose)
