@@ -1,7 +1,0 @@
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\CMCMS.exe
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\bin\Debug\CMCMS.pdb
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.DrugAdmin.resources
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.Properties.Resources.resources
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.csproj.GenerateResource.Cache
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.exe
-C:\Users\TURTLE\Desktop\FYP\cmcms\CMCMS\CMCMS\obj\x86\Debug\CMCMS.pdb
