@@ -28,17 +28,17 @@ BEGIN
     DECLARE curr_drug_name VARCHAR(255);
     DECLARE curr_dosage DECIMAL(8,4);
     DECLARE curr_unit INT;
-    DECLARE return_msg VARCHAR(1000);
+    DECLARE return_msg VARCHAR(10000);
     DECLARE cur1 CURSOR FOR SELECT drug_data FROM drug_data_str;
     DECLARE cur2 CURSOR FOR SELECT prescription_dt.drug_id, master_drug_list.drug_name, prescription_dt.dosage, prescription_dt.unit FROM prescription_dt JOIN master_drug_list ON prescription_dt.drug_id = master_drug_list.drug_id WHERE prescription_dt.pres_id = in_presId;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    /*DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
 		ROLLBACK;
         SET curr_status_id = 2;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
-	END;*/
+	END;
 	SET AUTOCOMMIT =0;
 	START TRANSACTION;
     
