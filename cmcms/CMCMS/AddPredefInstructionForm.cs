@@ -20,7 +20,7 @@ namespace CMCMS
 
         private void reset()
         {
-            consMgr.setDrRmkPredefined(comboBox_predefInstruction);
+            consMgr.setPredefInstructionCB(comboBox_predefInstruction);
             textBox_newPredefInstruction.Clear();
         }
 
