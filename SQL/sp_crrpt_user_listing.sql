@@ -2,6 +2,21 @@ DROP PROCEDURE IF EXISTS sp_crrpt_user_listing;
 DELIMITER $$
 CREATE PROCEDURE sp_crrpt_user_listing (IN in_clinic_id VARCHAR(10))
 BEGIN
+	IF isCmpmsExist() THEN
+		INSERT INTO user_account (user_id, hashed_password, chin_name, eng_name, last_update_dtm)
+        SELECT user_id, hashed_password, chin_name, eng_name, last_update_dtm
+        FROM cmcis.common_user
+        WHERE user_id NOT IN (SELECT user_id FROM user_account);
+        
+        UPDATE user_account a, cmcis.common_user b
+        SET a.hashed_password = b.hashed_password, 
+            a.chin_name = b.chin_name, 
+            a.eng_name = b.eng_name, 
+            a.last_update_dtm = b.last_update_dtm
+		WHERE a.user_id = b.user_id AND a.last_update_dtm<b.last_update_dtm;
+		
+    END IF;
+
 	SELECT user_clinic_role_mapping.user_id, 
 		chin_name, 
         IFNULL(eng_name, '') eng_name, 

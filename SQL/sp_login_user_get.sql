@@ -39,6 +39,15 @@ BEGIN
 			UPDATE user_account
 			SET last_update_dtm = cmcis_update_dtm
 			WHERE user_id = in_user_id;
+		ELSEIF (cmcis_update_dtm IS NOT NULL AND cmcms_update_dtm IS NULL) THEN
+			SELECT hashed_password, chin_name, eng_name INTO new_pw, new_chi_name, new_eng_name FROM cmcis.common_user WHERE user_id = in_user_id;
+			SELECT last_update_dtm INTO cmcis_update_dtm FROM cmcis.common_user WHERE user_id = in_user_id;
+			UPDATE user_account
+			SET hashed_password = new_pw,
+				chin_name = new_chi_name,
+				eng_name = new_eng_name,
+				last_update_dtm = cmcis_update_dtm
+			WHERE user_id = in_user_id;
 		END IF;
 	END IF;
     
