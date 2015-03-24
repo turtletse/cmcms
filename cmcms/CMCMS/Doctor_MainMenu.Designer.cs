@@ -138,7 +138,7 @@
             this.button_newDrRmk.Name = "button_newDrRmk";
             this.button_newDrRmk.Size = new System.Drawing.Size(221, 51);
             this.button_newDrRmk.TabIndex = 9;
-            this.button_newDrRmk.Text = "新增預設醫囑";
+            this.button_newDrRmk.Text = "新增 / 刪除預設醫囑";
             this.button_newDrRmk.UseVisualStyleBackColor = true;
             this.button_newDrRmk.Click += new System.EventHandler(this.button_newDrRmk_Click);
             // 
@@ -148,7 +148,7 @@
             this.button_newPresInstruction.Name = "button_newPresInstruction";
             this.button_newPresInstruction.Size = new System.Drawing.Size(221, 51);
             this.button_newPresInstruction.TabIndex = 10;
-            this.button_newPresInstruction.Text = "新增預設處方服用方法";
+            this.button_newPresInstruction.Text = "新增 / 刪除預設處方服用方法";
             this.button_newPresInstruction.UseVisualStyleBackColor = true;
             this.button_newPresInstruction.Click += new System.EventHandler(this.button_newPresInstruction_Click);
             // 

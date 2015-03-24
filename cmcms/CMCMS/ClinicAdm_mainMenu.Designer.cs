@@ -53,7 +53,7 @@
             // 
             // button_userAdm
             // 
-            this.button_userAdm.Location = new System.Drawing.Point(26, 459);
+            this.button_userAdm.Location = new System.Drawing.Point(253, 174);
             this.button_userAdm.Name = "button_userAdm";
             this.button_userAdm.Size = new System.Drawing.Size(221, 51);
             this.button_userAdm.TabIndex = 8;
@@ -63,7 +63,7 @@
             // 
             // button_amdClinic
             // 
-            this.button_amdClinic.Location = new System.Drawing.Point(26, 402);
+            this.button_amdClinic.Location = new System.Drawing.Point(26, 174);
             this.button_amdClinic.Name = "button_amdClinic";
             this.button_amdClinic.Size = new System.Drawing.Size(221, 51);
             this.button_amdClinic.TabIndex = 7;
@@ -73,7 +73,7 @@
             // 
             // button_drugAdm
             // 
-            this.button_drugAdm.Location = new System.Drawing.Point(26, 231);
+            this.button_drugAdm.Location = new System.Drawing.Point(26, 117);
             this.button_drugAdm.Name = "button_drugAdm";
             this.button_drugAdm.Size = new System.Drawing.Size(221, 51);
             this.button_drugAdm.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // button_amdPatData
             // 
-            this.button_amdPatData.Location = new System.Drawing.Point(26, 117);
+            this.button_amdPatData.Location = new System.Drawing.Point(253, 60);
             this.button_amdPatData.Name = "button_amdPatData";
             this.button_amdPatData.Size = new System.Drawing.Size(221, 51);
             this.button_amdPatData.TabIndex = 2;
@@ -103,7 +103,7 @@
             // 
             // button_newPredefPres
             // 
-            this.button_newPredefPres.Location = new System.Drawing.Point(26, 288);
+            this.button_newPredefPres.Location = new System.Drawing.Point(253, 117);
             this.button_newPredefPres.Name = "button_newPredefPres";
             this.button_newPredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_newPredefPres.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             // button_updatePredefPres
             // 
-            this.button_updatePredefPres.Location = new System.Drawing.Point(26, 345);
+            this.button_updatePredefPres.Location = new System.Drawing.Point(480, 117);
             this.button_updatePredefPres.Name = "button_updatePredefPres";
             this.button_updatePredefPres.Size = new System.Drawing.Size(221, 51);
             this.button_updatePredefPres.TabIndex = 6;
@@ -123,7 +123,7 @@
             // 
             // button_queuingMgt
             // 
-            this.button_queuingMgt.Location = new System.Drawing.Point(26, 174);
+            this.button_queuingMgt.Location = new System.Drawing.Point(480, 60);
             this.button_queuingMgt.Name = "button_queuingMgt";
             this.button_queuingMgt.Size = new System.Drawing.Size(221, 51);
             this.button_queuingMgt.TabIndex = 3;
@@ -133,7 +133,7 @@
             // 
             // button_reporting
             // 
-            this.button_reporting.Location = new System.Drawing.Point(26, 516);
+            this.button_reporting.Location = new System.Drawing.Point(480, 174);
             this.button_reporting.Name = "button_reporting";
             this.button_reporting.Size = new System.Drawing.Size(221, 51);
             this.button_reporting.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 591);
+            this.ClientSize = new System.Drawing.Size(722, 247);
             this.Controls.Add(this.button_reporting);
             this.Controls.Add(this.button_queuingMgt);
             this.Controls.Add(this.button_updatePredefPres);

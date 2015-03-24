@@ -137,7 +137,7 @@
             this.button_reporting.Name = "button_reporting";
             this.button_reporting.Size = new System.Drawing.Size(221, 51);
             this.button_reporting.TabIndex = 9;
-            this.button_reporting.Text = "列印報告";
+            this.button_reporting.Text = "報告";
             this.button_reporting.UseVisualStyleBackColor = true;
             this.button_reporting.Click += new System.EventHandler(this.button_reporting_Click);
             // 

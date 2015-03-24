@@ -28,7 +28,7 @@ namespace CMCMS
 
         public static bool isInteger(String s)
         {
-            return Regex.IsMatch(s, @"^[0-9]+$", RegexOptions.Compiled);
+            return Regex.IsMatch(s, @"^[0-9]*$", RegexOptions.Compiled);
         }
 
         public static bool isDecimal(String s)
