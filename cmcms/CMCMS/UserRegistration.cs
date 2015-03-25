@@ -78,12 +78,12 @@ namespace CMCMS
                 return false;
             }
 
-            if (textBox_password.Text.Length == 0)
+            /*if (textBox_password.Text.Length == 0)
             {
                 MessageBox.Show("請輸入密碼", "密碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_password.Focus();
                 return false;
-            }
+            }*/
             if (textBox_password.Text != textBox_cmfPassword.Text)
             {
                 MessageBox.Show("確認密碼錯誤\n請重新輸入", "確認密碼錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);

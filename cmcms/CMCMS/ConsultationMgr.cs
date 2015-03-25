@@ -463,7 +463,7 @@ namespace CMCMS
         public bool pharmStockReserv(String clinicId, int consId)
         {
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_drug_reservation ('" + clinicId + "', " + consId + ")");
-            return (int)data.Rows[0]["status_id"] == 0 ? false : true;
+            return (int)data.Rows[0]["return_status"] == 0 ? false : true;
         }
 
         public void refreshHistoryLV(System.Windows.Forms.ListView lv, int patId)

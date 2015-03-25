@@ -25,13 +25,14 @@ namespace CMCMS
         private void button_newUser_Click(object sender, EventArgs e)
         {
             //input validation
-            userRegistration_newUser.Enabled = false;
+            //userRegistration_newUser.Enabled = false;
             if (!input_validation_newUser())
                 return;
 
             String statusMsg = "";
             bool isSuccess;
             isSuccess = ucMgr.createAccount(userRegistration_newUser.getUserId(), userRegistration_newUser.getChineseName(), userRegistration_newUser.getEnglishName(), userRegistration_newUser.getRegNo(), userRegistration_newUser.getHashedPassword(), userRegistration_newUser.getClinicId(), userRegistration_newUser.getRoleId(), userRegistration_newUser.getIsSuspended(), ref statusMsg);
+            //userRegistration_newUser.Enabled = true;
             if (isSuccess)
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -41,12 +42,12 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            userRegistration_newUser.Enabled = true;
+            // userRegistration_newUser.Enabled = true;
         }
 
         private bool input_validation_newUser()
         {
-            if (userRegistration_newUser.input_validation())
+            if (!userRegistration_newUser.input_validation())
             {
                 return false;
             }
@@ -69,13 +70,14 @@ namespace CMCMS
         private void button_amdUser_reset_Click(object sender, EventArgs e)
         {
             ucMgr.setAmdUserCombo(comboBox_amdUser_userId);
-            comboBox_amdUser_userId.SelectedIndex = 0;
             userRegistration_amdUser.reset();
+            comboBox_amdUser_userId.SelectedIndex = 0;
+            
         }
 
         private void button_amdUser_Click(object sender, EventArgs e)
         {
-            userRegistration_amdUser.Enabled = false;
+            //userRegistration_amdUser.Enabled = false;
 
             if (!input_validation_amdUser())
                 return;
@@ -93,12 +95,12 @@ namespace CMCMS
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            userRegistration_amdUser.Enabled = true;
+            //userRegistration_amdUser.Enabled = true;
         }
 
         private bool input_validation_amdUser()
         {
-            if (userRegistration_amdUser.input_validation())
+            if (!userRegistration_amdUser.input_validation())
             {
                 return false;
             }
@@ -107,6 +109,7 @@ namespace CMCMS
 
         private void tabPage_amdRole_Enter(object sender, EventArgs e)
         {
+            listBox_amdRole_grantedClinicRole.Items.Clear();
             textBox_amdRole_userId.Clear();
             ucMgr.setAmdRoleUserCombo(comboBox_amdRole_user);
             comboBox_amdRole_user.SelectedIndex = 0;
@@ -114,7 +117,7 @@ namespace CMCMS
             comboBox_amdRole_clinic.SelectedIndex = 0;
             ucMgr.setUserPermissibleRoleCombo(comboBox_amdRole_role);
             comboBox_amdRole_role.SelectedIndex = 0;
-            listBox_amdRole_grantedClinicRole.Items.Clear();
+            
         }
 
         private void button_amdRole_add_Click(object sender, EventArgs e)

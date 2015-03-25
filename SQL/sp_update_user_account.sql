@@ -23,8 +23,11 @@ BEGIN
         SELECT * FROM insert_record_status where status_id = curr_status_id;
     ELSEIF (select count(*) from user_account where reg_no = in_reg_no AND reg_no IS NOT NULL AND LENGTH(reg_no)<>0 AND user_id <> in_user_id) > 0 THEN
         SET curr_status_id = 10;
-        SELECT * FROM insert_record_status where status_id = curr_status_id;    
-	ELSE
+        SELECT * FROM insert_record_status where status_id = curr_status_id; 
+	ELSEIF (LENGTH(TRIM(in_reg_no)) = 0 AND (SELECT COUNT(*) FROM user_clinic_role_mapping WHERE user_id = in_user_id AND user_role_id = 20)>0) THEN
+		SET curr_status_id = 22;
+        SELECT * FROM insert_record_status where status_id = curr_status_id; 
+    ELSE
 		CALL cmcis.common_user_update(in_user_id, in_hashed_password, in_chin_name, UPPER(in_eng_name));
         SELECT last_update_dtm INTO update_dtm FROM cmcis.common_user WHERE user_id = in_user_id;
 		SET AUTOCOMMIT = 0;

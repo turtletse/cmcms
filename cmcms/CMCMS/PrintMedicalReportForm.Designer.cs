@@ -127,7 +127,7 @@
             // 
             // button_prnSelected
             // 
-            this.button_prnSelected.Location = new System.Drawing.Point(410, 402);
+            this.button_prnSelected.Location = new System.Drawing.Point(287, 402);
             this.button_prnSelected.Name = "button_prnSelected";
             this.button_prnSelected.Size = new System.Drawing.Size(151, 39);
             this.button_prnSelected.TabIndex = 6;
@@ -202,7 +202,7 @@
             // 
             // button_pres
             // 
-            this.button_pres.Location = new System.Drawing.Point(287, 402);
+            this.button_pres.Location = new System.Drawing.Point(444, 402);
             this.button_pres.Name = "button_pres";
             this.button_pres.Size = new System.Drawing.Size(117, 39);
             this.button_pres.TabIndex = 5;

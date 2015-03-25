@@ -17,7 +17,7 @@ BEGIN
 		
     END IF;
 
-	SELECT user_clinic_role_mapping.user_id, 
+	SELECT user_account.user_id, 
 		chin_name, 
         IFNULL(eng_name, '') eng_name, 
         IFNULL(reg_no, '') reg_no,
@@ -31,8 +31,8 @@ BEGIN
         user_clinic_role_mapping.clinic_id,
         role_desc
     FROM user_account 
-		JOIN user_clinic_role_mapping ON user_account.user_id = user_clinic_role_mapping.user_id
-        JOIN user_role ON user_role_id = role_id
+		LEFT JOIN user_clinic_role_mapping ON user_account.user_id = user_clinic_role_mapping.user_id
+        LEFT JOIN user_role ON user_role_id = role_id
 	WHERE user_clinic_role_mapping.clinic_id = in_clinic_id OR in_clinic_id = 'ALL'
     ORDER BY user_id, user_clinic_role_mapping.clinic_id, role_id;
     
