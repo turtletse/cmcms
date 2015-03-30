@@ -38,7 +38,7 @@ namespace CMCMS
             DSP_incompatibleWith.setSubDrugSelectionEnabled(false);
             DSP_incompatibleWith.setSubDrugInclNotSpecified(false);
             DSP_incompatibleWith.setShowDeletedItemCB(false);
-            DSP_incompatibleWith.setShowDeletedItem(false);
+            DSP_incompatibleWith.setShowDeletedItem(true);
         }
 
         private void tabPage1_Enter(object sender, EventArgs e)

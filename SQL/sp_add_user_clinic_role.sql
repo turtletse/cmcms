@@ -16,6 +16,7 @@ BEGIN
 		SET curr_status_id = 22;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	ELSE
+		SET AUTOCOMMIT = 0;
 		START TRANSACTION;
             INSERT INTO user_clinic_role_mapping(
 				user_id,
@@ -27,7 +28,7 @@ BEGIN
                 in_role_id
 			);
 		COMMIT;
-        
+        SET AUTOCOMMIT = 1;
         SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
         
     END IF;

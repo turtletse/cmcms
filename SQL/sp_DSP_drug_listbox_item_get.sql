@@ -16,13 +16,13 @@ BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
     -- SET parm_4q5w=in_4q5w;
-	If length(in_4q5w) = 0 THEN
-		SET in_4q5w = 'q1||q2||q3||q4||w1||w2||w3||w4||w5||w5';
-	END IF;
+	/*If length(in_4q5w) = 0 THEN
+		SET in_4q5w = 'q1||q2||q3||q4||w1||w2||w3||w4||w5||w6';
+	END IF;*/
     CALL split(in_4q5w, '||');
     DROP TEMPORARY TABLE IF EXISTS selected_4q5w;
     CREATE TEMPORARY TABLE selected_4q5w
-    SELECT split_value item FROM splitResult;
+    SELECT split_value item FROM splitResult WHERE split_value IS NOT NULL AND length(split_value)>0;
     DROP TEMPORARY TABLE IF EXISTS splitResult;
     OPEN cur1;
     REPEAT
@@ -54,8 +54,8 @@ BEGIN
         and (in_nStrokes = 0 or (in_nStrokes <> 0 and drug_name_stroke_idx = in_nStrokes))
         and (in_len = 0 or (in_len <> 0 and drug_name_length = in_len))
         and isDeleted <= in_incl_deleted
-        and (
-				(q1 <> 0 and drug_q1 = 1)
+        and (	length(in_4q5w) = 0
+			or	(q1 <> 0 and drug_q1 = 1)
             or	(q2 <> 0 and drug_q2 = 1)
             or	(q3 <> 0 and drug_q3 = 1)
             or	(q4 <> 0 and drug_q4 = 1)

@@ -10,6 +10,7 @@ BEGIN
 		clinic_phone_no,
         isSuspended
 	from clinic
+    where isSuspended = 0
 	ORDER BY clinic_id;
 END $$
 delimiter ;
