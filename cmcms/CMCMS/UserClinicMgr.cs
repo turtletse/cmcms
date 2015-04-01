@@ -140,7 +140,7 @@ namespace CMCMS
 
         public bool removeRole(String userId, String clinicId, String roleId, ref String statusMsg)
         {
-            DataTable data = dbmgr.execSelectStmtSP("CALL sp_remove_user_clinic_role ('" + Utilities.stringDataParse4SQL(userId) + "', '" + Utilities.stringDataParse4SQL(clinicId) + "', " + roleId + ")");
+            DataTable data = dbmgr.execSelectStmtSP("CALL sp_remove_user_clinic_role ('" + Utilities.stringDataParse4SQL(Login.user.UserId) + "', '" + Utilities.stringDataParse4SQL(userId) + "', '" + Utilities.stringDataParse4SQL(clinicId) + "', " + roleId + ")");
             statusMsg = data.Rows[0]["status_desc"].ToString();
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
