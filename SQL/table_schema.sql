@@ -43,7 +43,7 @@ CREATE INDEX master_drug_list_x2 ON master_drug_list (drug_pri_type, drug_sec_ty
 CREATE INDEX master_drug_list_x3 ON master_drug_list (drug_name_stroke_idx);
 CREATE INDEX master_drug_list_x4 ON master_drug_list (drug_name_length);
 CREATE INDEX master_drug_list_x5 ON master_drug_list (drug_name);
-CREATE INDEX master_drug_list_x6 ON master_drug_list (drug_pri_type, drug_sec_type, isDeleted);
+CREATE INDEX master_drug_list_x6 ON master_drug_list (isDeleted);
 
 CREATE TABLE drug_admin_abs_contraindication (
 	drug_id int,				--fk master_drug_list
