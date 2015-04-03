@@ -444,8 +444,8 @@ namespace CMCMS
                     return;
                 }
             }
-            if (isSuccess)
-            {
+            /*if (isSuccess)
+            {*/
                 DialogResult needReserv = MessageBox.Show("需要於藥房預留藥物?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (needReserv == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -459,7 +459,7 @@ namespace CMCMS
                         MessageBox.Show("於藥房預留藥物失敗, 詳情情聯絡有關藥房", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+            //}
             isSuccess = consMgr.finishConsultation(consId, ref statusMsg);
             if (!isSuccess)
             {
