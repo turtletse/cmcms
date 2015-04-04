@@ -58,7 +58,7 @@ namespace CMCMS
             }
             if (!Utilities.isAlphaNumericCommonPunctuation(textBox_engName.Text))
             {
-                MessageBox.Show("診所代號只限英文(含半形空格)及以下標點符號:\n. ' ( ) &\n請重新輸入", "診所英文名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("診所英文名稱只限英文(含半形空格)及以下標點符號:\n. ' ( ) &\n請重新輸入", "診所英文名稱錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_engName.Focus();
                 return false;
             }

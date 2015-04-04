@@ -431,7 +431,8 @@ namespace CMCMS
         {
             String statusMsg = "";
             bool isSuccess;
-            isSuccess = consMgr.chkPharmStock(Login.user.CurrentLoginClinicId, int.Parse(consId), ref statusMsg);
+            int chkStockStatus = consMgr.chkPharmStock(Login.user.CurrentLoginClinicId, int.Parse(consId), ref statusMsg);
+            isSuccess = (chkStockStatus >= 2 || chkStockStatus < 0) ? true : false;
             if (!isSuccess)
             {
                 DialogResult needChange = MessageBox.Show(statusMsg+"\n\n需要修改處方?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -444,8 +445,8 @@ namespace CMCMS
                     return;
                 }
             }
-            /*if (isSuccess)
-            {*/
+            if (isSuccess && chkStockStatus >= 1 && chkStockStatus < 3)
+            {
                 DialogResult needReserv = MessageBox.Show("需要於藥房預留藥物?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (needReserv == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -459,7 +460,7 @@ namespace CMCMS
                         MessageBox.Show("於藥房預留藥物失敗, 詳情情聯絡有關藥房", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            //}
+            }
             isSuccess = consMgr.finishConsultation(consId, ref statusMsg);
             if (!isSuccess)
             {
@@ -547,8 +548,7 @@ namespace CMCMS
             rptViewer.prepareMedicalReport(Login.user.CurrentLoginClinicId, int.Parse(textBox_patId.Text), int.Parse(consId));
             rptViewer.ShowDialog();
         }
-
-        
+      
 
    
     }

@@ -444,11 +444,12 @@ namespace CMCMS
             return (int)data.Rows[0]["status_id"] > 0 ? false : true;
         }
 
-        public bool chkPharmStock(String clinicId, int consId, ref String statusMsg)
+        public int chkPharmStock(String clinicId, int consId, ref String statusMsg)
         {
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_check_stocks ('" + clinicId + "', "+ consId + ")");
             statusMsg = data.Rows[0]["status_msg"].ToString();
-            if ((int)data.Rows[0]["return_status"] == 2 || (int)data.Rows[0]["return_status"] == 3)
+            return (int)data.Rows[0]["return_status"];
+            /*if ((int)data.Rows[0]["return_status"] == 2 || (int)data.Rows[0]["return_status"] == 3)
             {
                 return true;
             }
@@ -457,7 +458,7 @@ namespace CMCMS
                 statusMsg = "診所沒有聯繫藥房, 詳情請聯絡系統管理員";
                 return true;
             }
-            return false;
+            return false;*/
         }
 
         public bool pharmStockReserv(String clinicId, int consId)
