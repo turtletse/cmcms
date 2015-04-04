@@ -58,6 +58,7 @@
             // 
             // comboBox_clinic
             // 
+            this.comboBox_clinic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_clinic.FormattingEnabled = true;
             this.comboBox_clinic.Location = new System.Drawing.Point(100, 55);
             this.comboBox_clinic.Name = "comboBox_clinic";
