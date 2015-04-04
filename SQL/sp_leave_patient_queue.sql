@@ -46,7 +46,8 @@ BEGIN
 		UPDATE consultation_record
         SET isFinished = -1
         WHERE patient_id = in_patient_id
-			AND clinic_id = in_clinic_id;
+			AND clinic_id = in_clinic_id
+            AND isFinish < 2;
 	COMMIT;
 	SELECT status_id, status_desc FROM insert_record_status where status_id = curr_status_id;
     DEALLOCATE PREPARE stmt;

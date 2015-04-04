@@ -24,7 +24,7 @@ BEGIN
     END IF;
     
     SELECT MAX(chk_status) INTO return_status FROM result;
-	SELECT return_status, GROUP_CONCAT(c.sub_msg ORDER BY c.chk_status SEPARATOR '\n\n') status_msg
+	SELECT IFNULL(return_status, 4) return_status, IFNULL(GROUP_CONCAT(c.sub_msg ORDER BY c.chk_status SEPARATOR '\n\n'), '') status_msg
 	FROM(
 		SELECT chk_status, 
 			CONCAT_WS('\n',
@@ -43,6 +43,6 @@ BEGIN
 END $$
 DELIMITER ;
 
--- CALL sp_check_stocks('CSM', 10)
+-- CALL sp_check_stocks('CSM', 19)
 
 -- SELECT * FROM result

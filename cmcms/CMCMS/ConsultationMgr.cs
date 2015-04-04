@@ -448,7 +448,7 @@ namespace CMCMS
         {
             DataTable data = dbmgr.execSelectStmtSP("CALL sp_check_stocks ('" + clinicId + "', "+ consId + ")");
             statusMsg = data.Rows[0]["status_msg"].ToString();
-            return (int)data.Rows[0]["return_status"];
+            return int.Parse((data.Rows[0]["return_status"]).ToString());
             /*if ((int)data.Rows[0]["return_status"] == 2 || (int)data.Rows[0]["return_status"] == 3)
             {
                 return true;

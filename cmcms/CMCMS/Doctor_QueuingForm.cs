@@ -110,17 +110,38 @@ namespace CMCMS
 
         private void button_piorityCons_Click(object sender, EventArgs e)
         {
-            String statusMsg = "";
-            bool isSuccess;
-            isSuccess = patMgr.doctorAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ref statusMsg);
-            if (isSuccess)
+            if (input_validation_piorityCons())
             {
-                openConsultationForm();
+                String statusMsg = "";
+                bool isSuccess;
+                isSuccess = patMgr.doctorAssignPriorityConsultation(int.Parse(textBox_piorityCons_patId.Text), ref statusMsg);
+                if (isSuccess)
+                {
+                    openConsultationForm();
+                }
+                else
+                {
+                    MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+        }
+
+        private bool input_validation_piorityCons()
+        {
+            if (textBox_piorityCons_patId.Text.Length == 0)
             {
-                MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("請輸入病人編號", "病人編號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_piorityCons_patId.Focus();
+                return false;
             }
+            if (!Utilities.isInteger(textBox_piorityCons_patId.Text))
+            {
+                MessageBox.Show("病人編號只限半形數字\n請重新輸入", "病人編號錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_piorityCons_patId.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         public void nextPatReset()
