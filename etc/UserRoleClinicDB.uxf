@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>540</x>
+      <y>480</y>
+      <w>240</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>user_account
+--
+user_id
+hashed_password
+chin_name
+eng_name
+reg_no
+last_logout_dtm
+last_logout_clinic_id
+isSuspended
+last_update_dtm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>880</x>
+      <y>350</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>clinic
+--
+clinic_id
+clinic_chin_name
+clinic_eng_name
+clinic_addr
+clinic_phone_no
+isSuspended
+last_update_dtm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>540</x>
+      <y>380</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>user_role
+--
+role_id
+role_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>540</x>
+      <y>260</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>user_clinic_role_mapping
+--
+user_id
+clinic_id
+user_role_id</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>750</x>
+      <y>280</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>30;30;80;30;80;100;130;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>260</y>
+      <w>110</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>90;250;30;250;30;30;90;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>750</x>
+      <y>350</y>
+      <w>150</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>130;30;80;30;80;260;30;260</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>460</x>
+      <y>300</y>
+      <w>100</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>80;110;30;110;30;30;80;30</additional_attributes>
+  </element>
+</diagram>
