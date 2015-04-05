@@ -107,6 +107,7 @@ namespace CMCMS
                 if (!checkDuplication(objToBeAdded))
                     listBox_selectedDiffResult.Items.Add(objToBeAdded);
             }
+            textBox_freeText.Clear();
         }
 
         private void button_clearSelectedLV_Click(object sender, EventArgs e)

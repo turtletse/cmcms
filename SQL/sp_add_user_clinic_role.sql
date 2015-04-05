@@ -12,7 +12,7 @@ BEGIN
 	if (select count(*) from user_clinic_role_mapping where user_id = in_user_id AND clinic_id = in_clinic_id AND user_role_id = in_role_id) >0 THEN
         SET curr_status_id = 1;
         SELECT * FROM insert_record_status where status_id = curr_status_id; 
-	ELSEIF in_role_id = 20 AND (SELECT IFNULL(LENGTH(TRIM(reg_no)), 0) FROM user_account WHERE user_id = in_user_id) = 0 THEN
+	ELSEIF in_role_id = 20 AND (SELECT IFNULL(LENGTH(TRIM(reg_no)), 0) FROM user_account WHERE UPPER(user_id) = UPPER(in_user_id)) = 0 THEN
 		SET curr_status_id = 22;
         SELECT * FROM insert_record_status where status_id = curr_status_id;
 	ELSE
@@ -23,7 +23,7 @@ BEGIN
                 clinic_id,
                 user_role_id
 			)VALUES(
-				in_user_id,
+				UPPER(in_user_id),
                 in_clinic_id,
                 in_role_id
 			);

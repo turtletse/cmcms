@@ -124,7 +124,23 @@ namespace CMCMS
         {
             if (textBox_amdRole_userId.Text.Trim().Length == 0)
                 return;
-            tabControl1.Enabled = false;
+            //tabControl1.Enabled = false;
+            if (((PermissibleValueObj)(comboBox_amdRole_role.SelectedItem)).Value == "40")
+            {
+                if (((PermissibleValueObj)(comboBox_amdRole_clinic.SelectedItem)).Value != "ALL")
+                {
+                    MessageBox.Show("系統管理員只限選用專用診所代號\"ALL\"", "診所及身份錯配", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (((PermissibleValueObj)(comboBox_amdRole_clinic.SelectedItem)).Value == "ALL")
+            {
+                if (((PermissibleValueObj)(comboBox_amdRole_role.SelectedItem)).Value != "40")
+                {
+                    MessageBox.Show("系統管理員專用診所代號\"ALL\"只限系統管理員專用", "診所及身份錯配", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             String statusMsg = "";
             bool isSuccess;
             isSuccess = ucMgr.addRole(textBox_amdRole_userId.Text, ((ClinicObj)comboBox_amdRole_clinic.SelectedItem).ClinicId, ((PermissibleValueObj)comboBox_amdRole_role.SelectedItem).getValue(), ref statusMsg);
@@ -137,7 +153,7 @@ namespace CMCMS
             {
                 MessageBox.Show(statusMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            tabControl1.Enabled = true;
+            //tabControl1.Enabled = true;
         }
 
         private bool input_validation_addRole()

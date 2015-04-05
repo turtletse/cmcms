@@ -16,7 +16,7 @@ BEGIN
 		SET AUTOCOMMIT = 0;
 		START TRANSACTION;
 			DELETE FROM user_clinic_role_mapping
-			WHERE user_id = in_user_id
+			WHERE UPPER(user_id) = UPPER(in_user_id)
 			AND clinic_id = in_clinic_id
 			AND user_role_id = in_role_id;
 		COMMIT;

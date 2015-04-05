@@ -144,6 +144,7 @@ namespace CMCMS
                 if (!checkDuplication(objToBeAdded))
                     listBox_selectedExamResult.Items.Add(objToBeAdded);
             }
+            textBox_freeText.Clear();
         }
 
         private void textBox_search_keywords_KeyPress(object sender, KeyPressEventArgs e)
