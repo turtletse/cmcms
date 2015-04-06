@@ -342,52 +342,47 @@ BEGIN
         unit VARCHAR(255)
 	);
     
-    SELECT 1 INTO isIssuedPres
-    FROM cmcms.consultation_record
-    WHERE pres_id REGEXP CONCAT('(^|[0-9]\\|{2})', in_pres_id, '(\\|{2}[0-9]|$)');
-    
-    IF isIssuedPres = 1 THEN
-		INSERT INTO result_prescription (drug_id, sub_drug_id, drug_name, dosage, unit_id, dose)
-		SELECT drug_id, sub_drug_id, drug_name, dosage, unit, no_of_dose
-		FROM cmcms.prescription_dt JOIN cmcms.prescription ON prescription_dt.pres_id = prescription.pres_id
-		WHERE prescription_dt.pres_id = in_pres_id;
-        
-        OPEN cur1;
-            REPEAT
-				FETCH cur1 INTO curr_drug_id, curr_sub_drug_id;
-				IF NOT done THEN
-					SET factor = 1;
-                    SET smaller_unit = 0;
-					REPEAT
-						SELECT decrease_to_id INTO smaller_unit FROM cmcms.dosage_unit WHERE unit_id = (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id);
-						IF smaller_unit <> 0 THEN
-							SELECT promote_val*factor INTO factor FROM cmcms.dosage_unit WHERE unit_id = smaller_unit;
-                            UPDATE result_prescription, cmcms.dosage_unit
-                            SET result_prescription.unit_id = dosage_unit.unit_id
-                            WHERE dosage_unit.unit_id = smaller_unit
-								AND result_prescription.drug_id = curr_drug_id
-								AND result_prescription.sub_drug_id = curr_sub_drug_id;
-						END IF;
-					UNTIL smaller_unit = 0 END REPEAT;
-					IF (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id) = 50 THEN
-						SET factor = factor/0.3779936375;
-						UPDATE result_prescription
-						SET unit_id = 10
-						WHERE drug_id = curr_drug_id
-							AND sub_drug_id = curr_sub_drug_id;
+	INSERT INTO result_prescription (drug_id, sub_drug_id, drug_name, dosage, unit_id, dose)
+	SELECT drug_id, sub_drug_id, drug_name, dosage, unit, no_of_dose
+	FROM cmcms.prescription_dt JOIN cmcms.prescription ON prescription_dt.pres_id = prescription.pres_id
+	WHERE prescription_dt.pres_id = in_pres_id;
+	
+	OPEN cur1;
+		REPEAT
+			FETCH cur1 INTO curr_drug_id, curr_sub_drug_id;
+			IF NOT done THEN
+				SET factor = 1;
+				SET smaller_unit = 0;
+				REPEAT
+					SELECT decrease_to_id INTO smaller_unit FROM cmcms.dosage_unit WHERE unit_id = (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id);
+					IF smaller_unit <> 0 THEN
+						SELECT promote_val*factor INTO factor FROM cmcms.dosage_unit WHERE unit_id = smaller_unit;
+						UPDATE result_prescription, cmcms.dosage_unit
+						SET result_prescription.unit_id = dosage_unit.unit_id
+						WHERE dosage_unit.unit_id = smaller_unit
+							AND result_prescription.drug_id = curr_drug_id
+							AND result_prescription.sub_drug_id = curr_sub_drug_id;
 					END IF;
-                    UPDATE result_prescription
-					SET dosage = dosage * factor
+				UNTIL smaller_unit = 0 END REPEAT;
+				IF (SELECT unit_id FROM result_prescription WHERE drug_id = curr_drug_id AND sub_drug_id = curr_sub_drug_id) = 50 THEN
+					SET factor = factor/0.3779936375;
+					UPDATE result_prescription
+					SET unit_id = 10
 					WHERE drug_id = curr_drug_id
 						AND sub_drug_id = curr_sub_drug_id;
 				END IF;
-			UNTIL done END REPEAT;
-		CLOSE cur1;
-        
-        UPDATE result_prescription r, cmcms.dosage_unit d
-        SET r.unit_desc = d.unit_desc, total_amt = dosage * dose, r.unit = d.unit_desc
-        WHERE r.unit_id = d.unit_id;
-	END IF;
+				UPDATE result_prescription
+				SET dosage = dosage * factor
+				WHERE drug_id = curr_drug_id
+					AND sub_drug_id = curr_sub_drug_id;
+			END IF;
+		UNTIL done END REPEAT;
+	CLOSE cur1;
+	
+	UPDATE result_prescription r, cmcms.dosage_unit d
+	SET r.unit_desc = d.unit_desc, total_amt = dosage * dose, r.unit = d.unit_desc
+	WHERE r.unit_id = d.unit_id;
+
 END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE cmcis.sp_get_prescription_by_id_for_check_stock TO 'cmcms'@'%';
