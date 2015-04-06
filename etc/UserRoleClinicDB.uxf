@@ -76,12 +76,12 @@ user_role_id</panel_attributes>
       <x>750</x>
       <y>280</y>
       <w>150</w>
-      <h>120</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>30;30;80;30;80;100;130;100</additional_attributes>
+    <additional_attributes>30;30;80;30;80;90;130;90</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>

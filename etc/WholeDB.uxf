@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="12.2">
-  <zoom_level>7</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1225</x>
-      <y>189</y>
-      <w>168</w>
-      <h>70</h>
+      <x>1740</x>
+      <y>110</y>
+      <w>240</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>master_sub_drug_list
 --
@@ -20,10 +20,10 @@ isDeleted</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>966</x>
-      <y>238</y>
-      <w>168</w>
-      <h>280</h>
+      <x>1370</x>
+      <y>180</y>
+      <w>240</w>
+      <h>390</h>
     </coordinates>
     <panel_attributes>master_drug_list
 --
@@ -53,23 +53,23 @@ isDeleted</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1113</x>
-      <y>189</y>
-      <w>125</w>
-      <h>83</h>
+      <x>1580</x>
+      <y>110</y>
+      <w>180</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>21;70;56;70;56;21;112;21</additional_attributes>
+    <additional_attributes>30;90;80;90;80;30;160;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>728</x>
-      <y>308</y>
-      <w>168</w>
-      <h>63</h>
+      <x>1030</x>
+      <y>280</y>
+      <w>240</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>master_drug_type
 --
@@ -81,23 +81,23 @@ type_desc</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>875</x>
-      <y>315</y>
-      <w>104</w>
-      <h>34</h>
+      <x>1240</x>
+      <y>290</y>
+      <w>150</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>21;21;91;21</additional_attributes>
+    <additional_attributes>30;30;130;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1225</x>
-      <y>287</y>
-      <w>168</w>
-      <h>84</h>
+      <x>1740</x>
+      <y>250</y>
+      <w>240</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>dosage_unit
 --
@@ -111,36 +111,36 @@ decrease_to_id</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1113</x>
-      <y>273</y>
-      <w>125</w>
-      <h>48</h>
+      <x>1580</x>
+      <y>230</y>
+      <w>180</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>21;21;56;21;56;35;112;35</additional_attributes>
+    <additional_attributes>30;30;80;30;80;40;160;40</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1113</x>
-      <y>287</y>
-      <w>125</w>
-      <h>48</h>
+      <x>1580</x>
+      <y>250</y>
+      <w>180</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>21;35;56;35;56;21;112;21</additional_attributes>
+    <additional_attributes>30;50;80;50;80;30;160;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>728</x>
-      <y>196</y>
-      <w>168</w>
-      <h>63</h>
+      <x>1030</x>
+      <y>120</y>
+      <w>240</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>drug_admin_abs_contraindication
 --
@@ -152,23 +152,23 @@ g6pd</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>875</x>
-      <y>196</y>
-      <w>104</w>
-      <h>76</h>
+      <x>1240</x>
+      <y>120</y>
+      <w>150</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
 m2=1</panel_attributes>
-    <additional_attributes>21;21;56;21;56;63;91;63</additional_attributes>
+    <additional_attributes>30;30;80;30;80;90;130;90</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>966</x>
-      <y>161</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1370</x>
+      <y>70</y>
+      <w>240</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>incompatible_drug
 --
@@ -179,23 +179,23 @@ incompatible_with</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>910</x>
-      <y>161</y>
-      <w>69</w>
-      <h>111</h>
+      <x>1300</x>
+      <y>70</y>
+      <w>90</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
 m2=1</panel_attributes>
-    <additional_attributes>56;21;21;21;21;98;56;98</additional_attributes>
+    <additional_attributes>70;30;30;30;30;130;70;130</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1225</x>
-      <y>427</y>
-      <w>168</w>
-      <h>98</h>
+      <x>1740</x>
+      <y>450</y>
+      <w>240</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>predefined_prescription_dt
 --
@@ -210,36 +210,36 @@ preparation_method</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1113</x>
-      <y>238</y>
-      <w>125</w>
-      <h>237</h>
+      <x>1580</x>
+      <y>180</y>
+      <w>180</w>
+      <h>340</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>21;21;84;21;84;224;112;224</additional_attributes>
+    <additional_attributes>30;30;120;30;120;320;160;320</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1372</x>
-      <y>175</y>
-      <w>97</w>
-      <h>307</h>
+      <x>1950</x>
+      <y>90</y>
+      <w>140</w>
+      <h>440</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
+m1=0..1
 m2=0..n</panel_attributes>
-    <additional_attributes>21;21;84;21;84;294;21;294</additional_attributes>
+    <additional_attributes>30;30;120;30;120;420;30;420</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1225</x>
-      <y>539</y>
-      <w>168</w>
-      <h>70</h>
+      <x>1740</x>
+      <y>610</y>
+      <w>240</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>predefined_prescription
 --
@@ -253,23 +253,23 @@ isSystemSuspended
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1162</x>
-      <y>427</y>
-      <w>76</w>
-      <h>146</h>
+      <x>1650</x>
+      <y>450</y>
+      <w>110</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>63;133;21;133;21;21;63;21</additional_attributes>
+    <additional_attributes>90;190;30;190;30;30;90;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>728</x>
-      <y>413</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1030</x>
+      <y>430</y>
+      <w>240</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Unihan_kTotalStrokes_data
 --
@@ -281,36 +281,36 @@ nStrokes</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>875</x>
-      <y>336</y>
-      <w>104</w>
-      <h>125</h>
+      <x>1240</x>
+      <y>320</y>
+      <w>150</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=0..n</panel_attributes>
-    <additional_attributes>21;112;49;112;49;21;91;21</additional_attributes>
+    <additional_attributes>30;160;70;160;70;30;130;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1372</x>
-      <y>287</y>
-      <w>76</w>
-      <h>223</h>
+      <x>1950</x>
+      <y>250</y>
+      <w>110</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>21;210;63;210;63;21;21;21</additional_attributes>
+    <additional_attributes>30;300;90;300;90;30;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>966</x>
-      <y>539</y>
-      <w>168</w>
-      <h>49</h>
+      <x>1370</x>
+      <y>590</y>
+      <w>240</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>preparation_method
 --
@@ -321,23 +321,23 @@ method_desc</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1113</x>
-      <y>490</y>
-      <w>125</w>
-      <h>83</h>
+      <x>1580</x>
+      <y>540</y>
+      <w>180</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>112;21;56;21;56;70;21;70</additional_attributes>
+    <additional_attributes>160;30;80;30;80;80;30;80</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>70</x>
-      <y>266</y>
-      <w>168</w>
-      <h>140</h>
+      <x>90</x>
+      <y>220</y>
+      <w>240</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>user_account
 --
@@ -355,10 +355,10 @@ last_update_dtm</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>308</x>
-      <y>175</y>
-      <w>168</w>
-      <h>112</h>
+      <x>430</x>
+      <y>90</y>
+      <w>240</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>clinic
 --
@@ -374,10 +374,10 @@ last_update_dtm</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>70</x>
-      <y>196</y>
-      <w>168</w>
-      <h>49</h>
+      <x>90</x>
+      <y>120</y>
+      <w>240</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>user_role
 --
@@ -388,10 +388,10 @@ role_desc</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>70</x>
-      <y>112</y>
-      <w>168</w>
-      <h>63</h>
+      <x>90</x>
+      <y>0</y>
+      <w>240</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>user_clinic_role_mapping
 --
@@ -403,62 +403,62 @@ user_role_id</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>217</x>
-      <y>126</y>
-      <w>104</w>
-      <h>83</h>
+      <x>300</x>
+      <y>20</y>
+      <w>150</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1</panel_attributes>
-    <additional_attributes>21;21;56;21;56;70;91;70</additional_attributes>
+    <additional_attributes>30;30;80;30;80;100;130;100</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>7</x>
-      <y>112</y>
-      <w>76</w>
-      <h>188</h>
+      <x>0</x>
+      <y>0</y>
+      <w>110</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>63;175;21;175;21;21;63;21</additional_attributes>
+    <additional_attributes>90;240;30;240;30;30;90;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>217</x>
-      <y>175</y>
-      <w>104</w>
-      <h>195</h>
+      <x>300</x>
+      <y>100</y>
+      <w>150</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>91;21;56;21;56;182;21;182</additional_attributes>
+    <additional_attributes>130;30;80;30;80;250;30;250</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>14</x>
-      <y>140</y>
-      <w>69</w>
-      <h>90</h>
+      <x>10</x>
+      <y>40</y>
+      <w>100</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>56;77;21;77;21;21;56;21</additional_attributes>
+    <additional_attributes>80;110;30;110;30;30;80;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>308</x>
-      <y>294</y>
-      <w>168</w>
-      <h>49</h>
+      <x>430</x>
+      <y>260</y>
+      <w>240</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>patient_status
 --
@@ -469,23 +469,23 @@ status_desc</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>259</x>
-      <y>294</y>
-      <w>62</w>
-      <h>132</h>
+      <x>360</x>
+      <y>260</y>
+      <w>90</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>49;21;21;21;21;119;49;119</additional_attributes>
+    <additional_attributes>70;30;30;30;30;170;70;170</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>308</x>
-      <y>357</y>
-      <w>168</w>
-      <h>91</h>
+      <x>430</x>
+      <y>350</y>
+      <w>240</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>queuing_table_&lt;clinic_id&gt;
 --
@@ -499,36 +499,35 @@ doctor_in_charge</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>455</x>
-      <y>175</y>
-      <w>55</w>
-      <h>202</h>
+      <x>640</x>
+      <y>90</y>
+      <w>80</w>
+      <h>290</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
-m2=0..1</panel_attributes>
-    <additional_attributes>21;21;42;21;42;189;21;189</additional_attributes>
+</panel_attributes>
+    <additional_attributes>30;30;60;30;60;270;30;270</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>455</x>
-      <y>217</y>
-      <w>83</w>
-      <h>174</h>
+      <x>640</x>
+      <y>150</y>
+      <w>120</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..1</panel_attributes>
-    <additional_attributes>70;21;56;21;56;161;21;161</additional_attributes>
+    <additional_attributes>100;30;80;30;80;230;30;230</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>525</x>
-      <y>217</y>
-      <w>168</w>
-      <h>217</h>
+      <x>740</x>
+      <y>150</y>
+      <w>240</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>patient_record
 --
@@ -553,10 +552,10 @@ isRecordShared</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>70</x>
-      <y>462</y>
-      <w>168</w>
-      <h>63</h>
+      <x>430</x>
+      <y>510</y>
+      <w>240</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>system_parm
 --
@@ -564,5 +563,525 @@ parm_name
 parm_value
 parm_desc</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>300</x>
+      <y>200</y>
+      <w>150</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>130;250;70;250;70;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>190</y>
+      <w>440</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>30;160;70;160;70;30;420;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1310</x>
+      <y>90</y>
+      <w>80</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>60;30;30;30;30;100;60;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>340</y>
+      <w>80</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>30;30;60;30;60;220;30;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>300</x>
+      <y>230</y>
+      <w>150</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>30;30;60;30;60;350;130;350</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>740</x>
+      <y>480</y>
+      <w>240</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>consultation_record
+--
+cons_id
+clinic_id
+dr_id
+patient_id
+first_record_dtm
+ex_code
+ex_desc
+diff_code
+diff_desc
+dx_code
+dx_desc
+pres_id
+acupuncture_code
+acupuncture_desc
+dr_rmk
+isFinished
+last_update_dtm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>150</y>
+      <w>70</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1</panel_attributes>
+    <additional_attributes>30;30;50;30;50;410;30;410</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>30</x>
+      <y>220</y>
+      <w>730</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>60;30;30;30;30;410;680;410;680;330;710;330</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>100</y>
+      <w>120</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes>
+    <additional_attributes>30;30;70;30;70;430;100;430</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>900</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>acupuncture_point
+--
+mv_id
+body_part_id
+pt_cd
+pt_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>330</x>
+      <y>900</y>
+      <w>90</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>70;30;30;30;30;140;70;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>1010</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>acupuncture_meridian_vessel
+--
+mv_id
+mv_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>1090</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>body_parts
+--
+part_id
+part_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>920</y>
+      <w>90</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>30;30;70;30;70;200;30;200</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>690</y>
+      <w>150</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>30;280;100;280;100;30;130;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>720</y>
+      <w>90</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70;390;30;390;30;30;70;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>690</x>
+      <y>640</y>
+      <w>70</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>50;380;30;380;30;30;50;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>700</x>
+      <y>610</y>
+      <w>60</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>40;300;30;300;30;30;40;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>740</x>
+      <y>830</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>differentiation_results_list
+--
+lv1
+lv2
+lv3
+result_code
+result_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>740</x>
+      <y>960</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>dx_results_list
+--
+lv1
+lv2
+result_code
+result_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>740</x>
+      <y>1070</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>dr_rmk_perdefined_list
+--
+rmk_id
+rmk_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>740</y>
+      <w>240</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>examination_results_list
+--
+lv1
+lv2
+lv3
+lv4
+result_code
+result_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>580</y>
+      <w>150</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>30;260;80;260;80;30;130;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1030</x>
+      <y>670</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>prescription
+--
+pres_id
+instruction
+no_of_dose
+method_of_treatment
+last_update_dtm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>990</x>
+      <y>720</y>
+      <w>60</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>40;30;30;30;30;220;40;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1030</x>
+      <y>810</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>predef_instruction_list
+--
+instruction_id
+instruction_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1030</x>
+      <y>890</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>method_of_treatment_list
+--
+result_code
+result_desc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1240</x>
+      <y>690</y>
+      <w>60</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>30;30;40;30;40;170;30;170</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1240</x>
+      <y>670</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>30;30;130;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1370</x>
+      <y>670</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>prescription_dt
+--
+pres_id
+drug_id
+sub_drug_id
+drug_name
+dosage
+unit
+preparation_method
+display_order</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>670</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>80;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1580</x>
+      <y>600</y>
+      <w>100</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>30;210;80;210;80;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1580</x>
+      <y>260</y>
+      <w>180</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>30;530;90;530;90;30;160;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1580</x>
+      <y>190</y>
+      <w>90</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>30;30;70;30;70;520;30;520</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1580</x>
+      <y>130</y>
+      <w>180</w>
+      <h>620</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>160;30;110;30;110;600;30;600</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1370</x>
+      <y>850</y>
+      <w>240</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>pres_ignore_safety_chk
+--
+pres_id
+incompatible_drug
+g6pd_not_recommended
+g6pd_forbidden
+pregnant_not_recommended
+pregnant_forbidden
+drug_wo_dosage
+drug_below_min_dosage
+drug_exceed_max_dosage
+patient_allergy
+record_dtm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1240</x>
+      <y>680</y>
+      <w>150</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1</panel_attributes>
+    <additional_attributes>30;30;70;30;70;200;130;200</additional_attributes>
   </element>
 </diagram>
