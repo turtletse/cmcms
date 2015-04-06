@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>370</x>
+      <y>390</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Waiting</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>140</x>
+      <y>390</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>(no status)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>210</x>
+      <y>350</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=blue
+lt=&gt;-
+Enter Queue</panel_attributes>
+    <additional_attributes>30;50;160;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>880</x>
+      <y>390</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Entering Consultation</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>350</y>
+      <w>210</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>fg=blue
+lt=&gt;-
+Clinic Administrator/
+Doctor/
+Staff call names</panel_attributes>
+    <additional_attributes>30;50;190;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>880</x>
+      <y>490</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>In Consultation</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>850</x>
+      <y>390</y>
+      <w>186</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>fg=blue
+lt=&gt;-
+Assigned Doctor
+start the consultation</panel_attributes>
+    <additional_attributes>100;30;100;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>500</x>
+      <y>390</y>
+      <w>400</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>fg=#008800
+lt=&gt;-
+                         Patient Answer Doctor's Call
+                         and start the consultation</panel_attributes>
+    <additional_attributes>170;30;170;110;380;110</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>630</x>
+      <y>390</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Calling</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>680</x>
+      <y>350</y>
+      <w>220</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>fg=blue
+lt=&gt;-
+Patient Answered
+Clinic Administrator/
+Staff's call</panel_attributes>
+    <additional_attributes>30;50;200;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>390</x>
+      <y>280</y>
+      <w>300</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>fg=gray
+lt=&gt;-
+Patient Missed the call</panel_attributes>
+    <additional_attributes>280;110;280;50;30;50;30;110</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>390</y>
+      <w>290</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>fg=magenta
+lt=&gt;-
+Leave Queue</panel_attributes>
+    <additional_attributes>270;30;270;60;30;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>390</y>
+      <w>520</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>fg=magenta
+lt=&gt;-
+Leave Queue</panel_attributes>
+    <additional_attributes>500;30;500;90;30;90;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>240</y>
+      <w>820</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>fg=magenta
+lt=&gt;-
+Leave Queue</panel_attributes>
+    <additional_attributes>800;150;800;50;30;50;30;150</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1050</x>
+      <y>490</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Consulte Later</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1000</x>
+      <y>350</y>
+      <w>202</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>fg=orange
+lt=&gt;-
+Clinic Administrator/
+Staff call the patient
+to have consultation</panel_attributes>
+    <additional_attributes>130;140;130;50;110;50;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>920</x>
+      <y>490</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>fg=orange
+lt=&gt;-
+Doctor pause the consultation</panel_attributes>
+    <additional_attributes>30;30;30;60;240;60;240;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>880</x>
+      <y>490</y>
+      <w>320</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>fg=orange
+lt=&gt;-
+ 
+Doctor call the patient to have consultation</panel_attributes>
+    <additional_attributes>300;30;300;80;30;80;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>390</y>
+      <w>1060</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>fg=magenta
+lt=&gt;-
+Leave Queue</panel_attributes>
+    <additional_attributes>1040;130;1040;230;30;230;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>410</x>
+      <y>300</y>
+      <w>530</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>fg=#008800
+lt=&gt;-
+ 
+Clinic Administrator/ Staff call to have priority consultation</panel_attributes>
+    <additional_attributes>30;90;30;50;510;50;510;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>410</x>
+      <y>390</y>
+      <w>500</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>fg=#008800
+lt=&gt;-
+ 
+Doctor call to have priority consultation and start the consultation</panel_attributes>
+    <additional_attributes>30;30;30;160;480;160;480;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>180</x>
+      <y>390</y>
+      <w>740</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>fg=blue
+lt=&gt;-
+Consultation finished and Leave Queue</panel_attributes>
+    <additional_attributes>720;130;720;210;30;210;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>310</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=magenta
+magenta: flow for actively leave the queue</panel_attributes>
+    <additional_attributes>30;50;310;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>230</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=blue
+blue: normal flow</panel_attributes>
+    <additional_attributes>30;50;160;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>250</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=gray
+gray: normal flow for missed call</panel_attributes>
+    <additional_attributes>30;50;250;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>270</y>
+      <w>300</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=#008800
+green: alternative path for normal flow</panel_attributes>
+    <additional_attributes>30;50;280;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>290</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=orange
+orange: path for consult later</panel_attributes>
+    <additional_attributes>30;50;230;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>970</x>
+      <y>230</y>
+      <w>320</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Key</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

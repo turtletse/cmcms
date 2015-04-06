@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>610</x>
+      <y>310</y>
+      <w>240</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>patient_record
+--
+patient_id
+chin_name
+eng_name
+hashed_password
+id_doc_type
+id_doc_no
+phone_no
+dob
+sex
+isG6PD
+addr
+allergic_drug_ids
+isDeceased
+deceased_record_dtm
+isPregnant
+isRecordShared</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

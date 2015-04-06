@@ -25,7 +25,7 @@ BEGIN
 
 		DROP TEMPORARY TABLE IF EXISTS presIds;
 		CREATE TEMPORARY TABLE presIds
-		SELECT CONVERT(split_value, UNSIGNED) pres_id FROM splitResult;
+		SELECT CONVERT(split_value, UNSIGNED) pres_id FROM splitResult WHERE split_value IS NOT NULL AND LENGTH(split_value)>0;
         
         DROP TEMPORARY TABLE IF EXISTS newPres;
 		CREATE TEMPORARY TABLE newPres(pres_id INT);
@@ -77,4 +77,4 @@ END $$
 delimiter ;
 
 
--- CALL sp_use_selected_cons_as_template ('CITYC', 'CSM', 3, 2)
+-- CALL sp_use_selected_cons_as_template ('CSM', 'CSM', 24, 23)

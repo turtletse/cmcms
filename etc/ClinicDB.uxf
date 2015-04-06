@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>clinic
+--
+clinic_id
+clinic_chin_name
+clinic_eng_name
+clinic_addr
+clinic_phone_no
+isSuspended
+last_update_dtm</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

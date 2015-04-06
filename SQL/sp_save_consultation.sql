@@ -41,7 +41,7 @@ BEGIN
 			diff_desc = in_diff_desc,
 			dx_code = in_dx_code,
 			dx_desc = in_dx_desc,
-			pres_id = in_pres_id,
+			pres_id = TRIM(BOTH '||' FROM TRIM(in_pres_id)),
             acupuncture_code = in_acupuncture_code,
             acupuncture_desc = in_acupuncture_desc,
 			dr_rmk = in_dr_rmk,

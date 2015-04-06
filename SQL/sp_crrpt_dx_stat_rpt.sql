@@ -40,7 +40,7 @@ BEGIN
                 
                 DROP TEMPORARY TABLE IF EXISTS curr_dx_list;
                 CREATE TEMPORARY TABLE curr_dx_list (dx_code VARCHAR(255));
-                INSERT INTO curr_dx_list SELECT split_value dx_code FROM splitResult WHERE LENGTH(TRIM(split_value))>0;
+                INSERT INTO curr_dx_list SELECT split_value dx_code FROM splitResult WHERE split_value IS NOT NULL AND LENGTH(TRIM(split_value))>0;
                 
                 IF (SELECT COUNT(*) FROM curr_dx_list) > 0 THEN
 					OPEN cur2;
