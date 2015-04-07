@@ -93,115 +93,115 @@ BEGIN
 		UNTIL done END REPEAT;
 		CLOSE cur1;
 	
-	DROP TEMPORARY TABLE drug_data_str;
-    
-    DROP TEMPORARY TABLE IF EXISTS chk_result;
-    CREATE TEMPORARY TABLE chk_result(
-		chk_id INT,
-        result_desc VARCHAR(255)
-    );
-    
-    DROP TEMPORARY TABLE IF EXISTS tmp_incompatible_drug;
-    CREATE TEMPORARY TABLE tmp_incompatible_drug
-    SELECT drug_id, incompatible_with
-    FROM incompatible_drug
-    WHERE drug_id IN (SELECT drug_id FROM prescription_dt WHERE prescription_dt.pres_id = pres_id);
-    
-    SET done = FALSE;
-    OPEN cur2;
-		REPEAT
-			FETCH cur2 INTO curr_drug_id, curr_drug_name, curr_dosage, curr_unit;
-			IF NOT done THEN
-				INSERT INTO chk_result (chk_id, result_desc)
-                SELECT 1, CONCAT_WS(' - ', curr_drug_name, master_drug_list.drug_name)
-                FROM tmp_incompatible_drug NATURAL JOIN master_drug_list
-                WHERE drug_id <> curr_drug_id AND incompatible_with like CONCAT('%||', curr_drug_id, '||%');
-                
-                DELETE FROM tmp_incompatible_drug WHERE drug_id = curr_drug_id;
-                
-                UPDATE tmp_incompatible_drug
-                SET incompatible_with = REPLACE(incompatible_with, CONCAT('||', curr_drug_id), '');
-                
-                CASE drug_dosage_chk(curr_drug_id, curr_dosage, curr_unit)
-					WHEN -2 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (6, curr_drug_name);
-					WHEN -1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (7, curr_drug_name);
-					WHEN 1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (8, curr_drug_name);
-                    ELSE
-						BEGIN
-                        END;
-                END CASE;
-			END IF;
-		UNTIL done END REPEAT;
-	CLOSE cur2;
-    
-    SELECT isG6PD, isPregnant, allergic_drug_ids INTO pat_isG6PD, pat_isPreg, pat_drug_allergy FROM patient_record WHERE patient_id = in_pat_id;
-    
-    IF pat_isG6PD > 0 THEN
+		DROP TEMPORARY TABLE drug_data_str;
+		
+		DROP TEMPORARY TABLE IF EXISTS chk_result;
+		CREATE TEMPORARY TABLE chk_result(
+			chk_id INT,
+			result_desc VARCHAR(255)
+		);
+		
+		DROP TEMPORARY TABLE IF EXISTS tmp_incompatible_drug;
+		CREATE TEMPORARY TABLE tmp_incompatible_drug
+		SELECT drug_id, incompatible_with
+		FROM incompatible_drug
+		WHERE drug_id IN (SELECT drug_id FROM prescription_dt WHERE prescription_dt.pres_id = pres_id);
+		
+		SET done = FALSE;
+		OPEN cur2;
+			REPEAT
+				FETCH cur2 INTO curr_drug_id, curr_drug_name, curr_dosage, curr_unit;
+				IF NOT done THEN
+					INSERT INTO chk_result (chk_id, result_desc)
+					SELECT 1, CONCAT_WS(' - ', curr_drug_name, master_drug_list.drug_name)
+					FROM tmp_incompatible_drug NATURAL JOIN master_drug_list
+					WHERE drug_id <> curr_drug_id AND incompatible_with like CONCAT('%||', curr_drug_id, '||%');
+					
+					DELETE FROM tmp_incompatible_drug WHERE drug_id = curr_drug_id;
+					
+					UPDATE tmp_incompatible_drug
+					SET incompatible_with = REPLACE(incompatible_with, CONCAT('||', curr_drug_id), '');
+					
+					CASE drug_dosage_chk(curr_drug_id, curr_dosage, curr_unit)
+						WHEN -2 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (6, curr_drug_name);
+						WHEN -1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (7, curr_drug_name);
+						WHEN 1 THEN INSERT INTO chk_result (chk_id, result_desc) VALUES (8, curr_drug_name);
+						ELSE
+							BEGIN
+							END;
+					END CASE;
+				END IF;
+			UNTIL done END REPEAT;
+		CLOSE cur2;
+		
+		SELECT isG6PD, isPregnant, allergic_drug_ids INTO pat_isG6PD, pat_isPreg, pat_drug_allergy FROM patient_record WHERE patient_id = in_pat_id;
+		
+		IF pat_isG6PD > 0 THEN
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 2, master_drug_list.drug_name
+			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+			WHERE prescription_dt.pres_id = pres_id AND g6pd = 1;
+			
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 3, master_drug_list.drug_name
+			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+			WHERE prescription_dt.pres_id = pres_id AND g6pd = 2;
+		END IF;
+		
+		IF pat_isPreg > 0 THEN
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 4, master_drug_list.drug_name
+			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+			WHERE prescription_dt.pres_id = pres_id AND pregnancy = 1;
+			
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 5, master_drug_list.drug_name
+			FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
+			WHERE prescription_dt.pres_id = pres_id AND pregnancy = 2;
+		END IF;
+		
+		
+		CALL split(pat_drug_allergy, '||');
+		
+		DROP TEMPORARY TABLE IF EXISTS drug_allergy_list;
+		
+		CREATE TEMPORARY TABLE drug_allergy_list
+		SELECT CAST(split_value AS UNSIGNED) drug_id FROM splitResult WHERE split_value IS NOT NULL AND length(split_value)>0;
+		
+		DROP TEMPORARY TABLE IF EXISTS matched_allergy_item;
+		
+		CREATE TEMPORARY TABLE matched_allergy_item(
+			drug_id INT,
+			sub_drug_id INT,
+			drug_name VARCHAR(255)
+		);
+		
+		INSERT INTO matched_allergy_item (drug_id, sub_drug_id)
+		SELECT drug_id, sub_drug_id
+		FROM prescription_dt
+		WHERE prescription_dt.pres_id = pres_id AND drug_id IN (SELECT drug_id FROM drug_allergy_list);
+		
+		UPDATE matched_allergy_item m, master_drug_list d
+		SET m.drug_name = d.drug_name
+		WHERE m.sub_drug_id = 0 AND m.drug_id = d.drug_id;
+		
+		UPDATE matched_allergy_item m, master_sub_drug_list s
+		SET m.drug_name = s.sub_drug_name
+		WHERE m.sub_drug_id > 0 AND m.drug_id = s.drug_id AND m.sub_drug_id = s.sub_drug_id;
+		
 		INSERT INTO chk_result (chk_id, result_desc)
-		SELECT 2, master_drug_list.drug_name
-		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-		WHERE prescription_dt.pres_id = pres_id AND g6pd = 1;
-        
-        INSERT INTO chk_result (chk_id, result_desc)
-		SELECT 3, master_drug_list.drug_name
-		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-		WHERE prescription_dt.pres_id = pres_id AND g6pd = 2;
-    END IF;
+		SELECT 9, drug_name FROM matched_allergy_item;
     
-    IF pat_isPreg > 0 THEN
-		INSERT INTO chk_result (chk_id, result_desc)
-		SELECT 4, master_drug_list.drug_name
-		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-		WHERE prescription_dt.pres_id = pres_id AND pregnancy = 1;
-        
-        INSERT INTO chk_result (chk_id, result_desc)
-		SELECT 5, master_drug_list.drug_name
-		FROM prescription_dt NATURAL JOIN drug_admin_abs_contraindication NATURAL JOIN master_drug_list
-		WHERE prescription_dt.pres_id = pres_id AND pregnancy = 2;
-    END IF;
-    
-    
-    CALL split(pat_drug_allergy, '||');
-    
-    DROP TEMPORARY TABLE IF EXISTS drug_allergy_list;
-    
-    CREATE TEMPORARY TABLE drug_allergy_list
-    SELECT CAST(split_value AS UNSIGNED) drug_id FROM splitResult WHERE split_value IS NOT NULL AND length(split_value)>0;
-    
-	DROP TEMPORARY TABLE IF EXISTS matched_allergy_item;
-    
-    CREATE TEMPORARY TABLE matched_allergy_item(
-		drug_id INT,
-        sub_drug_id INT,
-        drug_name VARCHAR(255)
-    );
-    
-    INSERT INTO matched_allergy_item (drug_id, sub_drug_id)
-    SELECT drug_id, sub_drug_id
-    FROM prescription_dt
-    WHERE prescription_dt.pres_id = pres_id AND drug_id IN (SELECT drug_id FROM drug_allergy_list);
-    
-    UPDATE matched_allergy_item m, master_drug_list d
-    SET m.drug_name = d.drug_name
-    WHERE m.sub_drug_id = 0 AND m.drug_id = d.drug_id;
-    
-    UPDATE matched_allergy_item m, master_sub_drug_list s
-    SET m.drug_name = s.sub_drug_name
-    WHERE m.sub_drug_id > 0 AND m.drug_id = s.drug_id AND m.sub_drug_id = s.sub_drug_id;
-    
-    INSERT INTO chk_result (chk_id, result_desc)
-    SELECT 9, drug_name FROM matched_allergy_item;
-    
-    IF isCmpmsExist() THEN
-		CALL cmcis.sp_stock_enquiry(in_clinic_id, pres_id);
-		INSERT INTO chk_result (chk_id, result_desc)
-		SELECT 10, drug_name FROM cmcis.tmp_prescription
-		WHERE stock_status = 1;
-        
-		INSERT INTO chk_result (chk_id, result_desc)
-		SELECT 11, drug_name FROM cmcis.tmp_prescription
-		WHERE stock_status = 0;
-	END IF;
+		IF isCmpmsExist() THEN
+			CALL cmcis.sp_stock_enquiry(in_clinic_id, pres_id);
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 10, drug_name FROM cmcis.tmp_prescription
+			WHERE stock_status = 1;
+			
+			INSERT INTO chk_result (chk_id, result_desc)
+			SELECT 11, drug_name FROM cmcis.tmp_prescription
+			WHERE stock_status = 0;
+		END IF;
     
     COMMIT;
     SET AUTOCOMMIT=1;

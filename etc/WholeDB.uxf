@@ -418,8 +418,8 @@ m2=1</panel_attributes>
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>100</w>
-      <h>250</h>
+      <w>110</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -444,8 +444,8 @@ m2=0..n</panel_attributes>
     <coordinates>
       <x>10</x>
       <y>40</y>
-      <w>90</w>
-      <h>120</h>
+      <w>100</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1

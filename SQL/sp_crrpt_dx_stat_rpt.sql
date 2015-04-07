@@ -53,14 +53,14 @@ BEGIN
 									FROM consultation_record 
                                     WHERE patient_id = curr_patient_id 
 										AND dx_code REGEXP CONCAT('(^|[0-9]+\\.[0-9]+\\.[0-9]+\\|{2})', curr_dx_code, '(\\|{2}[0-9]+\\.[0-9]+\\.[0-9]+|$)')
-                                        AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 29 DAY) AND DATE(curr_first_record_dtm)) = 0 THEN
+                                        AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 30 DAY) AND (DATE(curr_first_record_dtm)) - INTERVAL 1 DAY) = 0 THEN
 									SET is_sys_new_case = 1;
 								END IF;
                                 IF curr_clinic_id = in_clinic_id AND (SELECT COUNT(*) 
 										FROM consultation_record 
 										WHERE patient_id = curr_patient_id 
 											AND dx_code REGEXP CONCAT('(^|[0-9]+\\.[0-9]+\\.[0-9]+\\|{2})', curr_dx_code, '(\\|{2}[0-9]+\\.[0-9]+\\.[0-9]+|$)')
-											AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 29 DAY) AND DATE(curr_first_record_dtm)
+											AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 30 DAY) AND (DATE(curr_first_record_dtm) - INTERVAL 1 DAY)
                                             AND clinic_id = curr_clinic_id) = 0 THEN
 									SET is_clinic_new_case = 1;
 								END IF;
