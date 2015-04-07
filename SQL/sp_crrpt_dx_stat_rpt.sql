@@ -17,14 +17,14 @@ BEGIN
     DECLARE cur2 CURSOR FOR SELECT dx_code FROM curr_dx_list;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     
-    SET end_date = CURDATE();
-    SET start_date = end_date - INTERVAL 30 DAY;
+    SET end_date = CURDATE() - INTERVAL 1 DAY;
+    SET start_date = end_date - INTERVAL 29 DAY;
     
     DROP TEMPORARY TABLE IF EXISTS tmp_dx_list;
     CREATE TEMPORARY TABLE tmp_dx_list (lv1 INT, lv2 INT, dx_code VARCHAR(15), dx_desc VARCHAR(255), sys_pat_cnt INT DEFAULT 0, sys_new_cnt INT DEFAULT 0, clinic_pat_cnt INT DEFAULT 0, clinic_new_cnt INT DEFAULT 0, incl_in_sys_new INT DEFAULT 0);
     INSERT INTO tmp_dx_list (lv1, lv2, dx_code, dx_desc)
     SELECT lv1, lv2, result_code, GROUP_CONCAT(result_desc SEPARATOR ', ') FROM dx_results_list GROUP BY result_code;
-    INSERT INTO tmp_dx_list (lv1, lv2, dx_code, dx_desc) VALUES (999, 999, 'FreeText', '自定義診斷');
+    -- INSERT INTO tmp_dx_list (lv1, lv2, dx_code, dx_desc) VALUES (999, 999, 'FreeText', '自定義診斷');
     
     DROP TEMPORARY TABLE IF EXISTS tmp_cons_rec;
     CREATE TEMPORARY TABLE tmp_cons_rec
@@ -53,14 +53,14 @@ BEGIN
 									FROM consultation_record 
                                     WHERE patient_id = curr_patient_id 
 										AND dx_code REGEXP CONCAT('(^|[0-9]+\\.[0-9]+\\.[0-9]+\\|{2})', curr_dx_code, '(\\|{2}[0-9]+\\.[0-9]+\\.[0-9]+|$)')
-                                        AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 30 DAY) AND DATE(curr_first_record_dtm)) = 0 THEN
+                                        AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 29 DAY) AND DATE(curr_first_record_dtm)) = 0 THEN
 									SET is_sys_new_case = 1;
 								END IF;
                                 IF curr_clinic_id = in_clinic_id AND (SELECT COUNT(*) 
 										FROM consultation_record 
 										WHERE patient_id = curr_patient_id 
 											AND dx_code REGEXP CONCAT('(^|[0-9]+\\.[0-9]+\\.[0-9]+\\|{2})', curr_dx_code, '(\\|{2}[0-9]+\\.[0-9]+\\.[0-9]+|$)')
-											AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 30 DAY) AND DATE(curr_first_record_dtm)
+											AND first_record_dtm BETWEEN (DATE(curr_first_record_dtm) - INTERVAL 29 DAY) AND DATE(curr_first_record_dtm)
                                             AND clinic_id = curr_clinic_id) = 0 THEN
 									SET is_clinic_new_case = 1;
 								END IF;

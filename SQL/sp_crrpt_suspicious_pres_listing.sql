@@ -22,7 +22,7 @@ BEGIN
     FROM consultation_record 
 		JOIN pres_ignore_safety_chk ON consultation_record.pres_id REGEXP CONCAT('(^|[0-9]\\|{2})', pres_ignore_safety_chk.pres_id, '(\\|{2}[0-9]|$)')
         JOIN user_account ON dr_id = user_id
-    WHERE clinic_id = in_clinic_id
+    WHERE clinic_id = in_clinic_id AND consultation_record.isFinished = 2
     ORDER BY pres_ignore_safety_chk.record_dtm DESC;
 END $$
 DELIMITER ;
