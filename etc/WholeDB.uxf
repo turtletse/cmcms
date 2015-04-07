@@ -418,8 +418,8 @@ m2=1</panel_attributes>
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>110</w>
-      <h>260</h>
+      <w>100</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -444,8 +444,8 @@ m2=0..n</panel_attributes>
     <coordinates>
       <x>10</x>
       <y>40</y>
-      <w>100</w>
-      <h>130</h>
+      <w>90</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -1083,5 +1083,36 @@ record_dtm</panel_attributes>
 m1=1
 m2=0..1</panel_attributes>
     <additional_attributes>30;30;70;30;70;200;130;200</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1080</x>
+      <y>530</y>
+      <w>240</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>sick_leave_cert
+--
+cert_id
+consultation_id
+start_date
+end_date
+nDays
+isVoid</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>480</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>130;100;70;100;70;30;30;30</additional_attributes>
   </element>
 </diagram>

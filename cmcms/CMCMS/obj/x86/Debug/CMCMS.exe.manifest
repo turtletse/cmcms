@@ -149,7 +149,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>332S5LCOoWV+gFn1fMkugifAxXg=</dsig:DigestValue>
+        <dsig:DigestValue>yt1NdhkxQuL0Lkl9qrS3ELIK0fc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -279,7 +279,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>FJRrUFqZaWnQIc2u7PYkZK1tQXg=</dsig:DigestValue>
+      <dsig:DigestValue>ypuSBLNnwsvIEUJHl/CZSwPf9GE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Prescription.rpt" size="32768">
