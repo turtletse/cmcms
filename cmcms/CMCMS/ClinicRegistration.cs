@@ -76,7 +76,7 @@ namespace CMCMS
                 textBox_phoneNo.Focus();
                 return false;
             }
-            if (!Utilities.isAlphaNumericCommonPunctuation(textBox_phoneNo.Text))
+            if (!Utilities.isphoneNoMax3Set(textBox_phoneNo.Text))
             {
                 MessageBox.Show("診所電話錯誤只限8位半形數字\n如多於一組, 請以半形空格逗號分隔\n請重新輸入", "診所電話錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_phoneNo.Focus();

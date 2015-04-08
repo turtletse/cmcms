@@ -30,6 +30,7 @@ namespace CMCMS
             this.lastLogoutClinicId = lastLogoutClinicId;
             this.currentLoginRole = currentLoginRole;
             this.currentLoginClinicId = currentLoginClinicId;
+            this.isSuspended = isSuspended;
         }
 
         public UserObj(String userId, String hashedPw, String chineseName, String englishName, String regNo, String lastLogoutDtm, String lastLogoutClinicId, bool isSuspended)
@@ -42,6 +43,7 @@ namespace CMCMS
             this.regNo = regNo;
             this.lastLogoutDtm = lastLogoutDtm;
             this.lastLogoutClinicId = lastLogoutClinicId;
+            this.isSuspended = isSuspended;
         }
 
         public bool IsSuspended
