@@ -74,7 +74,7 @@ namespace CMCMS
 
         public static bool isphoneNoMax3Set(String s)
         {
-            return Regex.IsMatch(s, @"^[0-9]{8}( ,[0-9]{8}){0,2}$", RegexOptions.Compiled);
+            return Regex.IsMatch(s, @"^[0-9]{8}(, ?[0-9]{8}){0,2}$", RegexOptions.Compiled);
         }
 
         public static bool isphoneNo(String s)
