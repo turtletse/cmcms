@@ -143,7 +143,7 @@ namespace CMCMS
                 return false;
             }
 
-            if (Utilities.isCJKCharacters(textBox_addDrug_drugName.Text))
+            if (!Utilities.isCJKCharacters(textBox_addDrug_drugName.Text))
             {
                     MessageBox.Show("藥名只限中文字", "藥名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBox_addDrug_drugName.Focus();
@@ -189,15 +189,18 @@ namespace CMCMS
         public void DSPselectedDrugChanged(DrugObj drug)
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
-            selectedDrug = drug;
-            selectedSubDrug = null;
+            
             if (selectedTabIdx == 0)
             {
+                selectedDrug = drug;
+                selectedSubDrug = null;
                 textBox_addDrug_selectedDrugName.Text = drug.getName();
                 textBox_addDrug_selectedDrugName.ReadOnly = true;
             }
             else if (selectedTabIdx == 1)
             {
+                selectedDrug = drug;
+                selectedSubDrug = null;
                 textBox_amdDrug_drugName.ReadOnly = false;
                 textBox_amdDrug_subDrugName.ReadOnly = true;
                 textBox_amdDrug_minDoseVal.ReadOnly = false;
@@ -241,9 +244,10 @@ namespace CMCMS
         public void DSPselectedSubDrugChanged(PermissibleValueObjWithDelFlag subDrug)
         {
             int selectedTabIdx = tabControl1.SelectedIndex;
-            selectedSubDrug = subDrug;
+            
             if (selectedTabIdx == 1)
             {
+                selectedSubDrug = subDrug;
                 textBox_amdDrug_subDrugName.Text = subDrug.getName();
                 if (textBox_amdDrug_subDrugName.Text.Length > 0 && textBox_amdDrug_subDrugName.Text != "-")
                 {
@@ -366,7 +370,7 @@ namespace CMCMS
                 return false;
             }
 
-            if (Utilities.isCJKCharacters(textBox_amdDrug_drugName.Text))
+            if (!Utilities.isCJKCharacters(textBox_amdDrug_drugName.Text))
             {
                 MessageBox.Show("藥名只限中文字", "藥名錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_amdDrug_drugName.Focus();
