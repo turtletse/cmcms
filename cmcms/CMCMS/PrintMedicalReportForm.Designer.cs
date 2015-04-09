@@ -112,7 +112,7 @@
             // 
             // columnHeader_diff
             // 
-            this.columnHeader_diff.Text = "辨症";
+            this.columnHeader_diff.Text = "辨證";
             this.columnHeader_diff.Width = 88;
             // 
             // columnHeader_pres

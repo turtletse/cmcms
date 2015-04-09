@@ -427,7 +427,7 @@
             // 
             // columnHeader_diff
             // 
-            this.columnHeader_diff.Text = "辨症";
+            this.columnHeader_diff.Text = "辨證";
             this.columnHeader_diff.Width = 88;
             // 
             // columnHeader_pres
@@ -668,7 +668,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 20);
             this.label10.TabIndex = 8;
-            this.label10.Text = "辨症: ";
+            this.label10.Text = "辨證: ";
             // 
             // button_change_exam
             // 

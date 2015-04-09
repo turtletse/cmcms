@@ -66,6 +66,17 @@ namespace CMCMS
         {
             String statusMsg = "";
             String tmp = presId.Value;
+            if (textBox_nDose.Text.Length == 0)
+            {
+                MessageBox.Show("請輸入劑數", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Utilities.isInteger(textBox_nDose.Text))
+            {
+                MessageBox.Show("劑數只限半形數字", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (presId.Value == "")
             {
                 int status_id = consMgr.newPrescription(textBox_instruction.Text.Trim(), int.Parse(textBox_nDose.Text), textBox_methodOfTreatment.Text.Trim(), prescriptionPanel1.getConsultationPrescriptionDataString(), patId, Login.user.CurrentLoginClinicId, ref tmp, ref statusMsg);
