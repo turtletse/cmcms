@@ -11,8 +11,8 @@ CREATE INDEX predef_instruction_list_x2 ON predef_instruction_list(instruction_d
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '每日一次');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '每次一服');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '翻煎');
-INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '空肚服');
-INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '飯後服');
+INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '四碗水煎煮一碗');
+INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '外用忌食');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '一');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '二');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '三');
@@ -23,4 +23,8 @@ INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '七');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '八');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '九');
 INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '十');
+INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '空腹服用');
+INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '飯前服用');
+INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '飯後服用');
+INSERT INTO predef_instruction_list VALUES (get_predef_instruction_id(), '睡前服用');
 
