@@ -29,7 +29,7 @@ BEGIN
             (COUNT(DISTINCT CASE WHEN LENGTH(TRIM(acupuncture_code))>0 THEN cons_id ELSE 0 END)/COUNT(DISTINCT cons_id))*100
 		FROM consultation_record LEFT JOIN prescription ON consultation_record.pres_id REGEXP CONCAT('(^|[0-9]\\|{2})', prescription.pres_id, '(\\|{2}[0-9]|$)')
         -- WHERE DATE(first_record_dtm) = start_date;
-        WHERE clinic_id = in_clinic_id AND DATE(first_record_dtm) = start_date;
+        WHERE clinic_id = in_clinic_id AND DATE(first_record_dtm) = start_date AND consultation_record.cons_id>0;
 		SET start_date = start_date + INTERVAL 1 DAY;
     UNTIL start_date = end_date END REPEAT;
     
