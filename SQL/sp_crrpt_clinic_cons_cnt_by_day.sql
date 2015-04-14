@@ -23,7 +23,7 @@ BEGIN
         SELECT start_date, 
 			COUNT(DISTINCT cons_id), 
             COUNT(DISTINCT prescription.pres_id), 
-            COUNT(DISTINCT CASE WHEN consultation_record.pres_id REGEXP '^[0-9]+(\\|\\|[0-9]+)*$' THEN cons_id ELSE 0 END),
+            COUNT(DISTINCT CASE WHEN consultation_record.patient_id REGEXP '^[0-9]+(\\|\\|[0-9]+)*$' THEN cons_id ELSE 0 END),
             (COUNT(DISTINCT CASE WHEN consultation_record.pres_id REGEXP '^[0-9]+(\\|\\|[0-9]+)*$' THEN cons_id ELSE 0 END)/COUNT(DISTINCT cons_id))*100,
             COUNT(DISTINCT CASE WHEN LENGTH(TRIM(acupuncture_code))>0 THEN cons_id ELSE 0 END),
             (COUNT(DISTINCT CASE WHEN LENGTH(TRIM(acupuncture_code))>0 THEN cons_id ELSE 0 END)/COUNT(DISTINCT cons_id))*100
